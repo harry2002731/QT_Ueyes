@@ -6,6 +6,7 @@
 
 #include <memory>
 
+#include <QQuickWidget>
 
 
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -41,8 +42,10 @@ int main(int argc, char *argv[])
     QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 #endif
-	std::shared_ptr<int> b;
-	QApplication a(argc, argv);
+    QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGL);//解决需要openGL的问题
+
+    std::shared_ptr<int> b;
+    QApplication a(argc, argv);
 	a.setApplicationName("Advanced Docking System Demo");
 	a.setQuitOnLastWindowClosed(true);
 	a.setWindowIcon(QIcon(":/adsdemo/images/ads_icon2.svg"));
