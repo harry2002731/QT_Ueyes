@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
-project(ads_demo VERSION ${VERSION_SHORT}) 
+project(ads_demo VERSION 0.0.1) 
+
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} 5.5 COMPONENTS Core Gui Widgets Quick QuickWidgets REQUIRED)
@@ -17,7 +18,8 @@ set(ads_demo_SRCS
     RenderWidget.cpp
 	demo.qrc
 )
-add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS})
+add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS}
+)
 target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../src")
 target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt${QT_VERSION_MAJOR}::Core 
                                                        Qt${QT_VERSION_MAJOR}::Gui 
@@ -35,7 +37,7 @@ set_target_properties(AdvancedDockingSystemDemo PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
     CXX_EXTENSIONS OFF
-    VERSION ${VERSION_SHORT}
+    VERSION 0.0.1
     EXPORT_NAME "Qt Advanced Docking System Demo"
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${ads_PlatformDir}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${ads_PlatformDir}/lib"

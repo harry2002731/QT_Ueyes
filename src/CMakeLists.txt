@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
-project(QtAdvancedDockingSystem LANGUAGES CXX VERSION ${VERSION_SHORT})
+project(QtAdvancedDockingSystem LANGUAGES CXX VERSION 0.0.1)
+set(CMAKE_PREFIX_PATH "H:\\QT\\6.2.4\\mingw_64\\")
+
 if (${QT_VERSION_MAJOR})
   message(STATUS "Forced to use Qt version ${QT_VERSION_MAJOR}")
   find_package(QT NAMES Qt${QT_VERSION_MAJOR} COMPONENTS Core REQUIRED)
@@ -91,7 +93,7 @@ set_target_properties(${library_name} PROPERTIES
     AUTOMOC ON
     AUTORCC ON
     CXX_EXTENSIONS OFF
-    VERSION ${VERSION_SHORT}
+    VERSION 0.0.1
     EXPORT_NAME ${library_name}
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${ads_PlatformDir}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${ads_PlatformDir}/lib"
@@ -110,7 +112,7 @@ endif()
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
     "${library_name}ConfigVersion.cmake"
-    VERSION ${VERSION_SHORT}
+    VERSION 0.0.1
     COMPATIBILITY SameMajorVersion
 )
 install(FILES ${ads_HEADERS}
