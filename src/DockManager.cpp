@@ -496,16 +496,17 @@ CDockManager::CDockManager(QWidget *parent) :
 	createRootSplitter();
 	createSideTabBarWidgets();
 	QMainWindow* MainWindow = qobject_cast<QMainWindow*>(parent);
-	if (MainWindow)
-	{
-		MainWindow->setCentralWidget(this);
-	}
+    if (MainWindow)
+    {
+        //设置中心窗口部件
+        MainWindow->setCentralWidget(this);
+    }
 
 	d->ViewMenu = new QMenu(tr("Show View"), this);
 	d->DockAreaOverlay = new CDockOverlay(this, CDockOverlay::ModeDockAreaOverlay);
 	d->ContainerOverlay = new CDockOverlay(this, CDockOverlay::ModeContainerOverlay);
 	d->Containers.append(this);
-	d->loadStylesheet();
+    d->loadStylesheet();
 
 	if (CDockManager::testConfigFlag(CDockManager::FocusHighlighting))
 	{
