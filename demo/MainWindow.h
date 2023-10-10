@@ -68,6 +68,8 @@ private slots:
 	void toggleDockWidgetWindowTitle();
 	void applyVsStyle();
 	void createImageViewer();
+    void leftMainClick();
+    void updateTime();
 };
 
 #endif // MAINWINDOW_H
