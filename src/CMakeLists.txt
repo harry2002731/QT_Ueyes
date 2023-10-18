@@ -38,8 +38,10 @@ set(ads_SRCS
     AutoHideTab.cpp
     AutoHideDockContainer.cpp
     PushButton.cpp
-	ResizeHandle.cpp
+    ResizeHandle.cpp
     ads.qrc
+    videobox.cpp
+    videopanel.cpp
 )
 set(ads_HEADERS
     ads_globals.h
@@ -64,7 +66,9 @@ set(ads_HEADERS
     AutoHideTab.h
     AutoHideDockContainer.h
     PushButton.h
-	ResizeHandle.h
+    ResizeHandle.h
+    videobox.h
+    videopanel.h
 )
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 if (UNIX AND NOT APPLE)
@@ -76,9 +80,13 @@ set(library_name "qt${QT_VERSION_MAJOR}advanceddocking")
 if(BUILD_STATIC)
     add_library(${library_name} STATIC ${ads_SRCS} ${ads_HEADERS})
     target_compile_definitions( ${library_name} PUBLIC ADS_STATIC)
+
 else()
-    add_library( ${library_name} SHARED ${ads_SRCS} ${ads_HEADERS})
+    add_library( ${library_name} SHARED ${ads_SRCS} ${ads_HEADERS}
+        videobox.h videopanel.h
+        videobox.cpp videopanel.cpp)
     target_compile_definitions( ${library_name} PRIVATE ADS_SHARED_EXPORT)
+
 endif()
 
 add_library(ads::${library_name} ALIAS ${library_name})
