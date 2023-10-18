@@ -8,6 +8,7 @@ if(WIN32 AND QT_VERSION_MAJOR LESS 6)
     find_package(Qt${QT_VERSION_MAJOR} COMPONENTS AxContainer REQUIRED)
 endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 set(ads_demo_SRCS
     main.cpp
     MainWindow.cpp
@@ -16,9 +17,11 @@ set(ads_demo_SRCS
     StatusDialog.ui
     ImageViewer.cpp
     RenderWidget.cpp
-	demo.qrc
+    demo.qrc
 )
 add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS}
+
+
 )
 target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../src")
 target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt${QT_VERSION_MAJOR}::Core 
@@ -30,7 +33,7 @@ if(WIN32 AND QT_VERSION_MAJOR LESS 6)
     target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt${QT_VERSION_MAJOR}::AxContainer)
 endif()
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE qt${QT_VERSION_MAJOR}advanceddocking)
-set_target_properties(AdvancedDockingSystemDemo PROPERTIES 
+set_target_properties(AdvancedDockingSystemDemo PROPERTIES
     AUTOMOC ON
     AUTORCC ON
     AUTOUIC ON

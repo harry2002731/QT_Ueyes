@@ -30,6 +30,7 @@
 //                                   INCLUDES
 //============================================================================
 #include <MainWindow.h>
+#include "qstackedwidget.h"
 #include "ui_mainwindow.h"
 
 #include <iostream>
@@ -87,7 +88,8 @@
 #include "StatusDialog.h"
 #include "DockSplitter.h"
 #include "ImageViewer.h"
-
+#include "videopanel.h"
+#include "videobox.h"
 
 
 /**
@@ -275,14 +277,42 @@ struct MainWindowPrivate
 		DockWidget->setWidget(w); // what happens if we set a widget if a widget is already set
 		DockWidget->takeWidget(); // we remove the widget
 		DockWidget->setWidget(w); // and set the widget again - there should be no error
-		DockWidget->setToggleViewActionMode(ads::CDockWidget::ActionModeShow);
+        DockWidget->setToggleViewActionMode(ads::CDockWidget::ActionModeShow);
+
 		DockWidget->setIcon(svgIcon(":/adsdemo/images/date_range.svg"));
 		ui.menuView->addAction(DockWidget->toggleViewAction());
-		auto ToolBar = DockWidget->createDefaultToolBar();
-		ToolBar->addAction(ui.actionSaveState);
-		ToolBar->addAction(ui.actionRestoreState);
+        // 在窗体上方加入按键操作栏
+        auto ToolBar = DockWidget->createDefaultToolBar();
+        ToolBar->addAction(ui.actionSaveState);
+        ToolBar->addAction(ui.actionRestoreState);
 		return DockWidget;
 	}
+
+    /**
+     * Create a dock widget with a QCalendarWidget
+     */
+    ads::CDockWidget* createStackedDockWidget()
+    {
+        static int CalendarCount = 0;
+        QStackedWidget* w = new QStackedWidget();
+        ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Calendar %1").arg(CalendarCount++));
+        // The following lines are for testing the setWidget() and takeWidget()
+        // functionality
+        DockWidget->setWidget(w);
+//        DockWidget->setWidget(w); // what happens if we set a widget if a widget is already set
+//        DockWidget->takeWidget(); // we remove the widget
+//        DockWidget->setWidget(w); // and set the widget again - there should be no error
+        DockWidget->setToggleViewActionMode(ads::CDockWidget::ActionModeShow);
+        DockWidget->setIcon(svgIcon(":/adsdemo/images/date_range.svg"));
+        ui.menuView->addAction(DockWidget->toggleViewAction());
+        // 在窗体上方加入按键操作栏
+        auto ToolBar = DockWidget->createDefaultToolBar();
+        ToolBar->addAction(ui.actionSaveState);
+        ToolBar->addAction(ui.actionRestoreState);
+        return DockWidget;
+    }
+
+
 
 
 	/**
@@ -378,6 +408,15 @@ struct MainWindowPrivate
 		return DockWidget;
 	}
 
+    ads::CDockWidget* createCameraViewer()
+    {
+        static int CameraViewerCount = 0;
+        auto w = new VideoPanel();
+        ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
+        DockWidget->setWidget(w);
+        return DockWidget;
+    }
+
 	/**
 	 * Create a table widget
 	 */
@@ -452,7 +491,11 @@ struct MainWindowPrivate
 void MainWindowPrivate::createContent()
 {
 	// Test container docking
-	auto DockWidget = createCalendarDockWidget();
+//	auto DockWidget = createCalendarDockWidget();
+    auto DockWidget = createStackedDockWidget();
+    auto test = createCameraViewer();
+    DockManager->addDockWidget(ads::BottomDockWidgetArea, test);
+
     DockWidget->setFeature(ads::CDockWidget::DockWidgetClosable, false);
     auto SpecialDockArea = DockManager->addDockWidget(ads::LeftDockWidgetArea, DockWidget);
 
@@ -486,7 +529,7 @@ void MainWindowPrivate::createContent()
 
     // We create a calendar widget and clear all flags to prevent the dock area
     // from closing
-    DockWidget = createCalendarDockWidget();
+    DockWidget = createStackedDockWidget();
     DockWidget->setTabToolTip(QString("Tab ToolTip\nHodie est dies magna"));
     auto DockArea = DockManager->addDockWidget(ads::CenterDockWidgetArea, DockWidget, TopDockArea);
     // Now we create a action to test resizing of DockArea widget
@@ -752,13 +795,13 @@ void MainWindowPrivate::createActions()
     spacer = new QWidget();
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    //运行配置
+    //运行配置设置
     RunOption = new QAction("运行配置", _this);
     RunOption->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
     _this->connect(RunOption, SIGNAL(triggered()), SLOT(savePerspective()));
     //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
-    //运行配置
+    //运行配置设置
     Run = new QAction("运行", _this);
     Run->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
     _this->connect(Run, SIGNAL(triggered()), SLOT(savePerspective()));
@@ -823,9 +866,8 @@ CMainWindow::CMainWindow(QWidget *parent) :
 
     setWindowTitle(QApplication::instance()->applicationName());
     d->createStatusBatActions(); //初始化底部状态栏
-    d->createActions(); //初始化控制栏
-    d->initLeftToolBar();
-//    d->createLeftToolBarActions(); //初始化侧边栏
+    d->createActions(); //初始化所有action
+    d->initLeftToolBar(); //初始化侧边栏
 
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &CMainWindow::updateTime);
