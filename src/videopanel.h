@@ -28,7 +28,6 @@ class ADS_EXPORT VideoPanel : public QWidget
     Q_OBJECT
 
 public:
-//    explicit VideoPanel(QWidget *parent = 0);
     explicit VideoPanel(QWidget *parent = 0);
 
 protected:

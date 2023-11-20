@@ -9,7 +9,7 @@ VideoBox::VideoBox(QObject *parent) : QObject(parent)
 {
     gridLayout = 0;
     videoCount = 64;
-    videoType = "1_16";
+    videoType = "1_4";
 
     enableOther = false;
     menuFlag = "画面";
@@ -58,11 +58,11 @@ void VideoBox::addMenu(QMenu *menu, int type)
         }
 
         //添加菜单动作
-//        QAction *action = menuSub->addAction(text, this, SLOT(show_video()));
+        QAction *action = menuSub->addAction(text, this, SLOT(show_video()));
         //设置弱属性传入大类和子类布局标识等
-//        action->setProperty("index", start);
-//        action->setProperty("type", type);
-//        action->setProperty("flag", flag);
+       action->setProperty("index", start);
+       action->setProperty("type", type);
+       action->setProperty("flag", flag);
     }
 }
 
