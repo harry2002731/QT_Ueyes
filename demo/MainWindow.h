@@ -67,8 +67,8 @@ private slots:
 	void showStatusDialog();
 	void toggleDockWidgetWindowTitle();
 	void applyVsStyle();
-	void createImageViewer();
-    void leftMainClick();
+    void createImageViewerWidget();
+    // void leftMainClick();
     void updateTime();
 };
 
