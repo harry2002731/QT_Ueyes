@@ -42,6 +42,8 @@ set(ads_SRCS
     ads.qrc
     videobox.cpp
     videopanel.cpp
+    DeviceMonitor.cpp
+    SysInfoFetcher.cpp
 )
 set(ads_HEADERS
     ads_globals.h
@@ -69,6 +71,8 @@ set(ads_HEADERS
     ResizeHandle.h
     videobox.h
     videopanel.h
+    DeviceMonitor.h
+    SysInfoFetcher.h
 )
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 if (UNIX AND NOT APPLE)
@@ -82,10 +86,9 @@ if(BUILD_STATIC)
     target_compile_definitions( ${library_name} PUBLIC ADS_STATIC)
 
 else()
-    add_library( ${library_name} SHARED ${ads_SRCS} ${ads_HEADERS}
-        videobox.h videopanel.h
-        videobox.cpp videopanel.cpp)
+    add_library( ${library_name} SHARED ${ads_SRCS} ${ads_HEADERS})
     target_compile_definitions( ${library_name} PRIVATE ADS_SHARED_EXPORT)
+    #为library_name添加ADS_SHARED_EXPORT定义、PRIVATE仅对于目标内部是可见的，对于目标的所有用户和依赖项都是不可见的
 
 endif()
 
@@ -102,7 +105,7 @@ set_target_properties(${library_name} PROPERTIES
     AUTORCC ON
     CXX_EXTENSIONS OFF
     VERSION 0.0.1
-    EXPORT_NAME ${library_name}
+    EXPORT_NAME lalaalalalal
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${ads_PlatformDir}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${ads_PlatformDir}/lib"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${ads_PlatformDir}/bin"
