@@ -568,13 +568,16 @@ DockWidgetArea CDockOverlay::showOverlay(QWidget* target)
 	d->LastLocation = InvalidDockWidgetArea;
 
 	// Move it over the target.
-	hide();
-	resize(target->size());
-	QPoint TopLeft = target->mapToGlobal(target->rect().topLeft());
-	move(TopLeft);
-	show();
-	d->Cross->updatePosition();
-	d->Cross->updateOverlayIcons();
+    hide();
+    resize(target->size());
+    // 用于坐标变化，获取目标窗口(target)相对于屏幕的左上角的位置。
+    QPoint TopLeft = target->mapToGlobal(target->rect().topLeft());
+    // 相对于TopLeft进行坐标变化的计算
+    move(TopLeft);
+
+    show();
+    d->Cross->updatePosition();
+    d->Cross->updateOverlayIcons();
 	return dropAreaUnderCursor();
 }
 
