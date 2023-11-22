@@ -202,6 +202,7 @@ struct MainWindowPrivate
 	QPointer<ads::CDockWidget> LastDockedEditor;
 	QPointer<ads::CDockWidget> LastCreatedFloatingEditor;
     QLabel *timeLabel;
+    QLabel *memoryLabel;
 	MainWindowPrivate(CMainWindow* _public) : _this(_public) {}
 
 	 //初始化侧边栏所有action
@@ -509,113 +510,6 @@ void MainWindowPrivate::createContent()
 
     auto DeviceMonitor = createDeviceMonitorWidget();
     DockManager->addDockWidget(ads::RightDockWidgetArea, DeviceMonitor);
-//    DockWidget->setFeature(ads::CDockWidget::DockWidgetClosable, false);
-//    auto SpecialDockArea = DockManager->addDockWidget(ads::LeftDockWidgetArea, DockWidget);
-
-//    // For this Special Dock Area we want to avoid dropping on the center of it (i.e. we don't want this widget to be ever tabbified):
-//    {
-//        //SpecialDockArea->setAllowedAreas(ads::OuterDockAreas);
-//        SpecialDockArea->setAllowedAreas({ads::LeftDockWidgetArea, ads::RightDockWidgetArea, ads::TopDockWidgetArea}); // just for testing
-//    }
-
-//    DockWidget = createLongTextLabelDockWidget();
-//    WindowTitleTestDockWidget = DockWidget;
-//    DockWidget->setFeature(ads::CDockWidget::DockWidgetFocusable, false);
-//    DockManager->addDockWidget(ads::LeftDockWidgetArea, DockWidget);
-//    auto FileSystemWidget = createFileSystemTreeDockWidget();
-//    FileSystemWidget->setFeature(ads::CDockWidget::DockWidgetFloatable, false);
-//    appendFeaturStringToWindowTitle(FileSystemWidget);
-//    DockManager->addDockWidget(ads::BottomDockWidgetArea, FileSystemWidget);
-
-//    FileSystemWidget = createFileSystemTreeDockWidget();
-//    FileSystemWidget->setFeature(ads::CDockWidget::DockWidgetMovable, false);
-//    FileSystemWidget->setFeature(ads::CDockWidget::DockWidgetFloatable, false);
-//    appendFeaturStringToWindowTitle(FileSystemWidget);
-
-//    // Test custom factory - we inject a help button into the title bar
-//    ads::CDockComponentsFactory::setFactory(new CCustomComponentsFactory());
-//    auto TopDockArea = DockManager->addDockWidget(ads::TopDockWidgetArea, FileSystemWidget);
-//    // Uncomment the next line if you would like to test the
-//    // HideSingleWidgetTitleBar functionality
-//    // TopDockArea->setDockAreaFlag(ads::CDockAreaWidget::HideSingleWidgetTitleBar, true);
-//    ads::CDockComponentsFactory::resetDefaultFactory();
-
-//    // We create a calendar widget and clear all flags to prevent the dock area
-//    // from closing
-//    DockWidget = createStackedDockWidget();
-//    DockWidget->setTabToolTip(QString("Tab ToolTip\nHodie est dies magna"));
-//    auto DockArea = DockManager->addDockWidget(ads::CenterDockWidgetArea, DockWidget, TopDockArea);
-//    // Now we create a action to test resizing of DockArea widget
-//    auto Action = ui.menuTests->addAction(QString("Resize %1").arg(DockWidget->windowTitle()));
-////	QObject::connect(Action, &QAction::triggered, [DockArea]()
-////	{
-////		// Resizing only works, if the Splitter is visible and has a valid
-////		// sizes
-////		auto Splitter = ads::internal::findParent<ads::CDockSplitter*>(DockArea);
-////		if (!Splitter)
-////		{
-////			return;
-////		}
-////		// We change the sizes of the splitter that contains the Calendar 1 widget
-////		// to resize the dock widget
-////		int Width = Splitter->width();
-////		Splitter->setSizes({Width * 2/3, Width * 1/3});
-////	});
-//    DockWidget->setWindowTitle(QString("My " + DockWidget->windowTitle()));
-
-//    // Now we add a custom button to the dock area title bar that will create
-//    // new editor widgets when clicked
-//    auto CustomButton = new QToolButton(DockArea);
-//    CustomButton->setToolTip(QObject::tr("Create Editor"));
-//    CustomButton->setIcon(svgIcon(":/adsdemo/images/plus.svg"));
-//    CustomButton->setAutoRaise(true);
-
-//    auto TitleBar = DockArea->titleBar();
-//    int Index = TitleBar->indexOf(TitleBar->tabBar());
-//    TitleBar->insertWidget(Index + 1, CustomButton);
-//    QObject::connect(CustomButton, &QToolButton::clicked, [=]()
-//    {
-//        auto DockWidget = createEditorWidget();
-//        DockWidget->setFeature(ads::CDockWidget::DockWidgetDeleteOnClose, true);
-//        DockManager->addDockWidgetTabToArea(DockWidget, DockArea);
-//        _this->connect(DockWidget, SIGNAL(closeRequested()), SLOT(onEditorCloseRequested()));
-//    });
-
-//    // Test dock area docking
-//    auto RighDockArea = DockManager->addDockWidget(ads::RightDockWidgetArea, createLongTextLabelDockWidget(), TopDockArea);
-//    DockWidget = createLongTextLabelDockWidget();
-//    DockWidget->setFeature(ads::CDockWidget::DockWidgetPinnable, false);
-//    DockManager->addDockWidget(ads::TopDockWidgetArea, DockWidget, RighDockArea);
-//    auto BottomDockArea = DockManager->addDockWidget(ads::BottomDockWidgetArea, createLongTextLabelDockWidget(), RighDockArea);
-//    DockManager->addDockWidget(ads::CenterDockWidgetArea, createLongTextLabelDockWidget(), RighDockArea);
-//    auto LabelDockWidget = createLongTextLabelDockWidget();
-//    DockManager->addDockWidget(ads::CenterDockWidgetArea, LabelDockWidget, BottomDockArea);
-
-//    // Tests CustomCloseHandling without DeleteOnClose
-//    LabelDockWidget->setFeature(ads::CDockWidget::CustomCloseHandling, true);
-//    QObject::connect(LabelDockWidget, &ads::CDockWidget::closeRequested, [LabelDockWidget, this]()
-//    {
-//        int Result = QMessageBox::question(_this, "Custom Close Request",
-//            "Do you really want to close this dock widget?");
-//        if (QMessageBox::Yes == Result)
-//        {
-//            LabelDockWidget->closeDockWidget();
-//        }
-//    });
-
-//    Action = ui.menuTests->addAction(QString("Set %1 Floating").arg(DockWidget->windowTitle()));
-//    DockWidget->connect(Action, SIGNAL(triggered()), SLOT(setFloating()));
-//    Action = ui.menuTests->addAction(QString("Set %1 As Current Tab").arg(DockWidget->windowTitle()));
-//    DockWidget->connect(Action, SIGNAL(triggered()), SLOT(setAsCurrentTab()));
-//    Action = ui.menuTests->addAction(QString("Raise %1").arg(DockWidget->windowTitle()));
-//    DockWidget->connect(Action, SIGNAL(triggered()), SLOT(raise()));
-
-//    // 此处为隐藏窗体与窗体名称测试（弹窗）
-//    DockWidget = createLongTextLabelDockWidget();
-//    DockManager->addDockWidgetFloating(DockWidget);
-//    DockWidget->toggleView(false);
-//    DockWidget->setWindowTitle(QString("My " + DockWidget->windowTitle()));
-
 
 
 #ifdef Q_OS_WIN
@@ -631,8 +525,8 @@ void MainWindowPrivate::createContent()
 //	}
 
 //	// Create image viewer
-//    DockWidget = createImageViewerWidget();
-//	DockManager->addDockWidget(ads::LeftDockWidgetArea, DockWidget);
+    DockWidget = createImageViewerWidget();
+    DockManager->addDockWidget(ads::LeftDockWidgetArea, DockWidget);
 
 //    // Create quick widget
 //	DockWidget = createQQuickWidget();
@@ -640,92 +534,6 @@ void MainWindowPrivate::createContent()
 //	DockManager->addDockWidget(ads::LeftDockWidgetArea, DockWidget);
 }
 
-
-
-
-//// 顶部工具栏
-//void MainWindowPrivate::createActions()
-//{
-//    ui.toolBar->addAction(ui.actionSaveState);
-//    ui.toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-//    ui.actionSaveState->setIcon(svgIcon(":/adsdemo/images/save.svg"));
-
-//    ui.toolBar->addAction(ui.actionRestoreState);
-//    ui.actionRestoreState->setIcon(svgIcon(":/adsdemo/images/restore.svg"));
-
-//    SavePerspectiveAction = new QAction("Create Perspective", _this);
-//    SavePerspectiveAction->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-//    _this->connect(SavePerspectiveAction, SIGNAL(triggered()), SLOT(savePerspective()));
-
-//    PerspectiveListAction = new QWidgetAction(_this);
-//    PerspectiveComboBox = new QComboBox(_this);
-//    PerspectiveComboBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
-//    PerspectiveComboBox->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-//    PerspectiveListAction->setDefaultWidget(PerspectiveComboBox);
-
-//    ui.toolBar->addSeparator(); //添加分割线
-//    ui.toolBar->addAction(PerspectiveListAction);
-//    ui.toolBar->addAction(SavePerspectiveAction);
-
-//    QAction* a = ui.toolBar->addAction("Create Floating Editor");
-//    a->setProperty("Floating", true);
-//    a->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
-//    a->setIcon(svgIcon(":/adsdemo/images/note_add.svg"));
-//    _this->connect(a, SIGNAL(triggered()), SLOT(createEditor()));
-//    ui.menuTests->addAction(a);
-
-//    a = ui.toolBar->addAction("Create Docked Editor");
-//    a->setProperty("Floating", false);
-//    a->setToolTip("Creates a docked editor windows that are deleted on close");
-//    a->setIcon(svgIcon(":/adsdemo/images/docked_editor.svg"));
-//    _this->connect(a, SIGNAL(triggered()), SLOT(createEditor()));
-//    ui.menuTests->addAction(a);
-
-
-//    a = ui.toolBar->addAction("Create Editor Tab");
-//    a->setProperty("Floating", false);
-//    a->setToolTip("Creates a editor tab and inserts it as second tab into an area");
-//    a->setIcon(svgIcon(":/adsdemo/images/tab.svg"));
-//    a->setProperty("Tabbed", true);
-//    _this->connect(a, SIGNAL(triggered()), SLOT(createEditor()));
-//    ui.menuTests->addAction(a);
-
-//    a = ui.toolBar->addAction("Create Floating Table");
-//    a->setToolTip("Creates floating dynamic dockable table with millions of entries");
-//    a->setIcon(svgIcon(":/adsdemo/images/grid_on.svg"));
-//    _this->connect(a, SIGNAL(triggered()), SLOT(createTable()));
-//    ui.menuTests->addAction(a);
-
-//    a = ui.toolBar->addAction("Create Image Viewer");
-//    auto ToolButton = qobject_cast<QToolButton*>(ui.toolBar->widgetForAction(a));
-//    ToolButton->setPopupMode(QToolButton::InstantPopup);
-//    a->setToolTip("Creates floating, docked or pinned image viewer");
-//    a->setIcon(svgIcon(":/adsdemo/images/panorama.svg"));
-//    ui.menuTests->addAction(a);
-//    auto Menu = new QMenu();
-//    ToolButton->setMenu(Menu);
-//    a = Menu->addAction("Floating Image Viewer");
-//    _this->connect(a, SIGNAL(triggered()), SLOT(createImageViewerWidget()));
-//    a = Menu->addAction("Docked Image Viewer");
-//    _this->connect(a, SIGNAL(triggered()), SLOT(createImageViewerWidget()));
-//    a = Menu->addAction("Pinned Image Viewer");
-//    _this->connect(a, SIGNAL(triggered()), SLOT(createImageViewerWidget()));
-
-
-//    ui.menuTests->addSeparator();
-//    a = ui.menuTests->addAction("Show Status Dialog");
-//    _this->connect(a, SIGNAL(triggered()), SLOT(showStatusDialog()));
-
-//    a = ui.menuTests->addAction("Toggle Label 0 Window Title");
-//    _this->connect(a, SIGNAL(triggered()), SLOT(toggleDockWidgetWindowTitle()));
-//    ui.menuTests->addSeparator();
-
-//    a = ui.toolBar->addAction("Apply VS Style");
-//    a->setToolTip("Applies a Visual Studio light style (visual_studio_light.css)." );
-//    a->setIcon(svgIcon(":/adsdemo/images/color_lens.svg"));
-//    QObject::connect(a, &QAction::triggered, _this, &CMainWindow::applyVsStyle);
-//    ui.menuTests->addAction(a);
-//}
 
 //
 void MainWindowPrivate::initLeftToolBar()
@@ -749,16 +557,16 @@ void MainWindowPrivate::initLeftToolBar()
 //底部状态栏
 void MainWindowPrivate::createStatusBarActions()
 {
-    QString imageName = "Feishu.exe";
+    QString imageName = "python.exe";
     QLabel *loginLabel = new QLabel("登录：未登录");
     ui.statusBar->addWidget(loginLabel);
 
     // 右侧部分：版本号、时间和内存信息
     QLabel *versionLabel = new QLabel("版本号：1.0");
     timeLabel = new QLabel(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
-//    QLabel *memoryLabel = new QLabel("内存：2 GB"); // 替换为实际内存信息
     auto sysinfo = new SysInfoFetcher();
-    QLabel *memoryLabel = new QLabel(sysinfo->MemFetcher(imageName));
+    memoryLabel = new QLabel(sysinfo->MemFetcher(imageName));
+
     ui.statusBar->addPermanentWidget(versionLabel);
     ui.statusBar->addPermanentWidget(timeLabel);
     ui.statusBar->addPermanentWidget(memoryLabel);
@@ -857,9 +665,12 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->createActions(); //初始化所有action
     d->initLeftToolBar(); //初始化侧边栏
 
-    QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(&QTimer::timeout), this, SLOT(updateTime));
-    timer->start(1000); // 每隔1秒触发一次 timeout 信号
+//    QTimer *timer = new QTimer(this);
+//    connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
+//    connect(timer, SIGNAL(timeout()), this, SLOT(updateMem()));
+
+//    timer->start(1000); // 每隔1秒触发一次 timeout 信号
+
 
 
     // uncomment the following line if the tab close button should be
@@ -945,10 +756,16 @@ CMainWindow::~CMainWindow()
 	delete d;
 }
 
-		void CMainWindow::updateTime()
-		{
-			d->timeLabel->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
-		}
+void CMainWindow::updateTime()
+{
+    d->timeLabel->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
+}
+
+void CMainWindow::updateMem()
+{
+    auto sysinfo = new SysInfoFetcher();
+    d->memoryLabel->setText(sysinfo->MemFetcher("Feishu.exe"));
+}
 
 //void CMainWindow::leftMainClick()
 //{

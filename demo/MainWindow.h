@@ -70,6 +70,7 @@ private slots:
     void createImageViewerWidget();
     // void leftMainClick();
     void updateTime();
+    void updateMem();
 };
 
 #endif // MAINWINDOW_H
