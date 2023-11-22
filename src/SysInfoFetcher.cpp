@@ -8,13 +8,18 @@ SysInfoFetcher::SysInfoFetcher()
 
 }
 
+
+
 QString SysInfoFetcher::MemFetcher(QString imageName)
 {
 #ifdef Q_OS_WIN
 #if (QT_VERSION > QT_VERSION_CHECK(6, 0, 0))
     QStringList sl;
     QProcess p;
-    sl << "/v" <<  "/fi" << "Imagename eq "<<imageName;
+    QString argms = "Imagename eq ";
+    argms = argms + imageName;
+
+    sl << "/v" <<  "/fi" << argms;
     p.start("tasklist",sl);
     p.waitForFinished();
     QString result = QString::fromLocal8Bit(p.readAllStandardOutput());
