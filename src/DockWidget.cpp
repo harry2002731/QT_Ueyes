@@ -282,8 +282,8 @@ void DockWidgetPrivate::setupToolBar()
 {
 	ToolBar = new QToolBar(_this);
 	ToolBar->setObjectName("dockWidgetToolBar");
-	Layout->insertWidget(0, ToolBar);
-	ToolBar->setIconSize(QSize(16, 16));
+    Layout->insertWidget(0, ToolBar);
+    ToolBar->setIconSize(QSize(16, 16));
 	ToolBar->toggleViewAction()->setEnabled(false);
 	ToolBar->toggleViewAction()->setVisible(false);
 	_this->connect(_this, SIGNAL(topLevelChanged(bool)), SLOT(setToolbarFloatingStyle(bool)));
@@ -863,7 +863,7 @@ QToolBar* CDockWidget::toolBar() const
 }
 
 
-//============================================================================
+//==用于添加工具栏==========================================================================
 QToolBar* CDockWidget::createDefaultToolBar()
 {
 	if (!d->ToolBar)
