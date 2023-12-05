@@ -42,7 +42,6 @@ set(ads_SRCS
     ads.qrc
     videobox.cpp
     videopanel.cpp
-    DeviceMonitor.cpp
     SysInfoFetcher.cpp
 )
 set(ads_HEADERS
@@ -71,7 +70,6 @@ set(ads_HEADERS
     ResizeHandle.h
     videobox.h
     videopanel.h
-    DeviceMonitor.h
     SysInfoFetcher.h
 )
 add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
