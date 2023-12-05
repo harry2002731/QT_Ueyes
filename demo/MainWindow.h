@@ -71,6 +71,7 @@ private slots:
     // void leftMainClick();
     void updateTime();
     void updateMem();
+    void changeState_triggered();
 };
 
 #endif // MAINWINDOW_H

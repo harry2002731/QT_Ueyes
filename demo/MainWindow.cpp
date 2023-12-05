@@ -91,6 +91,8 @@
 #include "videopanel.h"
 #include "SysInfoFetcher.h"
 
+using namespace ads;
+
 /**
  * Returns a random number from 0 to highest - 1
  */
@@ -209,19 +211,18 @@ struct MainWindowPrivate
     void createActions();
 
 	//初始化侧边栏
-    void initLeftToolBar();
+    void createLeftToolBar();
 
 	//初始化底部状态栏
     void createStatusBarActions();
-	/**
-	 * Fill the dock manager with dock widgets
-	 */
+
+    //添加窗体在内部
 	void createContent();
 
 	/**
 	 * Saves the dock manager state and the main window geometry
 	 */
-	void saveState();
+    void saveState();
 
 	/**
 	 * Save the list of perspectives
@@ -379,9 +380,7 @@ struct MainWindowPrivate
 		return DockWidget;
 	}
 
-	/**
-	 * Creates a simply image viewr
-	 */
+    //创建图片可视化窗口
     ads::CDockWidget* createImageViewerWidget()
 	{
 		static int ImageViewerCount = 0;
@@ -404,7 +403,7 @@ struct MainWindowPrivate
 		DockWidget->setIcon(svgIcon(":/adsdemo/images/photo.svg"));
 		DockWidget->setWidget(w,ads:: CDockWidget::ForceNoScrollArea);
 		auto ToolBar = DockWidget->createDefaultToolBar();
-		ToolBar->addActions(w->actions());
+        ToolBar->addActions(w->actions());
 		return DockWidget;
 	}
 
@@ -418,14 +417,6 @@ struct MainWindowPrivate
         return DockWidget;
     }
 
-    ads::CDockWidget* createDeviceMonitorWidget()
-    {
-        static int DeviceMonitorCount = 0;
-        auto w = new VideoPanel();
-        ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(DeviceMonitorCount++));
-        DockWidget->setWidget(w);
-        return DockWidget;
-    }
 	/**
 	 * Create a table widget
 	 */
@@ -499,7 +490,6 @@ struct MainWindowPrivate
 //============================================================================
 void MainWindowPrivate::createContent()
 {
-	// Test container docking
 
     auto CameraViewer = createCameraViewerWidget();
     DockManager->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
@@ -508,9 +498,8 @@ void MainWindowPrivate::createContent()
     DockWidget->setFeature(ads::CDockWidget::DockWidgetFocusable, false);
     DockManager->addDockWidget(ads::BottomDockWidgetArea, DockWidget);
 
-    auto DeviceMonitor = createDeviceMonitorWidget();
-    DockManager->addDockWidget(ads::RightDockWidgetArea, DeviceMonitor);
-
+    DockWidget = createImageViewerWidget();
+    DockManager->addDockWidget(ads::RightDockWidgetArea, DockWidget);
 
 #ifdef Q_OS_WIN
 #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
@@ -524,9 +513,7 @@ void MainWindowPrivate::createContent()
 //		_this->connect(DockWidget, SIGNAL(visibilityChanged(bool)), SLOT(onViewVisibilityChanged(bool)));
 //	}
 
-//	// Create image viewer
-    DockWidget = createImageViewerWidget();
-    DockManager->addDockWidget(ads::LeftDockWidgetArea, DockWidget);
+
 
 //    // Create quick widget
 //	DockWidget = createQQuickWidget();
@@ -536,7 +523,7 @@ void MainWindowPrivate::createContent()
 
 
 //
-void MainWindowPrivate::initLeftToolBar()
+void MainWindowPrivate::createLeftToolBar()
 {
     ui.toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon); //设置文字位置
     ui.toolBar->addAction(Welcome);
@@ -557,7 +544,7 @@ void MainWindowPrivate::initLeftToolBar()
 //底部状态栏
 void MainWindowPrivate::createStatusBarActions()
 {
-    QString imageName = "python.exe";
+    QString imageName = "AdvancedDockingSystemDemo.exe";
     QLabel *loginLabel = new QLabel("登录：未登录");
     ui.statusBar->addWidget(loginLabel);
 
@@ -579,19 +566,19 @@ void MainWindowPrivate::createActions()
     //欢迎按键设置
     Welcome = new QAction("欢迎", _this);
     Welcome->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(Welcome, SIGNAL(triggered()), SLOT(savePerspective()));
+    _this->connect(Welcome, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Welcome->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");//提示内容
 
     //设计按键设置
     Designer = new QAction("设计", _this);
     Designer->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(Designer, SIGNAL(triggered()), SLOT(savePerspective()));
+    _this->connect(Designer, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Designer->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
     //调试按键设置
     Debugger = new QAction("调试", _this);
     Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(Debugger, SIGNAL(triggered()), SLOT(savePerspective()));
+    _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
     //间隔设置
@@ -617,25 +604,35 @@ void MainWindowPrivate::createActions()
     //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 }
 
-//============================================================================
+////保存窗体状态
+//void MainWindowPrivate::saveState(QString page_name)
+//{
+//	QSettings Settings("Settings.ini", QSettings::IniFormat);
+////	Settings.setValue("mainWindow/Geometry", _this->saveGeometry()); //用于复原窗体原先的位置
+//	Settings.setValue("mainWindow/State", _this->saveState());
+//    Settings.setValue(QString("mainWindow/%1").arg(page_name), DockManager->saveState());
+//}
+
+//保存窗体状态
 void MainWindowPrivate::saveState()
 {
-	QSettings Settings("Settings.ini", QSettings::IniFormat);
-	Settings.setValue("mainWindow/Geometry", _this->saveGeometry());
-	Settings.setValue("mainWindow/State", _this->saveState());
-	Settings.setValue("mainWindow/DockingState", DockManager->saveState());
+    QSettings Settings("Settings.ini", QSettings::IniFormat);
+    //	Settings.setValue("mainWindow/Geometry", _this->saveGeometry()); //用于复原窗体原先的位置
+    Settings.setValue("mainWindow/State", _this->saveState());
+    Settings.setValue(QString("mainWindow/DockingState"), DockManager->saveState());
 }
 
-//============================================================================
 void MainWindowPrivate::restoreState()
 {
 	QSettings Settings("Settings.ini", QSettings::IniFormat);
-	_this->restoreGeometry(Settings.value("mainWindow/Geometry").toByteArray());
+    _this->restoreGeometry(Settings.value("mainWindow/Geometry").toByteArray());
 	_this->restoreState(Settings.value("mainWindow/State").toByteArray());
 	DockManager->restoreState(Settings.value("mainWindow/DockingState").toByteArray());
 }
 
 //============================================================================
+
+
 void MainWindowPrivate::savePerspectives()
 {
 	QSettings Settings("Settings.ini", QSettings::IniFormat);
@@ -657,77 +654,25 @@ CMainWindow::CMainWindow(QWidget *parent) :
 	QMainWindow(parent),
     d(new MainWindowPrivate(this))
 {
-    using namespace ads;
     d->ui.setupUi(this);
-
     setWindowTitle(QApplication::instance()->applicationName());
-    d->createStatusBarActions(); //初始化底部状态栏
+
     d->createActions(); //初始化所有action
-    d->initLeftToolBar(); //初始化侧边栏
 
-//    QTimer *timer = new QTimer(this);
-//    connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
-//    connect(timer, SIGNAL(timeout()), this, SLOT(updateMem()));
+    d->createStatusBarActions(); //初始化底部状态栏
+    d->createLeftToolBar(); //初始化侧边栏
 
-//    timer->start(1000); // 每隔1秒触发一次 timeout 信号
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateMem()));
+    timer->start(1000); // 每隔1秒触发一次 timeout 信号
 
-
-
-    // uncomment the following line if the tab close button should be
-    // a QToolButton instead of a QPushButton
-    // CDockManager::setConfigFlags(CDockManager::configFlags() | CDockManager::TabCloseButtonIsToolButton);
-
-    // uncomment the following line if you want to use opaque undocking and
-    // opaque splitter resizing
-    //CDockManager::setConfigFlags(CDockManager::DefaultOpaqueConfig);
-
-    // uncomment the following line if you want a fixed tab width that does
-    // not change if the visibility of the close button changes
-    //CDockManager::setConfigFlag(CDockManager::RetainTabSizeWhenCloseButtonHidden, true);
-
-    // uncomment the following line if you don't want close button on DockArea's title bar
-    //CDockManager::setConfigFlag(CDockManager::DockAreaHasCloseButton, false);
-
-    // uncomment the following line if you don't want undock button on DockArea's title bar
-    //CDockManager::setConfigFlag(CDockManager::DockAreaHasUndockButton, false);
-
-    // uncomment the following line if you don't want tabs menu button on DockArea's title bar
-    //CDockManager::setConfigFlag(CDockManager::DockAreaHasTabsMenuButton, false);
-
-    // uncomment the following line if you don't want disabled buttons to appear on DockArea's title bar
-    //CDockManager::setConfigFlag(CDockManager::DockAreaHideDisabledButtons, true);
-
-    // uncomment the following line if you want to show tabs menu button on DockArea's title bar only when there are more than one tab and at least of them has elided title
-    //CDockManager::setConfigFlag(CDockManager::DockAreaDynamicTabsMenuButtonVisibility, true);
-
-    // uncomment the following line if you want floating container to always show application title instead of active dock widget's title
-    //CDockManager::setConfigFlag(CDockManager::FloatingContainerHasWidgetTitle, false);
-
-    // uncomment the following line if you want floating container to show active dock widget's icon instead of always showing application icon
-    //CDockManager::setConfigFlag(CDockManager::FloatingContainerHasWidgetIcon, true);
-
-    // uncomment the following line if you want a central widget in the main dock container (the dock manager) without a titlebar
-    // If you enable this code, you can test it in the demo with the Calendar 0
-    // dock widget.
-    //CDockManager::setConfigFlag(CDockManager::HideSingleCentralWidgetTitleBar, true);
-
-    // uncomment the following line to enable focus highlighting of the dock
-    // widget that has the focus
     CDockManager::setConfigFlag(CDockManager::FocusHighlighting, true);
 
     // uncomment if you would like to enable dock widget auto hiding
     CDockManager::setAutoHideConfigFlags({CDockManager::DefaultAutoHideConfig});
 
-    // uncomment if you would like to enable an equal distribution of the
-    // available size of a splitter to all contained dock widgets
-    // CDockManager::setConfigFlag(CDockManager::EqualSplitOnInsertion, true);
-	
-    // uncomment if you would like to close tabs with the middle mouse button, web browser style
-    // CDockManager::setConfigFlag(CDockManager::MiddleMouseButtonClosesTab, t rue);
-    // Now create the dock manager and its content
-
     d->DockManager = new CDockManager(this);
-//    d->DockManager->setStyleSheet("");
 	#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
 		connect(d->PerspectiveComboBox, SIGNAL(activated(QString)),
 			d->DockManager, SLOT(openPerspective(QString)));
@@ -736,19 +681,17 @@ CMainWindow::CMainWindow(QWidget *parent) :
 			d->DockManager, SLOT(openPerspective(QString)));
 	#endif
 
-    d->createContent();
     // Default window geometry - center on screen
     resize(640, 480);
     setGeometry(QStyle::alignedRect(
         Qt::LeftToRight, Qt::AlignCenter, frameSize(),
         QGuiApplication::primaryScreen()->availableGeometry()
     ));
+    d->createContent(); //初始化主窗体
 
-    //d->restoreState();
+//    d->restoreState(); // 恢复成配置时的窗体布局
     d->restorePerspectives();
 }
-
-
 
 //============================================================================
 CMainWindow::~CMainWindow()
@@ -764,28 +707,30 @@ void CMainWindow::updateTime()
 void CMainWindow::updateMem()
 {
     auto sysinfo = new SysInfoFetcher();
-    d->memoryLabel->setText(sysinfo->MemFetcher("Feishu.exe"));
+    d->memoryLabel->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
 }
 
-//void CMainWindow::leftMainClick()
-//{
-//    QAbstractButton *b = (QAbstractButton *)sender();
-//    QString name = b->text();
 
-//    QList<QAbstractButton *> tbtns = d->ui.leftwidget->findChildren<QAbstractButton *>();
-//    foreach (QAbstractButton *btn, tbtns) {
-//        btn->setChecked(btn == b);
-//    }
-//    if (name == "Welcome") {
-//        d->ui.stackedWidget->setCurrentIndex(0);
-//    }
-//    else if (name == "Design") {
-//        d->ui.stackedWidget->setCurrentIndex(1);
-//    }
-//    else if (name == "Monitor") {
-//        d->ui.stackedWidget->setCurrentIndex(2);
-//    }
-//}
+
+void CMainWindow::changeState_triggered()
+{
+    QAction *b = (QAction *)sender();
+    QString name = b->text();
+
+    QList<QAction *> tbtns = d->ui.toolBar->findChildren<QAction *>();
+    foreach (QAction *btn, tbtns) {
+        btn->setChecked(btn == b);
+    }
+    if (name == "欢迎") {
+        d->restoreState();
+    }
+    else if (name == "设计") {
+        d->restoreState();
+    }
+    else if (name == "调试") {
+        d->restoreState();
+    }
+}
 
 
 //============================================================================
