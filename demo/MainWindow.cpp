@@ -32,6 +32,8 @@
 #include <MainWindow.h>
 #include "qstackedwidget.h"
 #include "ui_mainwindow.h"
+//#include "ui_renderwidget.h"
+
 #include <QProcess>
 #include <QRegularExpression>
 #include <iostream>
@@ -90,7 +92,9 @@
 #include "ImageViewer.h"
 #include "videopanel.h"
 #include "SysInfoFetcher.h"
+#include <QStackedLayout>
 
+//QStackedLayout* m_layout;
 using namespace ads;
 
 /**
@@ -199,7 +203,10 @@ struct MainWindowPrivate
 
 	QWidgetAction* PerspectiveListAction = nullptr;
 	QComboBox* PerspectiveComboBox = nullptr;
-	ads::CDockManager* DockManager = nullptr;
+    ads::CDockManager* DockManager = nullptr;
+    ads::CDockManager* DockManager2 = nullptr;
+    QWidget m_welcomeWidget;
+
 	ads::CDockWidget* WindowTitleTestDockWidget = nullptr;
 	QPointer<ads::CDockWidget> LastDockedEditor;
 	QPointer<ads::CDockWidget> LastCreatedFloatingEditor;
@@ -325,20 +332,20 @@ struct MainWindowPrivate
 		l->setWordWrap(true);
 		l->setAlignment(Qt::AlignTop | Qt::AlignLeft);
 
-//		l->setText(QString("Label %1 %2 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. "
-//			"Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque "
-//			"penatibus et magnis dis parturient montes, nascetur ridiculus mus. "
-//			"Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. "
-//			"Nulla consequat massa quis enim. Donec pede justo, fringilla vel, "
-//			"aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, "
-//			"imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede "
-//			"mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum "
-//			"semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, "
-//			"porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, "
-//			"dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla "
-//			"ut metus varius laoreet.")
-//			.arg(LabelCount)
-//			.arg(QTime::currentTime().toString("hh:mm:ss:zzz")));
+        l->setText(QString("Label %1 %2 - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. "
+            "Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque "
+            "penatibus et magnis dis parturient montes, nascetur ridiculus mus. "
+            "Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. "
+            "Nulla consequat massa quis enim. Donec pede justo, fringilla vel, "
+            "aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, "
+            "imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede "
+            "mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum "
+            "semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, "
+            "porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, "
+            "dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla "
+            "ut metus varius laoreet.")
+            .arg(LabelCount)
+            .arg(QTime::currentTime().toString("hh:mm:ss:zzz")));
 
 		ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Label %1").arg(LabelCount++));
 		DockWidget->setWidget(l);
@@ -493,7 +500,7 @@ void MainWindowPrivate::createContent()
 
     auto CameraViewer = createCameraViewerWidget();
     DockManager->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
-
+//    DockManager2->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
     auto DockWidget = createLongTextLabelDockWidget();
     DockWidget->setFeature(ads::CDockWidget::DockWidgetFocusable, false);
     DockManager->addDockWidget(ads::BottomDockWidgetArea, DockWidget);
@@ -566,6 +573,7 @@ void MainWindowPrivate::createActions()
     //欢迎按键设置
     Welcome = new QAction("欢迎", _this);
     Welcome->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+    Welcome->setCheckable(true);
     _this->connect(Welcome, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Welcome->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");//提示内容
 
@@ -654,11 +662,11 @@ CMainWindow::CMainWindow(QWidget *parent) :
 	QMainWindow(parent),
     d(new MainWindowPrivate(this))
 {
+
     d->ui.setupUi(this);
     setWindowTitle(QApplication::instance()->applicationName());
 
     d->createActions(); //初始化所有action
-
     d->createStatusBarActions(); //初始化底部状态栏
     d->createLeftToolBar(); //初始化侧边栏
 
@@ -672,14 +680,20 @@ CMainWindow::CMainWindow(QWidget *parent) :
     // uncomment if you would like to enable dock widget auto hiding
     CDockManager::setAutoHideConfigFlags({CDockManager::DefaultAutoHideConfig});
 
-    d->DockManager = new CDockManager(this);
-	#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-		connect(d->PerspectiveComboBox, SIGNAL(activated(QString)),
-			d->DockManager, SLOT(openPerspective(QString)));
-	#else
-		connect(d->PerspectiveComboBox, SIGNAL(textActivated(QString)),
-			d->DockManager, SLOT(openPerspective(QString)));
-	#endif
+    d->ui.widget->setLayout(m_layout = new QStackedLayout() );
+    d->DockManager = new CDockManager(d->ui.widget);
+    d->DockManager2 = new CDockManager(d->ui.widget);
+    d->ui.widget->layout()->addWidget(d->DockManager);//显示调用layout来进行布局
+    d->ui.widget->layout()->addWidget(d->DockManager2);//显示调用layout来进行布局
+
+
+    #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+        connect(d->PerspectiveComboBox, SIGNAL(activated(QString)),
+            d->DockManager, SLOT(openPerspective(QString)));
+    #else
+        connect(d->PerspectiveComboBox, SIGNAL(textActivated(QString)),
+            d->DockManager, SLOT(openPerspective(QString)));
+    #endif
 
     // Default window geometry - center on screen
     resize(640, 480);
@@ -688,9 +702,12 @@ CMainWindow::CMainWindow(QWidget *parent) :
         QGuiApplication::primaryScreen()->availableGeometry()
     ));
     d->createContent(); //初始化主窗体
+//    d->DockManager2->hideManagerAndFloatingWidgets();
 
-//    d->restoreState(); // 恢复成配置时的窗体布局
-    d->restorePerspectives();
+
+
+////    d->restoreState(); // 恢复成配置时的窗体布局
+//    d->restorePerspectives();
 }
 
 //============================================================================
@@ -722,10 +739,15 @@ void CMainWindow::changeState_triggered()
         btn->setChecked(btn == b);
     }
     if (name == "欢迎") {
-        d->restoreState();
+//        d->restoreState();
+        d->DockManager->hideManagerAndFloatingWidgets();
+        m_layout->setCurrentWidget(d->DockManager2);
     }
     else if (name == "设计") {
-        d->restoreState();
+//        d->restoreState();
+        d->DockManager2->hideManagerAndFloatingWidgets();
+        m_layout->setCurrentWidget(d->DockManager);
+
     }
     else if (name == "调试") {
         d->restoreState();

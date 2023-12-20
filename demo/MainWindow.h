@@ -31,6 +31,7 @@
 //                                   INCLUDES
 //============================================================================
 #include <QMainWindow>
+#include <QStackedLayout>
 
 
 
@@ -53,6 +54,7 @@ protected:
 public:
 	explicit CMainWindow(QWidget *parent = 0);
 	virtual ~CMainWindow();
+    QStackedLayout* m_layout;
 
 private slots:
 	void on_actionSaveState_triggered(bool);
