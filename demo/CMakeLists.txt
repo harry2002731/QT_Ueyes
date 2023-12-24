@@ -20,6 +20,8 @@ set(ads_demo_SRCS
     demo.qrc
 )
 add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS}
+    WelcomeWindow.h WelcomeWindow.cpp
+    BasicWindow.h BasicWindow.cpp
 
 
 )

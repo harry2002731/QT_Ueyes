@@ -428,10 +428,10 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->createStatusBarActions(); //初始化底部状态栏
     d->createLeftToolBar(); //初始化侧边栏
 
-//    QTimer *timer = new QTimer(this);
-//    connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
-//    connect(timer, SIGNAL(timeout()), this, SLOT(updateMem()));
-//    timer->start(1000); // 每隔1秒触发一次 timeout 信号
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateMem()));
+    timer->start(1000); // 每隔1秒触发一次 timeout 信号
 
     CDockManager::setConfigFlag(CDockManager::FocusHighlighting, true);
 
