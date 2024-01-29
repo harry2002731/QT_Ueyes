@@ -61,13 +61,12 @@ void BasicWindow::createContent()
 }
 
 /**
-     * Saves the dock manager state and the main window geometry
-     */
+ * Saves the dock manager state and the main window geometry
+ */
 void BasicWindow::saveDockState()
 {
     QSettings Settings("Settings.ini", QSettings::IniFormat);
     Settings.setValue(QString("%1/DockingState").arg(win_name), this->saveState());
-
     //Settings.setValue("mainWindow/Geometry", _this->saveGeometry()); //用于复原窗体原先的位置
 }
 /**

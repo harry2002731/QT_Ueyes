@@ -31,6 +31,14 @@
 //============================================================================
 #include <MainWindow.h>
 #include "ui_mainwindow.h"
+#include <QtConcurrent/QtConcurrent>
+using namespace QtConcurrent;
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+
 
 #include <QProcess>
 #include <QRegularExpression>
@@ -86,10 +94,12 @@
 #include "SysInfoFetcher.h"
 #include <QStackedLayout>
 #include "BasicWindow.h"
+#include "WelcomeWindow.h"
 
 //QStackedLayout* m_layout;
 using namespace ads;
-
+using namespace cv;
+cv::Mat src;
 
 /**
  * Function returns a features string with closable (c), movable (m) and floatable (f)
@@ -283,10 +293,6 @@ void MainWindowPrivate::createStatusBarActions()
     ui.statusBar->addPermanentWidget(timeLabel);
     ui.statusBar->addPermanentWidget(memoryLabel);
 
-//    QTimer *timer = new QTimer(_this);
-//    _this->connect(timer, SIGNAL(timeout()), _this, SLOT(updateTime()));
-//    _this->connect(timer, SIGNAL(timeout()), _this, SLOT(updateMem()));
-//    timer->start(1000); // 每隔1秒触发一次 timeout 信号
 }
 
 
@@ -413,7 +419,29 @@ void MainWindowPrivate::restorePerspectives()
     }
 }
 
+class Worker : public QObject
+{
+    Q_OBJECT
 
+public:
+    QLabel *label;
+    Worker(QLabel *timeLabel) {
+       label = timeLabel;
+    }
+
+public slots:
+    void doWork() {
+       QTimer *timer = new QTimer(this);
+       connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
+       timer->start(1000); // 每隔1秒触发一次 timeout 信号
+
+    }
+    void updateTime()
+    {
+       label->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
+
+    }
+};
 
 //============================================================================
 CMainWindow::CMainWindow(QWidget *parent) :
@@ -428,11 +456,15 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->createStatusBarActions(); //初始化底部状态栏
     d->createLeftToolBar(); //初始化侧边栏
 
-//    QTimer *timer = new QTimer(this);
-//    connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
-//    connect(timer, SIGNAL(timeout()), this, SLOT(updateMem()));
-//    timer->start(1000); // 每隔1秒触发一次 timeout 信号
+    QTimer *timer = new QTimer(this);
 
+    QThread* pthread = new QThread();
+    Worker* worker = new Worker(d->timeLabel); // 创建一个Worker对象
+    worker->moveToThread(pthread); // 将Worker对象移动到新线程中
+    QObject::connect(pthread, &QThread::started, worker, &Worker::doWork); // 连接信号和槽函数
+    pthread->start();
+
+    timer->start(1000); // 每隔1秒触发一次 timeout 信号
     CDockManager::setConfigFlag(CDockManager::FocusHighlighting, true);
 
     // uncomment if you would like to enable dock widget auto hiding
@@ -440,7 +472,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
 
     d->ui.widget->setLayout(m_layout = new QStackedLayout() );
     auto basic_win = new BasicWindow(d->ui.widget,QString("welcome"));
-    auto basic_win2 = new BasicWindow(d->ui.widget,QString("welcome111"));
+    auto basic_win2 = new WelcomeWindow(d->ui.widget,QString("welcome111"));
 
     d->win_map.insert("welcome",basic_win);
     d->win_map.insert("welcome111",basic_win2);
@@ -449,7 +481,9 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->ui.widget->layout()->addWidget(basic_win2);//显示调用layout来进行布局
 
     basic_win->createContent();
+    basic_win2->createContent();
 
+    cv::waitKey(50);
 
 
 //    #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
@@ -486,6 +520,7 @@ void CMainWindow::updateTime()
 
 void CMainWindow::updateMem()
 {
+
     auto sysinfo = new SysInfoFetcher();
     d->memoryLabel->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
 }
@@ -537,6 +572,8 @@ void CMainWindow::on_actionSaveState_triggered(bool)
 {
     qDebug() << "MainWindow::on_actionSaveState_triggered";
     d->saveState();
+    cv::waitKey(50);
+
 }
 
 
@@ -628,6 +665,7 @@ void CMainWindow::applyVsStyle()
     StyleSheetFile.close();
 //    d->DockManager->setStyleSheet(Stylesheet);
 }
+#include "MainWindow.moc"
 
 
 

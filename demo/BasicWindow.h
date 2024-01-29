@@ -56,7 +56,7 @@ public:
     QString win_name;
 public:
     //基础操作
-    void createContent();
+    virtual void  createContent();
     void saveDockState();
     void saveDockPerspectives();
     void restoreDockState();
@@ -64,15 +64,13 @@ public:
     void applyVsStyle();
 
     //基础窗体
-    ads::CDockWidget*  createFileSystemTreeDockWidget();
-    ads::CDockWidget*  createStackedDockWidget();
-    ads::CDockWidget*  createLabelDockWidget();
-    ads::CDockWidget*  createEditorWidget();
-    ads::CDockWidget*  createCameraViewerWidget();
-    ads::CDockWidget*  createTableWidget();
-    ads::CDockWidget*  createImageViewerWidget();
-
-    ads::CDockWidget*  createQQuickWidget();
+    virtual ads::CDockWidget*  createFileSystemTreeDockWidget();
+    virtual ads::CDockWidget*  createLabelDockWidget();
+    virtual ads::CDockWidget*  createEditorWidget();
+    virtual ads::CDockWidget*  createCameraViewerWidget();
+    virtual ads::CDockWidget*  createTableWidget();
+    virtual ads::CDockWidget*  createImageViewerWidget();
+    virtual ads::CDockWidget*  createQQuickWidget();
 
 
 };
