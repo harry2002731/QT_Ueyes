@@ -71,6 +71,7 @@ public:
     virtual ads::CDockWidget*  createTableWidget();
     virtual ads::CDockWidget*  createImageViewerWidget();
     virtual ads::CDockWidget*  createQQuickWidget();
+    virtual ads::CDockWidget*  createTest();
 
 
 };

@@ -1,4 +1,5 @@
 #include "BasicWindow.h"
+#include "Widget_Lib/FuncViewerWidget.h"
 
 using namespace ads;
 
@@ -55,9 +56,15 @@ void BasicWindow::createContent()
 {
     auto CameraViewer = createCameraViewerWidget();
     this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
-
     auto FileSystemTreeViewer = createFileSystemTreeDockWidget();
-    this->addDockWidget(ads::LeftDockWidgetArea, FileSystemTreeViewer );
+    this->addDockWidget(ads::BottomDockWidgetArea, FileSystemTreeViewer );
+
+    auto imageViewer = createImageViewerWidget();
+    this->addDockWidget(ads::LeftDockWidgetArea, imageViewer );
+
+    auto aaa = createTest();
+    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
+
 }
 
 /**
@@ -197,8 +204,22 @@ ads::CDockWidget* BasicWindow::createCameraViewerWidget()
     auto w = new VideoPanel();
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
     DockWidget->setWidget(w);
+    DockWidget->setMinimumSize(100,100);
+
+    DockWidget->setMinimumSizeHintMode(ads::CDockWidget::MinimumSizeHintFromDockWidgetMinimumSize);
     return DockWidget;
 }
+
+
+ads::CDockWidget* BasicWindow::createTest()
+{
+    static int CameraViewerCount = 0;
+    auto w = new FuncViewerWidget();
+    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
+    DockWidget->setWidget(w);
+    return DockWidget;
+}
+
 
 //创建表格窗口
 ads::CDockWidget* BasicWindow::createTableWidget()
@@ -221,6 +242,7 @@ ads::CDockWidget* BasicWindow::createTableWidget()
     DockWidget->setWidget(w);
     DockWidget->setIcon(svgIcon(":/adsdemo/images/grid_on.svg"));
     DockWidget->setMinimumSizeHintMode(ads::CDockWidget::MinimumSizeHintFromContent);
+
     auto ToolBar = DockWidget->createDefaultToolBar();
     auto Action = ToolBar->addAction(svgIcon(":/adsdemo/images/fullscreen.svg"), "Toggle Fullscreen");
     QObject::connect(Action, &QAction::triggered, [=]()
