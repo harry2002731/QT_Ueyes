@@ -29,6 +29,7 @@
 #include <QWheelEvent>
 
 #include "RenderWidget.h"
+#include "qmenu.h"
 
 /**
  * Private image viewer data
@@ -59,7 +60,7 @@ CImageViewer::CImageViewer(QWidget *parent)
 	this->setBackgroundRole(QPalette::Light);
 	this->setAlignment(Qt::AlignCenter);
 	this->setWidget(d->RenderWidget);
-	this->createActions();
+    this->createActions();
 	this->setMouseTracking(false); // only produce mouse move events if mouse button pressed
 }
 
@@ -151,7 +152,7 @@ void CImageViewer::open()
 //===========================================================================
 void CImageViewer::createActions()
 {
-	QAction* a;
+    QAction* a;
     a = new QAction(tr("&Open..."));
     a->setIcon(QIcon(":/adsdemo/images/perm_media.svg"));
     connect(a, &QAction::triggered, this, &CImageViewer::open);
@@ -159,31 +160,64 @@ void CImageViewer::createActions()
     this->addAction(a);
 
 	a = new QAction(tr("Fit on Screen"));
-	a->setIcon(QIcon(":/adsdemo/images/zoom_out_map.svg"));
+    a->setIcon(QIcon(":/adsdemo/images/zoom_out_map.svg"));
 	connect(a, &QAction::triggered, this, &CImageViewer::fitToWindow);
-	this->addAction(a);
+    this->addAction(a);
 
 	a = new QAction(tr("Actual Pixels"));
-	a->setIcon(QIcon(":/adsdemo/images/find_in_page.svg"));
+    a->setIcon(QIcon(":/adsdemo/images/find_in_page.svg"));
 	connect(a, &QAction::triggered, this, &CImageViewer::normalSize);
-	this->addAction(a);
+    this->addAction(a);
 
 	a = new QAction(this);
 	a->setSeparator(true);
-	this->addAction(a);
+    this->addAction(a);
 
 	a = new QAction(tr("Zoom In (25%)"));
-	a->setIcon(QIcon(":/adsdemo/images/zoom_in.svg"));
+    a->setIcon(QIcon(":/adsdemo/images/zoom_in.svg"));
 	connect(a, &QAction::triggered, this, &CImageViewer::zoomIn);
-	this->addAction(a);
+    this->addAction(a);
 
 	a = new QAction(tr("Zoom Out (25%)"));
-	a->setIcon(QIcon(":/adsdemo/images/zoom_out.svg"));
+    a->setIcon(QIcon(":/adsdemo/images/zoom_out.svg"));
 	connect(a, &QAction::triggered, this, &CImageViewer::zoomOut);
-	this->addAction(a);
+    this->addAction(a);
 
-	this->setContextMenuPolicy(Qt::ActionsContextMenu);
+//	this->setContextMenuPolicy(Qt::ActionsContextMenu);
 }
+
+
+
+void CImageViewer::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::RightButton)
+    {
+        QMenu menu(this);
+
+        QAction *action1 = menu.addAction("Option 1");
+        QAction *action2 = menu.addAction("Option 2");
+        QAction *action3 = menu.addAction("Option 3");
+
+        QAction *selectedAction = menu.exec(event->globalPos());
+
+        if (selectedAction == action1)
+        {
+            // 处理 Option 1 的操作
+            qDebug() << "Option 1 selected!";
+        }
+        else if (selectedAction == action2)
+        {
+            // 处理 Option 2 的操作
+            qDebug() << "Option 2 selected!";
+        }
+        else if (selectedAction == action3)
+        {
+            // 处理 Option 3 的操作
+            qDebug() << "Option 3 selected!";
+        }
+    }
+}
+
 
 
 //===========================================================================
@@ -230,12 +264,12 @@ void CImageViewer::resizeEvent(QResizeEvent* ResizeEvent)
 
 
 //============================================================================
-void CImageViewer::mousePressEvent(QMouseEvent* Event)
-{
-	d->RenderWidget->setCursor(Qt::ClosedHandCursor);
-	d->MouseMoveStartPos = Event->pos();
-	Super::mousePressEvent(Event);
-}
+//void CImageViewer::mousePressEvent(QMouseEvent* Event)
+//{
+//	d->RenderWidget->setCursor(Qt::ClosedHandCursor);
+//	d->MouseMoveStartPos = Event->pos();
+//	Super::mousePressEvent(Event);
+//}
 
 
 //============================================================================

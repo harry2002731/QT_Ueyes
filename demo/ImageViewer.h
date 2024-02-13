@@ -46,6 +46,7 @@ protected:
 	 * @brief Reimplemented from QScrollArea to adjust image scaling if m_AutoFit is
 	 * true.
 	 */
+
 	virtual void resizeEvent(QResizeEvent* ResizeEvent);
 
 	/**
