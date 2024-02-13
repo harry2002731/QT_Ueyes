@@ -34,10 +34,16 @@ else()
     set(ads_PlatformDir "x64")
 endif()
 
-add_subdirectory(src)
+add_subdirectory(src) # 用来告诉编译器需要编译src文件夹下的cmakelist
+
+
+#设置opencv OpenCVConfig.cmake的路径
+set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/libs/OpenCV-MinGW-Build/x64/mingw/lib")
+
 
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
     add_subdirectory(demo)
+    add_subdirectory(modules)
 endif()
 
