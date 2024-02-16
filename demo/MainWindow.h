@@ -62,17 +62,11 @@ private slots:
 	void savePerspective();
 	void onViewToggled(bool Open);
 	void onViewVisibilityChanged(bool Visible);
-//	void createEditor();
-//	void createTable();
-//	void onEditorCloseRequested();
-//	void onImageViewerCloseRequested();
+
 	void showStatusDialog();
 	void toggleDockWidgetWindowTitle();
 	void applyVsStyle();
-//    void createImageViewerWidget();
-    // void leftMainClick();
-    void updateTime();
-    void updateMem();
+
     void changeState_triggered();
 };
 

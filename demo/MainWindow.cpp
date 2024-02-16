@@ -424,23 +424,31 @@ class Worker : public QObject
     Q_OBJECT
 
 public:
-    QLabel *label;
-    Worker(QLabel *timeLabel) {
-       label = timeLabel;
+    QLabel *time_Label,*memory_label;
+    Worker(QLabel *timeLabel,QLabel *memoryLabel) {
+       time_Label = timeLabel;
+       memory_label = memoryLabel;
     }
 
 public slots:
     void doWork() {
        QTimer *timer = new QTimer(this);
        connect(timer, SIGNAL(timeout()), this, SLOT(updateTime()));
+       connect(timer, SIGNAL(timeout()), this, SLOT(updateMem()));
        timer->start(1000); // 每隔1秒触发一次 timeout 信号
 
     }
     void updateTime()
     {
-       label->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
+       time_Label->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
 
     }
+    void updateMem()
+    {
+       auto sysinfo = new SysInfoFetcher();
+       memory_label->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
+    }
+
 };
 
 //============================================================================
@@ -459,10 +467,13 @@ CMainWindow::CMainWindow(QWidget *parent) :
     QTimer *timer = new QTimer(this);
 
     QThread* pthread = new QThread();
-    Worker* worker = new Worker(d->timeLabel); // 创建一个Worker对象
+    Worker* worker = new Worker(d->timeLabel,d->memoryLabel); // 创建一个Worker对象
     worker->moveToThread(pthread); // 将Worker对象移动到新线程中
     QObject::connect(pthread, &QThread::started, worker, &Worker::doWork); // 连接信号和槽函数
     pthread->start();
+
+
+
 
     timer->start(1000); // 每隔1秒触发一次 timeout 信号
     CDockManager::setConfigFlag(CDockManager::FocusHighlighting, true);
@@ -513,17 +524,17 @@ CMainWindow::~CMainWindow()
     delete d;
 }
 
-void CMainWindow::updateTime()
-{
-    d->timeLabel->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
-}
+//void CMainWindow::updateTime()
+//{
+//    d->timeLabel->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
+//}
 
-void CMainWindow::updateMem()
-{
+//void CMainWindow::updateMem()
+//{
 
-    auto sysinfo = new SysInfoFetcher();
-    d->memoryLabel->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
-}
+//    auto sysinfo = new SysInfoFetcher();
+//    d->memoryLabel->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
+//}
 
 //void CMainWindow::oneSecondUpdater()
 //{
