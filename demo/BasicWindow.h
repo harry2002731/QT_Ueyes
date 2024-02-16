@@ -37,6 +37,7 @@
 #include "qsettings.h"
 #include "ImageViewer.h"
 #include "videopanel.h"
+#include <windows.h>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
 #include <QRandomGenerator>
@@ -63,6 +64,7 @@ public:
     void restoreDockPerspectives();
     void applyVsStyle();
 
+
     //基础窗体
     virtual ads::CDockWidget*  createFileSystemTreeDockWidget();
     virtual ads::CDockWidget*  createLabelDockWidget();
@@ -72,6 +74,9 @@ public:
     virtual ads::CDockWidget*  createImageViewerWidget();
     virtual ads::CDockWidget*  createQQuickWidget();
     virtual ads::CDockWidget*  createTest();
+    virtual ads::CDockWidget* test();
+
+
 
 
 };

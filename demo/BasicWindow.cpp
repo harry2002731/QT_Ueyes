@@ -62,7 +62,7 @@ void BasicWindow::createContent()
     auto imageViewer = createImageViewerWidget();
     this->addDockWidget(ads::LeftDockWidgetArea, imageViewer );
 
-    auto aaa = createTest();
+    auto aaa = test();
     this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
 }
@@ -220,6 +220,26 @@ ads::CDockWidget* BasicWindow::createTest()
     return DockWidget;
 }
 
+//************显示调用动态库效果测试*****************
+typedef FuncViewerWidget* (*CREATE_WIDGET) ();
+
+ads::CDockWidget* BasicWindow::test()
+{
+    static int widget = 0;
+    HINSTANCE hDLL = LoadLibrary(L"libWidgetLib.dll");
+    CREATE_WIDGET pEntryFunction = (CREATE_WIDGET)GetProcAddress(hDLL,"CreateWidget");
+    FuncViewerWidget* pMath = pEntryFunction();
+    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(widget++));
+
+    if (pMath) {
+        std::cout << "success" << std::endl;
+        pMath->addWidget("test_widget",new QWidget());
+        DockWidget->setWidget(pMath);
+
+    }
+    return DockWidget;
+}
+//********************************************
 
 //创建表格窗口
 ads::CDockWidget* BasicWindow::createTableWidget()
