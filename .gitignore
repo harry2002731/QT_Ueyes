@@ -41,6 +41,8 @@ PyQtAds/rc.py
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+
+
 # Mono auto generated files
 mono_crash.*
 
@@ -59,6 +61,10 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+
+# 针对第53行 x64/ 和 60行 [Bb]in/ 来进行内部剔除。需要给出完整的路径，不然无法排除！！！
+!libs/OpenCV-MinGW-Build/x64/
+!libs/OpenCV-MinGW-Build/x64/mingw/[Bb]in/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -390,3 +396,4 @@ FodyWeavers.xsd
 /Settings.ini
 .vscode/settings.json
 /.settings
+
