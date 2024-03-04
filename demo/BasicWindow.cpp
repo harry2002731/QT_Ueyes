@@ -1,5 +1,7 @@
 #include "BasicWindow.h"
 #include "Widget_Lib/FuncViewerWidget.h"
+#include "BaseFunc_Lib/BaseFunc_Lib.h"
+#include "SqlLite_Lib/SqlLite_Lib.h"
 
 using namespace ads;
 
@@ -65,6 +67,7 @@ void BasicWindow::createContent()
     auto aaa = test();
     this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
+//    SqlLite_Lib();
 }
 
 /**
@@ -223,17 +226,34 @@ ads::CDockWidget* BasicWindow::createTest()
 //************显示调用动态库效果测试*****************
 typedef FuncViewerWidget* (*CREATE_WIDGET) ();
 
+//ads::CDockWidget* BasicWindow::test()
+//{
+//    static int widget = 0;
+//    HINSTANCE hDLL = LoadLibrary(L"libWidgetLib.dll");
+//    CREATE_WIDGET pEntryFunction = (CREATE_WIDGET)GetProcAddress(hDLL,"CreateWidget");
+
+//    FuncViewerWidget* pMath = pEntryFunction();
+//    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(widget++));
+
+//    if (pMath) {
+//        std::cout << "success" << std::endl;
+//        pMath->addPageWidget("test_widget",new QWidget());
+//        DockWidget->setWidget(pMath);
+
+//    }
+//    return DockWidget;
+//}
+
 ads::CDockWidget* BasicWindow::test()
 {
     static int widget = 0;
-    HINSTANCE hDLL = LoadLibrary(L"libWidgetLib.dll");
-    CREATE_WIDGET pEntryFunction = (CREATE_WIDGET)GetProcAddress(hDLL,"CreateWidget");
-    FuncViewerWidget* pMath = pEntryFunction();
+    auto aaa = BaseFunc_Lib();
+    auto pMath = aaa.loadLibFunc<FuncViewerWidget*>(QString("libWidgetLib.dll"),"CreateWidget");
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(widget++));
 
     if (pMath) {
         std::cout << "success" << std::endl;
-        pMath->addWidget("test_widget",new QWidget());
+        pMath->addPageWidget("test_widget",new QWidget());
         DockWidget->setWidget(pMath);
 
     }

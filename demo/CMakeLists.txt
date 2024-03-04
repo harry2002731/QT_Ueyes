@@ -37,7 +37,8 @@ target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt${QT_VERSION_MAJOR}::Co
                                                        Qt${QT_VERSION_MAJOR}::Widgets
                                                        Qt${QT_VERSION_MAJOR}::Quick
                                                        Qt${QT_VERSION_MAJOR}::QuickWidgets
-                                                        ${OpenCV_LIBS})
+                                                        ${OpenCV_LIBS}
+                                                    )
 
 MESSAGE(STATUS "Project: ${PROJECT_NAME}")
 MESSAGE(STATUS "OpenCV library status:")
@@ -50,6 +51,8 @@ if(WIN32 AND QT_VERSION_MAJOR LESS 6)
 endif()
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE qt${QT_VERSION_MAJOR}advanceddocking)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE WidgetLib)
+target_link_libraries(AdvancedDockingSystemDemo PRIVATE BaseFunc_Lib)
+target_link_libraries(AdvancedDockingSystemDemo PRIVATE SqlLite_Lib)
 
 
 set_target_properties(AdvancedDockingSystemDemo PROPERTIES

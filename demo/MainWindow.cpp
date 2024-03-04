@@ -96,6 +96,7 @@ using namespace QtConcurrent;
 #include "BasicWindow.h"
 #include "WelcomeWindow.h"
 
+
 //QStackedLayout* m_layout;
 using namespace ads;
 using namespace cv;
@@ -524,22 +525,7 @@ CMainWindow::~CMainWindow()
     delete d;
 }
 
-//void CMainWindow::updateTime()
-//{
-//    d->timeLabel->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
-//}
 
-//void CMainWindow::updateMem()
-//{
-
-//    auto sysinfo = new SysInfoFetcher();
-//    d->memoryLabel->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
-//}
-
-//void CMainWindow::oneSecondUpdater()
-//{
-
-//}
 
 void CMainWindow::changeState_triggered()
 {
