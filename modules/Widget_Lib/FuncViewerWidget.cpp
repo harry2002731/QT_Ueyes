@@ -11,7 +11,7 @@ FuncViewerWidget::FuncViewerWidget() :
     this->initWidget();
 
 
-    this->addWidget(QStringLiteral("Qt小罗"), new Form());
+    this->addPageWidget(QStringLiteral("Qt小罗"), new Form());
 //    this->addWidget(QStringLiteral("Qt小罗"), new Form());
 //    this->addWidget(QStringLiteral("Qt小罗"), new Form());
 //    this->addWidget(QStringLiteral("Qt小罗"), new Form());
@@ -73,7 +73,7 @@ void FuncViewerWidget::makePageWidget()
 
 }
 
-void FuncViewerWidget::addWidget(QString title, QWidget *widget)
+void FuncViewerWidget::addPageWidget(QString title, QWidget *widget)
 {
     FuncViewerPage *page = new FuncViewerPage(this);
     page->addWidget(title, widget);
@@ -81,7 +81,7 @@ void FuncViewerWidget::addWidget(QString title, QWidget *widget)
     m_pContentVBoxLayout->addWidget(page);
 }
 
-WIDGET_LIB_EXPORT FuncViewerWidget* __cdecl CreateWidget()
+WIDGET_LIB_EXPORT FuncViewerWidget*  __cdecl CreateWidget()
 {
     return new FuncViewerWidget;
 }

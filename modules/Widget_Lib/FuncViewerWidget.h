@@ -10,6 +10,7 @@
 #include <QSettings>
 #include <QFileInfo>
 #include <QMessageBox>
+#include "BaseWidget.h"
 
 namespace Ui {
 class FuncViewerWidget;
@@ -22,21 +23,26 @@ class WIDGET_LIB_EXPORT FuncViewerWidget : public QWidget
     Q_OBJECT
 public:
     FuncViewerWidget();
-    void initWidget();
-    void readWidgetConfig();
-    void makePageWidget();
-    void addWidget(QString title,QWidget *widget);
-    Ui::FuncViewerWidget *ui;
     ~FuncViewerWidget();
-    QVBoxLayout *m_pContentVBoxLayout;
 
+    Ui::FuncViewerWidget *ui;
+    QVBoxLayout *m_pContentVBoxLayout;
+    QString aaa;
+
+    void initWidget(); //初始化主窗体
+    void readWidgetConfig(); //读取窗体配置
+    void makePageWidget(); //配置主窗体内的子窗体
+    void addPageWidget(QString title,QWidget *widget);//添加子窗体到主窗体中
 };
 
-
-extern "C" /*Important for avoiding Name decoration*/
+//用来在显示调用动态库时候调用类，额外增加
+extern "C"
 {
 WIDGET_LIB_EXPORT FuncViewerWidget* __cdecl  CreateWidget();
 };
+
+//WIDGET_LIB_EXPORT FuncViewerWidget*  CreateWidget();
+
 
 #endif // FUNCVIEWERWIDGET_H
 
