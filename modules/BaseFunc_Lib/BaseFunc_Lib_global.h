@@ -1,0 +1,12 @@
+#ifndef BASEFUNC_LIB_GLOBAL_H
+#define BASEFUNC_LIB_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(BASEFUNC_LIB_LIBRARY)
+#  define BASEFUNC_LIB_EXPORT Q_DECL_EXPORT
+#else
+#  define BASEFUNC_LIB_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // BASEFUNC_LIB_GLOBAL_H
