@@ -32,6 +32,7 @@
 //============================================================================
 #include <QMainWindow>
 #include <QStackedLayout>
+#include "SqlInterface.h"
 
 
 
@@ -50,6 +51,8 @@ private:
 
 protected:
 	virtual void closeEvent(QCloseEvent* event) override;
+    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
+
 
 public:
 	explicit CMainWindow(QWidget *parent = 0);
@@ -68,6 +71,8 @@ private slots:
 	void applyVsStyle();
 
     void changeState_triggered();
+    bool loadPlugin();   //加载插件
+
 };
 
 #endif // MAINWINDOW_H

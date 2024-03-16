@@ -3,11 +3,18 @@ project(ads_demo VERSION 0.0.1)
 
 set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../libs/OpenCV-MinGW-Build/x64/mingw/lib")
 
-find_package(OpenCV REQUIRED)
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Core REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} 5.5 COMPONENTS Core Gui Widgets Quick QuickWidgets REQUIRED)
+find_package(OpenCV  REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS
+            Core
+            Sql
+            Gui
+            Widgets
+            Quick
+            QuickWidgets)
+
+
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
-    find_package(Qt${QT_VERSION_MAJOR} COMPONENTS AxContainer REQUIRED)
+    find_package(Qt6 COMPONENTS AxContainer REQUIRED)
 endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -24,35 +31,38 @@ set(ads_demo_SRCS
     BasicWindow.h
     BasicWindow.cpp
     demo.qrc
+    SqlInterface.h
 )
-add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS})
-
-target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../src")
-target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../modules")
-
-target_include_directories(AdvancedDockingSystemDemo PRIVATE "${OpenCV_INCLUDE_DIRS}")
-
-target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt${QT_VERSION_MAJOR}::Core 
-                                                       Qt${QT_VERSION_MAJOR}::Gui 
-                                                       Qt${QT_VERSION_MAJOR}::Widgets
-                                                       Qt${QT_VERSION_MAJOR}::Quick
-                                                       Qt${QT_VERSION_MAJOR}::QuickWidgets
-                                                        ${OpenCV_LIBS}
+add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS} )
+target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../src"
+                                                            "${CMAKE_CURRENT_SOURCE_DIR}/../modules"
+                                                            "${OpenCV_INCLUDE_DIRS}")
+target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt6::Core
+                                                       Qt6::Gui
+                                                       Qt6::Widgets
+                                                       Qt6::Quick
+                                                       Qt6::QuickWidgets
+                                                       Qt6::Sql
+                                                       ${OpenCV_LIBS}
                                                     )
 
-MESSAGE(STATUS "Project: ${PROJECT_NAME}")
-MESSAGE(STATUS "OpenCV library status:")
-MESSAGE(STATUS "    version: ${OpenCV_VERSION}")
-MESSAGE(STATUS "    libraries: ${OpenCV_LIBS}")
-MESSAGE(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+#MESSAGE(STATUS "Project: ${PROJECT_NAME}")
+#MESSAGE(STATUS "OpenCV library status:")
+#MESSAGE(STATUS "version: ${OpenCV_VERSION}")
+#MESSAGE(STATUS "libraries: ${OpenCV_LIBS}")
+#MESSAGE(STATUS "include path: ${OpenCV_INCLUDE_DIRS}")
+#qt_import_plugins(AdvancedDockingSystemDemo INCLUDE SqlLite_Lib) #可能这个只能加载官方的插件
+
 
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
-    target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt${QT_VERSION_MAJOR}::AxContainer)
+    target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt6::AxContainer)
 endif()
-target_link_libraries(AdvancedDockingSystemDemo PRIVATE qt${QT_VERSION_MAJOR}advanceddocking)
+target_link_libraries(AdvancedDockingSystemDemo PRIVATE qt6advanceddocking)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE WidgetLib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE BaseFunc_Lib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE SqlLite_Lib)
+
+
 
 
 set_target_properties(AdvancedDockingSystemDemo PROPERTIES

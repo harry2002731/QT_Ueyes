@@ -1,7 +1,6 @@
 #include "BasicWindow.h"
 #include "Widget_Lib/FuncViewerWidget.h"
 #include "BaseFunc_Lib/BaseFunc_Lib.h"
-#include "SqlLite_Lib/SqlLite_Lib.h"
 
 using namespace ads;
 
@@ -244,6 +243,7 @@ typedef FuncViewerWidget* (*CREATE_WIDGET) ();
 //    return DockWidget;
 //}
 
+//动态库调用
 ads::CDockWidget* BasicWindow::test()
 {
     static int widget = 0;
@@ -252,7 +252,6 @@ ads::CDockWidget* BasicWindow::test()
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(widget++));
 
     if (pMath) {
-        std::cout << "success" << std::endl;
         pMath->addPageWidget("test_widget",new QWidget());
         DockWidget->setWidget(pMath);
 

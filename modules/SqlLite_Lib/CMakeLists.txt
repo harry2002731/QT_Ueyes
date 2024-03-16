@@ -14,9 +14,8 @@ add_library(SqlLite_Lib SHARED
   SqlLite_Lib_global.h
   SqlLite_Lib.cpp
   SqlLite_Lib.h
+  SqlInterface.h
 )
-target_link_libraries(SqlLite_Lib PUBLIC Qt6::Sql)
-
 target_link_libraries(SqlLite_Lib PUBLIC Qt${QT_VERSION_MAJOR}::Core
                         Qt${QT_VERSION_MAJOR}::Sql)
 
