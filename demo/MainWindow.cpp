@@ -96,7 +96,7 @@ using namespace QtConcurrent;
 #include <QStackedLayout>
 #include "BasicWindow.h"
 #include "WelcomeWindow.h"
-#include "SqlInterface.h"
+
 
 //QStackedLayout* m_layout;
 using namespace ads;
@@ -493,7 +493,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->ui.widget->layout()->addWidget(basic_win);//显示调用layout来进行布局
     d->ui.widget->layout()->addWidget(basic_win2);//显示调用layout来进行布局
 
-    this->loadPlugin();
+//    this->loadPlugin();
 
     basic_win->createContent();
     basic_win2->createContent();
@@ -530,40 +530,6 @@ CMainWindow::~CMainWindow()
 {
     delete d;
 }
-
-
-
-bool CMainWindow::loadPlugin(){
-    QDir pluginsDir(qApp->applicationDirPath());  //pluginsDir："../build-xxx-debug/debug"
-#if defined(Q_OS_WIN)
-    if (pluginsDir.dirName().toLower() == "debug" || pluginsDir.dirName().toLower() == "release")
-       pluginsDir.cdUp(); //pluginsDir："../build-xxx-debug"
-    pluginsDir.cdUp(); //pluginsDir："../"
-#elif defined(Q_OS_MAC)
-    if (pluginsDir.dirName() == "MacOS") {
-       pluginsDir.cdUp();
-       pluginsDir.cdUp();
-       pluginsDir.cdUp();
-    }
-#endif
-//    pluginsDir.cd("plugins");
-//    foreach (QString fileName, pluginsDir.entryList(QDir::Files)) {
-   QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\modules\\SqlLite_Lib\\libSqlLite_Lib.dll");
-   QObject *plugin = pluginLoader.instance();
-   if (plugin) {
-       m_pInterface = qobject_cast<DeclareInterface *>(plugin);
-       QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
-       QSqlDatabase db = m_pInterface->connectDB(db_name);
-//       m_pInterface->getTableInfo(db,"EC");
-       if (m_pInterface)
-           return true;
-   }
-
-//    }
-    return false;
-
-}
-
 
 
 void CMainWindow::changeState_triggered()

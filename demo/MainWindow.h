@@ -59,6 +59,8 @@ public:
 	virtual ~CMainWindow();
     QStackedLayout* m_layout;
 
+
+
 private slots:
 	void on_actionSaveState_triggered(bool);
 	void on_actionRestoreState_triggered(bool);
@@ -71,7 +73,6 @@ private slots:
 	void applyVsStyle();
 
     void changeState_triggered();
-    bool loadPlugin();   //加载插件
 
 };
 

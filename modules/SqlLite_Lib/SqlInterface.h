@@ -1,7 +1,9 @@
 #ifndef SQLINTERFACE_H
 #define SQLINTERFACE_H
 
+#include <QTableWidget>
 
+#include "QtWidgets/qtableview.h"
 #include "qsqldatabase.h"
 #define DeclareInterface_iid "Examples.Plugin.DeclareInterface"
 
@@ -13,6 +15,7 @@ public:
     virtual ~DeclareInterface() {}
     virtual QSqlDatabase connectDB(QString db_name) = 0;
     virtual void getTableInfo(QSqlDatabase db, QString table_name) = 0;
+    virtual QTableWidget* createWidget() = 0;
 
 };
 

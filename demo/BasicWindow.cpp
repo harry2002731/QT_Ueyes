@@ -1,6 +1,7 @@
 #include "BasicWindow.h"
 #include "Widget_Lib/FuncViewerWidget.h"
 #include "BaseFunc_Lib/BaseFunc_Lib.h"
+#include <QStandardItemModel>
 
 using namespace ads;
 
@@ -65,6 +66,10 @@ void BasicWindow::createContent()
 
     auto aaa = test();
     this->addDockWidget(ads::LeftDockWidgetArea, aaa );
+
+    auto bbb = loadPlugin();
+    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
+
 
 //    SqlLite_Lib();
 }
@@ -253,12 +258,36 @@ ads::CDockWidget* BasicWindow::test()
 
     if (pMath) {
         pMath->addPageWidget("test_widget",new QWidget());
+
         DockWidget->setWidget(pMath);
 
     }
     return DockWidget;
 }
 //********************************************
+
+//**************插件测试***********************
+
+
+ads::CDockWidget* BasicWindow::loadPlugin(){
+    QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\modules\\SqlLite_Lib\\libSqlLite_Lib.dll");
+    QObject *plugin = pluginLoader.instance();
+
+
+    m_pInterface = qobject_cast<DeclareInterface *>(plugin);
+    QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
+    QSqlDatabase db = m_pInterface->connectDB(db_name);
+    m_pInterface->getTableInfo(db,"EC");
+    QTableWidget* tableView = m_pInterface->createWidget();
+    static int widget2 = 0;
+    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table111 %1").arg(widget2++));
+    DockWidget->setWidget(tableView);
+    DockWidget->setMinimumSizeHintMode(ads::CDockWidget::MinimumSizeHintFromDockWidgetMinimumSize);
+    return DockWidget;
+}
+
+//********************************************
+
 
 //创建表格窗口
 ads::CDockWidget* BasicWindow::createTableWidget()
@@ -270,14 +299,13 @@ ads::CDockWidget* BasicWindow::createTableWidget()
     static int rowCount = 30;
     w->setColumnCount(colCount);
     w->setRowCount(rowCount);
-    for (int col = 0; col < colCount; ++col)
-    {
-        w->setHorizontalHeaderItem(col, new QTableWidgetItem(QString("Col %1").arg(col+1)));
-        for (int row = 0; row < rowCount; ++row)
-        {
+
+    for (int row = 0; row < 4; ++row) {
+        for (int col = 0; col < 3; ++col) {
             w->setItem(row, col, new QTableWidgetItem(QString("T %1-%2").arg(row + 1).arg(col+1)));
         }
     }
+
     DockWidget->setWidget(w);
     DockWidget->setIcon(svgIcon(":/adsdemo/images/grid_on.svg"));
     DockWidget->setMinimumSizeHintMode(ads::CDockWidget::MinimumSizeHintFromContent);

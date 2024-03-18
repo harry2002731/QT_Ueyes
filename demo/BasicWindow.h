@@ -38,7 +38,10 @@
 #include "ImageViewer.h"
 #include "videopanel.h"
 #include <windows.h>
+#include "SqlInterface.h"
+#include <QPluginLoader>
 
+#include <QStandardItemModel>
 #if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
 #include <QRandomGenerator>
 #endif
@@ -75,7 +78,9 @@ public:
     virtual ads::CDockWidget*  createQQuickWidget();
     virtual ads::CDockWidget*  createTest();
     virtual ads::CDockWidget* test();
+    virtual ads::CDockWidget* loadPlugin();
 
+    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
 
 
 

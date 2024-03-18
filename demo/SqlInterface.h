@@ -4,6 +4,8 @@
 
 #include <QSqlDatabase>
 #define DeclareInterface_iid "Examples.Plugin.DeclareInterface"
+#include "QtWidgets/qtableview.h"
+#include <QTableWidget>
 
 //定义接口
 #include "qglobal.h"
@@ -13,6 +15,7 @@ public:
     virtual ~DeclareInterface() {}
     virtual QSqlDatabase connectDB(QString db_name) = 0;
     virtual void getTableInfo(QSqlDatabase db, QString table_name) = 0;
+    virtual QTableWidget* createWidget() = 0;
 
 };
 
