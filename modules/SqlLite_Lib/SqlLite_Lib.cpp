@@ -1,3 +1,5 @@
+#include <Python.h>
+
 #include "SqlLite_Lib.h"
 #include "QtWidgets/qtableview.h"
 #include "QtWidgets/qtablewidget.h"
@@ -67,7 +69,11 @@ QTableWidget* SqlLite_Lib::createWidget()
             tableWidget->setItem(row, col, item); // 将 QTableWidgetItem 添加到 QTableWidget
         }
     }
-
+//    Py_Initialize(); //初始化python模块
+//    if ( !Py_IsInitialized() )//查看是否成功初始化
+//    {
+//    qDebug()<<"failed";
+//    }
 
     return tableWidget;
 }
