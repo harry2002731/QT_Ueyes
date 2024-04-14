@@ -262,6 +262,12 @@ struct MainWindowPrivate
 //
 void MainWindowPrivate::createLeftToolBar()
 {
+
+//    ui.actionSaveState->setIcon(svgIcon(":/adsdemo/images/save.svg"));
+//    ui.toolBar_->addAction(ui.actionSaveState);
+//    ui.actionRestoreState->setIcon(svgIcon(":/adsdemo/images/restore.svg"));
+//    ui.toolBar_->addAction(ui.actionRestoreState);
+
     ui.toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon); //设置文字位置
     ui.toolBar->addAction(Welcome);
     ui.toolBar->addAction(Designer);
@@ -300,10 +306,6 @@ void MainWindowPrivate::createStatusBarActions()
 
 void MainWindowPrivate::createActions()
 {
-    ui.actionSaveState->setIcon(svgIcon(":/adsdemo/images/save.svg"));
-    ui.toolBar->addAction(ui.actionSaveState);
-    ui.actionRestoreState->setIcon(svgIcon(":/adsdemo/images/restore.svg"));
-    ui.toolBar->addAction(ui.actionRestoreState);
 
     //欢迎按键设置
     Welcome = new QAction("欢迎", _this);
@@ -391,9 +393,7 @@ void MainWindowPrivate::restoreState()
     }
 }
 
-//============================================================================
-
-
+//保存所有窗体的状态==============================================================
 void MainWindowPrivate::savePerspectives()
 {
     QSettings Settings("Settings.ini", QSettings::IniFormat);
@@ -405,7 +405,7 @@ void MainWindowPrivate::savePerspectives()
     }
 }
 
-//============================================================================
+//复原所有窗体的状态===============================================================
 void MainWindowPrivate::restorePerspectives()
 {
     QSettings Settings("Settings.ini", QSettings::IniFormat);
@@ -416,7 +416,6 @@ void MainWindowPrivate::restorePerspectives()
     {
        it.value()->restoreDockPerspectives();
        PerspectiveComboBox->addItems(it.value()->perspectiveNames());
-
        it++;
     }
 }
@@ -474,9 +473,6 @@ CMainWindow::CMainWindow(QWidget *parent) :
     QObject::connect(pthread, &QThread::started, worker, &Worker::doWork); // 连接信号和槽函数
     pthread->start();
 
-
-
-
     timer->start(1000); // 每隔1秒触发一次 timeout 信号
     CDockManager::setConfigFlag(CDockManager::FocusHighlighting, true);
 
@@ -484,24 +480,17 @@ CMainWindow::CMainWindow(QWidget *parent) :
     CDockManager::setAutoHideConfigFlags({CDockManager::DefaultAutoHideConfig});
 
     d->ui.widget->setLayout(m_layout = new QStackedLayout() );
-    auto basic_win = new BasicWindow(d->ui.widget,QString("welcome"));
-    auto basic_win2 = new WelcomeWindow(d->ui.widget,QString("welcome111"));
+    auto basic_win = new BasicWindow(d->ui.widget,QString("basic"));
+    auto welcome_win = new WelcomeWindow(d->ui.widget,QString("welcome"));
 
-    d->win_map.insert("welcome",basic_win);
-    d->win_map.insert("welcome111",basic_win2);
+    d->win_map.insert("basic",basic_win);
+    d->win_map.insert("welcome",welcome_win);
 
     d->ui.widget->layout()->addWidget(basic_win);//显示调用layout来进行布局
-    d->ui.widget->layout()->addWidget(basic_win2);//显示调用layout来进行布局
-
-//    this->loadPlugin();
+    d->ui.widget->layout()->addWidget(welcome_win);//显示调用layout来进行布局
 
     basic_win->createContent();
-    basic_win2->createContent();
-
-//    if(m_pInterface){
-//       m_pInterface->connectDB("test");
-//    }
-    cv::waitKey(50);
+    welcome_win->createContent();
 
 
 //    #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
@@ -518,10 +507,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
 //        Qt::LeftToRight, Qt::AlignCenter, frameSize(),
 //        QGuiApplication::primaryScreen()->availableGeometry()
 //    ));
-//    d->createContent(); //初始化主窗体
 
-
-////    d->restoreState(); // 恢复成配置时的窗体布局
 //    d->restorePerspectives();
 }
 
@@ -542,12 +528,12 @@ void CMainWindow::changeState_triggered()
         btn->setChecked(btn == b);
     }
     if (name == "欢迎") {
-        d->win_map["welcome111"]->hideManagerAndFloatingWidgets();
+        d->win_map["basic"]->hideManagerAndFloatingWidgets();
         m_layout->setCurrentWidget(d->win_map["welcome"]);
     }
     else if (name == "设计") {
         d->win_map["welcome"]->hideManagerAndFloatingWidgets();
-        m_layout->setCurrentWidget(d->win_map["welcome111"]);
+        m_layout->setCurrentWidget(d->win_map["basic"]);
 
     }
     else if (name == "调试") {

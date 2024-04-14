@@ -36,8 +36,6 @@ void SqlLite_Lib::getTableInfo(QSqlDatabase db, QString table_name)
             // 获取数据
             QString name = query.value(0).toString(); // 获取第一个字段（name）的值
             QString age = query.value(1).toString(); // 获取第二个字段（age）的值
-            qDebug() << "Name: " << name << ", Age: " << age;
-
         }
     } else {
         qDebug() << "Error executing query:" << query.lastError().text();

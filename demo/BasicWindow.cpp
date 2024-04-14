@@ -1,7 +1,12 @@
 #include "BasicWindow.h"
-#include "Widget_Lib/FuncViewerWidget.h"
+#include "Widget_Lib/FuncViewer/FuncViewerWidget.h"
 #include "BaseFunc_Lib/BaseFunc_Lib.h"
 #include <QStandardItemModel>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include "Widget_Lib/LoginViewer/LoginView/src/lvmainmodel.h"
+#include <QQuickStyle>
+#include <QQuickView>
 
 using namespace ads;
 
@@ -67,9 +72,8 @@ void BasicWindow::createContent()
     auto aaa = test();
     this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
-    auto bbb = loadPlugin();
+    auto bbb = loginViewer();
     this->addDockWidget(ads::LeftDockWidgetArea, bbb );
-
 
 //    SqlLite_Lib();
 }
@@ -288,6 +292,39 @@ ads::CDockWidget* BasicWindow::loadPlugin(){
 
 //********************************************
 
+ads::CDockWidget* BasicWindow::loginViewer()
+{
+    QQuickWidget* widget = new QQuickWidget();
+
+//    QQmlApplicationEngine engine;
+
+    const QUrl url(QStringLiteral("qrc:/main.qml"));
+
+    QQuickStyle::setStyle("Material");
+    LoginView::LVMainModel loginModel("exampleLogin");
+    if (!loginModel.init(widget)) {
+        qDebug() << "1111";
+    }
+
+    QString pathXML = ":/example.xml";
+
+    if (!loginModel.setCounrySource(pathXML)) {
+        qDebug() << "2222 ";
+    }
+
+//    QObject::connect(&widget, &QQmlApplicationEngine::objectCreated,
+//        &app, [url](QObject *obj, const QUrl &objUrl) {
+//        }, Qt::QueuedConnection);
+
+//    engine.load(url);
+    widget -> setSource(url);
+    static int CameraViewerCount = 0;
+    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
+    DockWidget->setWidget(widget);
+    return DockWidget;
+
+
+}
 
 //创建表格窗口
 ads::CDockWidget* BasicWindow::createTableWidget()
