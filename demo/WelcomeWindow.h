@@ -10,6 +10,7 @@ class WelcomeWindow : public BasicWindow
 public:
     WelcomeWindow(QWidget *parent,QString name);
     void createContent() override;
+    virtual ads::CDockWidget* createLoginWidget();
 };
 
 #endif // WELCOMEWINDOW_H

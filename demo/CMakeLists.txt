@@ -10,7 +10,9 @@ find_package(Qt6 REQUIRED COMPONENTS
             Gui
             Widgets
             Quick
-            QuickWidgets)
+            QuickWidgets
+        Xml
+     QuickControls2)
 
 
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
@@ -32,6 +34,7 @@ set(ads_demo_SRCS
     BasicWindow.cpp
     demo.qrc
     SqlInterface.h
+    qml.qrc
 )
 add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS} )
 target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../src"
@@ -44,6 +47,9 @@ target_link_libraries(AdvancedDockingSystemDemo PUBLIC Qt6::Core
                                                        Qt6::QuickWidgets
                                                        Qt6::Sql
                                                        ${OpenCV_LIBS}
+                                                       Qt6::Quick
+                                                       Qt6::Xml
+                                                       Qt6::QuickControls2
                                                     )
 
 #MESSAGE(STATUS "Project: ${PROJECT_NAME}")
@@ -61,6 +67,7 @@ target_link_libraries(AdvancedDockingSystemDemo PRIVATE qt6advanceddocking)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE WidgetLib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE BaseFunc_Lib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE SqlLite_Lib)
+target_link_libraries(AdvancedDockingSystemDemo PRIVATE LoginView)
 
 
 

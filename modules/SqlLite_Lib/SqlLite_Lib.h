@@ -24,8 +24,18 @@ public:
     SqlLite_Lib();
     QSqlDatabase  connectDB(QString db_name); //链接数据库
     void getTableInfo(QSqlDatabase db, QString table_name); //获取表信息
-    QTableWidget* createWidget();
+    QWidget* createWidget(int page);
     QSqlDatabase db ;
+    QWidget* big_widget = new QWidget();
+    QTableWidget* tableWidget = new QTableWidget;
+    int countLineNum();
+    void switchPage(int page);
+    int currentPage = 0;
+    int totalPages = 100; // 假设有 10 页数据
+    QString table_name;
+private slots:
+    void showPreviousPage();
+    void showNextPage();
 };
 
 #endif // SQLLITE_LIB_H
