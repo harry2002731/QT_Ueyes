@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 
     CMainWindow mw;
     mw.show();
+//    mainWindow.showMaximized(); // 打开时最大化
 
     QFile StyleSheetFile(":/adsdemo/app.css");
     StyleSheetFile.open(QIODevice::ReadOnly);
