@@ -72,8 +72,9 @@ void BasicWindow::createContent()
     auto aaa = test();
     this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
-    auto bbb = loginViewer();
+    auto bbb = loadPlugin();
     this->addDockWidget(ads::LeftDockWidgetArea, bbb );
+
 
 //    SqlLite_Lib();
 }
@@ -282,7 +283,7 @@ ads::CDockWidget* BasicWindow::loadPlugin(){
     QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
     QSqlDatabase db = m_pInterface->connectDB(db_name);
     m_pInterface->getTableInfo(db,"EC");
-    QTableWidget* tableView = m_pInterface->createWidget();
+    QWidget* tableView = m_pInterface->createWidget(0);
     static int widget2 = 0;
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table111 %1").arg(widget2++));
     DockWidget->setWidget(tableView);
@@ -311,19 +312,11 @@ ads::CDockWidget* BasicWindow::loginViewer()
     if (!loginModel.setCounrySource(pathXML)) {
         qDebug() << "2222 ";
     }
-
-//    QObject::connect(&widget, &QQmlApplicationEngine::objectCreated,
-//        &app, [url](QObject *obj, const QUrl &objUrl) {
-//        }, Qt::QueuedConnection);
-
-//    engine.load(url);
     widget -> setSource(url);
     static int CameraViewerCount = 0;
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
     DockWidget->setWidget(widget);
     return DockWidget;
-
-
 }
 
 //创建表格窗口
