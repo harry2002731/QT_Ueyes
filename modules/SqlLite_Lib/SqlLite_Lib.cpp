@@ -10,12 +10,76 @@
 #include <QStandardItemModel>
 #include <QTableWidget>
 #include <QHeaderView>
+using namespace std;
 
 SqlLite_Lib::SqlLite_Lib()
 {
-
     table_name = "非酒精性脂肪肝EC";
+    Py_Initialize();
+    PyRun_SimpleString("import sys");
+    std::string path = "sys.path.append(\"D:/Projects/PythonProjects/Medical_Classification/models/SVM/\")";
 
+    const char* cstr_cmd = path.c_str();
+    PyRun_SimpleString(cstr_cmd);
+    PyObject* pModule = PyImport_ImportModule("svm_test"); //模块名，不是文件名
+
+
+    if (!pModule) // 加载模块失败
+    {
+        std::cout << "[ERROR] Python get module failed." << std::endl;
+    }
+    std::cout << "[INFO] Python get module succeed." << std::endl;
+
+
+    PyObject* pv = PyObject_GetAttrString(pModule, "aaa");
+    if (!pv || !PyCallable_Check(pv))
+    {
+        std::cout << "[ERROR] Can't find funftion." << endl;
+    }
+    cout << "[INFO] Get function succeed." << endl;
+
+    PyObject* pValue = PyObject_CallObject(pv, NULL);
+    Py_ssize_t rows = PySequence_Size(pValue);
+    for (Py_ssize_t i = 0; i < rows; ++i) {
+        PyObject* row = PySequence_GetItem(pValue, i);
+        if (!row) {
+            PyErr_Print();
+            continue;
+        }
+
+        // 获取每行的列数
+        Py_ssize_t cols = PySequence_Size(row);
+        for (Py_ssize_t j = 0; j < cols; ++j) {
+            PyObject* item = PySequence_GetItem(row, j);
+            if (!item) {
+                PyErr_Print();
+                continue;
+            }
+
+            // 根据元素的类型进行处理
+            if (PyLong_Check(item)) {
+                // 如果是整数类型
+                long intValue = PyLong_AsLong(item);
+                std::cout << "Integer: " << intValue << " ";
+            }
+            else if (PyUnicode_Check(item)) {
+                // 如果是字符串类型
+                PyObject* str = PyUnicode_AsEncodedString(item, "GBK", "strict");
+                auto a = PyBytes_AS_STRING(str);
+                std::cout << "String111: " << a << " ";
+                Py_DECREF(str);
+            }
+            else {
+                // 如果是其他类型，可以添加更多的条件分支来处理
+                std::cout << "Unknown type" << " ";
+            }
+
+            Py_DECREF(item);
+        }
+        std::cout << std::endl;
+
+        Py_DECREF(row);
+    }
 
 }
 
