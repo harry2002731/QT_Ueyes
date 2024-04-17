@@ -36,7 +36,8 @@ set(ads_demo_SRCS
     SqlInterface.h
     qml.qrc
 )
-add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS} )
+add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS}
+    welcomewindow.ui )
 target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../src"
                                                             "${CMAKE_CURRENT_SOURCE_DIR}/../modules"
                                                             "${OpenCV_INCLUDE_DIRS}")
