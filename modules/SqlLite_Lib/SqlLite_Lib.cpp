@@ -23,22 +23,62 @@ SqlLite_Lib::SqlLite_Lib()
     PyRun_SimpleString(cstr_cmd);
     PyObject* pModule = PyImport_ImportModule("svm_test"); //模块名，不是文件名
 
-
     if (!pModule) // 加载模块失败
     {
         std::cout << "[ERROR] Python get module failed." << std::endl;
     }
     std::cout << "[INFO] Python get module succeed." << std::endl;
 
+    // 获取python函数
+//    PyObject* pv = PyObject_GetAttrString(pModule, "aaa");
+//    if (!pv || !PyCallable_Check(pv))
+//    {
+//        std::cout << "[ERROR] Can't find funftion." << endl;
+//    }
+//    cout << "[INFO] Get function succeed." << endl;
 
-    PyObject* pv = PyObject_GetAttrString(pModule, "aaa");
-    if (!pv || !PyCallable_Check(pv))
+//    PyObject* pDict = PyModule_GetDict(pModule); //获得Python模块中的函数列
+
+    PyObject* pDict = PyModule_GetDict(pModule); //获得Python模块中的函数列
+
+    //获取python类
+    PyObject* pSvmAnalyzer = PyDict_GetItemString(pDict, "SvmAnalyzer");//获取函数字典中的YOLO类
+    if(pSvmAnalyzer == NULL)
     {
-        std::cout << "[ERROR] Can't find funftion." << endl;
+        cout << "Can't find YOLO class!" << endl;
+        return;
     }
-    cout << "[INFO] Get function succeed." << endl;
 
-    PyObject* pValue = PyObject_CallObject(pv, NULL);
+    PyObject* pInstanceSvmAnalyzer = PyObject_CallObject(pSvmAnalyzer,NULL);
+    if (pInstanceSvmAnalyzer == NULL)
+    {
+        cout << "Can't find YOLO instance!" << endl;
+        return;
+    }
+
+     PyObject* pMethod = PyObject_GetAttrString(pInstanceSvmAnalyzer, "get_suggestion");
+    if(pMethod == NULL)
+    {
+        cout << "Failed to use function1111!" << endl;
+        return;
+    }
+
+    PyObject *str = PyUnicode_FromString("Addictive Behavior");
+    PyObject* pArgs = PyTuple_Pack(1, pInstanceSvmAnalyzer);
+    if (!pArgs) {
+        // 处理错误
+        Py_DECREF(pMethod);
+    }
+
+    pMethod = PyUnicode_FromString("get_value"); // 方法名
+    PyObject* pValue = PyObject_CallMethod(pInstanceSvmAnalyzer, "get_suggestion","(Oi)",str,10);//pInstanceSvmAnalyzer对应self，ArgArray
+    if (pValue == NULL) {
+        PyErr_Print(); // 打印错误信息
+        std::cerr << "Python function call failed" << std::endl;
+        Py_Finalize();
+    }
+
+
     Py_ssize_t rows = PySequence_Size(pValue);
     for (Py_ssize_t i = 0; i < rows; ++i) {
         PyObject* row = PySequence_GetItem(pValue, i);
@@ -55,25 +95,23 @@ SqlLite_Lib::SqlLite_Lib()
                 PyErr_Print();
                 continue;
             }
-
             // 根据元素的类型进行处理
-            if (PyLong_Check(item)) {
+            if (PyFloat_Check(item)) {
                 // 如果是整数类型
-                long intValue = PyLong_AsLong(item);
+                float intValue = PyFloat_AsDouble(item);
                 std::cout << "Integer: " << intValue << " ";
             }
             else if (PyUnicode_Check(item)) {
                 // 如果是字符串类型
                 PyObject* str = PyUnicode_AsEncodedString(item, "GBK", "strict");
                 auto a = PyBytes_AS_STRING(str);
-                std::cout << "String111: " << a << " ";
+                std::cout << "String: " << a << " ";
                 Py_DECREF(str);
             }
             else {
                 // 如果是其他类型，可以添加更多的条件分支来处理
                 std::cout << "Unknown type" << " ";
             }
-
             Py_DECREF(item);
         }
         std::cout << std::endl;
