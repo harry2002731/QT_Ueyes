@@ -30,6 +30,7 @@
 //                                   INCLUDES
 //============================================================================
 #include <MainWindow.h>
+#include "qpainter.h"
 #include "ui_mainwindow.h"
 #include <QtConcurrent/QtConcurrent>
 using namespace QtConcurrent;
@@ -97,6 +98,13 @@ using namespace QtConcurrent;
 #include "BasicWindow.h"
 #include "WelcomeWindow.h"
 
+
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include "Widget_Lib/LoginViewer/LoginView/src/lvmainmodel.h"
+#include <QQuickStyle>
+#include <QQuickView>
+#include <QPainterPath>
 
 //QStackedLayout* m_layout;
 using namespace ads;
@@ -457,6 +465,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
     d(new MainWindowPrivate(this))
 {
+    setMouseTracking(true); // 启用鼠标跟踪
 
     d->ui.setupUi(this);
     setWindowTitle(QApplication::instance()->applicationName());
@@ -466,20 +475,20 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->createLeftToolBar(); //初始化侧边栏
 
     QTimer *timer = new QTimer(this);
-
     QThread* pthread = new QThread();
     Worker* worker = new Worker(d->timeLabel,d->memoryLabel); // 创建一个Worker对象
     worker->moveToThread(pthread); // 将Worker对象移动到新线程中
     QObject::connect(pthread, &QThread::started, worker, &Worker::doWork); // 连接信号和槽函数
     pthread->start();
-
     timer->start(1000); // 每隔1秒触发一次 timeout 信号
-    CDockManager::setConfigFlag(CDockManager::FocusHighlighting, true);
 
-    // uncomment if you would like to enable dock widget auto hiding
+
+
+    CDockManager::setConfigFlag(CDockManager::FocusHighlighting, true);
     CDockManager::setAutoHideConfigFlags({CDockManager::DefaultAutoHideConfig});
 
-    d->ui.widget->setLayout(m_layout = new QStackedLayout() );
+
+    d->ui.widget->setLayout(m_layout = new QStackedLayout());
     auto basic_win = new BasicWindow(d->ui.widget,QString("basic"));
     auto welcome_win = new WelcomeWindow(d->ui.widget,QString("welcome"));
 
@@ -489,8 +498,15 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->ui.widget->layout()->addWidget(basic_win);//显示调用layout来进行布局
     d->ui.widget->layout()->addWidget(welcome_win);//显示调用layout来进行布局
 
+//    auto pWidget = dynamic_cast<QWidget*>();     //将object转换为普通QWidget
+
     basic_win->createContent();
     welcome_win->createContent();
+
+    auto pWidget = new QWidget();
+    pWidget->setGeometry(0,0,d->ui.widget->geometry().width(),d->ui.widget->geometry().height());
+    pWidget->setStyleSheet("background-color: rgba(128, 128, 128, 127);"); // 设置半透明的灰色背景
+    pWidget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
 
 //    #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
@@ -509,6 +525,14 @@ CMainWindow::CMainWindow(QWidget *parent) :
 //    ));
 
 //    d->restorePerspectives();
+}
+
+void CMainWindow::mousePressEvent(QMouseEvent *event) {
+    if (!isLoggedIn && event->button() == Qt::LeftButton) {
+       // 如果用户未登录，点击窗体则弹出登录对话框
+       QMessageBox::information(NULL, "Title", "Content", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    }
+    QMainWindow::mousePressEvent(event);
 }
 
 //============================================================================
@@ -530,6 +554,8 @@ void CMainWindow::changeState_triggered()
     if (name == "欢迎") {
         d->win_map["basic"]->hideManagerAndFloatingWidgets();
         m_layout->setCurrentWidget(d->win_map["welcome"]);
+
+
     }
     else if (name == "设计") {
         d->win_map["welcome"]->hideManagerAndFloatingWidgets();
