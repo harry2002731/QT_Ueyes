@@ -47,7 +47,9 @@ class CMainWindow : public QMainWindow
 	Q_OBJECT
 private:
 	MainWindowPrivate* d;///< private data - pimpl
-	friend struct MainWindowPrivate;
+    friend struct MainWindowPrivate;
+    bool isLoggedIn = false;
+
 
 protected:
 	virtual void closeEvent(QCloseEvent* event) override;
@@ -73,6 +75,8 @@ private slots:
 	void applyVsStyle();
 
     void changeState_triggered();
+protected:
+    void mousePressEvent(QMouseEvent *event) override;
 
 };
 
