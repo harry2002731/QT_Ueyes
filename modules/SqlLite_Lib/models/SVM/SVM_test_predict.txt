@@ -1,0 +1,1829 @@
+s1	Laboratory Examinations	EC
+s2	Disease	合并心、脑、肺、肾等严重疾病；
+s3	Laboratory Examinations	抑郁症、老年痴呆等认知障碍者；
+s4	Disease	代谢性、中毒性、颅内感染、镇静剂过量等所致的精神异常者；
+s5	Disease	患有严重听力或视力障碍等无法合作者；
+s6	Disease	病案资料不全者。
+s7	Organ or Tissue Status	肝衰竭；
+s8	Disease	合并其它嗜肝病毒感染的肝炎，脂肪肝，长期饮酒史或其它慢性重型肝炎；
+s9	Laboratory Examinations	妊娠或准备妊娠妇女、哺乳期妇女；
+s10	Disease	有严重的基础疾病：重度慢性阻塞性肺疾病、严重肾功能不全、慢性充血性心力衰竭等；
+s11	Therapy or Surgery	免疫缺陷患者：如恶性肿瘤、器官移植和艾滋病或近3月内服用免疫抑制剂或糖皮质激素等；
+s12	Enrollment in other studies	正在参加其他临床试验；
+s13	Enrollment in other studies	研究者认为不适合入组的其它情况。
+s14	Therapy or Surgery	既往行TIPs治疗； 恶性肿瘤患者； 无完整病例信息患者； 无增强CT资料的患者；
+s15	Therapy or Surgery	既往失代偿；
+s16	Laboratory Examinations	LSM <25 kPa；
+s17	Disease	影响门静脉主干或主要肝脏分支，或脾脏、肠系膜静脉的门静脉血栓形成；
+s18	Diagnostic	由两项影像学检查证明的肝细胞癌；
+s19	Laboratory Examinations	胆红素>3 mg/dl，血小板<30 × 109/L，或快速凝血酶原实验<30%；
+s20	Organ or Tissue Status	存在肾功能不全(血肌酐>2 mg/dl)；
+s21	Life Expectancy	任何涉及治疗限制的疾病或预期生存时间小于12月；
+s22	Disease	β受体阻滞剂治疗绝对禁忌证(严重支气管痉挛、主动脉狭窄A-V阻滞、间歇性跛行、严重精神病、支气管哮喘)；
+s23	Allergy Intolerance	β受体阻滞剂过敏；
+s24	Laboratory Examinations	妊娠或哺乳期；
+s25	Therapy or Surgery	接受抗凝治疗；
+s26	Laboratory Examinations	ALT >5 ULN or AST >5 ULN；
+s27	Therapy or Surgery	入组前两周曾接受过硝酸甘油或β受体阻滞剂治疗；
+s28	Risk Assessment	非酒精脂肪肝肝硬化且BMI ≥30 kg/m2。
+s29	Disease	肝癌或其他系统恶性肿瘤病史者；
+s30	Disease	有脑出血病史、活动性出血史；
+s31	Addictive Behavior	有嗜烟史（平均每天吸烟 5 支及以上）、酗酒史（每周饮用 14 个单位的酒精：1 单位=啤酒 285ml， 或烈酒 25ml，或葡萄酒约 100ml）或药物滥用史者，或不能保证在试验期间不吸烟或不饮酒者；
+s32	Enrollment in other studies	研究者认为有不适合参加试验的其他因素。
+s33	Age	年龄小于18周岁；
+s34	Laboratory Examinations	妊娠；
+s35	Disease	确诊或可疑恶性肿瘤；
+s36	Therapy or Surgery	既往实体器官移植；
+s37	Disease	人类免疫缺陷病毒感染；
+s38	Pharmaceutical Substance or Drug	使用糖皮质激素及免疫抑制剂用于治疗除外基础肝脏疾病的其他疾病。
+s39	Disease	合并严重心肺原发疾病、原发性肾病、血液系统疾病、恶性肿瘤等；
+s40	Laboratory Examinations	妊娠期或哺乳期女性；
+s41	Consent	失访或临床资料不完整者。患者及家属同意行相关检查，并签署知情同意书；
+s42	Compliance with Protocol	有精神病无法配合治疗或精神病史者；
+s43	Enrollment in other studies	近期或正在参加其他临床试验者；
+s44	Enrollment in other studies	近期或正在参加其他临床试验者；
+s45	Pharmaceutical Substance or Drug	3个月内应用过泻药或者治疗腹泻的药物；
+s46	Disease	最近出现过饮食习惯的改变，例如转为半素食或者全素食；
+s47	Disease	存在复杂性感染以及菌血症；
+s48	Disease	存在其他严重的器官衰竭的病史（例如癫痫，获得性免疫缺陷等）；
+s49	Therapy or Surgery	半年内曾经行肠道手术；
+s50	Therapy or Surgery	曾行回盲部手术或者目前存在造瘘口；
+s51	Laboratory Examinations	1个月内曾行肠镜；
+s52	Enrollment in other studies	近期或正在参加其他临床试验者；
+s53	Disease	研究者认为不适合加入本研究者。
+s54	Disease	合并严重心肺原发疾病、原发性肾病、血液系统疾病、恶性肿瘤等；
+s55	Therapy or Surgery	治疗过程中行外科手术及肝移植患者；
+s56	Consent	失访或临床资料不完整者。患者及家属同意行相关检查，并签署知情同意书；
+s57	Laboratory Examinations	妊娠期妇女；
+s58	Compliance with Protocol	有精神病无法配合治疗或精神病史者；
+s59	Enrollment in other studies	近期或正在参加其他临床试验者；
+s60	Disease	研究者认为不适合加入本研究者。
+s61	Laboratory Examinations	妊娠期或哺乳期女性；
+s62	Laboratory Examinations	门静脉海绵样变；
+s63	Therapy or Surgery	既往曾行TIPS或外科分流；
+s64	Disease	肝癌或其他恶性肿瘤；
+s65	Disease	存在内镜治疗、β-受体阻滞剂及TIPS禁忌症；
+s66	Enrollment in other studies	近期或正在参加其他临床试验者；
+s67	Disease	研究者认为不适合加入本研究者。
+s68	Laboratory Examinations	门静脉海绵样变；
+s69	Therapy or Surgery	既往曾行TIPS或外科分流术；
+s70	Disease	肝癌或其他恶性肿瘤；
+s71	Disease	存在内镜治疗、β-受体阻滞剂及TIPS禁忌症；
+s72	Laboratory Examinations	妊娠期或哺乳期女性；
+s73	Pharmaceutical Substance or Drug	3个月内应用过泻药或者治疗腹泻的药物；
+s74	Disease	最近出现过饮食习惯的改变，例如转为半素食或者全素食；
+s75	Disease	存在复杂性感染以及菌血症；
+s76	Disease	存在其他严重的器官衰竭的病史（例如癫痫，获得性免疫缺陷等）；
+s77	Therapy or Surgery	半年内曾经行肠道手术；
+s78	Therapy or Surgery	曾行回盲部手术或者目前存在造瘘口；
+s79	Laboratory Examinations	1个月内曾行肠镜；
+s80	Enrollment in other studies	近期或正在参加其他临床试验者；
+s81	Disease	研究者认为不适合加入本研究者。
+s82	Age	年龄大于75岁；
+s83	Disease	晚期肝癌或其他恶性疾病；
+s84	Laboratory Examinations	门静脉血栓形成（大于50%）；
+s85	Risk Assessment	Child—Pugh评分>14分或MELD评分＞30分 ；
+s86	Disease	NSBB的禁忌症；
+s87	Therapy or Surgery	既往TIPS手术史、脾切手术史；
+s88	Organ or Tissue Status	严重冠心病、高血压或心肺功能衰竭；
+s89	Enrollment in other studies	研究者认为不适合参加本研究者
+s90	Therapy or Surgery	既往腹部手术史（如肝切手术、肝移植）；
+s91	Laboratory Examinations	组织标本长度小于10mm。
+s92	Therapy or Surgery	TIPS手术失败者；
+s93	Therapy or Surgery	既往曾行TIPS或者外科分流手术；
+s94	Disease	既往曾反复发作肝性脑病（大于2次）；
+s95	Disease	TIPS术前合并完全阻塞性PVT或门静脉海绵样变；
+s96	Pharmaceutical Substance or Drug	术前已使用抗凝/抗血小板药物，或存在抗凝/抗血小板禁忌症；
+s97	Laboratory Examinations	血小板数量<30*109/L、国际标准化比值（INR）>2或血红蛋白<70g/L；
+s98	Disease	肝硬化合并食管胃底静脉曲张出血未控制或稳定时间小于2周；
+s99	Disease	合并布加综合征、易栓症、血液系统疾病或其他可能影响凝血功能情况（感染、急性肾损伤等）；
+s100	Risk Assessment	肝功能Child-Pugh评分大于等于10分（Child-Pugh C级）；
+s101	Organ or Tissue Status	心脏、肺、肾（CrCl＜30ml/min）、脑等重大脏器功能不全；
+s102	Disease	米兰标准以外的肝癌及其他恶性肿瘤；
+s103	Laboratory Examinations	来自高海拔地区（>2500米）；
+s104	Laboratory Examinations	孕妇及哺乳期妇女。
+s105	Diagnostic	经 CT 或 MRI、组织病理学等检查证实肝硬化合并肝癌或组织病理证实存在胃癌、胰腺癌等其他恶性肿瘤的患者；
+s106	Risk Assessment	Child Pugh 得分> 12；
+s107	Disease	肝硬化合并系统性红斑狼疮，克罗恩病、溃疡性结肠炎等炎症性肠病的患者；肝硬化合并血液系统疾病的患者；
+s108	Organ or Tissue Status	严重心肺功能不良；
+s109	Pharmaceutical Substance or Drug	近一月有饮酒史，或抗生素、益生菌使用史；
+s110	Disease	患有神经系统疾病，如阿尔海默氏病，帕金森病，非肝脏代谢性脑病；
+s111	Pharmaceutical Substance or Drug	使用抗精神病药物，如抗抑郁药或镇静剂；
+s112	Therapy or Surgery	有显性肝性脑病发病史的患者；
+s113	Laboratory Examinations	孕妇或哺乳期妇女；
+s114	Disease	研究者认为有其它不适合纳入因素的患者。
+s115	Laboratory Examinations	TIPS术失败；
+s116	Organ or Tissue Status	严重心功能不全，肾功能不全（eGFR<30ml/min/1.73m
+s117	Disease	合并肿瘤；
+s118	Risk Assessment	排除腹水影响，BMI>28kg/m2的肥胖者或严重高脂血症者；
+s119	Allergy Intolerance	对乳清或豌豆蛋白过敏。
+s120	Disease	器官功能障碍疾病史：心衰、肾衰竭等;
+s121	Compliance with Protocol	患有不能配合内镜检查的精神疾病者；
+s122	Therapy or Surgery	处于低血压休克状态或初始复苏后病情尚未稳定的、需要进行紧急干预的患者；
+s123	Disease	肝恶性肿瘤以外的其他恶性肿瘤患者；
+s124	Disease	肝硬化静脉曲张出血以外的其他原因引起的上消化道出血，如消化性溃疡、胃部肿瘤等；
+s125	Laboratory Examinations	妊娠期女性；
+s126	Enrollment in other studies	研究者认为有其他原因不适合参与本研究。
+s127	Therapy or Surgery	晚期肝癌患者（CNLC 分期Ⅳ期患者） ；
+s128	Disease	中晚期肝衰竭患者；
+s129	Disease	合并其他系统严重疾病， 如严重内分泌、 心、 肺或肾疾患者；
+s130	Disease	HIV 感染或梅毒感染者；
+s131	Disease	研究者认为可能会干扰受试者的治疗或干扰受试者的依从性， 包括任何未被控制的具有临床意义的泌尿、 循环、 呼吸、 神经、 精神、 消化、 内分泌、免疫等系统疾病及肿瘤；
+s132	Allergy Intolerance	对精氨酸谷氨酸注射液或注射用门冬氨酸鸟氨酸中任何成份过敏者；
+s133	Enrollment in other studies	筛选前 3 个月内参加过其他临床研究且使用研究药物者；
+s134	Pharmaceutical Substance or Drug	筛选前 2 个月或者估计受试者在研究过程中可能会使用肾毒性药物（如氨基糖甙类、 两性霉素 B、 万古霉素、 戊替脒、 顺铂等） 或通过肾脏竞争性排泌的药物（如丙磺舒等） ；
+s135	Laboratory Examinations	孕妇或哺乳期妇女；
+s136	Pharmaceutical Substance or Drug	正在口服巴比妥酸类麻醉剂、 异烟肼、 离子交换树脂或噻嗪类利尿剂者；
+s137	Laboratory Examinations	有吸毒史；
+s138	Enrollment in other studies	其他研究者认为不适合参与本研究的原因。
+s139	Age	年龄<18岁；
+s140	Disease	合并肝癌或其他消化道恶性肿瘤；
+s141	Organ or Tissue Status	伴有严重的心、 肺、 肾功能障碍者；
+s142	Therapy or Surgery	数据缺失或失访患者。
+s143	Therapy or Surgery	既往曾行TIPS或者外科分流手术；
+s144	Disease	消化道出血、自发性腹膜炎、肝肾综合征、肝肺综合征等肝硬化并发症未控制或稳定<1周；
+s145	Organ or Tissue Status	心脏、肺、肾、脑等重大脏器功能不全；
+s146	Compliance with Protocol	失明、弱视或屈光不正不能纠正；
+s147	Compliance with Protocol	极低文化程度，不能阅读及书写简单的字词；
+s148	Laboratory Examinations	来自高海拔地区（>2500米）；
+s149	Laboratory Examinations	孕妇及哺乳期妇女；
+s150	Risk Assessment	肝功能Child-Pugh评分超过12分，转氨酶超过正常上限5倍；
+s151	Disease	合并米兰标准以外的肝细胞癌或全身其他恶性肿瘤。
+s152	Disease	4周内出现食管胃静脉曲张破裂出血、肝性脑病、难治性腹水、肝肾综合征或自发性细菌性腹膜炎等严重并发症者；
+s153	Pharmaceutical Substance or Drug	2周内存在未控制的严重感染或使用过抗生素者；
+s154	Pharmaceutical Substance or Drug	乙肝患者HBV-DNA≥检测值下限；如已使用抗乙肝病毒药物治疗，用药时间＜12月，或研究过程中可能终止抗病毒治疗者；
+s155	Therapy or Surgery	正在接受抗丙肝病毒治疗或入组前12月内接受过抗丙肝病毒治疗者；
+s156	Therapy or Surgery	自身免疫性肝病患者如已接受熊去氧胆酸、激素或其它免疫抑制剂治疗，剂量稳定时间＜6月；
+s157	Addictive Behavior	近12周内有酗酒史及研究期间不能停止酗酒（折合乙醇量男性≥40g/天，女性≥20g/天）者；
+s158	Disease	确诊或怀疑合并恶性肿瘤者（恶性肿瘤治愈超过5年者除外）；
+s159	Laboratory Examinations	伴严重电解质异常（血Na＜125 mmol/L）或危及生命的白细胞下降（WBC＜1×10^9/L）；
+s160	Disease	合并控制不佳的高血压、糖尿病或其它严重心、肺疾病（心功能不全 NYHA Ⅲ/Ⅳ级，慢性阻塞性肺病 GOLD C级及以上）者； 1
+s161	Therapy or Surgery	吸毒、接受美沙酮治疗、存在药品依赖情况或精神疾病患者； 1
+s162	Laboratory Examinations	HIV感染者； 1
+s163	Allergy Intolerance	已知对利福昔明过敏者； 1
+s164	Disease	妊娠哺乳期妇女或不排除妊娠可能的妇女； 1
+s165	Enrollment in other studies	12周内参加过其它药物试验者； 1
+s166	Disease	其它研究者认为不适合参加者。
+s167	Laboratory Examinations	妊娠及哺乳期女性；
+s168	Compliance with Protocol	无法配合完成项目研究或依从性不佳；
+s169	Disease	合并HAV、HCV、HDV、HEV感染者；
+s170	Disease	合并严重循环、神经、免疫系统疾病；
+s171	Disease	自身免疫性、酒精性、药物性及遗传代谢性肝病等疾病。
+s172	Disease	多发性内分泌肿瘤2型或甲状腺髓样癌的家族或个人史。家属定义为一级亲属；
+s173	Disease	急性或慢性胰腺炎；
+s174	Disease	筛查前5年内存在或有恶性肿瘤病史；
+s175	Disease	合并HIV；
+s176	Disease	糖尿病酮症酸中毒病史；
+s177	Disease	心肌梗塞、中风、不稳定心绞痛或短暂性脑缺血发作；
+s178	Laboratory Examinations	冠状动脉、颈动脉或外周动脉血运重建；
+s179	Laboratory Examinations	妊娠；
+s180	Disease	其他被医生认为不适合本研究的患者，例如其他严重疾病影响营养状态。
+s181	Therapy or Surgery	既往曾行TIPS或外科分流手术；
+s182	Disease	既往曾反复发作肝性脑病（大于2次）；
+s183	Laboratory Examinations	门静脉海绵样变；
+s184	Risk Assessment	肝功能 (Child-Pugh)评分大于11分；
+s185	Organ or Tissue Status	心脏、肺、肾、脑等重大脏器功能不全；
+s186	Disease	米兰标准以外的肝癌及其他恶性肿瘤；
+s187	Laboratory Examinations	来自高海拔地区（>2500米）；
+s188	Laboratory Examinations	孕妇及哺乳期妇女。
+s189	Laboratory Examinations	因语言障碍,听力受损，与研究者交流困难者。
+s190	Laboratory Examinations	无法完成 MoCA检测（即非中文语言、意识水平不适当等）。
+s191	Disease	在研究测试中有明显的肝性脑病（人、地点或时间定向障碍）。
+s192	Disease	有活动性恶性肿瘤或终末期肾脏疾病 。
+s193	Diagnostic	确诊为痴呆 。
+s194	Consent	不同意本研究者。
+s195	Disease	意识不清、不能表达主观不适症状者及精神病患者；
+s196	Disease	合并心力衰竭、呼吸衰竭、严重肾功能不全及合并其他严重感染性疾病者；
+s197	Disease	有严重出血倾向者。
+s198	Disease	合并糖尿病足者。
+s199	Laboratory Examinations	孕妇及哺乳期妇女；
+s200	Enrollment in other studies	正在进行其他临床研究者或研究者认为不适合参加研究的其他情况。
+s201	Risk Assessment	存在肝外转移、肝功能Child C级的患者。
+s202	Disease	严重的晚期肝癌或肝外恶性肿瘤的患者；
+s203	Disease	慢性肾脏病和结构性肾损伤的患者；
+s204	Organ or Tissue Status	严重心肺功能障碍的患者；
+s205	Therapy or Surgery	住院期间因行肝移植术、非AKI导致的死亡或其他原因无法继续监测其病情的患者；
+s206	Laboratory Examinations	孕妇、哺乳期妇女；
+s207	Compliance with Protocol	研究者认为可能存在依从性不良的患者。
+s208	Disease	代谢性疾病，如糖尿病(DM)；
+s209	Disease	中枢神经系统疾病，如显性肝性脑病、中风或帕金森病；
+s210	Pharmaceutical Substance or Drug	其他神经病变原因，如毒素或药物暴露；
+s211	Laboratory Examinations	颈椎病或腰椎病；
+s212	Disease	肢体损伤；
+s213	Disease	检测部位存在皮肤病变；
+s214	Laboratory Examinations	肾损害(血清肌酐升高)；
+s215	Disease	恶性肿瘤 。
+s216	Disease	确诊有病毒性肝炎和肝血吸虫病患者；
+s217	Life Expectancy	确诊有恶性肿瘤或癌症罹患/复发高风险者，或预计寿命< 60个月；
+s218	Enrollment in other studies	目前正在参加其他药物或医疗器械临床试验，且尚未完成该研究的主要研究终点；
+s219	Therapy or Surgery	孕妇或哺乳期妇女，或计划在近1年内受孕的妇女（育龄期妇女均须在基线手术前7天内接受妊娠试验）；
+s220	Addictive Behavior	酗酒/吸毒/药物滥用史；
+s221	Compliance with Protocol	经研究者判断存在影响受试者安全或其他任何干扰试验结果评估的情况；
+s222	Therapy or Surgery	数据不齐全的患者。
+s223	Disease	恶性肿瘤患者；
+s224	Therapy or Surgery	胰源性门静脉高压患者；
+s225	Therapy or Surgery	脾动脉瘤患者；
+s226	Disease	糖尿病控制欠佳的患者；
+s227	Disease	严重感染的患者；
+s228	Therapy or Surgery	无完整病例信息患者。
+s229	Pharmaceutical Substance or Drug	筛选前6个月内接受过以IFN为基础的抗HBV治疗；或筛选前6个月内系统性使用强力免疫调节剂如肾上腺皮质激素、胸腺肽α等超过2周或预期这种药物将在研究期间使用；
+s230	Diagnostic	证据显示肝功能失代偿，包括但不限于：经复测确认TBIL＞10倍ULN或凝血酶原活动度（PTA）＜40％；或现有顽固性腹水、上消化道出血和/或肝性脑病，或存在慢性或慢加急性肝衰竭；
+s231	Diagnostic	原发性肝癌患者、肝脏影像学检查有结节者，伴或不伴甲胎蛋白（AFP）升高；
+s232	Disease	合并有甲型肝炎、丙型肝炎、丁型肝炎、戊型肝炎等其他嗜肝病毒感染者；或合并HIV感染者；
+s233	Disease	其他原因引起的肝病病史：包括酒精性肝病、重度非酒精性脂肪性肝病、药物性肝炎、自身免疫性肝炎、Wilson病及血色病等；
+s234	Disease	有重要器官的严重损害者：如严重的心血管疾病或未控制的心律失常，肾功能异常者，控制不良的糖尿病，精神、神经系统疾病等；
+s235	Disease	既往合并严重的系统性疾病的病史：如严重的血液系统疾病、肾脏疾病、消化系统疾病及呼吸系统疾病等；
+s236	Disease	活动或疑似恶性肿瘤或筛选前5年内恶性肿瘤史；
+s237	Organ or Tissue Status	主要功能脏器移植史；
+s238	Allergy Intolerance	过敏体质或严重过敏史者，尤其是试验药物及成分过敏者；
+s239	Addictive Behavior	长期大量饮酒（长期大量饮酒标准：折合乙醇量：男≥40g/d，女≥20g/d，或2周内有大量饮酒史，折合乙醇量为80g/d ）和/或精神活性物质，药物滥用者和依赖者；
+s240	Laboratory Examinations	妊娠期或哺乳期女性；
+s241	Consent	不能或不愿意提供知情同意或不能遵守试验要求者；
+s242	Enrollment in other studies	研究者判断不适合入组的其他情况。
+s243	Risk Assessment	有证据显示肝功能失代偿，包括但不限于：既往或现有腹水、上消化道出血和/或肝性脑病；既往或现有Child-Pugh评分B级或C 级；
+s244	Laboratory Examinations	筛选期乙肝表面抗原(HbsAg)血清学检测呈阳性者；
+s245	Therapy or Surgery	禁用利巴韦林治疗者，其中包括血红蛋白病（例如，地中海贫血或镰状细胞性贫血）；
+s246	Laboratory Examinations	妊娠或正在哺乳的女性或配偶怀孕的男性；
+s247	Pharmaceutical Substance or Drug	在基线/第1天访视之前使用禁用药物；
+s248	Allergy Intolerance	已知索磷布韦、维帕他韦、利巴韦林、伏西瑞韦或其配方赋形剂过敏者；
+s249	Disease	存在下列任何一种现病史或既往病史：
+s250	Disease	存在非HCV所导致的慢性肝病（包括但不限于：血色素沉着症、威尔逊病、α-1抗胰蛋白酶缺乏症、胆管炎、自身免疫性肝炎、酒精性肝病、药物性肝病）；
+s251	Therapy or Surgery	实质器官移植；
+s252	Disease	严重的心（包括但不限于：心肌梗死[根据ECG和/或临床病史进行判断]）、肺（例如：肺浸润或肺功能受损）疾病或卟啉病；
+s253	Laboratory Examinations	胰腺炎；
+s254	Disease	存在自身免疫性疾病（如系统性红斑狼疮、类风湿性关节炎、结节病、银屑病）；
+s255	Disease	最近5年内曾出现过因精神疾病而住院治疗、自杀企图和/或精神疾患所致的残疾；
+s256	Consent	在签署知情同意书之前的5年内存在恶性肿瘤（手术切除且完全治愈的特定癌症[皮肤基底细胞癌等]除外）。目前正在评估潜在恶性肿瘤的受试者，不得进入本临床研究；
+s257	Disease	严重的急性过敏反应（例如：荨麻疹、血管水肿、支气管痉挛、过敏性反应）或严重皮肤反应（例如：水泡性皮疹、Stevens Johnson症候群之皮肤与黏膜侵犯的反应）；
+s258	Compliance with Protocol	研究者认为可能干扰治疗、评估或遵守研究方案，不适合纳入本研究者。
+s259	Risk Assessment	有证据显示肝功能失代偿，包括但不限于：既往或现有腹水、上消化道出血和/或肝性脑病；既往或现有Child-Pugh评分B级或C 级；
+s260	Laboratory Examinations	筛选期乙肝表面抗原(HbsAg)血清学检测呈阳性者；
+s261	Addictive Behavior	酗酒者；
+s262	Therapy or Surgery	禁用利巴韦林治疗者，其中包括血红蛋白病（例如，地中海贫血或镰状细胞性贫血）；
+s263	Laboratory Examinations	妊娠或正在哺乳的女性或配偶怀孕的男性；
+s264	Pharmaceutical Substance or Drug	在基线/第1天访视之前使用禁用药物；
+s265	Allergy Intolerance	已知索磷布韦、维帕他韦、利巴韦林、伏西瑞韦或其配方赋形剂过敏者；
+s266	Disease	存在下列任何一种现病史或既往病史：
+s267	Disease	存在非HCV所导致的慢性肝病（包括但不限于：血色素沉着症、威尔逊病、α-1抗胰蛋白酶缺乏症、胆管炎、自身免疫性肝炎、酒精性肝病、药物性肝病）；
+s268	Therapy or Surgery	实质器官移植；
+s269	Disease	严重的心（包括但不限于：心肌梗死[根据ECG和/或临床病史进行判断]）、肺（例如：肺浸润或肺功能受损）疾病或卟啉病；
+s270	Laboratory Examinations	胰腺炎；
+s271	Disease	存在自身免疫性疾病（如系统性红斑狼疮、类风湿性关节炎、结节病、银屑病）；
+s272	Disease	最近5年内曾出现过因精神疾病而住院治疗、自杀企图和/或精神疾患所致的残疾；
+s273	Consent	在签署知情同意书之前的5年内存在恶性肿瘤（手术切除且完全治愈的特定癌症[皮肤基底细胞癌等]除外）。目前正在评估潜在恶性肿瘤的受试者，不得进入本临床研究；
+s274	Disease	严重的急性过敏反应（例如：荨麻疹、血管水肿、支气管痉挛、过敏性反应）或严重皮肤反应（例如：水泡性皮疹、Stevens Johnson症候群之皮肤与黏膜侵犯的反应）；
+s275	Compliance with Protocol	研究者认为可能干扰治疗、评估或遵守研究方案，不适合纳入本研究者。
+s276	Pharmaceutical Substance or Drug	近4周内服用过卡维地洛、普萘洛尔等非选择性β受体阻滞剂者；
+s277	Disease	近4周内发生过显性肝性脑病、食管静脉曲张破裂出血者；
+s278	Therapy or Surgery	既往经颈静脉肝内门体分流术（TIPS）者；
+s279	Addictive Behavior	近12周内有酗酒史及研究期间不能停止酗酒（折合乙醇量男性≥40g/天，女性≥20g/天）者；
+s280	Organ or Tissue Status	合并严重黄疸（血清Tbil水平≥85μmol/L）或明显肾功能不全
+s281	Laboratory Examinations	伴严重电解质异常（血Na＜125 mmol/L）或危及生命的白细胞下降（WBC＜1×10^9/L）；
+s282	Disease	合并控制不佳的高血压、糖尿病或其它严重心、肺疾病者；
+s283	Disease	确诊或怀疑合并恶性肿瘤者；
+s284	Therapy or Surgery	已行脾切除术者；
+s285	Laboratory Examinations	HIV感染者；
+s286	Allergy Intolerance	已知对阿尔维林过敏者；
+s287	Pharmaceutical Substance or Drug	近4周内服用三环类抗抑郁药及类似药、普鲁卡因胺或衍生物、H1抗组织胺药、全身性胆碱能药物者；
+s288	Disease	妊娠哺乳期妇女或不排除妊娠可能的妇女；
+s289	Enrollment in other studies	12周内参加过其它药物试验者；
+s290	Disease	其它研究者认为不适合参加者。
+s291	Therapy or Surgery	肝硬化食管胃静脉曲张内镜治疗研究对象：
+s292	Therapy or Surgery	肝硬化脾切除术后患者；
+s293	Therapy or Surgery	肝硬化TIPS术后患者；
+s294	Therapy or Surgery	急诊内镜下治疗患者；
+s295	Therapy or Surgery	存在内镜治疗禁忌证者；
+s296	Therapy or Surgery	肝硬化PVT抗凝治疗研究对象：
+s297	Organ or Tissue Status	凝血功能明显异常：凝血酶原活动度<40%；血小板计数<20×10^9/L；
+s298	Disease	合并血液系统疾病；
+s299	Disease	合并严重的心、脑血管系统疾病；
+s300	Compliance with Protocol	不能遵医嘱按时随访者；
+s301	Pharmaceutical Substance or Drug	在达到内镜治疗终点后，接受随访过程中，因其他疾病需要服用抗血小板聚集药物、抗凝药物的患者。
+s302	Disease	合并可以引起血浆D-D水平升高的其他疾病，如恶性肿瘤、心脑血管性疾病、原发性血液系统疾病等；
+s303	Pharmaceutical Substance or Drug	半年内使用抗凝或促凝药物；
+s304	Disease	合并其他嗜肝病毒感染、药物性、酒精性、中毒性、遗传代谢性、自身免疫性肝病等肝脏疾病；
+s305	Laboratory Examinations	肝癌；
+s306	Laboratory Examinations	妊娠及哺乳期妇女；
+s307	Diagnostic	已诊断PVT形成或其他部位栓塞者；
+s308	Therapy or Surgery	有脾脏切除术史、脾脏栓塞术史、分流术史或TIPS术史等；
+s309	Pharmaceutical Substance or Drug	有恩替卡韦或肝爽颗粒使用禁忌症；
+s310	Compliance with Protocol	随访不足半年者或三个月内死亡者。
+s311	Therapy or Surgery	既往有性疾病史；
+s312	Therapy or Surgery	正在接受抗凝治疗或停用抗凝药物时间不足；
+s313	Disease	妊娠状态；
+s314	Addictive Behavior	有麻醉药物滥用、吸毒史，或具有精神病史；
+s315	Diagnostic	临床资料不完整者。
+s316	Age	年龄< 20岁或年龄> 80岁；
+s317	Disease	严重的肾衰竭、心脏或呼吸衰竭；
+s318	Disease	严重的血糖控制不佳；
+s319	Disease	合并脑血管疾病，癫痫；有严重头部损伤或其他可能影响大脑功能的病史；
+s320	Laboratory Examinations	行经颈静脉肝内门体分流术；
+s321	Addictive Behavior	在过去3个月内曾滥用酒精或药物，或正在服用精神药物及催眠药；
+s322	Disease	过去有OHE发作史；
+s323	Pharmaceutical Substance or Drug	过去1个月内使用过PPIs或乳果糖；
+s324	Compliance with Protocol	不能或不愿配合完成研究的患者。
+s325	Disease	伴有严重呼吸、心力衰竭、肾脏疾病、结缔组织疾病、结核感染、恶性肿瘤等慢性消耗性疾病的患者；
+s326	Disease	合并有糖尿病、甲亢、甲减等影响能量代谢相关疾病的患者。
+s327	Laboratory Examinations	妊娠或哺乳期女性；
+s328	Disease	曾出现任何失代偿事件：静脉曲张破裂出血、腹水、显性肝性脑病；
+s329	Risk Assessment	Child-Pugh score ≥ 10分；
+s330	Allergy Intolerance	对非甾体药物、磺胺过敏；
+s331	Pharmaceutical Substance or Drug	长期非甾体药物服用病史；
+s332	Disease	有活动性消化道溃疡/出血，重度心力衰竭，冠状动脉搭桥手术等COX-2抑制剂禁忌症。
+s333	Disease	合并肝脏或其他任何类型的恶性肿瘤者；
+s334	Disease	1月内合并严重并发症者（消化道大出血/急性出血、肝性脑病（III-IV期）、严重/急性感染）；
+s335	Therapy or Surgery	3月内接受过免疫抑制剂及免疫增强剂治疗者；
+s336	Therapy or Surgery	1月内接受过输血及其他血液制品治疗者；
+s337	Disease	主要器官移植病史或者发现严重的心、肺、肾、血液、内分泌等系统疾病者；
+s338	Disease	严重的精神病史，尤其是抑郁症者；
+s339	Laboratory Examinations	生命体征不稳定者；
+s340	Allergy Intolerance	一般身体状况差不能耐受细胞移植术者；
+s341	Allergy Intolerance	高度过敏体质或有严重过敏史者；
+s342	Laboratory Examinations	HIV阳性者；
+s343	Therapy or Surgery	在试验开始前 1 年内，吸毒或者接受美沙酮治疗者；
+s344	Addictive Behavior	有酗酒、药物滥用史，并未能有效戒除者；
+s345	Enrollment in other studies	入组前3个月内参与过其他临床试验；
+s346	Therapy or Surgery	孕妇、哺乳期妇女或近期有生育计划者；
+s347	Consent	没有能力或者不愿意签署知情同意书，或者不遵守试验要求者；
+s348	Disease	极个别期望值过高，或者不切合实际的要求者；
+s349	Enrollment in other studies	研究者认为的患者不宜参加本研究的其他情况。
+s350	Consent	拒绝行内镜检查；
+s351	Disease	合并肝癌或其他脏器恶性肿瘤患者；
+s352	Risk Assessment	数据不完整，不能有效计算Child-Pugh分级/数，病例资料中血管直径记录数据不完整；
+s353	Organ or Tissue Status	患者合并严重的并发症，如：肝功能衰竭、肾功能不全、心肺功能不全和进展期全身性疾病。
+s354	Disease	伴有急性HAV、 HEV、 EBV或CMV等病毒的感染。
+s355	Therapy or Surgery	其他组织、器官感染者。
+s356	Disease	其他原因引起的腹水，如肾性腹水、心源性腹水。
+s357	Laboratory Examinations	妊娠、吸毒或HIV感染者。
+s358	Disease	不可控制的肝癌或其他系统肿瘤者。
+s359	Therapy or Surgery	曾接受器官移植。
+s360	Therapy or Surgery	正接受糖皮质激素或其他免疫抑制治疗。
+s361	Pharmaceutical Substance or Drug	长期或近期服用抗菌药物、益生菌及相关药物者。
+s362	Risk Assessment	MELD评分>17分；
+s363	Pharmaceutical Substance or Drug	口服或应用抗生素；
+s364	Allergy Intolerance	相关药物过敏；
+s365	Pharmaceutical Substance or Drug	应用免疫抑制药物；
+s366	Laboratory Examinations	艰难梭菌阳性；
+s367	Laboratory Examinations	妊娠；
+s368	Disease	感染；
+s369	Addictive Behavior	滥用酒精；
+s370	Consent	不能提供知情同意书的患者。
+s371	Therapy or Surgery	血液系统疾病患者；
+s372	Disease	其他严重脏器合并症及除符合米兰国际标准以外的恶性肿瘤患者；
+s373	Compliance with Protocol	未经规律随访及治疗；
+s374	Disease	其他部位出血者。
+s375	Pharmaceutical Substance or Drug	治疗前4周使用过抗生素；
+s376	Disease	原发性肝癌或其他系统肿瘤；
+s377	Risk Assessment	肝功能Child C级；
+s378	Disease	受试者患有任何不稳定或者未控制的心血管、肺、肝、肾、泌尿生殖、血液学、凝血功能、免疫学、代谢或其他医学疾病，且研究者认为会干扰研究结果或危害受试者的安全性；
+s379	Allergy Intolerance	受试者既往有严重的过敏病史；
+s380	Therapy or Surgery	妊娠、哺乳期患者或近3月计划生育的患者；
+s381	Addictive Behavior	筛选前1年内，受试者具有药物滥用（定义为使用任何违禁药物）史或者酗酒史；
+s382	Compliance with Protocol	受试者患有活动性精神病，研究者认为可能干扰其对研究流程的依从性；
+s383	Compliance with Protocol	受试者无法参加所有的研究访视或者遵守研究流程；
+s384	Enrollment in other studies	3月内参加过或正在参加其他临床研究。
+s385	Laboratory Examinations	中途退出及失访者；
+s386	Disease	存在精神障碍、合并其他重大疾病的患者；
+s387	Diagnostic	临床确诊为肝癌的患者；
+s388	Disease	合并其他病毒性肝炎、自身免疫性肝病、药物性肝病等其他肝脏疾病的肝硬化患者。
+s389	Consent	无法遵守或拒绝签署知情同意书；
+s390	Allergy Intolerance	对考来烯胺过敏史；
+s391	Laboratory Examinations	胃镜检查显示食管胃底静脉曲张严重，或红色征(RC)阳性；
+s392	Disease	有食管胃底静脉曲张出血史或肝性脑病史；
+s393	Risk Assessment	Child-Pugh 得分≥10；
+s394	Laboratory Examinations	血小板< 30×10^9/L；
+s395	Addictive Behavior	酗酒史:男性酒精摄入量＞210 g/w，女性酒精摄入量＞140 g/w；
+s396	Disease	肝脏疾病的其他原因，包括自身免疫、药物诱导的肝损伤、酒精或遗传代谢性肝病，或肝癌；
+s397	Disease	其他系统如循环、呼吸、泌尿系统等严重疾病或癌；
+s398	Therapy or Surgery	有肠切除术、脾切除术或栓塞术病史；
+s399	Disease	HIV感染或其他如糖尿病、肾功能不全、自身免疫性疾病、甲状腺疾病等器官功能障碍；
+s400	Disease	A、C、D或E型肝炎病毒感染；
+s401	Laboratory Examinations	孕妇或哺乳期妇女；
+s402	Pharmaceutical Substance or Drug	二甲双胍使用史；
+s403	Pharmaceutical Substance or Drug	入组前7天内使用抗生素；
+s404	Pharmaceutical Substance or Drug	入组前30天内使用免疫调节剂；
+s405	Pharmaceutical Substance or Drug	服用益生菌；
+s406	Pharmaceutical Substance or Drug	服用恩替卡韦以外的抗病毒药物；
+s407	Enrollment in other studies	参加另一项临床试验。
+s408	Compliance with Protocol	受试者可以在以下情况下随时退出试验:患者发生严重不良事件，研究人员认为有必要中断试验，患者需要在研究期间结束。
+s409	Risk Assessment	ASA分级IV或V类；
+s410	Pharmaceutical Substance or Drug	长期服用镇痛类或镇静药物；
+s411	Laboratory Examinations	肝性脑病；
+s412	Disease	神经系统疾病，如阿尔茨海默病或帕金森氏症；
+s413	Allergy Intolerance	对苯二氮卓类药物或阿片类药物过敏；
+s414	Consent	拒绝签署知情同意书。
+s415	Disease	肝癌性、心源性、结核性以及肾源性腹水者；
+s416	Laboratory Examinations	肝硬化代偿期及无腹水者；
+s417	Disease	合并心血管、肾、造血系统、神经系统严重疾病、肿瘤病以及精神病患者；
+s418	Disease	合并有消化道出血者；
+s419	Laboratory Examinations	妊娠或哺乳期妇女。
+s420	Disease	确诊或可疑恶性肿瘤；
+s421	Laboratory Examinations	妊娠；
+s422	Disease	HIV感染；
+s423	Disease	严重肝损伤（黄疸85umol/L和INR1.
+s424	Laboratory Examinations	妊娠或哺乳期妇女。
+s425	Disease	明显凝血机制障碍者，有出血倾向者。
+s426	Disease	合并有严重心、脑、肺等重要器官疾病或有严重并发症者（并发肝性脑病、难治性腹水、肝肾综合征等）或合并全身严重感染者。
+s427	Enrollment in other studies	目前正在参加其他临床试验者。
+s428	Laboratory Examinations	无完整病例信息；
+s429	Compliance with Protocol	不能与癌栓区分的患者。
+s430	Disease	自身免疫性疾病患者；
+s431	Allergy Intolerance	过敏体质者；
+s432	Disease	合并肝癌患者；
+s433	Organ or Tissue Status	心、肺、肾等脏器功能衰竭患者。
+s434	Disease	自身免疫性疾病患者；
+s435	Allergy Intolerance	过敏体质者；
+s436	Disease	合并肝癌患者；
+s437	Organ or Tissue Status	心、肺、肾等脏器功能衰竭患者。
+s438	Disease	同时合并其他原发性恶性肿瘤；
+s439	Disease	严重的凝血功能障碍或严重的血小板减少性紫癜；
+s440	Disease	合并严重的心、肾功能不全，控制欠佳的糖尿病和高血压等其他疾病
+s441	Disease	存在其他不可控制的影响认知功能的神经-精神疾病或神经系统疾病如阿尔茨海默病、帕金森氏病、精神分裂症等；
+s442	Pharmaceutical Substance or Drug	过去4周内服用催眠或镇静药、精神类药物；
+s443	Addictive Behavior	过去3月内酒精摄入男性>20g/天，女性＞10g/天；
+s444	Compliance with Protocol	其他无法独立完成测试的情况如红绿色盲、无法读写、存在理解困难等；
+s445	Disease	研究者认为不适合参加者。
+s446	Therapy or Surgery	怀孕或者哺乳期的患者；
+s447	Organ or Tissue Status	凝血功能、心功能、肺功能严重异常或一般情况较差的患者；
+s448	Therapy or Surgery	肝静脉、门静脉、肠系膜静脉血栓患者；
+s449	Risk Assessment	肝恶性肿瘤或肝功能失代偿（Child C 或 MELD > 2
+s450	Allergy Intolerance	患者碘过敏患者。
+s451	Disease	有脑出血、脑梗死、脑肿瘤、颅内感染、癫痫等脑部疾病患者；有酮症酸中毒、低血糖、肾性脑病、肺性脑病等代谢性脑病患者；有酒精性脑病、重金属中毒性脑病、戒断综合征等中毒性脑病患者;
+s452	Disease	有精神疾病病史患者;
+s453	Disease	显性肝性脑病或既往有显性肝性脑病病史患者;
+s454	Disease	有糖尿病、严重心肺疾病、肾功能不全、甲状腺疾病、肠梗阻等易引起胃肠动力不足疾病患者,乳糖不耐受患者,有其他可导致营养不良、慢性腹泻等的肝外疾病患者,6周内有消化道出血病史患者,有持续性活动性感染患者;
+s455	Pharmaceutical Substance or Drug	两周内接受过幽门螺杆菌杀菌治疗或服用过抗生素、乳果糖、益生菌、PPI及胃肠动力药如莫沙比利、多潘立酮等的患者；1个月内接受过灌肠或结肠镜检测的患者;
+s456	Therapy or Surgery	接受过胃、肠切除等腹部手术患者;
+s457	Disease	存在听力、视力障碍以致不能接受数字连接试验和数字符号试验检查的患者;
+s458	Compliance with Protocol	依从性差及存在其他可能影响本次实验结果因素的患者.
+s459	Disease	1 个月内出现食管胃底静脉曲张破裂出血、2级及以上肝性脑病、难治性腹水、肝肾综合征等严重并发症；
+s460	Disease	2 周内存在未控制的严重感染；
+s461	Laboratory Examinations	乙型肝炎病毒（HBV）DNA≥ 检测下限；
+s462	Therapy or Surgery	乙肝肝硬化患者在研究过程中可能中止抗病毒治疗，或接受抗乙型肝炎病毒治疗少于 12 个月；
+s463	Therapy or Surgery	丙肝肝硬化患者在研究过程中可能中止抗病毒治疗，或接受抗病毒治疗未超过 12 个月；
+s464	Therapy or Surgery	自免疫性肝硬化患者接受糖皮质激素治疗少于 6 个月；
+s465	Therapy or Surgery	接受经颈静脉肝内门体静脉分流术（TIPS）少于 6 个月；
+s466	Compliance with Protocol	纳入研究后不愿意停止饮酒；
+s467	Laboratory Examinations	严重黄疸（血清总胆红素水平≥ 170μmol/L）；明显肾功能不全（血清肌酐≥ 正常上限的
+s468	Laboratory Examinations	2 倍）；严重电解质异常（血清钠水平＜125 mmol/l）；严重的白细胞减少（白细胞计数＜1× 10^9/升）；
+s469	Disease	合并胆道梗阻，或存在肝静脉、或门静脉、或脾静脉血栓，或门静脉海绵样变的患者；
+s470	Therapy or Surgery	有脾切断流、或门体分流等外科手术史者；
+s471	Disease	确诊或怀疑合并恶性肿瘤者；
+s472	Disease	主要器官移植病史或者合并严重的心、肺、肾、血液、内分泌等系统疾病者；
+s473	Therapy or Surgery	吸毒、接受美沙酮治疗、存在药品依赖情况或精神疾病患者；
+s474	Laboratory Examinations	人类免疫缺陷病毒(HIV)抗体检查结果呈阳性；
+s475	Therapy or Surgery	1 月内接受过输血及其他血液制品治疗者；
+s476	Therapy or Surgery	妊娠、哺乳期妇女或近期有生育计划者；
+s477	Allergy Intolerance	过敏体质或有严重过敏史者；
+s478	Enrollment in other studies	近 3 个月内参加其他临床试验者；
+s479	Enrollment in other studies	研究者认为的患者不宜参加本研究的其他情况。
+s480	Disease	各类型感染性肠病；
+s481	Disease	各类型功能性肠病；
+s482	Laboratory Examinations	炎症性肠病；
+s483	Disease	缺血性肠病、急性肠系膜上动脉栓塞等血管性肠病；
+s484	Disease	肠道恶性肿瘤；
+s485	Disease	其他原发性肠病。
+s486	Diagnostic	恶性腹水或根据2012年美国肝病研究协会（AASLD）推荐的顽固型腹水诊断标准被诊断为顽固型腹水者；
+s487	Allergy Intolerance	对酵母或酵母源制品有已知的过敏史/过敏反应者，或对研究制剂中任何组分过敏者；过敏体质（多种药物或食物过敏）、或有生物制品过敏史、其他原因引起的严重全身过敏反应历史且研究者判断不适合使用试验药物治疗者
+s488	Risk Assessment	筛选期Child-Pugh分级为C级者；
+s489	Laboratory Examinations	中性粒细胞绝对值（ANC）<1.0×10^9/L（1000/mm^3）
+s490	Laboratory Examinations	血小板（PLT）<20×10^9/L（2×10^4/mm^3）
+s491	Laboratory Examinations	血红蛋白（HGB）<8.0 g/dL；
+s492	Laboratory Examinations	血清肌酐>正常值上限（ULN）；
+s493	Laboratory Examinations	尿蛋白检查结果异常且有临床意义；
+s494	Disease	筛选时存在活动性心血管系统疾病或病史，或其他研究者判断不适合接受人血白蛋白治疗的情况，具体包括但不限于，高血压（收缩压>140 mmHg或舒张压>90 mmHg，研究者判断用药控制良好且病情稳定的除外）、重度贫血、急性心脏病、严重的心肺或结构性心脏病、严重心律失常、（正常血容量或高血容量的）失代偿心力衰竭、不稳定心绞痛、筛选前近6个月内发生心肌梗塞、需药物治疗的心动过速/过缓、三度房室传导阻滞等；
+s495	Disease	筛选时存在活动性代谢系统疾病或病史，或其他研究者判断不适合接受血清白蛋白治疗的肾损伤情况，具体包括但不限于，肾性/肾后性无尿、肝肾综合征（HRS）、慢性肾脏疾病、乙肝相关肾病等；
+s496	Disease	筛选时存在活动性恶性肿瘤（包括肝细胞癌[HCC]），或既往5年内有恶性肿瘤病史（接受治愈性治疗的宫颈癌或乳腺癌的原位癌、非黑色素瘤皮肤癌、局限性前列腺癌、原位导管癌等风险极低恶性肿瘤除外）者；
+s497	Therapy or Surgery	首次给予试验用药品前30天内曾接受皮质激素或人血浆制剂（包括人血白蛋白制剂）治疗者；有器官移植史者；在研究期间需进行或计划进行介入性有创检查或治疗者；
+s498	Enrollment in other studies	筛选前30天内参加或筛选时正在参加其它新药或医疗器械临床试验，且使用了研究药物/研究治疗者；既往曾参加重组人血清白蛋白临床试验者；
+s499	Laboratory Examinations	人类免疫缺陷病毒（HIV）抗体检查结果阳性，或患有梅毒（定义为梅毒抗体检测阳性且反应素试验阳性）者；
+s500	Addictive Behavior	筛选前30天内每周饮酒量超过14单位酒精者（1单位酒精=360 mL啤酒或45 mL酒精量为40%的烈酒或150 mL葡萄酒），或签署知情同意书后无法戒酒者；
+s501	Laboratory Examinations	妊娠期或哺乳期女性；
+s502	Enrollment in other studies	研究者认为不适合参加本研究的其他原因。
+s503	Laboratory Examinations	查血清 HIV 阳性；
+s504	Disease	合并其他病毒性肝病、非酒精性脂肪性肝炎、明确的药损性肝病、自免肝等其他慢性肝病；
+s505	Disease	合并其他慢性重型肝炎、失代偿期肝硬化、肝癌等严重或终末期肝病者；
+s506	Disease	其他疾病严重影响其生活质量者。如有严重器官功能障碍及重症糖尿病，因肝病引发的肝肾综合征、肝肺综合征或其他严重外伤者；
+s507	Allergy Intolerance	过敏体质及对多种药物过敏者；
+s508	Disease	文盲、妊娠期或哺乳期妇女，精神障碍患者。
+s509	Disease	肝脏或胃肠道等恶性肿瘤；
+s510	Disease	未控制的严重活动性感染（>2级）或败血症；
+s511	Laboratory Examinations	自发性细菌性腹膜炎；
+s512	Organ or Tissue Status	严重的心、肾、肺功能不全；
+s513	Therapy or Surgery	曾接受TIPS或手术分流史；
+s514	Disease	无诱因的显性肝性脑病或复发性/自发性肝性脑病史；
+s515	Allergy Intolerance	对造影剂过敏；
+s516	Disease	布加综合征；
+s517	Pharmaceutical Substance or Drug	酒精依赖或使用精神类药物（苯二氮卓类，阿片等药物）；
+s518	Disease	不相关的神经精神疾病，包括痴呆；
+s519	Therapy or Surgery	入组前3月胃肠道手术史，如结肠切除；
+s520	Laboratory Examinations	怀孕或哺乳期受试者；
+s521	Compliance with Protocol	研究者认为依从性差。
+s522	Therapy or Surgery	因肝癌转移灶破裂或出血急诊手术；
+s523	Therapy or Surgery	既往抗癌治疗，如经动脉化疗栓塞或放疗；
+s524	Diagnostic	术后病理结果提示癌旁肝组织已变为肝硬化；
+s525	Laboratory Examinations	病历不完整；
+s526	Therapy or Surgery	围手术期死亡；
+s527	Compliance with Protocol	随访时间不超过3个月；
+s528	Disease	其他心脏、肺、肾恶性肿瘤或严重疾病病史。
+s529	Disease	合并心血管、脑、肺、肾等重要器官严重器质性疾病、肿瘤患者；
+s530	Disease	合并上消化道大出血、肝性脑病、肝肾综合征等危及生命的肝硬化终末期并发症者；
+s531	Disease	精神疾病患者、妊娠或哺乳期妇女；
+s532	Pharmaceutical Substance or Drug	近3个月使用白蛋白、血浆制剂及其他促进血浆白蛋白合成药物的患者；
+s533	Compliance with Protocol	各种原因导致患者无法达到目标能量要求。
+s534	Disease	非乙型肝炎病毒感染导致的肝硬化腹水者；
+s535	Disease	意识不清、不能表达主观不适症状者及精神病患者；
+s536	Disease	合并心力衰竭、呼吸衰竭、严重肾功能不全及合并其他严重感染性疾病者；
+s537	Disease	有严重出血倾向者。
+s538	Laboratory Examinations	孕妇及哺乳期妇女；
+s539	Enrollment in other studies	正在进行其他临床研究者或研究者认为不适合参加研究的其他情况。
+s540	Pharmaceutical Substance or Drug	过去1个月内接受质子泵抑制剂、抗生素、激素、免疫抑制剂或化疗药物者；
+s541	Disease	有心血管疾病、糖尿病、肠道炎症性疾病、严重基础疾病、精神疾病或其他疾病的患者；
+s542	Pharmaceutical Substance or Drug	目前服用微生物制剂、酸奶或其他益生菌者。
+s543	Risk Assessment	美国麻醉学会（ASA）IV级或V级身体状况的患者；
+s544	Disease	活动性胃肠道出血；
+s545	Laboratory Examinations	持续饮酒；
+s546	Disease	精神病；
+s547	Addictive Behavior	药物滥用；
+s548	Pharmaceutical Substance or Drug	服用神经活性药物（例如苯二氮卓类、抗癫痫药以及任何其他镇静剂和麻醉药）的患者；
+s549	Diagnostic	有肝性脑病临床症状的患者；
+s550	Disease	不能完成HE检查的有视觉或精神障碍的患者；
+s551	Disease	具有全麻禁忌症者或既往曾出现过麻醉意外史者；
+s552	Allergy Intolerance	已知或怀疑对丙泊酚注射液、环泊酚注射液辅料、阿片类药物等过敏或禁忌者；
+s553	Disease	合并颅脑损失、颅内高压、脑卒中、不稳定心绞痛、心肌梗死者；
+s554	Enrollment in other studies	筛选前1个月内参加过任何药物临床试验者；
+s555	Compliance with Protocol	妊娠和哺乳期女性；具有生育能力的女性或男性不愿意在整个试验期间避孕；在试验后1个月内有妊娠计划的受试者（包括男性受试者）；
+s556	Enrollment in other studies	研究者认为具有任何其他不宜参加此试验因素的受试者。
+s557	Disease	罹患严重的心、肺、肾（肌酐>177umol/L）、血液、内分泌系统、精神神经系统疾病者；
+s558	Laboratory Examinations	纳入1月内拟行肝移植者；
+s559	Laboratory Examinations	纳入前3个月内行经颈静脉肝内门体分流术者；
+s560	Laboratory Examinations	严重低钾血症（K<2.5mmol.L）
+s561	Disease	出现严重感染；
+s562	Disease	纳入时和纳入后出血消化道出血；
+s563	Allergy Intolerance	对双歧杆菌乳杆菌三联活菌片有过敏和特异质反应者。
+s564	Allergy Intolerance	对试验药物过敏；
+s565	Pharmaceutical Substance or Drug	长期使用镇静镇痛药物、酒精依赖、药物成瘾者；
+s566	Compliance with Protocol	无法完成随访的患者。
+s567	Disease	合并其他影响胃排空因素的患者，如：糖尿病、孕妇、非常肥胖（BMI >35kg/m
+s568	Disease	合并肠梗阻、终末期肾病等；
+s569	Disease	严重的心肺疾病患者；
+s570	Disease	精神障碍不能合作者；
+s571	Therapy or Surgery	既往胃肠道手术史；
+s572	Addictive Behavior	药物滥用史；
+s573	Laboratory Examinations	禁食禁饮8h后胃仍未排空者。
+s574	Therapy or Surgery	手术不能完全切除病灶；
+s575	Therapy or Surgery	接受肿瘤消融术、重复肝门阻断；
+s576	Laboratory Examinations	BCLC分期C和D级；
+s577	Organ or Tissue Status	重度肾功能不全，包括下列任何一项：
+s578	Laboratory Examinations	血清肌酐＞ 4 mg/dL（或353.6 μmol/L）；
+s579	Therapy or Surgery	长期腹膜透析或血液透析；
+s580	Laboratory Examinations	严重获得性或先天性高甘油三酯血症：甘油三酯≥3 mmol/L（或267 mg/dl）；
+s581	Therapy or Surgery	在本研究开始前1周内连续3天接受TPN；
+s582	Therapy or Surgery	在本研究开始前1个月内接受化疗或放疗；
+s583	Disease	严重的慢性神经系统疾病，例如在过去6个月内发生脑血管意外并出现持续性神经功能缺损；
+s584	Enrollment in other studies	患者在本研究开始前4周内参加了其他干预性临床研究，在研究期间至30天（末次随访）未同时入组药物试验；
+s585	Allergy Intolerance	病史显示已知对鱼类、蛋类、大豆或花生蛋白或研究药物的任何活性物质或辅料过敏；
+s586	Therapy or Surgery	根据研究者的判断，不具备参加本研究资格的患者，例如妊娠或哺乳期患者、急性肺水肿患者、失代偿性心功能不全患者或充血性心力衰竭患者；
+s587	Therapy or Surgery	患者怀孕或正在哺乳，并打算继续母乳喂养；
+s588	Disease	患者有严重的凝血障碍或急性休克；
+s589	Therapy or Surgery	术中/术后疾病进展（术后和患者入组前进行评估）：
+s590	Laboratory Examinations	术中输血量＞ 1000 ml；
+s591	Disease	有PN禁忌的病情发生；
+s592	Laboratory Examinations	术中或术后尿量＜ 0.5 mL/kg/h；
+s593	Therapy or Surgery	需要进行术后血液过滤或透析；
+s594	Therapy or Surgery	禁忌或不能通过中心静脉插管；
+s595	Organ or Tissue Status	术中发生严重的并发症，包含复苏、出血性和感染性休克、急性单器官和多器官功能障碍，包括由于肺部、肝脏、肾功能不全禁止术后早期插管，需要接受肝脏特异性治疗和肾脏替代治疗。
+s596	Laboratory Examinations	基线数据不完整或失访；
+s597	Disease	合并肝细胞癌或其他恶性肿瘤；
+s598	Laboratory Examinations	术前行肝移植术；
+s599	Therapy or Surgery	既往行TIPS术或手术分流；
+s600	Diagnostic	随访期间经多普勒超声证实支架失功；
+s601	Disease	TIPS后消化道出血但支架状态不明。
+s602	Disease	非HBV原因导致的慢性肝脏疾病（例如HCV感染、酒精性肝病、重度脂肪肝、药物性肝损伤、自身免疫性肝病、遗传代谢性肝病等）；
+s603	Allergy Intolerance	对恩替卡韦及其药物成分过敏者；
+s604	Therapy or Surgery	对拉米夫定和替比夫定耐药患者；
+s605	Laboratory Examinations	3级及以上肝性脑病；
+s606	Disease	有其他肝硬化失代偿表现，包括消化道出血、肝肾综合征、肝肺综合征；
+s607	Disease	慢性肝衰竭或慢加急性肝衰竭；
+s608	Risk Assessment	Child-Pugh评分大于12分；
+s609	Laboratory Examinations	筛选时AFP≥100ng/ml或Cr高于正常值上限1.5倍；
+s610	Disease	合并恶性肿瘤患者（不包括已治愈者，包括原发性肝癌）；
+s611	Organ or Tissue Status	合并心、肺、肾、脑、血液等重要脏器严重疾病伴功能不全者；
+s612	Disease	合并严重精神疾病的患者,（如抑郁症、躁狂症、癫痫发作、精神分裂症等）；
+s613	Laboratory Examinations	孕妇及哺乳期妇女；
+s614	Compliance with Protocol	患者依从性差，无法完成随访要求；
+s615	Consent	研究者认为不适合参加本研究的患者。
+s616	Disease	既往无失代偿病史，例如上消化道出血、腹水、肝性脑病等
+s617	Laboratory Examinations	大量饮酒史：男性每周＞210g/L，女性每周＞140g/L
+s618	Disease	其他病因肝硬化，例如非酒精性脂肪肝相关肝硬化
+s619	Disease	有出血性疾病病史，例如脑出血等
+s620	Disease	未控制的高血压（收缩压＞160mmHg）
+s621	Laboratory Examinations	血小板＜50×109/L
+s622	Disease	门静脉系统血栓
+s623	Pharmaceutical Substance or Drug	正在应用其他抗凝或抗血小板药物，如阿司匹林、低分子肝素、华法林等
+s624	Disease	肝癌或其他系统严重疾病及肿瘤，例如循环系统、呼吸系统、泌尿系统功能不全或衰竭等
+s625	Disease	血液系统疾病，如易栓症、肿瘤等
+s626	Therapy or Surgery	6个月内脾切除术
+s627	Therapy or Surgery	6个月内腹腔手术或炎症
+s628	Allergy Intolerance	对本药物过敏
+s629	Laboratory Examinations	妊娠或哺乳
+s630	Therapy or Surgery	使用细胞色素P450 3A4抑制剂（酮康唑，人类免疫缺陷病毒患者的蛋白酶抑制剂抗逆转录病毒治疗）或细胞色素诱导剂（利福平），苯妥英钠等
+s631	Pharmaceutical Substance or Drug	正在应用活血化瘀类及抗纤维化、肝硬化的药物的患者
+s632	Enrollment in other studies	参与另一项临床试验
+s633	Disease	其他类型的肝硬化患者，如丙肝、酒精性肝硬化、非酒精性脂肪肝、自身免疫性肝病等；
+s634	Disease	急性、慢加急性肝衰竭患者（病程<12周）；
+s635	Disease	继发性肌少症的其他疾病（心、肺、肾、脑、恶性肿瘤）；
+s636	Disease	神经系统疾病及肌肉退行性病变；
+s637	Therapy or Surgery	围手术期患者；
+s638	Laboratory Examinations	积极运动者（PARS-3运动量表大于等于20分视为积极运动）；
+s639	Therapy or Surgery	资料不全的患者。
+s640	Disease	肝硬化代偿期，原发性肝癌而无肝硬化；
+s641	Therapy or Surgery	二次或多次移植，多脏器联合移植；
+s642	Diagnostic	术前超声心动图数据记录不全以至于不能确切诊断者；
+s643	Compliance with Protocol	术后无随访数据或基线资料不去者。
+s644	Disease	其他原因（贲门撕裂、胃溃疡、胃癌）引起上消化道出血患者；
+s645	Therapy or Surgery	既往行门体分流术或脾切断流手术者；
+s646	Laboratory Examinations	怀孕或哺乳的妇女；
+s647	Enrollment in other studies	研究者认为患者不适合参加本研究的其他情况。
+s648	Disease	合并肝癌及其他严重的消化系统疾病、心脑血管疾病、呼吸系统疾病、泌尿系统疾病、血液系统疾病、自身免疫性疾病、神经系统疾病等；
+s649	Therapy or Surgery	后期行肝移植治疗者；
+s650	Laboratory Examinations	数据资料不完整，缺失较多者。
+s651	Disease	合并原发性或继发性肝恶性肿瘤的患者；
+s652	Disease	合并血液系统疾病的患者；
+s653	Disease	布-加综合征患者；
+s654	Therapy or Surgery	资料不全的患者。
+s655	Disease	合并肝脏或其他脏器的恶性肿瘤或有既往肿瘤病史；
+s656	Disease	并发消化道出血、自发性腹膜炎、肝性脑病、肝肾综合症以及急性感染发作期；
+s657	Disease	有严重的心、肺、肾或血液系统疾病及衰竭状态患者；
+s658	Laboratory Examinations	怀孕或哺乳期妇女；
+s659	Allergy Intolerance	过敏体质；
+s660	Addictive Behavior	酗酒、药物滥用史，并未能有效戒除者；
+s661	Enrollment in other studies	3月内参加过其他临床试验；
+s662	Enrollment in other studies	研究者认为的患者不宜参加本研究的其他情况。
+s663	Therapy or Surgery	手术时间>1h，术中大出血转开放手术。
+s664	Disease	合并有贫血、恶性肿瘤或自身免疫性疾病患者；
+s665	Disease	合并有糖尿病、高脂血症、甲亢、甲减、痛风等代谢性疾病患者；
+s666	Organ or Tissue Status	合并肾功能不全患者；
+s667	Therapy or Surgery	妊娠或哺乳期患者。
+s668	Diagnostic	合并其它肝病患者，包括慢性丙型病毒性肝炎、慢性酒精性肝炎、药物性肝炎、自身免疫性肝病（根据各临床单位判定标准，满足诊断标准的ANA滴度阳性者）等，及已经发生肝衰竭、原发性肝细胞癌的患者。
+s669	Disease	合并有严重心脏、血液、呼吸系统和中枢神经系统等疾病者。
+s670	Laboratory Examinations	慢性肾脏病或入组前肌酐清除率＜60ml/min。
+s671	Laboratory Examinations	抗-HIV 阳性。
+s672	Disease	严重骨病（如骨软化症、慢性骨髓炎、成骨不全症、软骨病）或多发性骨折。
+s673	Disease	有胰腺炎或 5 年内有恶性肿瘤病史（但不包括在诊断 5 年内临床治愈的子宫颈上皮癌、鳞状上皮癌或皮肤基底细胞癌）者。
+s674	Therapy or Surgery	计划接受器官移植术或已接受器官移植术者。
+s675	Disease	法律规定的残疾患者（盲、聋、哑、智力障碍、精神障碍等）。
+s676	Addictive Behavior	最近 1 年内有酗酒或吸毒史。
+s677	Therapy or Surgery	孕妇、哺乳期妇女或近期有生育计划者。
+s678	Enrollment in other studies	近 3 个月内参加过其它药物临床试验的患者。
+s679	Disease	恶性肿瘤患者，肝细胞癌除外；
+s680	Laboratory Examinations	医疗记录不完整；
+s681	Pharmaceutical Substance or Drug	侵入性操作前7天接受抗凝或抗血小板药物治疗；
+s682	Disease	既往曾患血液系统疾病；
+s683	Disease	侵入性操作前5天出现急性出血；
+s684	Pharmaceutical Substance or Drug	药物所致血小板减少；
+s685	Laboratory Examinations	HIV感染者。
+s686	Disease	恶性肿瘤患者，肝细胞癌除外；
+s687	Laboratory Examinations	缺少侵入性操作前血小板计数检查结果；
+s688	Laboratory Examinations	医疗记录不完整；
+s689	Pharmaceutical Substance or Drug	侵入性操作前7天接受抗凝或抗血小板药物治疗；
+s690	Disease	既往曾患血液系统疾病；
+s691	Disease	侵入性操作前5天出现急性出血；
+s692	Pharmaceutical Substance or Drug	药物所致血小板减少；
+s693	Laboratory Examinations	HIV感染者。
+s694	Disease	进展期肝恶性肿瘤患者；
+s695	Disease	进展期胃肠道肿瘤患者。
+s696	Disease	排除乙肝病毒外其他病毒重叠感染，如HAV、HCV、HDV、HEV、HIV、EBV、CMV等；
+s697	Disease	排除合并自身免疫性肝病、酒精性肝病、药物性肝病、遗传代谢性肝病、血吸虫肝硬化等其他肝脏疾病；
+s698	Disease	排除既往有肝细胞癌或入院1年内诊断为肝细胞癌的患者；
+s699	Disease	排除合并其他显著影响患者生存率的疾病，包括严重的心脏、肺、肾脏、消化、神经、精神疾病、免疫性疾病、代谢性疾病等.
+s700	Disease	门静脉系统栓塞症；
+s701	Therapy or Surgery	脾切除术；
+s702	Laboratory Examinations	肝性脑病；
+s703	Disease	直径>3cm的产生局部压迫效应的肝脏占位性病变（如肝囊肿、血管瘤等）；
+s704	Allergy Intolerance	存在行上腹部增强CT检查的禁忌症，如碘过敏、外周静脉过细不能进行造影剂注射者；
+s705	Diagnostic	存在胃镜检查的禁忌症。
+s706	Disease	排除合并其他原因如乙型肝炎等引起的肝脏疾病患者；
+s707	Disease	排除合并冠心病、糖尿病患者；
+s708	Disease	排除慢性肾脏病Ⅲ期及以上患者；
+s709	Diagnostic	排除基线诊断原发性肝癌患者。
+s710	Laboratory Examinations	不愿接受胃镜检查或存在胃镜检查禁忌；
+s711	Pharmaceutical Substance or Drug	术前1个月内服用PPI、抗生素、益生菌及益生元等；
+s712	Therapy or Surgery	既往接受外科门体分流或断流术；
+s713	Therapy or Surgery	有肝、胃外科手术史；
+s714	Compliance with Protocol	主观不愿意继续完成临床研究；
+s715	Organ or Tissue Status	严重大器官功能衰竭（心、肺、肾等）、严重感染及非肝脏恶性肿瘤；
+s716	Enrollment in other studies	研究者认为不适于参与的任何医学或非医学状况。
+s717	Laboratory Examinations	孕妇；
+s718	Disease	入院后检查发现或入院前已经发现肝癌或其它恶性肿瘤；
+s719	Disease	存在严重的肝外器官慢性疾病：
+s720	Disease	COPD合并呼吸衰竭；
+s721	Disease	冠心病心功能3级；
+s722	Therapy or Surgery	入院前3个月内有心肌梗塞；
+s723	Disease	糖尿病出现严重并发症(心、脑、肾、眼、足等受损)；
+s724	Disease	慢性肾病尿毒症期；
+s725	Disease	结缔组织疾病活动期；
+s726	Pharmaceutical Substance or Drug	近1年使用过免疫抑制剂或激素。
+s727	Allergy Intolerance	对镇静剂、麻醉剂成分过敏者。
+s728	Therapy or Surgery	各种原因所致不能接受调查问卷者。
+s729	Disease	弥漫性或多结节性肝脏肿瘤的患者。
+s730	Therapy or Surgery	手术累及胆道的患者。
+s731	Disease	诊断为胆道疾病的患者。
+s732	Disease	肾损害患者。
+s733	Therapy or Surgery	缺少生化参数数据的患者。
+s734	Therapy or Surgery	图像质量问题的患者。
+s735	Pharmaceutical Substance or Drug	病毒性肝炎、自身免疫性肝病、肝豆状核变性、药物（糖皮质激素、甲氨蝶呤等）、炎症性肠病、酒精性肝病、全胃肠外营养、乳糜泻、库欣综合征等导致肝硬化的其他情况；
+s736	Therapy or Surgery	目前活跃或疑似肝细胞癌，既往肝脏手术或肝移植以及目前的妊娠患者；
+s737	Diagnostic	临床资料不齐全；
+s738	Pharmaceutical Substance or Drug	服用抗凝药物、抗血小板药物史；
+s739	Disease	外周血管疾病、血液系统疾病。
+s740	Disease	有恶性高血压、严重心律失常、急性心肌梗塞、脑血管意外等重症病者。
+s741	Disease	近期有急性感染、创伤、手术、糖尿病酮症酸中毒、高渗性昏迷者。
+s742	Disease	合并有脑、肝、肾和造血系统等严重原发性疾病，精神病和认知功能异常患者。
+s743	Organ or Tissue Status	合并有肿瘤及其他脏器功能衰竭者。
+s744	Therapy or Surgery	绝对禁忌症:无法平卧、不能耐受手术者。
+s745	Disease	相对禁忌症:
+s746	Organ or Tissue Status	严重凝血功能障碍(国际标准化比值>1.
+s747	Laboratory Examinations	。
+s748	Organ or Tissue Status	严重心、肺、肾功能衰竭；
+s749	Compliance with Protocol	患者不能配合；
+s750	Laboratory Examinations	肝外胆道梗阻；
+s751	Disease	胆道感染；
+s752	Compliance with Protocol	不能纠正的大量腹水；
+s753	Laboratory Examinations	肝淀粉样变；
+s754	Laboratory Examinations	多囊肝；
+s755	Disease	不可控制的肝癌。
+s756	Compliance with Protocol	处于妊娠期或试验期间有妊娠计划的患者；
+s757	Disease	对这项技术有任何疑虑或者存在其他风险史的患者；
+s758	Disease	处于疾病末期或者可能在研究中死亡的患者；
+s759	Enrollment in other studies	研究入组前三个月参与其他临床试验的患者；
+s760	Enrollment in other studies	研究入组前已参加其他任何菌群治疗的患者；
+s761	Disease	近1月内有呕血、黑便等消化道出血的表现或其他严重的肝硬化并发症；
+s762	Organ or Tissue Status	严重心肺、肝、肾功能不全的患者；
+s763	Therapy or Surgery	有明显的HE或HE病史，曾行经颈静脉肝内门体分流手术；
+s764	Pharmaceutical Substance or Drug	近期使用过抗生素、乳果糖、LOLA、支链氨基酸、酸奶及益生菌制剂；
+s765	Consent	任何研究者认为不能参加本研究的患者。
+s766	Disease	合并肝癌和其他部位恶性肿瘤；
+s767	Organ or Tissue Status	既往或入组时已患有严重的心血管系统、消化系统、呼吸系统、泌尿系统等器官功能障碍或不全；
+s768	Disease	合并严重的全身性感染；
+s769	Therapy or Surgery	入组前行肝移植、脾切除、TIPSS、外科断流及分流术等患者；
+s770	Pharmaceutical Substance or Drug	1月前服用益生菌、抗生素、抗真菌药、激素等影响微环境的药物；
+s771	Disease	严重神经和精神病患者；
+s772	Addictive Behavior	酒精或其他药物滥用者；
+s773	Laboratory Examinations	孕妇及哺乳期妇女。
+s774	Therapy or Surgery	既往曾行TIPS或者外科分流手术；
+s775	Disease	肝性脑病既往病史，或纳入时诊断肝性脑病；
+s776	Disease	肝性脊髓病及其它神经精神疾病；
+s777	Pharmaceutical Substance or Drug	术前4周内使用营养制剂、抗生素或乳果糖；
+s778	Disease	消化道出血、自发性腹膜炎、肝肾综合征、肝肺综合征等肝硬化并发症未控制或稳定<1周；
+s779	Organ or Tissue Status	心脏、肺、肾、脑等重大脏器功能不全；
+s780	Disease	视力受损影响阅读；
+s781	Compliance with Protocol	极低文化程度，不能阅读及书写简单的字词；
+s782	Laboratory Examinations	来自高海拔地区（>2500米 ）；
+s783	Laboratory Examinations	孕妇及哺乳期妇女；
+s784	Risk Assessment	肝功能Child 评分超过12分， 转氨酶超过正常上限5倍;
+s785	Disease	淤胆性肝病（原发性胆汁性胆管炎、原发性硬化性胆管炎及肝外胆管梗阻等）；
+s786	Disease	合并恶性肿瘤；
+s787	Laboratory Examinations	门脉海绵样变性。
+s788	Laboratory Examinations	收缩压≥180 mmHg或<90mmHg，舒张压≥110mm Hg或<60mmHg；
+s789	Risk Assessment	Child-Pugh肝功能分级B级以上；
+s790	Disease	严重的心、脑、肾、肺、内分泌疾病或严重感染者；
+s791	Pharmaceutical Substance or Drug	术前使用镇痛药、镇痛药；
+s792	Disease	睡眠障碍；
+s793	Pharmaceutical Substance or Drug	术前3天内饮酒或者服用兴奋性饮料；
+s794	Disease	精神状态不稳定或有精神疾病者；
+s795	Enrollment in other studies	过去30天之内参与了另外的临床研究
+s796	Therapy or Surgery	既往曾行TIPS或者外科分流手术；
+s797	Disease	门静脉血栓；
+s798	Pharmaceutical Substance or Drug	使用抗凝药物或抗血小板聚集药物；
+s799	Laboratory Examinations	易栓症；
+s800	Pharmaceutical Substance or Drug	术前4周 内使用营养制剂、抗生素或乳果糖；
+s801	Disease	消化道出血、自发性腹膜炎、肝肾综合征、肝肺综合征等肝硬化并发症未控制或稳定<1周；
+s802	Organ or Tissue Status	心脏、肺、肾、脑等重大脏器功能不全；
+s803	Laboratory Examinations	来自高海拔地区（>2500米 ）；
+s804	Laboratory Examinations	孕妇及哺乳期妇女；
+s805	Risk Assessment	肝功能Child 评分不超过12分， 转氨酶不超过正常上限5倍 ；
+s806	Disease	淤胆性肝病（原发性胆汁性胆管炎、原发性硬化性胆管炎及肝外胆管梗阻等）；
+s807	Disease	合并恶性肿瘤；
+s808	Laboratory Examinations	门脉海绵样变性。
+s809	Therapy or Surgery	既往曾行TIPS或者外科分流手术；
+s810	Disease	肝性脑病既往病史，或纳入时诊断肝性脑病；
+s811	Disease	肝性脊髓病及其它神经精神疾病；
+s812	Pharmaceutical Substance or Drug	术前4周内使用营养制剂、抗生素或乳果糖；
+s813	Disease	消化道出血、自发性腹膜炎、肝肾综合征、肝肺综合征等肝硬化并发症未控制或稳定<1周；
+s814	Organ or Tissue Status	心脏、肺、肾、脑等重大脏器功能不全；
+s815	Disease	视力受损影响阅读；
+s816	Compliance with Protocol	极低文化程度，不能阅读及书写简单的字词；
+s817	Laboratory Examinations	来自高海拔地区（>2500米 ）；
+s818	Laboratory Examinations	孕妇及哺乳期妇女；
+s819	Risk Assessment	肝功能Child 评分超过12分， 转氨酶超过正常上限5倍 ：
+s820	Disease	淤胆性肝病（原发性胆汁性胆管炎、原发性硬化性胆管炎及肝外胆管梗阻等）；
+s821	Disease	合并恶性肿瘤；
+s822	Laboratory Examinations	门脉海绵样变性。
+s823	Disease	有肝脏或其他任何类型的恶性肿瘤病史者；
+s824	Disease	有酒精型肝炎、药物性肝损害、脂肪肝、其他病毒性肝炎、巨细胞病毒感染、 EB 病毒感染、自身免疫性肝病、已明确的遗传性肝病等其他可能导致肝硬化或肝功能异常的疾病病史者；
+s825	Disease	1月内合并严重并发症者（消化道出血、肝昏迷、腹膜炎、严重感染、肝肾综合征）；
+s826	Disease	合并门脉血栓、门脉海绵样变、布加氏综合征等门静脉不宜进行干细胞输注者；
+s827	Disease	合并胆道梗阻者；
+s828	Therapy or Surgery	有脾切断流、门体分流、 TIPS 手术史者；
+s829	Therapy or Surgery	3月内接受过免疫抑制剂及免疫增强剂治疗者
+s830	Therapy or Surgery	1月内接受过输血及其他血液制品治疗者；
+s831	Disease	主要器官移植病史或者发现严重的心、肺、肾、血液、内分泌等系统疾病者；
+s832	Disease	严重的精神病史，尤其是抑郁症者；
+s833	Laboratory Examinations	生命体征不稳定者；
+s834	Allergy Intolerance	高度过敏体质或有严重过敏史者；
+s835	Laboratory Examinations	HIV 阳性者；
+s836	Therapy or Surgery	在试验开始前 1 年内，吸毒或者接受美沙酮治疗者；
+s837	Therapy or Surgery	孕妇、哺乳期妇女或近期有生育计划者；
+s838	Consent	没有能力或者不愿意签署知情同意书，或者不遵守试验要求者；
+s839	Enrollment in other studies	入组前 3 个月内参与过其他临床试验者；
+s840	Disease	极个别期望值过高，或者不切合实际的要求者；
+s841	Enrollment in other studies	研究者认为的患者不宜参加本研究的其他情况。
+s842	Pharmaceutical Substance or Drug	长期口服非甾体类消炎药、抑制血小板类药物、抗凝药物等可能导致消化道出血的药物；
+s843	Disease	上消化道出血每年在3次以内（不含3次）或者出血原因不同；
+s844	Consent	不同意签署知情同意书、不遵从本研究要求用药，或者中途不能按时随访或失访。
+s845	Disease	合并或重叠其它如甲型、丙型、戊型、丁型等病毒肝炎感染者；
+s846	Disease	有自身免疫性肝病（PBC、原发性硬化性胆管炎、自身免疫性肝炎）、药物或化学毒物、血吸虫肝病、遗传代谢性疾病、循环障碍（布-加综合征、右心衰竭）、隐源性肝硬化等疾病；
+s847	Disease	合并有食管胃底静脉曲张破裂出血、自发性腹膜炎、肝性脑病、肝肾综合征、原发性肝癌等严重并发症患者；
+s848	Disease	存在严重的多种疾病，如心血管、肺、肾、脑、内分泌和造血系统严重原发性疾病，精神病患者等不能耐受试验者；
+s849	Laboratory Examinations	妊娠期、哺乳期妇女；
+s850	Allergy Intolerance	对本药过敏者。
+s851	Diagnostic	不符合本研究诊断标准者；
+s852	Age	年龄小于18岁或65岁以上者；
+s853	Disease	合并酒精性肝病、非酒精性脂肪性肝病、其他病毒型肝炎、自免疫性肝病、寄生虫病等可导致肝硬化的特定肝病；
+s854	Disease	合并有心血管、脑、肾、血液系统及内分泌代谢等严重原发性疾病；
+s855	Laboratory Examinations	怀孕或哺乳期妇女；
+s856	Allergy Intolerance	已知对研究用药物组成成分有过敏史者。
+s857	Compliance with Protocol	临床前研究，不涉及人类。
+s858	Laboratory Examinations	妊娠及哺乳期妇女；
+s859	Disease	患有或可疑肝癌、胆管癌等恶性肿瘤；
+s860	Organ or Tissue Status	严重凝血障碍；
+s861	Laboratory Examinations	大量腹水；
+s862	Therapy or Surgery	不适于或不愿意接受行HVPG检测患者；
+s863	Enrollment in other studies	研究者认为不适合参与研究的其他情况。
+s864	Disease	患者无严重肺动脉高压
+s865	Disease	呼吸系统疾病
+s866	Organ or Tissue Status	肝、肾功能未见异常
+s867	Allergy Intolerance	无HES过敏史
+s868	Disease	合并消化道出血、肝性脑病、肝肾综合征或肝癌等并发症；
+s869	Organ or Tissue Status	急慢性胰腺炎、多器官功能衰竭、腹部外伤、消化道溃疡穿孔及炎症性肠病等影响肠道功能；
+s870	Disease	肝病以外的心源性、肾源性、营养障碍性、恶性肿瘤腹膜转移、卵巢肿瘤、结缔组织疾病等引起的腹水；癌性腹膜炎、结核性腹膜炎、继发性腹膜炎（外科急腹症、腹部外伤、手术等）；
+s871	Disease	合并其他慢性疾病，如心、脑、肾等重要脏器和内分泌、血液系统疾病；
+s872	Pharmaceutical Substance or Drug	治疗前８周内使用过抗生素、微生态制剂、免疫调节剂及中药类药物；
+s873	Age	年龄小于 18 岁或大于 80 岁，孕妇及哺乳期妇；
+s874	Disease	有灌肠禁忌症；
+s875	Disease	有精神、心理或神经方面疾病；
+s876	Disease	合并有其它严重传染病，如肺结核、艾滋病等；
+s877	Allergy Intolerance	对多种药物过敏的过敏体质；
+s878	Consent	不愿参加试验和签订知情同意书。
+s879	Disease	重度贫血（HgB＜60g/L）；
+s880	Disease	正在发热或合并SIRS的患者；
+s881	Therapy or Surgery	酒精性肝病患者；
+s882	Disease	合并原发性和继发性心血管疾病，如高血压、冠心病、风心病、先心病等；
+s883	Disease	合并其他可能影响心脏功能的急慢性疾病，例如急慢性呼吸系统疾病、甲状腺疾病等；
+s884	Disease	合并恶性肿瘤；
+s885	Pharmaceutical Substance or Drug	近1周内服用对心功能有影响的药物 （β受体阻滞剂、钙离子通道阻滞剂、血管紧张素转换酶抑制剂等）。
+s886	Diagnostic	存在常规胃镜检查禁忌症患者；
+s887	Therapy or Surgery	拒绝接受镇静或麻醉胃镜的患者；
+s888	Allergy Intolerance	对镇静剂、麻醉剂成分过敏者；
+s889	Therapy or Surgery	各种原因所致不能接受调查问卷者。
+s890	Pharmaceutical Substance or Drug	使用免疫抑制剂、免疫力低下患者。
+s891	Disease	肝硬化合并严重凝血功能障碍、严重消化道出血、严重肝昏迷；
+s892	Disease	有明确肝癌病史；
+s893	Organ or Tissue Status	严重心、肝、肾、肺功能衰竭；
+s894	Therapy or Surgery	一般状况很差不能耐受干细胞移植手术者；
+s895	Disease	严重的全身感染未控制者；
+s896	Allergy Intolerance	造影剂过敏。
+s897	Disease	肝硬化合并严重凝血功能障碍、严重消化道出血、严重肝昏迷；
+s898	Disease	有明确肝癌病史；
+s899	Organ or Tissue Status	严重心、肝、肾、肺功能衰竭；
+s900	Therapy or Surgery	一般状况很差不能耐受干细胞移植手术者；
+s901	Disease	严重的全身感染未控制者；
+s902	Allergy Intolerance	造影剂过敏。
+s903	Organ or Tissue Status	肝衰竭；
+s904	Disease	合并其它嗜肝病毒感染的肝炎、脂肪肝、长期饮酒或其它慢性重型肝炎；
+s905	Laboratory Examinations	妊娠或准备妊娠妇女、哺乳妇女；
+s906	Disease	有严重的基础疾病：重度COPD、严重肾功能不全、慢性充血性心力衰竭等；
+s907	Therapy or Surgery	免疫缺陷患者：如恶性肿瘤、器官移植和近3月内服用免疫抑制剂或糖皮质激素等；
+s908	Enrollment in other studies	参加其他临床试验的患者；
+s909	Enrollment in other studies	研究者认为不适合入组的其它情况。
+s910	Disease	合并其他病毒性肝炎、血吸虫性肝病、药物性肝损伤、酒精性肝病、遗传性肝病以及内分泌与代谢疾病、自身免疫性疾病、血液系统疾病、慢性肠道疾病、未被控制的心脏/肺脏疾病和肾脏疾病；
+s911	Disease	肝活检前后4周内出现过除自发性细菌性腹膜炎之外的其他任何部位的严重感染（发热>3天，炎症及抗炎反应症状>3周）；
+s912	Therapy or Surgery	启用抗病毒治疗6个月后血清HBV DNA＞1000 IU/mL；
+s913	Laboratory Examinations	具有电子胃镜检查的禁忌证；
+s914	Pharmaceutical Substance or Drug	卡维地洛或他汀使用禁忌证，既往6个月内服用过NSBB和他汀类药物；
+s915	Risk Assessment	CTP评分 C级；
+s916	Laboratory Examinations	肝细胞癌史；
+s917	Disease	门静脉血栓或海绵样变，肝静脉流出道阻塞；
+s918	Compliance with Protocol	妊娠或哺乳期妇女以及计划在研究期怀孕的妇女；
+s919	Disease	伴有精神病史或无法控制的癫痫病患者；
+s920	Disease	无法控制的糖尿病；
+s921	Disease	支气管哮喘；
+s922	Organ or Tissue Status	有严重的基础疾病，包括慢性呼吸道衰竭、循环衰竭和肾功能衰竭等；
+s923	Enrollment in other studies	研究者认为其他不适合入组的情况；
+s924	Laboratory Examinations	基本病因未控制，如乙肝和丙肝病毒学检测低于正常上限小于6个月；
+s925	Therapy or Surgery	既往有出血史，或胃镜下套扎等治疗史；
+s926	Organ or Tissue Status	慢加急性肝功能衰竭；
+s927	Therapy or Surgery	外科门体分流术后或TIPS术后。
+s928	Disease	有严重的心、肺、肾、神经系统、血液系统及精神病、肿瘤（肝脏肿瘤只排除并发血性腹水者）患者；；
+s929	Disease	血糖难以控制的糖尿病患者；
+s930	Disease	肝硬化并发上消化道出血、2级或更高级肝性脑病患者。
+s931	Laboratory Examinations	妊娠及哺乳期妇女；
+s932	Allergy Intolerance	对真武汤过敏者；
+s933	Enrollment in other studies	正在参与其他临床试验研究患者。
+s934	Disease	合并其它嗜肝病毒感染或其他致病因素引起的肝硬化患者；
+s935	Diagnostic	B超或MRI检测存在或怀疑存在原发性肝细胞癌占位者；
+s936	Disease	明确是肝硬化失代偿者，如Child-Pugh C级＞12分者，近6个月出现上消化道出血、肝性脑病、肝肾综合征者。
+s937	Disease	伴有心、肾、肺、内分泌、血液、代谢及胃肠道严重原发病者；或精神病患者；
+s938	Disease	近期有生育意愿者、孕妇或哺乳期妇女。
+s939	Disease	受试者同时兼存在严重细菌感染、慢性肾衰竭及恶性肿瘤者；
+s940	Disease	近2周内曾患上消化道出血或肝性脑病者；
+s941	Laboratory Examinations	存在严重电解质紊乱者，即血钾＜3.0 mmol/L、血钠＜120 mmol/L；
+s942	Disease	合并有心脑血管、造血系统等严重原发性疾病者及精神病患者；
+s943	Allergy Intolerance	过敏体质及对本研究药物已知成份过敏者；
+s944	Disease	明确恶性肿瘤患者；
+s945	Therapy or Surgery	肝移植患者；
+s946	Disease	严重心脑血管疾病及癫痫的患者；
+s947	Disease	合并严重基础疾病（高血压/糖尿病/慢性支气管炎/慢性肾炎/甲亢/哮喘等）及疾病急性发作期患者；
+s948	Allergy Intolerance	有过敏史，包括既往接种疫苗有过严重的不良反应，如过敏、荨麻疹、呼吸困难、血管神经性水肿或腹痛，或对观察用疫苗中任何一种成分过敏者。
+s949	Disease	合并艾滋病结核梅毒等疾病患者；
+s950	Laboratory Examinations	育龄期尿妊娠试验阳性的患者；
+s951	Therapy or Surgery	哺乳期及拟哺乳的患者；
+s952	Enrollment in other studies	目前正在参加其他临床试验的患者；
+s953	Addictive Behavior	有药物滥用及吸毒病史；
+s954	Disease	有精神疾患，不能清晰表达自己意愿患者；
+s955	Compliance with Protocol	经研究者有任何原因可能不能完成本项目者；
+s956	Laboratory Examinations	血小板小于50x109/L;
+s957	Pharmaceutical Substance or Drug	首针接种前6个月内长期（持续14天以上）使用免疫抑制剂或其他免疫调节药物，皮质类固醇药物的全身性用药，但允许局部用药（如软膏、滴眼液、吸入剂或鼻喷剂）；
+s958	Disease	出现消化道出血、肝性脑病、肝肾综合症、大量腹水、严重感染等严重并发症的患者；
+s959	Age	年龄超过80岁。
+s960	Age	年龄 < 16岁或 ≥ 80岁
+s961	Laboratory Examinations	妊娠期或哺乳期妇女
+s962	Laboratory Examinations	艾滋病抗体阳性
+s963	Therapy or Surgery	此次入院拟完成预约的治疗，如：内镜下套扎/脾切除/TIPS术/肝穿刺，或仅为单纯复查或MDT会诊等
+s964	Disease	米兰标准以外的肝细胞肝癌及其他晚期恶性肿瘤
+s965	Therapy or Surgery	肝移植术后状态
+s966	Disease	合并影响预后的其他严重的急慢性肝外疾病，如：COPD慢性呼吸衰竭期；慢性肾病尿毒症期（透析治疗）；冠心病合并左心衰等。
+s967	Pharmaceutical Substance or Drug	因肝脏疾病以外原因长期服用免疫抑制剂，如：风湿性疾病；肾病综合征；器官移植后抗排除等，或抗凝药物治疗房颤等。
+s968	Consent	患者拒绝签署知情同意书，参加此研究
+s969	Consent	以上均不符合，但患者因昏迷等原因暂时无法签署知情同意书，且没有法定代理人代替签署。根据病情，患者可能无法苏醒补签知情同意书。
+s970	Allergy Intolerance	在不能配型的情况下，由于白细胞、血小板HLA不合，或对供血者血浆中某种成分过敏而发生反应者；
+s971	Disease	各种免疫性疾病，由于血浆中抗红细胞抗体或补体可损害红细胞而发生溶血反应者；
+s972	Therapy or Surgery	尿毒症，高钾血症及酸中毒患者。
+s973	Disease	合并心血管、脑、肺、肾等重要器官严重器质性疾病者；
+s974	Disease	合并上消化道大出血、肝性脑病、肝肾综合征等危及生命的肝硬化终末期并发症者；
+s975	Disease	精神疾病患者、妊娠或哺乳期妇女；
+s976	Disease	严重的内分泌系统、免疫系统疾病患者；
+s977	Pharmaceutical Substance or Drug	使用白蛋白、血浆制剂及其他促进血浆白蛋白生成药物的患者。
+s978	Disease	妊娠期、哺乳期妇女或不排除妊娠可能的妇女；
+s979	Laboratory Examinations	血清总胆红素≥正常上限5倍；
+s980	Laboratory Examinations	血清肌酐≥正常上限1.2倍；
+s981	Age	凝血酶原时间≥18秒；
+s982	Allergy Intolerance	对已知米曲菌胰酶片及其相关成分过敏者；
+s983	Compliance with Protocol	因任何原因不能经口进食的受试者；
+s984	Disease	既往有肠梗阻病史受试者；
+s985	Compliance with Protocol	研究开始前2月内有急腹痛受试者；
+s986	Compliance with Protocol	研究开始前存在电解质（钠、钾、氯）紊乱，且无法纠正的受试者，如曾发生电解质（钠、钾、氯）紊乱，需在研究开始前已纠正并稳定1月以上；
+s987	Laboratory Examinations	既往肝性脑病II期以上受试者；
+s988	Compliance with Protocol	顽固性腹水病史，研究开始前2周内有中等量及以上腹水受试者；
+s989	Compliance with Protocol	研究开始前2周内有黑便、呕血等消化道出血症状的受试者；
+s990	Pharmaceutical Substance or Drug	研究开始前2周内使用过抗生素者；
+s991	Disease	发生其他疾病可影响本研究的受试者：包括重大心肺系统疾病、糖尿病、肿瘤、HIV感染等获得性或原发性、继发性免疫系统疾病（原发性自身免疫性肝病除外）、因其他疾病需要长期接受激素治疗的受试者等；
+s992	Addictive Behavior	物质滥用：酗酒（80 g/日）且戒酒时间＜6个月，过去两年中有静脉使用或/及吸入药物（毒品）史；
+s993	Therapy or Surgery	研究开始前6个月内开始抗病毒治疗和/或调整抗病毒治疗方案的慢性乙型/丙型病毒性肝炎受试者；
+s994	Therapy or Surgery	研究开始前6个月内有手术史的受试者；
+s995	Therapy or Surgery	研究开始前6个月内开始病因治疗或调整过治疗方案的自身免疫性肝病受试者（即6月内新加使用熊去氧胆酸或激素、免疫抑制剂等，已经开始病因治疗受试者治疗方案及药物剂量无改变）
+s996	Enrollment in other studies	3月内参加过其它药物试验者；
+s997	Consent	任何研究者认为不能参加本研究的受试者。
+s998	Therapy or Surgery	怀孕或者哺乳期的患者；
+s999	Organ or Tissue Status	凝血功能、心功能、肺功能严重异常或一般情况较差的患者；
+s1000	Therapy or Surgery	肝静脉、门静脉、肠系膜静脉血栓患者；
+s1001	Risk Assessment	肝恶性肿瘤或肝功能失代偿（Child C或MELD > 25)患者；
+s1002	Allergy Intolerance	碘过敏患者。
+s1003	Laboratory Examinations	孕妇或哺乳期妇女。
+s1004	Organ or Tissue Status	严重贫血、凝血功能障碍经治疗不能改善者。
+s1005	Therapy or Surgery	近期并发消化道出血且止血治疗失败者。
+s1006	Disease	自发性腹膜炎、肝性脑病、肝肾综合症以及急性感染发作期。
+s1007	Disease	伴有严重心、肺、肾、血液系统等疾病，精神病史者。
+s1008	Disease	合并肝脏或其他脏器的恶性肿瘤。
+s1009	Therapy or Surgery	未住院病人，未行麻醉病人
+s1010	Disease	排除肝癌，合并其他严重合并症及并发症者。
+s1011	Disease	合并其他肝炎病毒感染（例如，HAV，HCV，HEV，EBV等）。
+s1012	Pharmaceutical Substance or Drug	长期使用肝毒性药物（如抗肿瘤，抗结核，神经系统药物等）。
+s1013	Disease	原发性或转移性肝癌。
+s1014	Therapy or Surgery	在抗病毒治疗期间停药超过6个月的患者。
+s1015	Disease	患有不受控制的心血管，呼吸，消化，神经，泌尿和其他严重疾病的患者。
+s1016	Laboratory Examinations	孕妇或哺乳期妇女。
+s1017	Disease	乙型肝炎失代偿性肝硬化合并酒精性肝病的患者。
+s1018	Risk Assessment	慢性肝功能衰竭或Child-pugh评分大于14时急性发作。
+s1019	Enrollment in other studies	其他研究者认为不符合该研究条件的患者。
+s1020	Disease	甲型、丙型或丁型肝炎病毒感染；免疫性肝炎、药物性肝炎、酒精性肝炎、脂肪肝等；合并心、肺、肾、脑等脏器严重功能障碍；合并恶性肿瘤、精神疾患等。
+s1021	Laboratory Examinations	近12个月内有专项补充支链氨基酸史；
+s1022	Disease	合并肿瘤或其他消耗性疾病患者；
+s1023	Disease	合并2型糖尿病、心血管疾病、肾脏疾病，可能对研究结果产生影响者；
+s1024	Allergy Intolerance	有中-大量腹水或不能耐受低强度运动者；
+s1025	Compliance with Protocol	依从性差，不遵从研究方案者；
+s1026	Disease	研究者认为需要排除或不宜继续参与研究者。
+s1027	Laboratory Examinations	孕妇或哺乳期妇女
+s1028	Laboratory Examinations	吸毒者；
+s1029	Addictive Behavior	怀疑或确诊有酒精/药物滥用病史；
+s1030	Therapy or Surgery	既往有大的腹部手术病史；
+s1031	Disease	患有可能引起胃肠道功能损伤的疾病。如糖尿病、甲状腺疾病、肠梗阻、炎症性肠病(Inflammatory bowel disease,IBD)等；
+s1032	Pharmaceutical Substance or Drug	治疗前 2 周服用抗生素、非甾体类抗炎药、微生态制剂、促胃肠动力药、抑酸药等影响肠道菌群的药物；
+s1033	Disease	2 周前合并有消化道出血或自发性细菌性腹膜炎（Spontaneous bacterial peritonitis,SBP）病史；
+s1034	Disease	伴有其它可能影响其生存的严重疾病（包括严重感染，严重心脏、肾脏、呼吸、血液、内分泌、神经精神等疾病）或者合并有其他类型肿瘤；
+s1035	Disease	有使用免疫抑制剂病史，或其他严重免疫缺陷性疾病，如人类获得性免疫缺陷病毒（Human Acquired Immunodeficiency Virus,HIV）感染、风湿性疾病等。
+s1036	Disease	内镜下套扎或注射硬化剂止血病史；
+s1037	Disease	门静脉及其属枝血栓；
+s1038	Disease	肝癌及其他肿瘤病史。
+s1039	Therapy or Surgery	有常规内镜操作禁忌证或拒绝麻醉的患者；
+s1040	Therapy or Surgery	需要气管插管的患者；
+s1041	Disease	急性上消化道出血；
+s1042	Risk Assessment	ASA在Ⅳ级及Ⅳ级以上者；
+s1043	Disease	患者存在未得到适当控制的可能威胁生命的循环与呼吸系统疾病；有严重肝功能障碍(Child Pugh C级)、严重肾功能障碍、严重贫血、胃肠道梗阻伴有胃内容物潴留；
+s1044	Disease	明确困难气道者。
+s1045	Laboratory Examinations	门静脉完全闭塞；
+s1046	Laboratory Examinations	大量腹水；
+s1047	Organ or Tissue Status	心肺肝肾功能明显异常，严重重凝血功能障碍又无法纠正。
+s1048	Disease	具备以下情况之一，即排除：
+s1049	Disease	有门静脉系统血栓者；
+s1050	Disease	存在较严重甲状腺疾病、严重呼吸系统疾病、严重肾病、心脑血管疾病，或免疫低下疾病、恶性肿瘤；
+s1051	Therapy or Surgery	无法平卧不能耐受HVPG手术者；
+s1052	Organ or Tissue Status	严重凝血功能障碍（国际标准化比值＞5）；
+s1053	Pharmaceutical Substance or Drug	正在服用抗凝药物或抗血小板药物或止血药者；
+s1054	Allergy Intolerance	碘造影剂过敏者；
+s1055	Enrollment in other studies	目前正在参与其它临床试验研究。
+s1056	Laboratory Examinations	孕妇及哺乳期妇女；
+s1057	Therapy or Surgery	有器官移植史；
+s1058	Diagnostic	有食管胃底曲张静脉破裂出血史或本次胃镜检查有“红色征”需同时行贲门周围血管离断术或分流术；
+s1059	Disease	各种原因所致活动性出血；
+s1060	Disease	患有严重的急慢性疾病；
+s1061	Disease	患有严重的糖尿病；
+s1062	Disease	患有严重的感染性疾病；
+s1063	Disease	HIV感染或存在AIDS相关疾病；
+s1064	Disease	药物滥用者，或患有可能干扰研究依从性的心理或精神等疾病；
+s1065	Therapy or Surgery	术前曾行其它抗肿瘤治疗或免疫治疗；
+s1066	Disease	合并严重的心、肺、脑等器官的器质性疾病；
+s1067	Disease	有其它恶性肿瘤史；
+s1068	Compliance with Protocol	研究者认为不适合本研究的其它情况。
+s1069	Disease	食管胃底静脉破裂活动性出血；
+s1070	Laboratory Examinations	酸碱平衡失调、电解质紊乱；
+s1071	Disease	合并糖尿病或糖耐量异常；
+s1072	Pharmaceutical Substance or Drug	内分泌激素异常或近期服用类固醇药物治疗；
+s1073	Organ or Tissue Status	肺功能中度以上受损；
+s1074	Laboratory Examinations	怀孕或哺乳期妇女。
+s1075	Disease	合并肝癌或其他恶性肿瘤；
+s1076	Compliance with Protocol	不能合作的患者；
+s1077	Laboratory Examinations	凝血酶原时间（PT）超过正常对照上限3~5秒以上；
+s1078	Laboratory Examinations	国际标准化比值（INR）≤1.5；
+s1079	Laboratory Examinations	PLT＜60×10^9/L；
+s1080	Pharmaceutical Substance or Drug	最近使用（过去的7天）抗凝或抗血小板类药物；
+s1081	Disease	近期（4周内）有上消化道出血或自发性腹膜炎；
+s1082	Laboratory Examinations	中等或大量腹腔积液；
+s1083	Organ or Tissue Status	心肺等重要脏器严重功能障碍；
+s1084	Laboratory Examinations	妊娠或哺乳期女性；
+s1085	Laboratory Examinations	HIV阳性；
+s1086	Disease	任何不可控的活动性感染；
+s1087	Compliance with Protocol	研究者评估认为患者不能或不愿意依从研究方案的要求。
+s1088	Allergy Intolerance	对IFN α及其药物成分过敏者，研究者判断不适合应用IFN α的患者；
+s1089	Disease	合并HAV、HCV、HDV、HEV、HIV感染，或合并酒精性肝病，遗传代谢性肝病，药物性肝病，非酒精性脂肪性肝病等其他慢性肝病；
+s1090	Disease	合并自身免疫性疾病，包含自身免疫性肝病、银屑病等；
+s1091	Laboratory Examinations	中性粒细胞计数< 1.5 x 10^9个细胞/L或血小板计数<70 x 10^9个细胞/L；
+s1092	Laboratory Examinations	肌酐高于正常值上限1.5倍者；
+s1093	Disease	合并心、肺、肾、脑、血液等重要脏器严重疾病患者；
+s1094	Disease	合并严重神经及精神疾病的患者（如癫痫、抑郁症、躁狂症、癫痫发作、精神分裂症等）；
+s1095	Disease	控制不稳定的糖尿病、高血压、甲状腺疾病等；
+s1096	Disease	重度视网膜病变史或由其它证据表明为视网膜病变患者；
+s1097	Risk Assessment	Child-Paugh分级为B、C级Child-Paugh分级为B、C级；
+s1098	Compliance with Protocol	怀孕的或哺乳期妇女或在研究期间有怀孕计划及不愿意避孕的患者；
+s1099	Enrollment in other studies	研究者认为受试者目前状况不适合参加本研究；
+s1100	Enrollment in other studies	同时参加其他临床研究试验的患者。
+s1101	Disease	非HBV原因导致的慢性肝脏疾病（例如HCV感染、酒精性肝病、重度脂肪肝、药物性肝损伤、自身免疫性肝病、遗传代谢性肝病等）；
+s1102	Diagnostic	影像学检查提示肝脏恶性肿瘤和/或AFP＞200ng/ml、肌酐＞
+s1103	Organ or Tissue Status	5×UNL、慢性肝衰竭或慢加急性肝衰竭、Child-Pugh评分大于12分、合并严重精神疾病及其他重要脏器功能不全、孕妇及哺乳期妇女、依从性差而无法完成随访要求的患者。
+s1104	Addictive Behavior	在过去的5年,有酒精和/或药物的滥用及依赖；
+s1105	Addictive Behavior	既往女性平均每日酒精摄入>10g/天，男性平均每日酒精摄入>20g/天；
+s1106	Disease	合并其它急慢性活动性肝病（病毒性肝炎、遗传性血色病、肝豆状核变性、ɑ-抗胰蛋白酶缺乏、酒精性肝病、药物性相关性肝病）；
+s1107	Therapy or Surgery	肝硬化患者；
+s1108	Organ or Tissue Status	心功能不全，心功能分级为3或4级；
+s1109	Therapy or Surgery	带有心脏起博器患者；
+s1110	Disease	无法控制的高血压；
+s1111	Organ or Tissue Status	肾功能不全，血肌酐>正常上限；
+s1112	Laboratory Examinations	怀孕或者哺乳期女性；
+s1113	Compliance with Protocol	女性早孕筛查试验阳性，或者受观察期间不愿意避孕者；
+s1114	Disease	合并HIV感染者；
+s1115	Therapy or Surgery	不能接受MRI检查者；
+s1116	Pharmaceutical Substance or Drug	长期使用抗生素(>1周)；
+s1117	Organ or Tissue Status	未控制的甲状腺功能减退症（TSH>2倍正常值上限）；
+s1118	Compliance with Protocol	其它研究者认为不能完成临床试验的情况；
+s1119	Consent	不能签署知情同意书者。
+s1120	Disease	自身免疫性肝病和原发性胆汁性胆管炎
+s1121	Pharmaceutical Substance or Drug	药物性肝炎；
+s1122	Disease	脂肪型肝炎；
+s1123	Disease	病毒性肝炎；
+s1124	Disease	合并肝癌；
+s1125	Disease	合并妊娠或哺乳；
+s1126	Laboratory Examinations	检查资料严重缺乏。
+s1127	Organ or Tissue Status	肝功能严重障碍，包括严重黄疸、肝性脑病、难治性腹水或肝肾综合征；
+s1128	Organ or Tissue Status	ECOG评分＞2分、恶液质或多脏器功能衰竭；
+s1129	Disease	合并脑转移的患者；
+s1130	Disease	自身免疫性疾病病史者；
+s1131	Allergy Intolerance	对静脉造影剂过敏。
+s1132	Laboratory Examinations	妊娠期女性；
+s1133	Pharmaceutical Substance or Drug	在过去的14天内有活动性出血、血小板输血、或使用血小板抑制剂、非甾体抗炎药物、低分子肝素或华法林；
+s1134	Disease	有恶性肿瘤、尿毒症、风湿性疾病等可能影响凝血功能的病史，或其它明显的代谢异常的病史。
+s1135	Age	年龄<18周岁；
+s1136	Laboratory Examinations	植入起搏器者；
+s1137	Laboratory Examinations	妊娠。
+s1138	Age	年龄<18周岁；
+s1139	Laboratory Examinations	植入起搏器者；
+s1140	Laboratory Examinations	妊娠。
+s1141	Consent	如果病人随机血糖>200 mg/dL,慢性肾脏病或不愿意参加研究将被排除。
+s1142	Life Expectancy	有严重并发症者(消化道大出血、肝昏迷、细菌感染、肝肾综合征等)且预计生存预期不超过半年者；
+s1143	Disease	怀疑或证实患有恶性肿瘤疾病；
+s1144	Disease	语言障碍者；
+s1145	Addictive Behavior	有药物滥用史、酗酒史未控制者；
+s1146	Enrollment in other studies	3月内参加过其他临床试验。
+s1147	Disease	急性食管静脉曲张破裂出血；
+s1148	Diagnostic	所有患者通过病史询问CT及实验室检查诊断为窦前性、窦后性门脉高压的病例（如门静脉血栓、特发性门脉高压、区域性门脉高压、动脉-门静脉瘘，心源性、布加综合征、肝窦综合征等）。
+s1149	Diagnostic	内镜及超声内镜检查考虑为食管、胃粘膜下层占位性病变。
+s1150	Diagnostic	内镜及超声内镜诊断为肥厚性胃炎的病例。
+s1151	Diagnostic	腹部多普勒彩超诊断为胰腺及胆系疾病，必要者行部分CT及MR进一步排除。
+s1152	Age	年龄在15岁以下，85岁以上，妊娠和哺乳妇女。
+s1153	Disease	心、肺、神经精神系统功能障碍，不能耐受胃镜检查及内镜治疗者。
+s1154	Pharmaceutical Substance or Drug	近期2周内服用过抗凝药物者，或某些疾患致凝血功能障碍者。
+s1155	Disease	非肝硬化或门静脉高压导致的出血；
+s1156	Pharmaceutical Substance or Drug	合并免疫系统严重疾病近期有使用糖皮质激素者
+s1157	Disease	合并有肝脏、胰腺以及胃肠道恶性肿瘤；合并有血液系统疾病；术前影像学检查已发现门静脉系统存在血栓；先天性的门静脉系统畸形；临床资料不全；既往腹部手术史
+s1158	Disease	合并 3 个以上失代偿肝硬化并发症;
+s1159	Life Expectancy	存在严重的脓毒败血症、I 型肝肾综合征，或预期生存小于 6 月;
+s1160	Disease	肝硬化急性食管胃静脉曲张出血 5 天内;
+s1161	Disease	慢加急性或亚急性肝功能衰竭或 Child-Pugh>14 分;
+s1162	Disease	肝硬化并发肝性脊髓病、B 型肝性脑病(包括 TIPS)及其他少见肝硬化并发症;
+s1163	Disease	合并其它病毒感染(HAV、HCV、HEV、HIV)、酒精性肝病、自身免疫性肝病、遗传代谢性肝病、药物性肝病、非酒精性脂肪性肝病等其他明确原因的慢性 肝病;
+s1164	Disease	合并严重心肺功能不全、器质性肾脏疾病及严重精神疾病等;
+s1165	Allergy Intolerance	孕妇及哺乳期妇女;对 ETV、ADV、TDF、LdT 及其药物成分过敏者;
+s1166	Compliance with Protocol	研究者认为不适合本研究患者。
+s1167	Disease	非HBV原因导致的慢性肝脏疾病（例如HCV感染、酒精性肝病、重度脂肪肝、药物性肝损伤、自身免疫性肝病、遗传代谢性肝病等）；
+s1168	Organ or Tissue Status	影像学检查提示肝脏恶性肿瘤和/或AFP＞200ng/ml、肌酐＞1.5×UNL、慢性肝衰竭或慢加急性肝衰竭、Child-Pugh评分大于12分、合并严重精神疾病及其他重要脏器功能不全、孕妇及哺乳期妇女、依从性差而无法完成随访要求的患者。
+s1169	Disease	合并慢性HBV、HCV、CMV、EBV感染或酒精等其他原因所致肝炎及肝硬化；
+s1170	Organ or Tissue Status	肝功能衰竭。
+s1171	Disease	合并原发性肝癌或肝转移癌；
+s1172	Disease	合并脂肪肝或严重心功能不全、器质性肾脏疾病；
+s1173	Laboratory Examinations	妊娠期妇女
+s1174	Diagnostic	临床诊断肝癌，术后病理证实为非HCC；
+s1175	Disease	合并有其他类型肿瘤；
+s1176	Therapy or Surgery	肿瘤无法手术根治性切除；
+s1177	Therapy or Surgery	术前已行TACE，免疫治疗，射频消融，化疗等其他方案抗肿瘤治疗患者；
+s1178	Risk Assessment	Child-pugh C；
+s1179	Therapy or Surgery	有严重心肺重大疾病，无法手术患者；
+s1180	Therapy or Surgery	围手术期死亡患者。
+s1181	Disease	临床表现为活动性出血
+s1182	Disease	食管静脉曲张出血（GOV1型和以食管静脉曲张为主的GOV2型）
+s1183	Laboratory Examinations	顽固性腹水
+s1184	Risk Assessment	TIPS的常见禁忌症：充血性心脏衰竭NYHA分级 >Ⅲ或肺动脉高压，多囊肝，肝内胆管扩张，自发性细菌性腹膜炎，肝性脑病
+s1185	Disease	不宜服用非选择性β受体阻滞剂（哮喘、胰岛素依赖性糖尿病及外周血管疾病）
+s1186	Risk Assessment	Child Pugh评分≥12，或MELD评分≥19
+s1187	Disease	布加综合征
+s1188	Laboratory Examinations	门静脉主干血栓大于50%
+s1189	Disease	恶性肿瘤（包括肝细胞癌）或其他将缩短患者寿命的疾病
+s1190	Disease	无法控制的感染或脓肿
+s1191	Therapy or Surgery	既往接受过分流手术治疗
+s1192	Disease	HIV感染或存在AIDS相关疾病
+s1193	Allergy Intolerance	对静脉造影过敏
+s1194	Laboratory Examinations	孕妇或哺乳期妇女
+s1195	Compliance with Protocol	依从性差
+s1196	Disease	合并药物性肝损伤、自身免疫性甲、乙、丙、戊型肝炎等；
+s1197	Disease	合并心、脑、肾、肺、内分泌、血液、代谢及胃肠道严重原发病者，或精神病患者；
+s1198	Laboratory Examinations	肌酐（Cr）大于正常值上限者；
+s1199	Pharmaceutical Substance or Drug	使用药物减肥者；
+s1200	Addictive Behavior	酗酒者或药瘾者；
+s1201	Pharmaceutical Substance or Drug	孕妇、哺乳期妇女或近期内准备妊娠者以及应用雌激素避孕者；
+s1202	Allergy Intolerance	过敏体质及对多种药物、以及本药或本药方组成成分过敏者；
+s1203	Laboratory Examinations	病情危重，难以对新药的有效性及安全性作出确切评价者；
+s1204	Compliance with Protocol	病人不愿意合作者。
+s1205	Allergy Intolerance	对应用的中药组份有过敏史者；
+s1206	Therapy or Surgery	研究者判定应进行抗病毒治疗而患者本人不进行抗病毒者；
+s1207	Disease	肝硬化合并AKI或HRS；
+s1208	Disease	合并其他嗜肝病毒感染者或合并自免肝、原发性胆汁性肝硬化、遗传代谢性肝病、未戒断的酒精肝以及既往肝移植者；
+s1209	Disease	未控制的高血压、糖尿病，恶性肿瘤及其他系统各种严重疾病者；
+s1210	Disease	既往肾结石及慢性肾小球肾炎、肾病综合征、IgA 肾病、系统性红斑狼疮、肾毒性药物相关性肾损伤等肾脏基础疾病；
+s1211	Laboratory Examinations	基线GFR＜60 ml/（min/1.73m2）；
+s1212	Laboratory Examinations	妊娠及哺乳期妇女；
+s1213	Compliance with Protocol	患者不能合作者。
+s1214	Disease	合并药物性肝损伤、自身免疫性甲、乙、丙、戊型肝炎等；
+s1215	Disease	合并心、脑、肾、肺、内分泌、血液、代谢及胃肠道严重原发病者，或精神病患者；
+s1216	Laboratory Examinations	肌酐（Cr）大于正常值上限者；
+s1217	Pharmaceutical Substance or Drug	使用药物减肥者；
+s1218	Addictive Behavior	酗酒者或药瘾者；
+s1219	Pharmaceutical Substance or Drug	孕妇、哺乳期妇女或近期内准备妊娠者以及应用雌激素避孕者；
+s1220	Allergy Intolerance	过敏体质及对多种药物、以及本药或本药方组成成分过敏者；
+s1221	Laboratory Examinations	病情危重，难以对新药的有效性及安全性作出确切评价者；
+s1222	Compliance with Protocol	病人不愿意合作者。
+s1223	Disease	既往HCC病史者;
+s1224	Risk Assessment	肝功能Child-Pugh分级为C级者;
+s1225	Disease	由先天性肝纤维化或血管异常引起的肝硬化者;
+s1226	Therapy or Surgery	既往接受过抗肿瘤治疗者;
+s1227	Diagnostic	有EOB-MRI检查禁忌症者;
+s1228	Laboratory Examinations	EOB-MR图像质量差者;
+s1229	Diagnostic	无基线EOB-MRI检查后一月无可靠病理学结果或至少12月影像学随访者.
+s1230	Disease	精神障碍患者或处于精神症状活动期；
+s1231	Addictive Behavior	3个月内酗酒或吸毒患者；
+s1232	Disease	颅内病变患者如颅脑外伤、脑梗死、脑肿瘤、颅内感染、癫痫等；
+s1233	Laboratory Examinations	代谢性脑病和中毒性脑病；
+s1234	Disease	存在神经系统疾病如阿尔茨海默病、帕金森病等疾病；
+s1235	Therapy or Surgery	0HE患者；
+s1236	Laboratory Examinations	色盲、色弱者。
+s1237	Disease	合并有自发性腹膜炎或其他严重感染；
+s1238	Disease	合并肝肾综合征者；
+s1239	Disease	近1月内出现严重的肝性脑病、消化道大出血或静脉曲张性出血；
+s1240	Disease	有门静脉血栓；合并严重的心、肺、肾、血液、内分泌系统疾病；
+s1241	Laboratory Examinations	HIV阳性；
+s1242	Laboratory Examinations	自身免疫性肝病相关自身抗体阳性；
+s1243	Disease	存在肝脏或任何类型的恶性肿瘤；
+s1244	Therapy or Surgery	孕妇、哺乳期妇女或近期有生育计划者；
+s1245	Addictive Behavior	有酗酒、药物滥用史，并未能有效戒除者；
+s1246	Enrollment in other studies	入组前3个月内参与过其他临床试验；
+s1247	Enrollment in other studies	曾参加过干细胞临床研究；
+s1248	Enrollment in other studies	研究者认为的患者不宜参加本研究的其他情况。
+s1249	Disease	伴有腹痛等肠道缺血表现
+s1250	Therapy or Surgery	既往有脾切除史
+s1251	Enrollment in other studies	正在或最近3个月内参加其他临床试验或正在应用抗凝药物
+s1252	Therapy or Surgery	肝移植术后
+s1253	Disease	合并其他系统严重疾病影响患者临床转归，例如严重的心脏、肺脏、肾脏疾病、血液系统、恶性肿瘤等
+s1254	Enrollment in other studies	妊娠等研究者认为不宜进行临床试验的其他情况
+s1255	Therapy or Surgery	大量腹水患者；
+s1256	Therapy or Surgery	急诊内镜治疗患者；
+s1257	Pharmaceutical Substance or Drug	存在感染征象，正在或接受EIS治疗前一周存在使用抗菌药物治疗病史者；
+s1258	Therapy or Surgery	存在内镜治疗禁忌症患者；
+s1259	Allergy Intolerance	头孢菌素过敏患者；
+s1260	Consent	拒绝签署知情同意书患者。
+s1261	Laboratory Examinations	孕妇及哺乳期妇女；
+s1262	Therapy or Surgery	有器官移植史；
+s1263	Diagnostic	有食管胃底曲张静脉破裂出血史或本次胃镜检查有“红色征”需同时行贲门周围血管离断术或分流术；
+s1264	Disease	各种原因所致活动性出血；
+s1265	Disease	患有严重的急慢性疾病；
+s1266	Disease	患有严重的糖尿病；
+s1267	Disease	患有严重的感染性疾病；
+s1268	Disease	HIV感染或存在AIDS相关疾病；
+s1269	Disease	药物滥用者，或患有可能干扰研究依从性的心理或精神等疾病。
+s1270	Therapy or Surgery	弥漫型原发性肝癌患者；
+s1271	Disease	病灶靠近心脏，不利于CEUS图像观察者。
+s1272	Disease	合并乙型肝炎病毒（HBV）以外其他病毒感染引起的肝病患者；
+s1273	Disease	合并严重的自身免疫性肝病、药物性肝损伤患者；
+s1274	Disease	合并炎症性肠病、肠易激综合征及恶性肿瘤，合并免疫系统疾病或免疫抑制剂应用史；
+s1275	Pharmaceutical Substance or Drug	近1个月内曾应用抗生素、胃肠动力药、肠道微生态调节剂；
+s1276	Laboratory Examinations	近6个月内曾到地方流行性腹泻地区旅行者；
+s1277	Disease	精神病患者；
+s1278	Laboratory Examinations	妊娠或准备妊娠的妇女及哺乳期妇女；
+s1279	Allergy Intolerance	过敏体质及对多种药物过敏者；
+s1280	Enrollment in other studies	3个月内参加其他临床试验者。
+s1281	Disease	活动性出血史（呕血、黑便病史，和内镜下发现渗血、喷血、血栓头）；
+s1282	Diagnostic	经 CT 或 MRI、组织病理学等检查证实肝硬化合并肝癌或组织病理证实存在胃癌、胰腺癌等其他恶性肿瘤的患者；
+s1283	Disease	布加综合征的患者；
+s1284	Disease	肝硬化合并系统性红斑狼疮，克罗恩病、溃疡性结肠炎等炎症性肠病的患者；
+s1285	Disease	肝硬化合并血液系统；
+s1286	Organ or Tissue Status	严重心肺功能不良；
+s1287	Disease	既往有肝性脑部病史。
+s1288	Compliance with Protocol	不能按照医生医嘱定期随访
+s1289	Therapy or Surgery	干扰素治疗患者
+s1290	Disease	合并其它嗜肝病毒感染或其他致病因素引起的肝硬化患者；
+s1291	Diagnostic	B超和MRI检测存在或怀疑存在原发性肝细胞癌占位者；
+s1292	Disease	明确是肝硬化失代偿者，如Child-Pugh C级＞12分者，近6个月出现上消化道出血、肝性脑病、顽固性腹水、出血倾向、肝肾综合征、原发性肝癌者。
+s1293	Disease	伴有心、肾、肺、内分泌、血液、代谢及胃肠道严重原发病者；或精神病患者；
+s1294	Disease	近期有生育意愿者、孕妇或哺乳期妇女。
+s1295	Allergy Intolerance	过敏体质或多种药过敏的患者。
+s1296	Consent	认知障碍患者，无法独立自主签署知情同意书；
+s1297	Disease	合并其他器官或系统恶性肿瘤；
+s1298	Therapy or Surgery	术中同时施行其他主要脏器切除手术（胆囊除外）；
+s1299	Therapy or Surgery	患者或家属不接受快速康复外科理念；
+s1300	Enrollment in other studies	参加其他临床试验；
+s1301	Enrollment in other studies	研究者认为患者不宜参加本试验的其它情况。
+s1302	Allergy Intolerance	对利福息明过敏者;
+s1303	Disease	有明确胃肠道疾病者
+s1304	Compliance with Protocol	无法口服药物者
+s1305	Compliance with Protocol	肝硬化晚期预计无法完成整个研究周期者
+s1306	Therapy or Surgery	接受过TIPS或肝移植；
+s1307	Pharmaceutical Substance or Drug	术前三月内使用抗凝/抗血小板药物；
+s1308	Laboratory Examinations	血小板小于< 20,000/mm3或INR>2；
+s1309	Disease	患有恶性疾病；
+s1310	Risk Assessment	Child-Pugh 评分大于13；
+s1311	Laboratory Examinations	心衰；
+s1312	Organ or Tissue Status	肾功能障碍；
+s1313	Compliance with Protocol	随访期间缺乏主要结果数据。
+s1314	Disease	其他慢性肝病病因导致的肝硬化患者；
+s1315	Disease	合并非HBV嗜肝病毒感染的急慢性肝炎、自身免疫性肝炎、原发性胆汁性肝硬化、原发性硬化性胆管炎、遗传代谢性肝病、药物或毒物性肝炎、酒精性肝病患者；
+s1316	Compliance with Protocol	妊娠或哺乳期妇女以及计划在研究期内妊娠的妇女；
+s1317	Allergy Intolerance	对试验药物过敏者；
+s1318	Compliance with Protocol	有精神异常不能配合本研究的患者，或病情不稳定的癫痫病患者；
+s1319	Disease	合并严重心、脑、肺、肾、造血等系统疾病的患者；
+s1320	Pharmaceutical Substance or Drug	酗酒或有其他不宜做药物试验观察者，或不能配合治疗，难以对药物的有效性和安全性做出确切评价者；
+s1321	Enrollment in other studies	研究者认为不适合入组的其它情况。
+s1322	Disease	急性肝衰竭；
+s1323	Pharmaceutical Substance or Drug	目前有应用抗凝药物；
+s1324	Disease	合并血友病或其他血液系统疾病；
+s1325	Enrollment in other studies	同时参与了另一项输血相关实验。
+s1326	Laboratory Examinations	HVPG<12mmHg；
+s1327	Organ or Tissue Status	肝功能 CTP 分级为 C 级或重度腹水或严重肝衰竭者;
+s1328	Disease	有非选择性β受体阻滞剂使用禁忌症，如支气管哮喘、心源性休克、心脏传导阻滞（ⅡⅢ度房室传导阻滞）、重度或急性心力衰竭和窦性心动过缓以及对本品过敏等；
+s1329	Pharmaceutical Substance or Drug	同时服用影响非选择性β受体阻滞剂在体内代谢、吸收的药物；
+s1330	Pharmaceutical Substance or Drug	同时使用其他降低门脉压力的药物；
+s1331	Disease	合并肝癌或肝外肿瘤、门静脉癌栓或血栓；
+s1332	Disease	严重的心、肺、肝、肾功能不全，或严重出血性疾病或局部/全身感染,甲状腺功能低下、雷诺综合症、周围血管疾病等;
+s1333	Therapy or Surgery	计划怀孕或已怀孕或哺乳的妇女
+s1334	Therapy or Surgery	弥漫型原发性肝癌患者；
+s1335	Disease	病灶靠近心脏，不利于CEUS图像观察者。
+s1336	Disease	既往或本次发现有恶性肿瘤病史；
+s1337	Laboratory Examinations	HIV抗体阳性者；
+s1338	Disease	有免疫缺陷性疾病或自身免疫性疾病（如类风湿性关节炎、伯格氏病、多发性硬化症和1型糖尿病等）病史者；
+s1339	Organ or Tissue Status	有其他器官功能衰竭者；
+s1340	Disease	有精神疾病者；
+s1341	Pharmaceutical Substance or Drug	有药物成瘾的证据；
+s1342	Enrollment in other studies	参加其他药物的临床试验研究；
+s1343	Disease	有严重心脑肺或其他基础疾病者；
+s1344	Disease	其它研究者认为不适合纳入的患者；
+s1345	Consent	患者不愿签署知情同意书。
+s1346	Therapy or Surgery	接受过上腹部手术史；
+s1347	Disease	近1月内发生过上消化道出血史；
+s1348	Laboratory Examinations	妊娠期妇女；
+s1349	Disease	胃食管反流疾病患者；
+s1350	Disease	合并严重精神疾病，不能配合胃镜和床旁超声检查操作患者；
+s1351	Disease	合并肝癌和其他部位恶性肿瘤
+s1352	Organ or Tissue Status	既往或入组时已患有严重的心血管系统、消化系统、呼吸系统、泌尿系统等器官功能障碍或不全；
+s1353	Disease	既往出血史患者以及合并其他导致出血的疾病
+s1354	Disease	合并严重的全身性感染
+s1355	Therapy or Surgery	入组前行肝移植、脾切除、TIPSS、外科断流及分流术等患者
+s1356	Pharmaceutical Substance or Drug	1月前服用益生菌、抗生素、抗真菌药、激素等影响微环境的药物
+s1357	Disease	严重神经和精神病患者
+s1358	Addictive Behavior	酒精或其他药物滥用者
+s1359	Laboratory Examinations	孕妇及哺乳期妇女
+s1360	Laboratory Examinations	合并其他肝病（如HBV、HCV、酒精性肝硬化等）或血ALT、AST超过正常高限2倍以上者；
+s1361	Risk Assessment	肝功失代偿（Child分级B/C）；
+s1362	Disease	合并肿瘤；
+s1363	Organ or Tissue Status	存在重要脏器衰竭（如肾功能不全者）、严重感染或其它严重并发症者；
+s1364	Disease	妊娠、准备妊娠或哺乳期、精神病受试者等；
+s1365	Allergy Intolerance	有严重药物过敏史或过敏体质者；
+s1366	Pharmaceutical Substance or Drug	血脂明显升高（如甘油三酯>500mg/dl）需要降脂治疗，或已使用他汀类降脂药的患者；
+s1367	Enrollment in other studies	正在参加其他临床试验
+s1368	Organ or Tissue Status	凝血功能严重减退，且无法纠正；
+s1369	Disease	门静脉主干完全被癌栓栓塞，且侧支血管形成少；
+s1370	Disease	合并活动性肝炎或严重感染且不能同时治疗者；
+s1371	Laboratory Examinations	外周血白细胞和血小板显著减少，白细胞＜
+s1372	Laboratory Examinations	0×109/L，血小板＜50×109/L；
+s1373	Laboratory Examinations	肾功能障碍：肌酐＞2mg/dl或者肌酐清除率＜30ml/min；
+s1374	Organ or Tissue Status	恶液质或多器官功能衰竭者；
+s1375	Allergy Intolerance	对吲哚菁绿、阿霉素、洛铂、碘化油过敏者；
+s1376	Compliance with Protocol	研究人员认为，受试者未必能完成本研究或未必能遵守本研究的要求（由于管理方面的原因或其他原因）。
+s1377	Disease	出血时已有明确感染或不明原因的发热；
+s1378	Pharmaceutical Substance or Drug	发生出血后已使用抗生素者，或近期（3天）内曾使用抗生素；
+s1379	Therapy or Surgery	发生出血时间超过3天；
+s1380	Laboratory Examinations	妊娠妇女或哺乳期妇女；
+s1381	Disease	合并肝癌患；
+s1382	Disease	合并胆道或胃肠道疾病，如胃溃疡、胰腺炎、克罗恩病、急性胃肠炎、胆道梗阻、胆囊炎、寄生虫感染等可能影响肠道菌群疾病；
+s1383	Disease	研究者认为其他不适合纳入的情况。
+s1384	Age	年龄 < 16岁或 ≥ 80岁
+s1385	Laboratory Examinations	妊娠期或哺乳期妇女
+s1386	Laboratory Examinations	艾滋病抗体阳性
+s1387	Therapy or Surgery	此次入院拟完成预约的治疗，如：内镜下套扎/脾切除/TIPS术/肝穿刺，或仅为单纯复查或MDT会诊等
+s1388	Disease	米兰标准以外的肝细胞肝癌及其他晚期恶性肿瘤
+s1389	Therapy or Surgery	肝移植术后状态
+s1390	Disease	合并影响预后的其他严重的急慢性肝外疾病，如：COPD慢性呼吸衰竭期；慢性肾病尿毒症期（透析治疗）；冠心病合并左心衰等。
+s1391	Pharmaceutical Substance or Drug	因肝脏疾病以外原因长期服用免疫抑制剂，如：风湿性疾病；肾病综合征；器官移植后抗排除等，或抗凝药物治疗房颤等。
+s1392	Consent	患者拒绝签署知情同意书，参加此研究
+s1393	Consent	以上均不符合，但患者因昏迷等原因暂时无法签署知情同意书，且没有法定代理人代替签署。根据病情，患者可能无法苏醒补签知情同意书。
+s1394	Disease	肝脏恶性肿瘤及其他系统的恶性肿瘤
+s1395	Disease	合并有肝癌或其他恶性肿瘤患者
+s1396	Disease	合并心肺肾脑血液等重要脏器严重疾病影响患者生存期者
+s1397	Therapy or Surgery	曾接受TIPS脾栓塞脾切除+断流术等门脉高压干预治疗患者
+s1398	Disease	合并严重精神疾病的患者
+s1399	Laboratory Examinations	孕妇及哺乳期妇女
+s1400	Laboratory Examinations	临床资料相关检查检验结果不完整者
+s1401	Disease	合并急性消化道出血、II度以上肝性脑病、昏迷等；
+s1402	Pharmaceutical Substance or Drug	长期使用糖皮质激素等；
+s1403	Organ or Tissue Status	并发慢性肾功能衰竭等；
+s1404	Consent	无法配合监测随访，拒绝签署知情同意书者。
+s1405	Disease	合并急性消化道出血、II度以上肝性脑病、昏迷等；
+s1406	Pharmaceutical Substance or Drug	长期使用糖皮质激素等；
+s1407	Organ or Tissue Status	并发慢性肾功能衰竭等；
+s1408	Consent	无法配合监测随访，拒绝签署知情同意书者。
+s1409	Disease	合并其它慢性重型肝炎、失代偿期肝硬化、肝癌等严重或终末期肝病者；
+s1410	Disease	伴有不可控制的心、肾、肺、内分泌、血液、代谢及胃肠道严重原发病者；或精神病患者；
+s1411	Laboratory Examinations	孕妇或哺乳期妇女；
+s1412	Allergy Intolerance	过敏体质或对所用中药过敏的患者；
+s1413	Compliance with Protocol	不能按规定用药，依从性差，资料不全影响疗效和安全性判断者；
+s1414	Enrollment in other studies	研究者认为不宜入选本试验者；
+s1415	Disease	合并感染其它病毒性肝病。
+s1416	Disease	重叠或合并甲、丙、丁、戊型病毒性肝炎病毒及获得性人类免疫缺陷病毒( HIV) 感染；
+s1417	Disease	合并代谢性或自身免疫性肝病;
+s1418	Disease	患有延迟或阻止药物通过消化道疾病的患者，如消化道溃疡、严重腹泻、肠梗阻等体质；
+s1419	Disease	有严重精神障碍和语言障碍不能与研究者配合者；
+s1420	Therapy or Surgery	肿瘤患者，预期生命＜3个月；
+s1421	Laboratory Examinations	妊娠试验阳性或哺乳期妇女；
+s1422	Allergy Intolerance	对多种药物有过敏者；
+s1423	Enrollment in other studies	近3个月内参加其他药物临床试验者；
+s1424	Addictive Behavior	酗酒和吸毒者。
+s1425	Disease	近2周内发生过确诊或可疑食管胃底曲张静脉破裂出血者；
+s1426	Pharmaceutical Substance or Drug	近1月内抗病毒治疗药物发生改变（包括新用、停止或改用其它药物）；
+s1427	Disease	近1月内发生过中-重度肝性脑病、食管胃底曲张静脉破裂出血或自发性细菌性腹膜炎等感染者；
+s1428	Laboratory Examinations	乙肝病毒滴度≥1000 copy/ml者；
+s1429	Laboratory Examinations	患有明显的心肺疾病者；或基础心率小于70次/分；或基础血压低于100/70mmHg者；
+s1430	Laboratory Examinations	明显肾功能损害者（血清肌酐≥2 mg/dL或肾小球滤过率 GFR<40 mL/min）；
+s1431	Diagnostic	确诊或怀疑合并恶性肿瘤（含原发性肝癌）者；其中AFP≥20 ng/ml者须经CT等检查排除肝脏肿瘤；
+s1432	Laboratory Examinations	HIV感染者；
+s1433	Allergy Intolerance	对长效奥曲肽和/或利福昔明过敏或有药物使用禁忌者；
+s1434	Disease	妊娠哺乳期妇女或不排除妊娠可能的妇女或研究者认为不适合参加者
+s1435	Organ or Tissue Status	合并其它重要器官功能障碍：包括严重肝肾功能异常，脑器质性疾病，NYHA≧Ⅲ级，凝血功能异常；病窦综合征、心动过缓（HR<55次/min)；
+s1436	Pharmaceutical Substance or Drug	有依托咪酯或者丙泊酚使用禁忌症；
+s1437	Disease	其它研究者认为不适合纳入的患者。
+s1438	Therapy or Surgery	有肝脏手术或介入等治疗史
+s1439	Laboratory Examinations	肝脏巨块型或弥漫型占位
+s1440	Laboratory Examinations	胆道梗阻或门脉栓塞者
+s1441	Organ or Tissue Status	肺动脉压力＞40mmHg，左心室射血分数＜50%，充血性心力衰竭或重度瓣膜功能不全者。
+s1442	Diagnostic	有 MRI 检查禁忌症者
+s1443	Consent	因生理和精神异常而无法签署知情同意书者
+s1444	Consent	无知情同意者；
+s1445	Therapy or Surgery	其他病因所致的肝硬化患者；
+s1446	Disease	门静脉内血栓形成、血小板减少家族史或脾梗死的患者、合并肝脏细胞癌的肝硬化患者；
+s1447	Disease	近期内（≤15天）有消化道出血病史的患者；
+s1448	Therapy or Surgery	有门静脉高压治疗史者：如脾切除术，经颈静脉肝内门体静脉分流术，部分脾栓塞术，使用β受体阻滞剂治疗后或经内镜下治疗术后者；
+s1449	Allergy Intolerance	不能耐受内镜检查的患者；
+s1450	Diagnostic	ARFI检查与内镜检查间隔时间＞3个月；
+s1451	Laboratory Examinations	ARFI失败或不可靠的测量；
+s1452	Disease	患者存在右心衰竭、骨髓增生异常、血液系统或自身免疫性疾病。
+s1453	Organ or Tissue Status	肝、肾功能明显异常；
+s1454	Disease	代谢性骨病、慢性肝、肾疾病及自身免疫系统疾病等干扰骨代谢的疾病。
+s1455	Therapy or Surgery	继发性骨质疏松患者；
+s1456	Pharmaceutical Substance or Drug	服用过糖皮质激素、非甾体类抗炎药、免疫调节剂等影响细胞因子产生的药物。
+s1457	Disease	患有其他低骨量代谢性疾病及其他严重的心、脑血管疾病如缺血性心脏病、外周血管疾病、脑血管疾病、未控制的高血压患者；
+s1458	Allergy Intolerance	合并子宫乳腺疾病者及对鲑鱼降钙素过敏患者。
+s1459	Therapy or Surgery	有手术禁忌的患者
+s1460	Disease	合并有活动性的消化道出血或自发性腹膜炎的患者；
+s1461	Disease	有较复杂合并证型者，包括痰、瘀、寒、热毒等实证，以及明显的阴虚患者等；
+s1462	Organ or Tissue Status	有严重的肝功能衰竭患者；
+s1463	Disease	合并有呼吸系统、神经系统、免疫系统等其他重大系统性疾病，恶性肿瘤患者或有严重创伤、感染患者等；
+s1464	Allergy Intolerance	过敏体质者或对试验药物已知成分过敏者；
+s1465	Compliance with Protocol	育龄妇女处于妊娠、哺乳期、有妊娠意向或妊娠试验（测尿或血HCG）阳性，并且在研究期间不能采取有效避孕措施（有效避孕措施包括绝育、宫内节育器、口服避孕药或当地法律规定的隔膜法）者；
+s1466	Enrollment in other studies	近1个月内参加过其他药物或医疗器械临床试验的患者；
+s1467	Disease	精神、神经障碍，不能正确表达意愿者；
+s1468	Addictive Behavior	酗酒者以及药物滥用及成瘾者。
+s1469	Therapy or Surgery	食管胃底静脉曲张破裂出血需先行内镜止血治疗；
+s1470	Disease	怀疑不能同期切除的肝癌或其他恶性肿瘤；
+s1471	Disease	身体处于免疫抑制状态；
+s1472	Laboratory Examinations	打算怀孕/哺乳期/怀孕的妇女；
+s1473	Enrollment in other studies	缺乏IgA或其他血浆蛋白；
+s1474	Consent	无法签署知情同意书。
+s1475	Disease	肝硬化患者ALT>2 x ULN或者TBIL>2 x ULN，并发肝性脑病、上消化道出血、肝肾综合征不予入选。
+s1476	Disease	生殖系胚胎源性肿瘤、活动性肝病及转移性肝癌患者。
+s1477	Diagnostic	AFP≥300μg/L，或者影像学检查有肝脏占位性病变者。
+s1478	Disease	合并严重心、肺、胆、肾、内分泌、造血系统及精神神经疾病患者。
+s1479	Laboratory Examinations	法律意义上的残疾者。
+s1480	Disease	妊娠或哺乳期妇女，以及有受孕可能未采取有效避孕措施者。
+s1481	Allergy Intolerance	过敏体质（对两种或两种以上药物、食物、花粉过敏者），或对本药已知成分过敏者
+s1482	Enrollment in other studies	近1月内参加其他临床试验的患者。
+s1483	Disease	确认存在对核苷（酸）类抗病毒药耐药变异；
+s1484	Laboratory Examinations	失代偿期肝硬化；
+s1485	Laboratory Examinations	肝癌，或甲胎蛋白（AFP） ＞ 300ng/ml；
+s1486	Diagnostic	肝组织学符合其他慢性肝病病因（脂肪肝除外）；
+s1487	Disease	非HBV的其他病毒感染的急慢性肝炎、HCV感染、HDV感染、自身免疫性肝炎、原发性胆汁性肝硬化、原发性硬化性胆管炎、遗传代谢性肝病、药物或毒物性肝炎、酒精性肝病；
+s1488	Disease	伴有精神病史或无法控制的癫痫病患者；
+s1489	Disease	未控制的糖尿病患者；
+s1490	Disease	并发血液病、自身免疫病者；
+s1491	Organ or Tissue Status	有系统性基础病,如慢性呼吸衰竭、循环衰竭、肾功能衰竭等；
+s1492	Therapy or Surgery	有器官移植（如肝、肾、肺、心）或骨髓移植和干细胞移植史；
+s1493	Therapy or Surgery	免疫缺陷患者：如 HIV 感染或近 3 月内服用免疫抑制剂或糖皮质激素（如环孢菌素、硫唑嘌呤、肾上腺皮质激素），或者化疗制剂（如环磷酰胺、甲氨碟呤、癌症化学治疗）以及放射性治疗；
+s1494	Compliance with Protocol	妊娠或哺乳期妇女以及计划在研究期内怀孕的妇女；
+s1495	Allergy Intolerance	对研究所用的药品过敏者；
+s1496	Enrollment in other studies	正在参加其他临床试验者；
+s1497	Enrollment in other studies	研究者认为不适合入组的其它情况。
+s1498	Laboratory Examinations	弥漫型肝癌；
+s1499	Disease	胆管细胞癌；
+s1500	Disease	合并门脉主干癌栓；
+s1501	Disease	合并肝静脉癌栓；
+s1502	Disease	合并淋巴结转移和肝外远处转移者；
+s1503	Organ or Tissue Status	合并临床肝性脑病、顽固性腹水或不可纠正的凝血功能障碍者
+s1504	Laboratory Examinations	妊娠期或哺乳期妇女
+s1505	Allergy Intolerance	既往对碘油、化疗药物过敏者
+s1506	Disease	合并肝脏或其他脏器的恶性肿瘤或有既往肿瘤病史。
+s1507	Disease	并发消化道出血、自发性腹膜炎、肝性脑病、肝肾综合症以及急性感染发作期。
+s1508	Disease	有严重的心、肺、肾或血液系统疾病及衰竭状态患者。
+s1509	Laboratory Examinations	怀孕或哺乳期妇女。
+s1510	Allergy Intolerance	过敏体质。
+s1511	Addictive Behavior	有酗酒、药物滥用史，并未能有效戒除者。
+s1512	Enrollment in other studies	受试者退出研究的条件4周内未参与过其他临床试验。
+s1513	Enrollment in other studies	研究者认为的患者不宜参加本研究的其他情况。
+s1514	Disease	存在以下情况之一即为排除病例：
+s1515	Age	未成年或年龄大于75岁者；
+s1516	Disease	不能确定为乙型肝炎所致肝硬化者；
+s1517	Disease	出现肝硬化严重并发症者（如电解质紊乱、消化道出血、感染等）；
+s1518	Disease	有精神心理或脑血管疾病；
+s1519	Pharmaceutical Substance or Drug	近4周内服用镇静剂或中枢神经系统抑制剂；
+s1520	Laboratory Examinations	长期饮酒超过5年，折合乙醇男性>40g/日，女性>20g/日，或2周内有大量饮酒史，折合乙醇>80g/日；
+s1521	Laboratory Examinations	体温在36.5℃以上者；
+s1522	Disease	合并心血管、呼吸系统、肾病、内分泌、神经及血液系统疾病等；
+s1523	Disease	患有各系统恶性肿瘤者；
+s1524	Compliance with Protocol	因其他原因不能合作者。
+s1525	Age	严重心、脑、肺等疾病患者；年龄小于18周岁或大于80周岁者。
+s1526	Disease	患有心血管、脑、肺、肾等重要器官严重器质性疾病，精神疾病或不能合作者，严重的内分泌系统、免疫系统疾病，处于妊娠或哺乳期的女性；
+s1527	Disease	合并有以下疾病：肝硬化合并肝癌，明确存在着消化道以外的感染，合并消化道出血及行经颈静脉肝内门体分流术(TiPPS)后的肝硬化患者，合并肝脏以外疾病所致的慢性腹泻、吸收不良性疾病;既往有胃肠道或腹腔外科手术史；
+s1528	Pharmaceutical Substance or Drug	近2周和治疗期间使用抗生素、微生态制剂、乳果糖、抑酸药及胃肠动力药等可影响肠道菌群的制剂；
+s1529	Compliance with Protocol	患者不同意入组，依从性差无法继续进行检查及治疗者。
+s1530	Disease	没有潜在肝硬化的急性、亚急性肝衰竭；
+s1531	Diagnostic	出现活动性恶性肿瘤（诊断符合米兰标准的肝癌除外）或既往有恶性肿瘤史，且随访阴性小于5年；
+s1532	Disease	中、重度慢性心力衰竭（NYHA≥2级）；
+s1533	Disease	严重COPD（GOLD≥2级）；
+s1534	Disease	严重精神疾病；
+s1535	Consent	拒绝提供书面知情同意。
+s1536	Disease	严重心、肺、肾、脑及血液系统等重大基础疾病；
+s1537	Organ or Tissue Status	近一月内出现急性肝功能损害；
+s1538	Disease	近一月出现消化道出血、肝肾综合征、自发性腹膜炎、肝性脑病等肝硬化失代偿期并发症；
+s1539	Disease	恶性肿瘤；
+s1540	Laboratory Examinations	胆道结石或胆管炎；
+s1541	Laboratory Examinations	人类免疫缺陷病毒(HIV)阳性；
+s1542	Laboratory Examinations	妊娠或哺乳期女性；
+s1543	Disease	处于发热等明显急性炎症期间；
+s1544	Therapy or Surgery	近一月内进行肠内外营养制剂治疗及近一周内暴饮暴食；
+s1545	Pharmaceutical Substance or Drug	近一月内使用降糖药、降脂药、糖皮质激素、甲状腺激素等可能干扰物质代谢的药物；
+s1546	Disease	存在研究者认为可能干扰个体物质代谢的其它因素。
+s1547	Diagnostic	疑有肝癌（AFP升高且B超或CT提示肝癌）；
+s1548	Organ or Tissue Status	肝衰竭者；
+s1549	Therapy or Surgery	肝硬化失代偿期患者；
+s1550	Laboratory Examinations	慢性乙型肝炎合并血清抗HCV（且HCV RNA阳性）、抗HDV、抗HIV阳性患者；
+s1551	Disease	合并自身免疫性肝病、酒精性肝病、药物性肝损伤或遗传代谢性肝病；
+s1552	Disease	伴有恶性肿瘤、严重心肺疾病、结缔组织病、器官移植治疗的患者；
+s1553	Therapy or Surgery	入组前正接受核苷（酸）类似物抗病毒治疗者；
+s1554	Compliance with Protocol	不能按规定用药，依从性差，资料不全影响疗效和安全性判断。
+s1555	Laboratory Examinations	HVPG<12mmHg；
+s1556	Organ or Tissue Status	肝功能CTP分级为C级或重度腹水或严重肝衰竭者;
+s1557	Disease	有非选择性β受体阻滞剂使用禁忌症，如支气管哮喘、心源性休克、心脏传导阻滞（Ⅱ-Ⅲ度房室传导阻滞）、重度或急性心力衰竭和窦性心动过缓以及对本品过敏等；
+s1558	Pharmaceutical Substance or Drug	同时服用影响非选择性β受体阻滞剂在体内代谢、吸收的药物；
+s1559	Pharmaceutical Substance or Drug	同时使用其他降低门脉压力的药物；
+s1560	Disease	合并肝癌或肝外肿瘤、门静脉癌栓或血栓；
+s1561	Disease	严重的心、肺、肝、肾功能不全，或严重出血性疾病或局部/全身感染,甲状腺功能低下、雷诺综合症、周围血管疾病等;
+s1562	Therapy or Surgery	计划怀孕或已怀孕或哺乳的妇女；
+s1563	Disease	肝外胆道疾病，严重心血管疾病，过去6个月中中风或者心肌梗死患者。
+s1564	Laboratory Examinations	腋下体温>36.5℃；
+s1565	Pharmaceutical Substance or Drug	合并慢性咳嗽、咳痰、喘憋等呼吸道疾病，长期使用糖皮质激素等；
+s1566	Disease	并发甲亢、甲减、活动性肺结核，昏迷，消化道出血急性期，肝癌等恶性肿瘤，肾功能衰竭等；
+s1567	Disease	合并乙肝病毒、丙肝病毒等嗜肝病毒感染；
+s1568	Disease	有精神疾患，或其他各种不能配合代谢车检查等；
+s1569	Compliance with Protocol	不能坚持戒酒者；
+s1570	Consent	拒绝签署知情同意书者。
+s1571	Allergy Intolerance	任何符合药物禁忌症的表现（药物过敏；严重的心肺疾病；严重的肾脏疾病；服药前及服药期间血压＜90/60mmHg，心率<55次/分）
+s1572	Allergy Intolerance	无法行HVPG患者（造影剂过敏；重度全身性感染或穿刺部位炎症；外周血管疾病）
+s1573	Disease	已确诊肿瘤患者或严重消耗性疾病患者
+s1574	Therapy or Surgery	已行或拟行TIPS、肝移植、脾切除+血管断流术的患者
+s1575	Risk Assessment	Child-pugh评分≥13
+s1576	Laboratory Examinations	非肝硬化型门脉高压
+s1577	Disease	门脉系统完全血栓或海绵样变性
+s1578	Disease	除肝硬化相关的出血性疾病
+s1579	Therapy or Surgery	孕妇、哺乳期妇女或近期有妊娠可能患者
+s1580	Enrollment in other studies	3月内参加过其它药物试验者或应用过卡维地洛、辛伐他汀、二甲双胍者
+s1581	Disease	研究者认为不适合参加者
+s1582	Disease	患有严重心、肺、肾脏疾病，包括心功能衰竭、严重心律失常影响循环及中至重度COPD；
+s1583	Risk Assessment	ASA分级≥Ⅳ级；
+s1584	Addictive Behavior	酗酒、药物滥用、手术麻醉史；
+s1585	Compliance with Protocol	精神状态不能合作者；
+s1586	Enrollment in other studies	正在参与其他临床试验者；
+s1587	Enrollment in other studies	研究人员认为其他原因不适合该临床试验。
+s1588	Disease	合并肝癌、肝移植者；确诊为痴呆、精神疾病等；智力、听力、表达力方面有欠缺的患者；对于病情严重, 如严重的肝肾功能衰竭患者；不能理解或回答问题者。
+s1589	Therapy or Surgery	手术前肝癌结节破裂出血，手术前合并感染；
+s1590	Disease	手术前曾患胃肠道疾病史；
+s1591	Pharmaceutical Substance or Drug	除常规用药外使用其他影响胃肠功能的药物者；
+s1592	Consent	不同意加入本研究者。
+s1593	Disease	HBV联合HIV、TB; (结核杆菌)等感染的患者;
+s1594	Therapy or Surgery	其他肝炎病毒感染的患者;
+s1595	Pharmaceutical Substance or Drug	酒精或药物等其他原因引起的肝硬化;
+s1596	Age	18岁以下的患者或60岁以上的患者;
+s1597	Laboratory Examinations	有癌症史等；
+s1598	Disease	合并其他癌症包括肝细胞癌等；
+s1599	Disease	合并糖尿病及其他代谢综合征等。
+s1600	Pharmaceutical Substance or Drug	应用过任何抗生素及免疫调节剂的乙型肝炎肝硬化患者。
+s1601	Diagnostic	入院时已确诊AKI
+s1602	Pharmaceutical Substance or Drug	拟进行或已肾移植或肝移植，进行性慢性肾病(基线肌酐值>353.6umol/l)，接受肾脏替代治疗，有肾小球肾炎或肾积水等已知的肾功能不全病因，尿路感染。
+s1603	Disease	肿瘤，
+s1604	Life Expectancy	预期生命不足3 d，
+s1605	Laboratory Examinations	确认怀孕
+s1606	Therapy or Surgery	过去 6 个月内或现在有显性肝性脑病者；
+s1607	Pharmaceutical Substance or Drug	近 3 个月服用乳果糖、益生菌或门冬氨酸鸟氨酸，近 1 周使用抗生素或镇静药；
+s1608	Addictive Behavior	酒精性肝硬化并且近 3 月仍然酗酒者；
+s1609	Disease	有色盲、白内障、糖尿病或高血压视网膜病变、视近物障碍者；
+s1610	Disease	有精神病史、心理疾病或脑神经疾病史；
+s1611	Enrollment in other studies	其他代谢性脑病，如酮症酸中毒、低血糖症、低钠血症、肾性脑病、酒精性脑病、
+s1612	Disease	肺性脑病、韦尼克脑病、急性中毒等；
+s1613	Disease	伴有心、肺、肾等其他系统的严重疾病；
+s1614	Compliance with Protocol	不配合诊疗的患者。
+s1615	Disease	肝硬化合并有感染，或恶性肿瘤引起的腹水；
+s1616	Disease	2周内曾患上消化道出血或肝性脑病者；
+s1617	Disease	合并有心血管、肾脏和造血系统等严重原发性疾病，精神病患者；
+s1618	Laboratory Examinations	总胆红素≥50umol/L或慢加急性肝衰竭（PTA≤40%，或总胆红素每日升高≥17.1umol/L）；
+s1619	Laboratory Examinations	血清白蛋白低于25g/L。
+s1620	Pharmaceutical Substance or Drug	TIPS术前一周内使用抗生素或泻药；
+s1621	Disease	神经或精神病史；
+s1622	Laboratory Examinations	溶血性黄疸或梗阻性黄疸；
+s1623	Laboratory Examinations	皮肌炎或多发性肌炎；
+s1624	Disease	一月内患急性冠脉综合征、心肌炎或心力衰竭；
+s1625	Laboratory Examinations	一月内外伤病史；
+s1626	Pharmaceutical Substance or Drug	一周内使用华法林、肝素或抗血小板聚集药物；
+s1627	Disease	合并恶性肿瘤；
+s1628	Laboratory Examinations	炎症性肠病及一月内患感染性腹泻。
+s1629	Therapy or Surgery	HBSAG(-)的肝硬化患者；
+s1630	Risk Assessment	Child积分大于等于7分；
+s1631	Disease	同时感染HIV、HCV、HDV；
+s1632	Disease	合并代谢性或自身免疫性肝病；
+s1633	Enrollment in other studies	滥用酒精或非法药品史，30天内参加其它肝炎药物的试验；
+s1634	Disease	精神病和其它严重脏器疾病者。
+s1635	Laboratory Examinations	基础肝静脉压力梯小于12mmHg；
+s1636	Risk Assessment	终末期肝硬化（难治性腹水、Ⅰ型肝肾综合征、肝功能Child–Pug评分在15分）;
+s1637	Disease	有普萘洛尔使用禁忌症者（支气管哮喘、严重慢阻肺、窦性心动过缓、Ⅱ-Ⅲ度房室传导阻滞、失代偿期充血性心力衰竭和严重周围血管疾病；
+s1638	Organ or Tissue Status	有肝癌、门静脉血栓及严重的心、肺、肝、肾功能不全者。
+s1639	Laboratory Examinations	术中未阻断肝门
+s1640	Organ or Tissue Status	患有严重心功能不全（EF<50%）、肾功能不全
+s1641	Disease	患有外周血管病或相关肢体外周无脉或脉弱者
+s1642	Disease	严重系统性感染、局部感染（临床表现or T>38℃ or C反应蛋白↑ or WBC↑）
+s1643	Therapy or Surgery	曾行手术、放疗、化疗、介入、生物治疗、靶向治疗等抗肿瘤治疗
+s1644	Pharmaceutical Substance or Drug	3周内使用过抗炎药（皮质醇类、NSAID）、抗氧化药（维生素）
+s1645	Enrollment in other studies	研究中参加其它临床试验者
+s1646	Disease	原发性肝癌且巴塞罗那分期为 B 期以上，或合并继发性肝癌或其他恶性肿瘤
+s1647	Disease	合并胃静脉曲张或其他异位曲张静脉
+s1648	Organ or Tissue Status	合并心肺脑肾的重要疾病，包括脑卒中、尿毒症、急性冠脉综合征、呼吸功能不全或 I 型 肝肾综合征
+s1649	Therapy or Surgery	无法耐受内镜检查和治疗
+s1650	Therapy or Surgery	入组前行 TIPS 或外科手术
+s1651	Risk Assessment	TBil>170umol/L 或 Child-Pugh>13 分
+s1652	Therapy or Surgery	无肝硬化患者
+s1653	Pharmaceutical Substance or Drug	入组前1年使用过硬化剂或组织胶治疗食管静脉曲张
+s1654	Therapy or Surgery	肝硬化代偿期及1级肝硬化腹水患者；
+s1655	Disease	肝硬化失代偿期合并消化道出血、肝性脑病、肝肾综合征等严重合并症者；
+s1656	Disease	合并心脑血管、肺、肾、神经和血液系统等严重疾病或肿瘤、精神疾病患者；
+s1657	Laboratory Examinations	妊娠或准备妊娠妇女，哺乳期妇女；
+s1658	Allergy Intolerance	过敏体质或对敷脐药物中的已知成分有过敏史者；
+s1659	Enrollment in other studies	正在参加或1个月内参加过其他临床试验的患者。
+s1660	Pharmaceutical Substance or Drug	入组前 1月及入组后任何时候使用过硬化剂治疗
+s1661	Disease	原发性肝癌且巴塞罗那分期为 B 期以上，或合并继发性肝癌或其他恶性肿瘤
+s1662	Disease	合并胃静脉曲张或其他异位曲张静脉
+s1663	Organ or Tissue Status	合并心肺脑肾的重要疾病，包括脑卒中、尿毒症、急性冠脉综合征、呼吸功能不全或 I型肝肾综合征
+s1664	Therapy or Surgery	无法耐受内镜检查和治疗
+s1665	Therapy or Surgery	入组前行 TIPS 或外科手术
+s1666	Risk Assessment	TBil>170umol/L 或 Child-Pugh>13 分
+s1667	Therapy or Surgery	无肝硬化患者
+s1668	Laboratory Examinations	难治性腹水；
+s1669	Disease	肝性脑病Ⅱ-Ⅳ级、肝肾综合征；
+s1670	Disease	近期有上消化道出血；
+s1671	Laboratory Examinations	肝癌；
+s1672	Therapy or Surgery	胃肠道手术史；
+s1673	Disease	高血压、糖尿病、其他肝疾病、严重心肺功能障碍；
+s1674	Disease	精神疾病；
+s1675	Pharmaceutical Substance or Drug	术前3周内应用抗生素、术后标本采集前3周内使用抗生素；
+s1676	Organ or Tissue Status	甲状腺功能紊乱；
+s1677	Laboratory Examinations	炎症性肠病；
+s1678	Laboratory Examinations	胃粘膜萎缩；
+s1679	Pharmaceutical Substance or Drug	7日内使用过抑酸类药物；
+s1680	Pharmaceutical Substance or Drug	3日内服用过影响胃肠蠕动的药物；
+s1681	Disease	其他可以解释的胃肠道症状
+s1682	Age	年龄小于18岁，大于80岁者
+s1683	Diagnostic	未确诊肝硬化者
+s1684	Therapy or Surgery	有中风史、癫痫史、或原发大脑癌症患者、癌症脑转移患者，无法进行语言交流者
+s1685	Disease	肝硬化合并肝细胞癌者
+s1686	Organ or Tissue Status	肝移植后肝功能不全或肝衰竭
+s1687	Pharmaceutical Substance or Drug	入院前使用任何可能影响患者凝血功能的药物者（如使用肝素，香豆素类，凝血酶抑制剂等）
+s1688	Disease	心脏、肺、肾等重要器官的严重器质性疾病
+s1689	Laboratory Examinations	妊娠或哺乳期妇女
+s1690	Enrollment in other studies	正在参与其他临床研究者
+s1691	Consent	拒绝参加本研究者，或同意参加本研究，但拒绝签署知情同意书者
+s1692	Enrollment in other studies	入选前3个月内参加过其它药物临床试验者
+s1693	Enrollment in other studies	研究者认为不适合参加该试验的任何其他情况等
+s1694	Laboratory Examinations	符合下列条件之一的受试者将不得入选试验：
+s1695	Disease	既往或本次发现有恶性肿瘤病史；
+s1696	Laboratory Examinations	HIV抗体或HCV抗体阳性者；
+s1697	Disease	有免疫缺陷性疾病或自身免疫性疾病（如类风湿性关节炎、伯格氏病、多发性硬化症和1型糖尿病等）病史者；
+s1698	Organ or Tissue Status	有其他器官功能衰竭者；
+s1699	Disease	有精神疾病者；
+s1700	Pharmaceutical Substance or Drug	筛选前一年内有药物成瘾的证据；
+s1701	Enrollment in other studies	筛选前3个月参加过其他药物的临床试验研究；
+s1702	Disease	有严重心脑肺或其他基础疾病者；
+s1703	Disease	其它研究者认为不适合纳入的患者。
+s1704	Disease	合并其他病毒感染：抗HAV-IgM、抗HCV、抗HDV、抗HEV、CMV、EBV以及抗HIV任何一项阳性；
+s1705	Organ or Tissue Status	原发、继发性糖尿病，以及甲状腺功能疾患、恶性肿瘤、肾功能障碍者及消化道出血、意识障碍者；
+s1706	Disease	长期大量饮酒者；
+s1707	Disease	慢性肝衰竭
+s1708	Age	年龄不足18岁或超过70岁
+s1709	Laboratory Examinations	妊娠期或哺乳期女性
+s1710	Disease	血栓局限于肝内门脉分支
+s1711	Laboratory Examinations	门静脉海绵样变
+s1712	Therapy or Surgery	孤立性胃底曲张静脉或异位曲张静脉
+s1713	Therapy or Surgery	既往接受过内镜、TIPS或外科分流治疗
+s1714	Life Expectancy	肝癌或其他疾病减少预期寿命
+s1715	Disease	未控制的感染或败血症
+s1716	Disease	心肺肾等其它脏器严重疾病
+s1717	Disease	存在内镜套扎术、普萘洛尔或TIPS治疗禁忌症
+s1718	Therapy or Surgery	既往有肝脏或胃肠道手术史；
+s1719	Disease	术前有严重心脏、肺部疾患，如六个月内心梗病史，心功能Ⅲ－Ⅳ级，严重慢性梗阻性肺病、肺功能差者；
+s1720	Risk Assessment	肝功能较差，经护肝治疗后Child-pugh分级仍为B、C级者，ICG15分钟剩余率超过15％；
+s1721	Therapy or Surgery	妊娠患者；
+s1722	Pharmaceutical Substance or Drug	药物成瘾史；
+s1723	Consent	拒绝签署知情同意书者。
+s1724	Therapy or Surgery	无肝硬化患者。
+s1725	Therapy or Surgery	肝段切除过程中未进行肝血流阻断或行其他肝血流阻断方法。
+s1726	Compliance with Protocol	不能继续接受随访。
+s1727	Disease	严重心脑血管疾病，免疫力低下者
+s1728	Age	年龄不足18岁或超过75岁
+s1729	Laboratory Examinations	妊娠期或哺乳期女性
+s1730	Therapy or Surgery	存在抗凝治疗的禁忌；
+s1731	Disease	累计全门脉系统的严重门静脉血栓；
+s1732	Life Expectancy	肝癌或其他疾病减少预期寿命；
+s1733	Disease	未控制的感染或败血症；
+s1734	Disease	心肺肾等其它脏器严重疾病
+s1735	Disease	其他原因引起的门静脉高压。
+s1736	Risk Assessment	Child-Pugh评分超过13分；
+s1737	Disease	存在卡维地洛或单硝酸异山梨酯禁忌症；
+s1738	Disease	合并严重全身性疾病（呼吸循环衰竭，肾衰，败血症等）；
+s1739	Pharmaceutical Substance or Drug	既往曾服用α、β受体阻断剂及硝酸酯类药物；
+s1740	Laboratory Examinations	肝性脑病未有效控制者；
+s1741	Laboratory Examinations	妊娠或哺乳期妇女；
+s1742	Consent	拒绝签署知情同意者。
+s1743	Consent	不愿意参加试验的患者
+s1744	Disease	合并其他脾脏相关疾病者
+s1745	Laboratory Examinations	怀孕或哺乳期女性；
+s1746	Pharmaceutical Substance or Drug	研究用药前6 个月内使用过任何干扰素、免疫调节剂、或核苷类似物等抗病毒治疗肝炎的药物；
+s1747	Pharmaceutical Substance or Drug	有癫痫病史，或需要服用抗癫痫药物；
+s1748	Disease	有免疫疾病病史；
+s1749	Disease	伴有恶性疾病（包括肝细胞癌）
+s1750	Disease	有不稳定的、或明显的心血管疾病（如：心绞痛，充血性心力衰竭，近期发生的心肌梗塞，严重的高血压，或明显的心率失常），或心电图显示明显异常；
+s1751	Addictive Behavior	有长时间的肝毒性暴露史，如酗酒（1 年以上的每周饮用>14 个酒精单位－1 个酒精单位相当于约1 罐啤酒、或1 杯葡萄酒或1 小杯烈酒)或吸毒；
+s1752	Disease	药物控制不佳的甲状腺疾病病史；
+s1753	Disease	控制不佳的糖尿病；
+s1754	Disease	除乙肝外怀疑或确诊有其他明显的肝脏疾病（如酒精性肝病、HCV、自身免疫性疾病、血色素沉着病、Alpha-1 抗胰蛋白酶缺陷或Wilson 病等）；
+s1755	Disease	合并感染甲肝、丙肝、丁肝、戊肝或HIV；
+s1756	Disease	严重肾脏疾病；
+s1757	Therapy or Surgery	有器官移植史（角膜和毛发移植除外）；
+s1758	Pharmaceutical Substance or Drug	在研究期间，任何医疗条件下要、或可能要使用慢性全身性类固醇药物；
+s1759	Enrollment in other studies	存在任何其它研究人员认为不适合入选研究、或会影响病人参与或完成研究的其它因素。
+s1760	Therapy or Surgery	病人要求行肝移植手术者。
+s1761	Disease	存在肝硬化非代偿期的门脉高压：胃底食道静脉中-重度曲张，或者存在消化道出血史。
+s1762	Laboratory Examinations	孕妇或哺乳期妇女；
+s1763	Organ or Tissue Status	患有严重器官衰竭；
+s1764	Organ or Tissue Status	患有中到重度肾功能损伤，定义为GFR/eGFR<60mL/min；
+s1765	Disease	装有起搏器、心脏瓣膜或其他不能接近强磁场的植入物；
+s1766	Disease	重度幽闭恐惧症患者；
+s1767	Disease	具有不太可能完成本试验所需程序的伴随疾病。
+s1768	Compliance with Protocol	肝性脑病或其他原因引起精 神障碍患者，无法配合检查及治疗；
+s1769	Disease	门脉海绵样变性、布-加综合征和肝脏肿瘤患者；
+s1770	Laboratory Examinations	生命体征不稳定者；
+s1771	Disease	仍有活动性出血患者；
+s1772	Disease	合并急性冠脉综合征、未经控制的高血压等其他系统严重疾病者；
+s1773	Compliance with Protocol	患者或家属无法理解本研究的条件和目标。
+s1774	Disease	合并甲型肝炎病毒、丙型肝炎病毒、戊型肝炎病毒等嗜肝病毒感染；
+s1775	Disease	合并严重感染，消化道出血，未控制的高血压及糖尿病，甲状腺功能亢进等疾病。
+s1776	Disease	合并其他病毒感染、慢性重型肝炎、Child-Pugh C级肝硬化、肝癌、心脑血管、造血系统等严重疾病、精神病患者；
+s1777	Enrollment in other studies	.近期或正在参加其他临床试验者；
+s1778	Compliance with Protocol	不能按规定用药，依从性差，资料不全影响疗效和安全性判断；
+s1779	Laboratory Examinations	孕妇、哺乳期和正准备妊娠的妇女。
+s1780	Disease	未控制的感染或败血症；
+s1781	Disease	合并肝胆胰恶性肿瘤或胆道梗阻；
+s1782	Organ or Tissue Status	心肾肺等器官功能不全；
+s1783	Pharmaceutical Substance or Drug	TIPS术前2周内及术后使用抗生素；
+s1784	Laboratory Examinations	恶病质；
+s1785	Laboratory Examinations	妊娠期或哺乳期女性.
+s1786	Age	年龄<18周岁或>75岁；
+s1787	Disease	确诊或可疑恶性肿瘤；
+s1788	Laboratory Examinations	妊娠；
+s1789	Disease	HIV感染；
+s1790	Diagnostic	未明确诊断为肝硬化
+s1791	Disease	恶性肿瘤，尤其是肝细胞肝癌
+s1792	Diagnostic	缺乏评估门静脉开通或阻塞的影像学数据
+s1793	Therapy or Surgery	怀孕或正在哺乳患者。
+s1794	Disease	患者伴有恶性肿瘤（肝细胞肝癌等）或其他将缩短患者寿命的疾病。
+s1795	Disease	HIV感染或存在AIDS相关疾病，或其他严重的急慢性疾病。
+s1796	Disease	严重心、肺疾病。
+s1797	Disease	合并肝癌或者其他肿瘤的
+s1798	Disease	肝细胞癌和其它脏器肿瘤；
+s1799	Laboratory Examinations	有证据提示为重型肝炎：TBil超过正常值上限的10 倍；PTA<40%；
+s1800	Disease	2月内有消化道出血史；
+s1801	Disease	严重并发症；
+s1802	Disease	合并其他HAV、HCV、HDV、HEV、HIV等病毒感染者；
+s1803	Disease	肝外胆管疾病；
+s1804	Diagnostic	超声提示肝、门静脉和脾静脉血栓；
+s1805	Addictive Behavior	酗酒或吸毒；
+s1806	Therapy or Surgery	既往（半年内）有核苷（酸）类抗乙肝病毒治疗史者；
+s1807	Consent	不签署知情同意书。
+s1808	Laboratory Examinations	满足以下任何一条即可排除：
+s1809	Disease	合并其他类型肝硬化者；
+s1810	Disease	合并有其他类型肝炎病毒感染者；
+s1811	Diagnostic	肝癌倾向者（AFP≥400 μg/L 超过 1 个月，或≥200 μg/L 持续 2 个月，排除妊娠、生殖腺胚胎癌和活动性肝病；同期进行影像学检查有肝癌特征性占位）；
+s1812	Disease	合并有诊断明确的心脑血管、呼吸系统、泌尿系统、内分泌和血液等系统严重原发性疾病及恶性肿瘤患者；
+s1813	Disease	并发有严重感染的患者；
+s1814	Therapy or Surgery	入选前24周内用过干扰素治疗者；
+s1815	Disease	伴发有精神类疾病者；
+s1816	Laboratory Examinations	妊娠、哺乳期妇女；
+s1817	Laboratory Examinations	非中国国籍者。
+s1818	Disease	患者不配合或合并精神症状；
+s1819	Compliance with Protocol	不能接受随访。
+s1820	Therapy or Surgery	妊娠的女性患者
+s1821	Disease	有明确的肠道疾病患者
+s1822	Pharmaceutical Substance or Drug	存在严重感染，长期使用抗生素患者
+s1823	Age	年龄＜18岁；
+s1824	Laboratory Examinations	孕妇或哺乳期妇女；
+s1825	Disease	有反复发作的慢性肝性脑病病史；
+s1826	Organ or Tissue Status	心肺肾等重要脏器衰竭；
+s1827	Organ or Tissue Status	重度或难以纠正的凝血功能障碍；
+s1828	Disease	败血症或难以控制的全身感染者；
+s1829	Consent	拒绝参加试验的患者。
