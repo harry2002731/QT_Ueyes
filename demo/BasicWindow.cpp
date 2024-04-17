@@ -61,16 +61,16 @@ BasicWindow::BasicWindow(QWidget *parent,QString name):
 //添加窗体在内部
 void BasicWindow::createContent()
 {
-    auto CameraViewer = createCameraViewerWidget();
-    this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
-    auto FileSystemTreeViewer = createFileSystemTreeDockWidget();
-    this->addDockWidget(ads::BottomDockWidgetArea, FileSystemTreeViewer );
+//    auto CameraViewer = createCameraViewerWidget();
+//    this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
+//    auto FileSystemTreeViewer = createFileSystemTreeDockWidget();
+//    this->addDockWidget(ads::BottomDockWidgetArea, FileSystemTreeViewer );
 
-    auto imageViewer = createImageViewerWidget();
-    this->addDockWidget(ads::LeftDockWidgetArea, imageViewer );
+//    auto imageViewer = createImageViewerWidget();
+//    this->addDockWidget(ads::LeftDockWidgetArea, imageViewer );
 
-    auto aaa = test();
-    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
+//    auto aaa = test();
+//    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
     auto bbb = loadPlugin();
     this->addDockWidget(ads::LeftDockWidgetArea, bbb );
@@ -283,7 +283,7 @@ ads::CDockWidget* BasicWindow::loadPlugin(){
     QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
     QSqlDatabase db = m_pInterface->connectDB(db_name);
     m_pInterface->getTableInfo(db,"EC");
-    QWidget* tableView = m_pInterface->createWidget(0);
+    QWidget* tableView = m_pInterface->createWidget2(0);
     static int widget2 = 0;
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table111 %1").arg(widget2++));
     DockWidget->setWidget(tableView);
