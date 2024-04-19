@@ -278,14 +278,13 @@ ads::CDockWidget* BasicWindow::loadPlugin(){
     QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\modules\\SqlLite_Lib\\libSqlLite_Lib.dll");
     QObject *plugin = pluginLoader.instance();
 
-
     m_pInterface = qobject_cast<DeclareInterface *>(plugin);
     QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
     QSqlDatabase db = m_pInterface->connectDB(db_name);
-    m_pInterface->getTableInfo(db,"EC");
-    QWidget* tableView = m_pInterface->createWidget2(0);
+    m_pInterface->getTableInfo(db,"非酒精性脂肪肝EC");
+    QWidget* tableView = m_pInterface->createDataVisualTable(0);
     static int widget2 = 0;
-    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table111 %1").arg(widget2++));
+    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("数据预览 %1").arg(widget2++));
     DockWidget->setWidget(tableView);
     DockWidget->setMinimumSizeHintMode(ads::CDockWidget::MinimumSizeHintFromDockWidgetMinimumSize);
     return DockWidget;

@@ -15,8 +15,8 @@ public:
     virtual ~DeclareInterface() {}
     virtual QSqlDatabase connectDB(QString db_name) = 0;
     virtual void getTableInfo(QSqlDatabase db, QString table_name) = 0;
-    virtual QWidget* createWidget(int page) = 0;
-    virtual QWidget* createWidget2(int page) = 0;
+    virtual QWidget* createDataVisualTable(int page) = 0;
+//    virtual QWidget* createWidget2(int page) = 0;
 
 
 };
