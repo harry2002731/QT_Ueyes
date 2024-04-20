@@ -35,7 +35,10 @@ public:
     QWidget* data_visual_widget = new QWidget();
     QTableWidget* tableWidget = new QTableWidget;
 
-    int countLineNum();
+    QVector<int> countLineNum(QSqlQuery &query);
+    QString searchQueryStatement(QString table_name, QStringList columns, QString target);
+    QString paginatedQueryStatement(int num_per_page, int cur_page , QString query_statement);
+
     void switchPage(int page);
     void getTableInfo(QSqlDatabase db, QString table_name); //获取表信息
     QSqlDatabase  connectDB(QString db_name); //链接数据库
@@ -52,6 +55,7 @@ private slots:
     //    void showPreviousPage2();
     //    void showNextPage2();
     //    void changeState_triggered2();
+    void on_textEdit_textChanged(const QString &text);
     void onComboBoxChanged2(const QString &text);
 
 };

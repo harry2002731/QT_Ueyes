@@ -3,6 +3,8 @@
 #include "QtWidgets/qtablewidget.h"
 #include "qaction.h"
 #include "qboxlayout.h"
+#include "qlabel.h"
+#include "qlineedit.h"
 #include "qpushbutton.h"
 #include <QFile>
 #include <QSqlRelationalDelegate>
@@ -11,7 +13,16 @@
 #include <QHeaderView>
 #include <chrono>
 #include <QCompleter>
+#include <QSqlRecord>
 
+/*
+数据搜索  根据id搜索
+可视化
+排序 ok
+表格美化
+当前页码显示
+界面与sql分离
+*/
 using namespace std;
 
 SqlLite_Lib::SqlLite_Lib()
@@ -70,10 +81,34 @@ QWidget* SqlLite_Lib::createDataVisualTable(int page)
     num_each_page << "10"<< "20"<< "30"<< "40"<< "50";
     pageBox->addItems(num_each_page);
 
+
+    QHBoxLayout *page_layout = new QHBoxLayout();
+    page_layout->setAlignment(Qt::AlignCenter);
+    page_layout->setSpacing(0);
+
+    QLineEdit *lineEdit = new QLineEdit();
+    lineEdit->setReadOnly(true);  // 设置为只读模式
+
+    // 设置背景为透明
+    lineEdit->setStyleSheet("QLineEdit {"
+                            "  background: transparent;" // 设置背景为透明
+                            "  color: black;"            // 设置文本颜色，可按需调整
+                            "  border: none;"           // 移除边框，可按需调整
+                            "} "
+                            "QLineEdit:disabled {"
+                            "  border: none;"           // 移除禁用状态下的边框
+                            "}");
+    lineEdit->setText("Hello, World!");
+
+    page_layout->addWidget(lineEdit);
+    page_layout->addWidget(pageBox);
+
     bottomLayout->addWidget(prevButton);
-    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
-    bottomLayout->addWidget(pageBox);
-    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
+//    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
+
+    bottomLayout->addLayout(page_layout);
+
+//    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
     bottomLayout->addWidget(nextButton);
 
 
@@ -82,14 +117,16 @@ QWidget* SqlLite_Lib::createDataVisualTable(int page)
     diseases << "非酒精性脂肪肝EC"<< "非酒精性脂肪肝IC"<< "非酒精脂肪肝炎EC"<< "非酒精脂肪肝炎IC"<< "肝硬化IC"<< "肝硬化EC";
     diseaseBox->addItems(diseases);
 
+    QLineEdit * line_edit = new QLineEdit();
 
     connect(prevButton, &QPushButton::clicked, this, &SqlLite_Lib::showPreviousPage);
     connect(nextButton, &QPushButton::clicked, this, &SqlLite_Lib::showNextPage);
     connect(pageBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged2);
     connect(diseaseBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged);
-
+    connect(line_edit,&QLineEdit::textChanged,this,&SqlLite_Lib::on_textEdit_textChanged);
 
     data_visual_widget->setLayout(layout);
+    layout->addWidget(line_edit);
     layout->addWidget(diseaseBox);
     layout->addWidget(tableWidget);
     layout->addLayout(bottomLayout);
@@ -97,18 +134,67 @@ QWidget* SqlLite_Lib::createDataVisualTable(int page)
     switchPage(page);
     return data_visual_widget;
 }
+
+QString SqlLite_Lib::searchQueryStatement(QString table_name, QStringList columns, QString target)
+{
+    QSqlQuery query;
+    QStringList str_list;
+    for (const auto column : columns)
+    {
+        str_list << column + " LIKE '%" + target + "%'";
+    }
+    QString combinedString = str_list.join(" OR ");
+    QString query_statement =  "SELECT * FROM "+table_name+" WHERE ( " + combinedString + ")";
+    return query_statement;
+}
+
+QString SqlLite_Lib::paginatedQueryStatement(int num_per_page, int cur_page , QString query_statement)
+{
+    QString offset_value = QString::number(cur_page * num_each_page);
+    query_statement += " LIMIT "+ QString::number(num_per_page) +" offset "+ offset_value;
+    return query_statement;
+}
+
+//统计行数
+QVector<int> SqlLite_Lib::countLineNum(QSqlQuery& query)
+{
+    int rowCount = query.size(); // 获取查询结果的行数
+    if (query.last())
+
+    {
+
+        qDebug()<<"结果集大小="<<query.at() + 1;
+
+    }
+
+    query.first();//重新定位指针到结果集首位
+    int columnCount = query.record().count(); // 获取查询结果的列数
+    QVector<int> data_size = {rowCount,columnCount};
+    return data_size;
+}
+
 void SqlLite_Lib::switchPage(int page)
 {
-    QString strValue = QString::number(page * num_each_page);
-    totalPages = (countLineNum() + num_each_page - 1) / num_each_page; //获取总页数
+    QStringList columns;
+    columns<<"id"<<"sentence"<<"eng";
+    QString seach_query_statement = searchQueryStatement(table_name,columns,"Disease");
+    QString paginated_query_statement = paginatedQueryStatement(num_each_page, page , seach_query_statement);
+
     QSqlQuery query;
-    query.exec("SELECT * FROM "+table_name+" LIMIT "+ QString::number(num_each_page) +" offset "+ strValue); // 查询表 a 的前十行数据
+    query.exec(paginated_query_statement);
+
+    int line_num = countLineNum(query)[0];
+    totalPages = (line_num + num_each_page - 1) / num_each_page; //获取总页数
 
     int colCount= 3;
     int rowCount = num_each_page;
 
     tableWidget->setColumnCount(colCount);
     tableWidget->setRowCount(rowCount);
+    QStringList header= QStringList();
+    header<<"患者编号"<<"中文病例"<<"英文病例";
+    tableWidget->setHorizontalHeaderLabels(header);
+    tableWidget->setSortingEnabled(true);  //启动排序
 
     for (int row = 0; row < num_each_page; ++row) {
         if (query.next()) {
@@ -125,17 +211,41 @@ void SqlLite_Lib::switchPage(int page)
     }
 }
 
-
-//统计行数
-int SqlLite_Lib::countLineNum()
+void SqlLite_Lib::on_textEdit_textChanged(const QString &text)
 {
-    int lineNum = -1;
-    QSqlQuery query("SELECT COUNT(*) FROM " + table_name);
-    if (query.next()) {
-        lineNum = query.value(0).toInt();
+    QString input_name=text;
+    int row_num=tableWidget->rowCount();
+    if (input_name=="")//判断是否是空，如果是空就显示所有行
+    {
+        for(int i=0;i<row_num;i++)
+        {
+            tableWidget->setRowHidden(i,false);//为false就是显示
+        }
     }
-    return lineNum;
+    else
+    {
+        //找到符合条件的索引 是通过你输入的和表格里面所有内容进行比对
+        QList <QTableWidgetItem *> item = tableWidget->findItems(text, Qt::MatchContains);
+        //然后把所有行都隐藏
+        for(int i=0;i<row_num;i++)
+        {
+            tableWidget->setRowHidden(i,true);//隐藏
+
+        }
+        //判断符合条件索引是不是空
+        if(!item.empty())
+        {
+            //恢复对应的行
+            for(int i=0;i<item.count();i++)
+            {
+                tableWidget->setRowHidden(item.at(i)->row(),false);//回复对应的行，也可以回复列
+            }
+        }
+    }
+
 }
+
+
 void SqlLite_Lib::onComboBoxChanged(const QString &text) {
     // text 是当前选中或输入的文本
     qDebug() << "Selected or entered text:" << text;
