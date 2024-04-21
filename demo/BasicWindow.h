@@ -38,7 +38,7 @@
 #include "ImageViewer.h"
 #include "videopanel.h"
 #include <windows.h>
-#include "SqlInterface.h"
+//#include "SqlInterface.h"
 #include <QPluginLoader>
 
 #include <QStandardItemModel>
@@ -78,10 +78,10 @@ public:
     virtual ads::CDockWidget*  createQQuickWidget();
     virtual ads::CDockWidget*  createTest();
     virtual ads::CDockWidget* test();
-    virtual ads::CDockWidget* loadPlugin();
+//    virtual ads::CDockWidget* loadPlugin();
     virtual ads::CDockWidget* loginViewer();
 
-    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
+//    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
 
 
 

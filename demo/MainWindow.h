@@ -32,7 +32,7 @@
 //============================================================================
 #include <QMainWindow>
 #include <QStackedLayout>
-#include "SqlInterface.h"
+//#include "SqlInterface.h"
 
 
 
@@ -53,7 +53,7 @@ private:
 
 protected:
 	virtual void closeEvent(QCloseEvent* event) override;
-    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
+//    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
 
 
 public:

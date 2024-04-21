@@ -33,11 +33,12 @@ set(ads_demo_SRCS
     BasicWindow.h
     BasicWindow.cpp
     demo.qrc
-    SqlInterface.h
+#    SqlInterface.h
     qml.qrc
 )
 add_executable(AdvancedDockingSystemDemo WIN32 ${ads_demo_SRCS}
-    welcomewindow.ui )
+    welcomewindow.ui
+)
 target_include_directories(AdvancedDockingSystemDemo PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../src"
                                                             "${CMAKE_CURRENT_SOURCE_DIR}/../modules"
                                                             "${OpenCV_INCLUDE_DIRS}")
@@ -69,6 +70,9 @@ target_link_libraries(AdvancedDockingSystemDemo PRIVATE WidgetLib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE BaseFunc_Lib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE SqlLite_Lib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE LoginView)
+target_link_libraries(AdvancedDockingSystemDemo PRIVATE DataTableViewer)
+
+
 
 
 

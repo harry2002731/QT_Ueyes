@@ -1,10 +1,13 @@
 #include "BasicWindow.h"
+#include "Widget_Lib/DataTableViewer/datatableviewer.h"
 #include "Widget_Lib/FuncViewer/FuncViewerWidget.h"
 #include "BaseFunc_Lib/BaseFunc_Lib.h"
 #include <QStandardItemModel>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "Widget_Lib/LoginViewer/LoginView/src/lvmainmodel.h"
+//#include "Widget_Lib/DataTableViewer/datatableviewer.h"
+
 #include <QQuickStyle>
 #include <QQuickView>
 
@@ -69,11 +72,11 @@ void BasicWindow::createContent()
 //    auto imageViewer = createImageViewerWidget();
 //    this->addDockWidget(ads::LeftDockWidgetArea, imageViewer );
 
-//    auto aaa = test();
-//    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
+    auto aaa = createTest();
+    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
-    auto bbb = loadPlugin();
-    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
+//    auto bbb = loadPlugin();
+//    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
 
 
 //    SqlLite_Lib();
@@ -225,11 +228,18 @@ ads::CDockWidget* BasicWindow::createCameraViewerWidget()
 
 ads::CDockWidget* BasicWindow::createTest()
 {
+//    static int CameraViewerCount = 0;
+//    auto w = new FuncViewerWidget();
+//    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
+//    DockWidget->setWidget(w);
+//    return DockWidget;
+
     static int CameraViewerCount = 0;
-    auto w = new FuncViewerWidget();
+    auto w = new DataTableViewer();
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
     DockWidget->setWidget(w);
     return DockWidget;
+
 }
 
 //************显示调用动态库效果测试*****************
@@ -274,21 +284,21 @@ ads::CDockWidget* BasicWindow::test()
 //**************插件测试***********************
 
 
-ads::CDockWidget* BasicWindow::loadPlugin(){
-    QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\modules\\SqlLite_Lib\\libSqlLite_Lib.dll");
-    QObject *plugin = pluginLoader.instance();
+//ads::CDockWidget* BasicWindow::loadPlugin(){
+//    QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\modules\\SqlLite_Lib\\libSqlLite_Lib.dll");
+//    QObject *plugin = pluginLoader.instance();
 
-    m_pInterface = qobject_cast<DeclareInterface *>(plugin);
-    QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
-    QSqlDatabase db = m_pInterface->connectDB(db_name);
-    m_pInterface->getTableInfo(db,"非酒精性脂肪肝EC");
-    QWidget* tableView = m_pInterface->createDataVisualTable(0);
-    static int widget2 = 0;
-    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("数据预览 %1").arg(widget2++));
-    DockWidget->setWidget(tableView);
-    DockWidget->setMinimumSizeHintMode(ads::CDockWidget::MinimumSizeHintFromDockWidgetMinimumSize);
-    return DockWidget;
-}
+//    m_pInterface = qobject_cast<DeclareInterface *>(plugin);
+//    QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
+//    QSqlDatabase db = m_pInterface->connectDB(db_name);
+//    m_pInterface->getTableInfo(db,"非酒精性脂肪肝EC");
+//    QWidget* tableView = m_pInterface->createDataVisualTable(0);
+//    static int widget2 = 0;
+//    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("数据预览 %1").arg(widget2++));
+//    DockWidget->setWidget(tableView);
+//    DockWidget->setMinimumSizeHintMode(ads::CDockWidget::MinimumSizeHintFromDockWidgetMinimumSize);
+//    return DockWidget;
+//}
 
 //********************************************
 
