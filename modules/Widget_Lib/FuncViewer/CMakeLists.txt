@@ -14,9 +14,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets)
 add_library(WidgetLib SHARED
   Widget_Lib_global.h  Widget_Lib.cpp  Widget_Lib.h
   FuncViewerWidget.h  FuncViewerWidget.cpp  FuncViewerWidget.ui
-  FuncViewerPage.h  FuncViewerPage.cpp
+  FuncViewerPage.h  FuncViewerPage.cpp   FuncViewerPage.ui
   widget.qrc
-  FuncViewerPage.ui
   VisualProcessWidget.h VisualProcessWidget.cpp
   Form.ui Form.h  Form.cpp
   BaseWidget.h BaseWidget.cpp
