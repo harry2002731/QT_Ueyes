@@ -2,9 +2,11 @@
 #define SQLINTERFACE_H
 
 #include <QTableWidget>
+#include "qsqltablemodel.h"
 
 #include "QtWidgets/qtableview.h"
 #include "qsqldatabase.h"
+#include "qsqlquerymodel.h"
 #define DeclareInterface_iid "Examples.Plugin.DeclareInterface"
 
 //定义接口
@@ -15,9 +17,10 @@ public:
     virtual ~DeclareInterface() {}
     virtual QSqlDatabase connectDB(QString db_name) = 0;
     virtual void getTableInfo(QSqlDatabase db, QString table_name) = 0;
-    virtual QWidget* createDataVisualTable(int page) = 0;
-//    virtual QWidget* createWidget2(int page) = 0;
-
+    virtual void descendTableItem(int column_id) = 0;
+    virtual void ascendTableItem(int column_id) = 0;
+    virtual void searchTableItem(QStringList columns, QString target) = 0;
+    virtual QSqlTableModel* queryEntireTable(QString table_name) = 0;
 
 };
 

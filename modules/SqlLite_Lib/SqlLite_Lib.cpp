@@ -27,15 +27,13 @@ using namespace std;
 
 SqlLite_Lib::SqlLite_Lib()
 {
-    table_name = "非酒精性脂肪肝EC";
+
+//    QString last_table_name = "";
 //    Py_Initialize();
-
-
 }
 
 QSqlDatabase SqlLite_Lib::connectDB(QString db_name)
 {
-
     db = QSqlDatabase::addDatabase("QSQLITE"); //设置数据库类型
     QFile dbFile(db_name);
     QSqlQuery query;
@@ -46,6 +44,10 @@ QSqlDatabase SqlLite_Lib::connectDB(QString db_name)
         qDebug() << "Database unconnected";
         throw std::runtime_error("Failed to open database connection!");
     }
+    else{
+        qDebug() << "Database connected";
+    }
+    model = new QSqlTableModel(this);
     return db;
 }
 
@@ -64,77 +66,78 @@ void SqlLite_Lib::getTableInfo(QSqlDatabase db, QString table_name)
     }
 }
 
-QWidget* SqlLite_Lib::createDataVisualTable(int page)
-{
-    // 设置表格伸展策略为 Expanding
-    tableWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//QWidget* SqlLite_Lib::createDataVisualTable(int page)
+//{
+//    // 设置表格伸展策略为 Expanding
+//    tableWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+//    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+//    tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 
-    QVBoxLayout *layout = new QVBoxLayout();
-    QPushButton *prevButton = new QPushButton("Previous", tableWidget);
-    QPushButton *nextButton = new QPushButton("Next", tableWidget);
-    QHBoxLayout *bottomLayout = new QHBoxLayout();
-    QComboBox *pageBox = new QComboBox();
-    QStringList num_each_page;
-    num_each_page << "10"<< "20"<< "30"<< "40"<< "50";
-    pageBox->addItems(num_each_page);
+//    QVBoxLayout *layout = new QVBoxLayout();
+//    QPushButton *prevButton = new QPushButton("Previous", tableWidget);
+//    QPushButton *nextButton = new QPushButton("Next", tableWidget);
+//    QHBoxLayout *bottomLayout = new QHBoxLayout();
+//    QComboBox *pageBox = new QComboBox();
+//    QStringList num_each_page;
+//    num_each_page << "10"<< "20"<< "30"<< "40"<< "50";
+//    pageBox->addItems(num_each_page);
 
 
-    QHBoxLayout *page_layout = new QHBoxLayout();
-    page_layout->setAlignment(Qt::AlignCenter);
-    page_layout->setSpacing(0);
+//    QHBoxLayout *page_layout = new QHBoxLayout();
+//    page_layout->setAlignment(Qt::AlignCenter);
+//    page_layout->setSpacing(0);
 
-    QLineEdit *lineEdit = new QLineEdit();
-    lineEdit->setReadOnly(true);  // 设置为只读模式
+//    QLineEdit *lineEdit = new QLineEdit();
+//    lineEdit->setReadOnly(true);  // 设置为只读模式
 
-    // 设置背景为透明
-    lineEdit->setStyleSheet("QLineEdit {"
-                            "  background: transparent;" // 设置背景为透明
-                            "  color: black;"            // 设置文本颜色，可按需调整
-                            "  border: none;"           // 移除边框，可按需调整
-                            "} "
-                            "QLineEdit:disabled {"
-                            "  border: none;"           // 移除禁用状态下的边框
-                            "}");
-    lineEdit->setText("Hello, World!");
+//    // 设置背景为透明
+//    lineEdit->setStyleSheet("QLineEdit {"
+//                            "  background: transparent;" // 设置背景为透明
+//                            "  color: black;"            // 设置文本颜色，可按需调整
+//                            "  border: none;"           // 移除边框，可按需调整
+//                            "} "
+//                            "QLineEdit:disabled {"
+//                            "  border: none;"           // 移除禁用状态下的边框
+//                            "}");
+//    lineEdit->setText("Hello, World!");
 
-    page_layout->addWidget(lineEdit);
-    page_layout->addWidget(pageBox);
+//    page_layout->addWidget(lineEdit);
+//    page_layout->addWidget(pageBox);
 
-    bottomLayout->addWidget(prevButton);
-//    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
+//    bottomLayout->addWidget(prevButton);
+////    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
 
-    bottomLayout->addLayout(page_layout);
+//    bottomLayout->addLayout(page_layout);
 
-//    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
-    bottomLayout->addWidget(nextButton);
+////    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
+//    bottomLayout->addWidget(nextButton);
 
 
-    QComboBox *diseaseBox = new QComboBox();
-    QStringList diseases;
-    diseases << "非酒精性脂肪肝EC"<< "非酒精性脂肪肝IC"<< "非酒精脂肪肝炎EC"<< "非酒精脂肪肝炎IC"<< "肝硬化IC"<< "肝硬化EC";
-    diseaseBox->addItems(diseases);
+//    QComboBox *diseaseBox = new QComboBox();
+//    QStringList diseases;
+//    diseases << "非酒精性脂肪肝EC"<< "非酒精性脂肪肝IC"<< "非酒精脂肪肝炎EC"<< "非酒精脂肪肝炎IC"<< "肝硬化IC"<< "肝硬化EC";
+//    diseaseBox->addItems(diseases);
 
-    QLineEdit * line_edit = new QLineEdit();
+//    QLineEdit * line_edit = new QLineEdit();
 
-    connect(prevButton, &QPushButton::clicked, this, &SqlLite_Lib::showPreviousPage);
-    connect(nextButton, &QPushButton::clicked, this, &SqlLite_Lib::showNextPage);
-    connect(pageBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged2);
-    connect(diseaseBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged);
-    connect(line_edit,&QLineEdit::textChanged,this,&SqlLite_Lib::on_textEdit_textChanged);
+//    connect(prevButton, &QPushButton::clicked, this, &SqlLite_Lib::showPreviousPage);
+//    connect(nextButton, &QPushButton::clicked, this, &SqlLite_Lib::showNextPage);
+//    connect(pageBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged2);
+//    connect(diseaseBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged);
+//    connect(line_edit,&QLineEdit::textChanged,this,&SqlLite_Lib::on_textEdit_textChanged);
 
-    data_visual_widget->setLayout(layout);
-    layout->addWidget(line_edit);
-    layout->addWidget(diseaseBox);
-    layout->addWidget(tableWidget);
-    layout->addLayout(bottomLayout);
+//    data_visual_widget->setLayout(layout);
+//    layout->addWidget(line_edit);
+//    layout->addWidget(diseaseBox);
+//    layout->addWidget(tableWidget);
+//    layout->addLayout(bottomLayout);
 
-    switchPage(page);
-    return data_visual_widget;
-}
+//    switchPage(page);
+//    return data_visual_widget;
+//}
 
+// sql对象查询语句
 QString SqlLite_Lib::searchQueryStatement(QString table_name, QStringList columns, QString target)
 {
     QSqlQuery query;
@@ -148,6 +151,7 @@ QString SqlLite_Lib::searchQueryStatement(QString table_name, QStringList column
     return query_statement;
 }
 
+// sql数据分页查询语句
 QString SqlLite_Lib::paginatedQueryStatement(int num_per_page, int cur_page , QString query_statement)
 {
     QString offset_value = QString::number(cur_page * num_each_page);
@@ -155,131 +159,173 @@ QString SqlLite_Lib::paginatedQueryStatement(int num_per_page, int cur_page , QS
     return query_statement;
 }
 
-//统计行数
+// sql统计行数查询
 QVector<int> SqlLite_Lib::countLineNum(QSqlQuery& query)
 {
-    int rowCount = query.size(); // 获取查询结果的行数
-    if (query.last())
-
-    {
-
-        qDebug()<<"结果集大小="<<query.at() + 1;
-
-    }
-
+    query.last();
+    int rowCount = query.at() + 1;
     query.first();//重新定位指针到结果集首位
-    int columnCount = query.record().count(); // 获取查询结果的列数
+
+     int columnCount = query.record().count(); // 获取查询结果的列数
     QVector<int> data_size = {rowCount,columnCount};
     return data_size;
 }
-
-void SqlLite_Lib::switchPage(int page)
+// Qsql 升序排列
+void SqlLite_Lib::ascendTableItem(int column_id)
 {
-    QStringList columns;
-    columns<<"id"<<"sentence"<<"eng";
-    QString seach_query_statement = searchQueryStatement(table_name,columns,"Disease");
-    QString paginated_query_statement = paginatedQueryStatement(num_each_page, page , seach_query_statement);
-
-    QSqlQuery query;
-    query.exec(paginated_query_statement);
-
-    int line_num = countLineNum(query)[0];
-    totalPages = (line_num + num_each_page - 1) / num_each_page; //获取总页数
-
-    int colCount= 3;
-    int rowCount = num_each_page;
-
-    tableWidget->setColumnCount(colCount);
-    tableWidget->setRowCount(rowCount);
-    QStringList header= QStringList();
-    header<<"患者编号"<<"中文病例"<<"英文病例";
-    tableWidget->setHorizontalHeaderLabels(header);
-    tableWidget->setSortingEnabled(true);  //启动排序
-
-    for (int row = 0; row < num_each_page; ++row) {
-        if (query.next()) {
-            // 输出每一行数据
-            for (int col = 0; col < 3; ++col) {
-                tableWidget->setItem(row, col, new QTableWidgetItem(query.value(col).toString())); // 将 QTableWidgetItem 添加到 QTableWidget
-            };
-        }
-        else {
-            for (int col = 0; col < 3; ++col) {
-                tableWidget->setItem(row, col, new QTableWidgetItem(QString(""))); // 将 QTableWidgetItem 添加到 QTableWidget
-            };
-        }
-    }
+    model->setSort(column_id, Qt::AscendingOrder); //id属性即第0列，升序排列
+    model->select();
+}
+// Qsql 降序排列
+void SqlLite_Lib::descendTableItem(int column_id)
+{
+    model->setSort(column_id, Qt::DescendingOrder); //id属性即第0列，升序排列
+    model->select();
 }
 
-void SqlLite_Lib::on_textEdit_textChanged(const QString &text)
+// Qsql 查询对象
+void SqlLite_Lib::searchTableItem(QStringList columns, QString target)
 {
-    QString input_name=text;
-    int row_num=tableWidget->rowCount();
-    if (input_name=="")//判断是否是空，如果是空就显示所有行
+    QStringList str_list;
+
+    for (const auto column : columns)
     {
-        for(int i=0;i<row_num;i++)
-        {
-            tableWidget->setRowHidden(i,false);//为false就是显示
-        }
+        str_list << column + " LIKE '%" + target + "%'";
     }
-    else
-    {
-        //找到符合条件的索引 是通过你输入的和表格里面所有内容进行比对
-        QList <QTableWidgetItem *> item = tableWidget->findItems(text, Qt::MatchContains);
-        //然后把所有行都隐藏
-        for(int i=0;i<row_num;i++)
-        {
-            tableWidget->setRowHidden(i,true);//隐藏
-
-        }
-        //判断符合条件索引是不是空
-        if(!item.empty())
-        {
-            //恢复对应的行
-            for(int i=0;i<item.count();i++)
-            {
-                tableWidget->setRowHidden(item.at(i)->row(),false);//回复对应的行，也可以回复列
-            }
-        }
-    }
+    QString combinedString = str_list.join(" OR ");
+    model->setFilter(combinedString);
 
 }
-
-
-void SqlLite_Lib::onComboBoxChanged(const QString &text) {
-    // text 是当前选中或输入的文本
-    qDebug() << "Selected or entered text:" << text;
-    table_name = text;
-    currentPage = 0;
-
-    switchPage(currentPage);
-
-}
-
-void SqlLite_Lib::onComboBoxChanged2(const QString &text) {
-    // text 是当前选中或输入的文本
-    qDebug() << "Selected or entered text:" << text;
-    num_each_page = text.toInt();
-
-    switchPage(currentPage);
-
-}
-void SqlLite_Lib::showPreviousPage()
+// QSql 整表查询
+QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
 {
-    if (currentPage > 0) {
-        currentPage--;
-        switchPage(currentPage);
+    model->setTable(table_name);
+    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    model->select(); //选取整个表的所有行
+    return model;
 
-    }
+
+
+//    QStringList columns;
+//    columns<<"id"<<"sentence"<<"eng";
+//    QSqlQueryModel *model = new QSqlQueryModel;
+//    QString seach_query_statement = searchQueryStatement(table_name,columns,search_item);
+
+//    model->setQuery(seach_query_statement);
+//    model->setHeaderData(0, Qt::Horizontal, tr("id"));
+//    model->setHeaderData(1, Qt::Horizontal, tr("sentence"));
+//    model->setHeaderData(1, Qt::Horizontal, tr("eng"));
+//    return model;
+
+
+
+
+
+//    QStringList columns;
+//    columns<<"id"<<"sentence"<<"eng";
+//    QString seach_query_statement = searchQueryStatement(table_name,columns,search_item);
+//    QString paginated_query_statement = paginatedQueryStatement(num_each_page, page , seach_query_statement);
+
+//    QSqlQuery query;
+//    query.exec(paginated_query_statement);
+//    int line_num = countLineNum(query)[0];
+////    totalPages = (line_num + num_each_page - 1) / num_each_page; //获取总页数
+//    totalPages =10;
+
+//    int colCount= 3;
+//    int rowCount = num_each_page;
+
+//    tableWidget->setColumnCount(colCount);
+//    tableWidget->setRowCount(rowCount);
+//    QStringList header= QStringList();
+//    header<<"患者编号"<<"中文病例"<<"英文病例";
+//    tableWidget->setHorizontalHeaderLabels(header);
+//    tableWidget->setSortingEnabled(true);  //启动排序
+
+//    for (int row = 0; row < num_each_page; ++row) {
+//        if (query.next()) {
+//            // 输出每一行数据
+//            for (int col = 0; col < 3; ++col) {
+//                tableWidget->setItem(row, col, new QTableWidgetItem(query.value(col).toString())); // 将 QTableWidgetItem 添加到 QTableWidget
+//            };
+//        }
+//        else {
+//            for (int col = 0; col < 3; ++col) {
+//                tableWidget->setItem(row, col, new QTableWidgetItem(QString(""))); // 将 QTableWidgetItem 添加到 QTableWidget
+//            };
+//        }
+//    }
 }
 
-void SqlLite_Lib::showNextPage()
-{
-    if (currentPage < totalPages - 1) {
-        currentPage++;
-        switchPage(currentPage);
-    }
-}
+//void SqlLite_Lib::on_textEdit_textChanged(const QString &text)
+//{
+//    QString input_name=text;
+//    int row_num=tableWidget->rowCount();
+//    if (input_name=="")//判断是否是空，如果是空就显示所有行
+//    {
+//        for(int i=0;i<row_num;i++)
+//        {
+//            tableWidget->setRowHidden(i,false);//为false就是显示
+//        }
+//    }
+//    else
+//    {
+//        //找到符合条件的索引 是通过你输入的和表格里面所有内容进行比对
+//        QList <QTableWidgetItem *> item = tableWidget->findItems(text, Qt::MatchContains);
+//        //然后把所有行都隐藏
+//        for(int i=0;i<row_num;i++)
+//        {
+//            tableWidget->setRowHidden(i,true);//隐藏
+
+//        }
+//        //判断符合条件索引是不是空
+//        if(!item.empty())
+//        {
+//            //恢复对应的行
+//            for(int i=0;i<item.count();i++)
+//            {
+//                tableWidget->setRowHidden(item.at(i)->row(),false);//回复对应的行，也可以回复列
+//            }
+//        }
+//    }
+
+//}
+
+
+//void SqlLite_Lib::onComboBoxChanged(const QString &text) {
+//    // text 是当前选中或输入的文本
+//    qDebug() << "Selected or entered text:" << text;
+//    table_name = text;
+//    currentPage = 0;
+
+//    switchPage(currentPage);
+
+//}
+
+//void SqlLite_Lib::onComboBoxChanged2(const QString &text) {
+//    // text 是当前选中或输入的文本
+//    qDebug() << "Selected or entered text:" << text;
+//    num_each_page = text.toInt();
+
+//    switchPage(currentPage);
+
+//}
+//void SqlLite_Lib::showPreviousPage()
+//{
+//    if (currentPage > 0) {
+//        currentPage--;
+//        switchPage(currentPage);
+
+//    }
+//}
+
+//void SqlLite_Lib::showNextPage()
+//{
+//    if (currentPage < totalPages - 1) {
+//        currentPage++;
+//        switchPage(currentPage);
+//    }
+//}
 
 
 //QWidget* SqlLite_Lib::createWidget2(int page)
