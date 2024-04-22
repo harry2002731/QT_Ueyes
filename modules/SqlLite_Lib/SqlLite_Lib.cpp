@@ -16,12 +16,12 @@
 #include <QSqlRecord>
 
 /*
-数据搜索  根据id搜索
+数据搜索  根据id搜索 ok
 可视化
 排序 ok
 表格美化
-当前页码显示
-界面与sql分离
+当前页码显示 no
+界面与sql分离 ok
 */
 using namespace std;
 
