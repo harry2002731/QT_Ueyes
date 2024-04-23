@@ -2,6 +2,7 @@
 #define DATATABLEVIEWER_H
 
 #include "DataTableViewer_global.h"
+#include "qstandarditemmodel.h"
 #include "qwidget.h"
 #include <QPluginLoader>
 #include "SqlInterface.h"
@@ -18,6 +19,8 @@ public:
     DataTableViewer();
     QWidget* createDataVisualTable(int page);
     void initWidget();
+    void initWidget2();
+
     QSqlTableModel* connectDB(QString db_name,QString table_name);
     void onDiseaseBoxChanged(const QString &text);
     void initChart();
@@ -25,7 +28,8 @@ public:
     DeclareInterface* m_pInterface = nullptr;  //获取插件类型
     Ui::DataTableViewer1 *ui;
     QSqlTableModel* data_model;
-
+    QSqlTableModel* model2;
+    QStandardItemModel* db_table_model_  = new QStandardItemModel();
 
 public slots:
     void on_textEdit_textChanged();

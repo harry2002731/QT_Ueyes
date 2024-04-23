@@ -21,6 +21,7 @@ public:
     virtual void ascendTableItem(int column_id) = 0;
     virtual void searchTableItem(QStringList columns, QString target) = 0;
     virtual QSqlTableModel* queryEntireTable(QString table_name) = 0;
+    virtual QSqlTableModel* queryEntireTable2(QString table_name) = 0;
 
 };
 
