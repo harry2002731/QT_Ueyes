@@ -19,7 +19,9 @@ public:
     DataTableViewer();
     QWidget* createDataVisualTable(int page);
     void initWidget();
-    void initWidget2();
+    void initTableViewRightTop();
+    void initTableViewRightBottom();
+
 
     QSqlTableModel* connectDB(QString db_name,QString table_name);
     void onDiseaseBoxChanged(const QString &text);
@@ -30,13 +32,16 @@ public:
     QSqlTableModel* data_model;
     QSqlTableModel* model2;
     QStandardItemModel* db_table_model_  = new QStandardItemModel();
-
+    QSet<int> select_set;
+    QStandardItemModel *standardModel22;
 public slots:
     void on_textEdit_textChanged();
     void tableContextMenuRequested(const QPoint &pos);
     void on_pushButton_3_clicked();
     void on_pushButton_4_clicked();
-
+    void on_top_Button_clicked();
+    void on_bottom_Button_clicked();
+    void onButtonPressed(int id) ;
 
 };
 
