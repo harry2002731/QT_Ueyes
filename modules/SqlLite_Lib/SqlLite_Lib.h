@@ -32,6 +32,7 @@ public:
     int num_each_page = 10; // 每页数据个数
     int totalPages = 10; // 总共的数据页数
     QSqlTableModel * model;
+    QSqlTableModel * model2;
 
 
     QVector<int> countLineNum(QSqlQuery &query);
@@ -45,6 +46,8 @@ public:
     void ascendTableItem(int column_id);
     void searchTableItem(QStringList columns, QString target);
     QSqlTableModel* queryEntireTable(QString table_name);
+    QSqlTableModel* queryEntireTable2(QString table_name);
+
 
 
 

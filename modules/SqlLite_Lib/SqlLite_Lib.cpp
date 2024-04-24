@@ -48,6 +48,7 @@ QSqlDatabase SqlLite_Lib::connectDB(QString db_name)
         qDebug() << "Database connected";
     }
     model = new QSqlTableModel(this);
+    model2 = new QSqlTableModel(this);
     return db;
 }
 
@@ -204,8 +205,6 @@ QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
     model->select(); //选取整个表的所有行
     return model;
 
-
-
 //    QStringList columns;
 //    columns<<"id"<<"sentence"<<"eng";
 //    QSqlQueryModel *model = new QSqlQueryModel;
@@ -216,10 +215,6 @@ QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
 //    model->setHeaderData(1, Qt::Horizontal, tr("sentence"));
 //    model->setHeaderData(1, Qt::Horizontal, tr("eng"));
 //    return model;
-
-
-
-
 
 //    QStringList columns;
 //    columns<<"id"<<"sentence"<<"eng";
@@ -257,6 +252,15 @@ QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
 //    }
 }
 
+QSqlTableModel* SqlLite_Lib::queryEntireTable2(QString table_name)
+{
+    model2->setTable(table_name);
+    model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    model2->select(); //选取整个表的所有行
+    return model2;
+
+
+}
 //void SqlLite_Lib::on_textEdit_textChanged(const QString &text)
 //{
 //    QString input_name=text;
