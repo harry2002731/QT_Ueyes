@@ -29,9 +29,6 @@ void DataTableViewer::initWidget()
 //    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 //    ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     QHeaderView *header = ui->tableView->horizontalHeader();
-
-
-
     QStringList diseases;
     diseases << "非酒精性脂肪肝EC"<< "非酒精性脂肪肝IC"<< "非酒精脂肪肝炎EC"<< "非酒精脂肪肝炎IC"<< "肝硬化IC"<< "肝硬化EC";
     ui->diseaseBox->addItems(diseases);
@@ -45,23 +42,11 @@ void DataTableViewer::initWidget()
     QString db_name  = "C:\\Users\\HarryWen\\Desktop\\test.db";
     data_model = connectDB(db_name,cur_table_name);
 
-    QStandardItemModel *standardModel = new QStandardItemModel(data_model->rowCount(), data_model->columnCount()+1, this);
+    standardModel = new QStandardItemModel(data_model->rowCount(), data_model->columnCount()+1, this);
     ui->tableView->setModel(standardModel);
     ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
-    QButtonGroup *buttonGroup = new QButtonGroup();
 
-    for (int row = 0; row < data_model->rowCount(); ++row)   {
-        for (int column = 0; column < data_model->columnCount(); ++column) {
-            // 创建QStandardItem并设置文本
-            QStandardItem *item = new QStandardItem(data_model->data(data_model->index(row, column), Qt::DisplayRole).toString());
-            standardModel->setItem(row, column+1, item);
-
-            QCheckBox * button = new QCheckBox();
-            buttonGroup->addButton(button, row);
-
-            ui->tableView->setIndexWidget(standardModel->index(row, 0), button);
-         }
-    };
+    updateModel();
     buttonGroup->setExclusive(false);
     connect(buttonGroup, SIGNAL(idClicked(int)), SLOT(onButtonPressed(int)));
 
@@ -74,10 +59,6 @@ void DataTableViewer::initWidget()
         header->setSectionResizeMode(i, QHeaderView::Stretch);
     }
     ui->tableView->resizeColumnsToContents();
-
-
-
-
     connect(ui->pushButton,&QPushButton::clicked,this,&DataTableViewer::on_top_Button_clicked);
     connect(ui->pushButton_2,&QPushButton::clicked,this,&DataTableViewer::on_bottom_Button_clicked);
 
@@ -88,43 +69,62 @@ void DataTableViewer::initWidget()
     connect( ui->revertButton,&QPushButton::clicked, this, &DataTableViewer::on_pushButton_4_clicked);
     initTableViewRightTop();
     initTableViewRightBottom();
+//    initChart();
+    ui->label->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
+    ui->label_3->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
+
+    ui->label_4->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
 
 }
+void DataTableViewer::updateModel()
+{
+    for (int row = 0; row < data_model->rowCount(); ++row)   {
+        for (int column = 0; column < data_model->columnCount(); ++column) {
+            // 创建QStandardItem并设置文本
+            QStandardItem *item = new QStandardItem(data_model->data(data_model->index(row, column), Qt::DisplayRole).toString());
+            standardModel->setItem(row, column+1, item);
 
+            QCheckBox * button = new QCheckBox();
+            buttonGroup->addButton(button, row);
+
+            ui->tableView->setIndexWidget(standardModel->index(row, 0), button);
+        }
+    };
+
+
+}
 void DataTableViewer::initTableViewRightTop()
 {
-    ui->tableView_2->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    ui->tableView_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableViewRightTop->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui->tableViewRightTop->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     QStringList table_h_headers;
     for(int i=0;i<data_model->columnCount();i++)
         table_h_headers<<data_model->headerData(i,Qt::Horizontal).toString();
 
-    db_table_model_->setHorizontalHeaderLabels(table_h_headers);
+    standardModelRightTop = new QStandardItemModel(0, data_model->columnCount(), this);
+    standardModelRightTop->setHorizontalHeaderLabels(table_h_headers);
 
-    ui->tableView_2->setModel(model2);
+    ui->tableViewRightTop->setModel(standardModelRightTop);
 }
 void DataTableViewer::initTableViewRightBottom()
 {
-    ui->tableView_3->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    ui->tableView_3->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableViewRightBottom->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui->tableViewRightBottom->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     QStringList table_h_headers;
     for(int i=0;i<data_model->columnCount();i++)
         table_h_headers<<data_model->headerData(i,Qt::Horizontal).toString();
 
-    db_table_model_->setHorizontalHeaderLabels(table_h_headers);
-    standardModel22 = new QStandardItemModel(0, data_model->columnCount(), this);
+    standardModelRightBottom = new QStandardItemModel(0, data_model->columnCount(), this);
+    standardModelRightBottom->setHorizontalHeaderLabels(table_h_headers);
 
-    ui->tableView_2->setModel(standardModel22);
+    ui->tableViewRightBottom->setModel(standardModelRightBottom);
 }
 QSqlTableModel* DataTableViewer::connectDB(QString db_name,QString table_name)
 {
     QSqlDatabase db = m_pInterface->connectDB(db_name);
     QSqlTableModel* model = m_pInterface->queryEntireTable(table_name);
-    model2 = m_pInterface->queryEntireTable2("纳排标注");
-
-
     return model;
 }
 
@@ -134,6 +134,70 @@ QWidget* DataTableViewer::createDataVisualTable(int page)
     return new QWidget();
 }
 
+
+
+void DataTableViewer::initChart()
+{
+    //饼状图
+    pie_series = new QPieSeries(this);
+    connect(pie_series, SIGNAL(clicked(QPieSlice*)), this, SLOT(onPieSeriesClicked(QPieSlice*)));
+
+    //定义各扇形切片的颜色
+    static const QStringList list_pie_color = {
+        "#6480D6","#A1DC85","#FFAD25","#FF7777","#84D1EF","#4CB383",
+    };
+
+    //设置数据
+    QList<qreal> list_data = {3.1, 3.2, 3.3, 3.4, 3.5, 3.6};
+
+    //扇形
+    for (int i = 0; i < list_pie_color.size(); i++) {
+        QPieSlice* pie_slice = new QPieSlice(this);
+        pie_slice->setLabelVisible(true);
+        pie_slice->setValue(list_data[i]);
+        pie_slice->setLabel(QString::number(list_data[i]));
+        pie_slice->setColor(list_pie_color[i]);
+        pie_slice->setLabelColor(list_pie_color[i]);
+        pie_slice->setBorderColor(list_pie_color[i]);
+        pie_series->append(pie_slice);
+    }
+
+    //图表视图
+    QChart* chart = new QChart;
+    chart->setTitle("纳排分类饼图");
+    chart->setTheme(QChart::ChartThemeQt);
+
+    //标题字体
+    QFont font = qApp->font();
+    font.setBold(true);
+    font.setPointSize(16);
+    chart->setTitleFont(font);
+
+    //加入饼图
+    chart->addSeries(pie_series);
+    chart->setAnimationOptions(QChart::SeriesAnimations);
+
+    //图例
+    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->legend()->setBackgroundVisible(false);
+
+    //加入绘画视图
+    QChartView* chartView = new QChartView(this);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setChart(chart);
+
+    //加入布局
+    QVBoxLayout* layout = new QVBoxLayout;
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->addWidget(chartView);
+//    ui->widget->setLayout(layout);
+}
+
+//点击饼图
+void DataTableViewer::onPieSeriesClicked(QPieSlice* slice)
+{
+    slice->setExploded(!slice->isExploded());
+}
 void DataTableViewer::onDiseaseBoxChanged(const QString &text) {
     qDebug() << "Selected or entered text:" << text;
     QString table_name = text;
@@ -142,6 +206,8 @@ void DataTableViewer::onDiseaseBoxChanged(const QString &text) {
         cur_table_name = table_name;
         data_model =  m_pInterface->queryEntireTable(cur_table_name);
     }
+    updateModel();
+
 }
 
 
@@ -149,19 +215,30 @@ void DataTableViewer::on_top_Button_clicked()
 {
 
     for (auto item:select_set){
-        standardModel22->insertRow(0);
+        standardModelRightTop->insertRow(0);
 
         for (int i =0;i<data_model->columnCount();i++)
         {
             QString name = data_model->data(data_model->index(item,i)).toString();
 
-            standardModel22->setData(standardModel22->index(0,i),name);
+            standardModelRightTop->setData(standardModelRightTop->index(0,i),name);
         }
     }
     select_set.clear();
 }
 void DataTableViewer::on_bottom_Button_clicked()
 {
+    for (auto item:select_set){
+        standardModelRightBottom->insertRow(0);
+
+        for (int i =0;i<data_model->columnCount();i++)
+        {
+            QString name = data_model->data(data_model->index(item,i)).toString();
+
+            standardModelRightBottom->setData(standardModelRightBottom->index(0,i),name);
+        }
+    }
+    select_set.clear();
 //    QStringList columns;
 //    columns<<"class";
 //    QString text = ui->searchBox->toPlainText();
@@ -178,6 +255,7 @@ void DataTableViewer::on_textEdit_textChanged()
     columns<<"class";
     QString text = ui->searchBox->toPlainText();
     m_pInterface->searchTableItem(columns,text);
+    updateModel();
 
 }
 void DataTableViewer::tableContextMenuRequested(const QPoint &pos)
@@ -196,12 +274,18 @@ void DataTableViewer::tableContextMenuRequested(const QPoint &pos)
 
     connect(add_row_up, &QAction::triggered, [=](){
         data_model->insertRow(row); //添加一行
+        updateModel();
+
     });
     connect(add_row_down, &QAction::triggered, [=](){
         data_model->insertRow(row+1); //添加一行
+        updateModel();
+
     });
     connect(delete_row, &QAction::triggered, [=](){
         data_model->removeRow(row);
+        updateModel();
+
     });
 //    connect(monitor_row, &QAction::triggered, [=](){
 //        model2->insertRow(0);

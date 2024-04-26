@@ -1,5 +1,6 @@
 #ifndef DATATABLEVIEWER_H
 #define DATATABLEVIEWER_H
+#include <QtCharts/QtCharts>
 
 #include "DataTableViewer_global.h"
 #include "qstandarditemmodel.h"
@@ -26,6 +27,7 @@ public:
     QSqlTableModel* connectDB(QString db_name,QString table_name);
     void onDiseaseBoxChanged(const QString &text);
     void initChart();
+    void updateModel();
     QString cur_table_name = "非酒精性脂肪肝EC"; //当前查询表的名字
     DeclareInterface* m_pInterface = nullptr;  //获取插件类型
     Ui::DataTableViewer1 *ui;
@@ -33,7 +35,11 @@ public:
     QSqlTableModel* model2;
     QStandardItemModel* db_table_model_  = new QStandardItemModel();
     QSet<int> select_set;
-    QStandardItemModel *standardModel22;
+    QStandardItemModel *standardModelRightBottom;
+    QStandardItemModel *standardModelRightTop;
+    QPieSeries *pie_series;
+    QButtonGroup *buttonGroup = new QButtonGroup();
+    QStandardItemModel *standardModel ;
 public slots:
     void on_textEdit_textChanged();
     void tableContextMenuRequested(const QPoint &pos);
@@ -42,6 +48,7 @@ public slots:
     void on_top_Button_clicked();
     void on_bottom_Button_clicked();
     void onButtonPressed(int id) ;
+    void onPieSeriesClicked(QPieSlice* slice);
 
 };
 
