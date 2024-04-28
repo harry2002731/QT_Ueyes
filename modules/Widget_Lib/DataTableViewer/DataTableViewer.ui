@@ -115,6 +115,20 @@
                 </property>
                </widget>
               </item>
+              <item>
+               <widget class="QPushButton" name="originButton">
+                <property name="text">
+                 <string>原始数据</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="analyzeButton">
+                <property name="text">
+                 <string>分析数据</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </item>
             <item>
@@ -127,7 +141,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="pushButtonRightTop">
             <property name="maximumSize">
              <size>
               <width>50</width>
@@ -156,7 +170,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pushButtonRighrtBottom">
             <property name="maximumSize">
              <size>
               <width>50</width>
@@ -257,7 +271,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="reloadButton">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -272,6 +286,13 @@
             </property>
             <property name="text">
              <string>刷新</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="exportButton">
+            <property name="text">
+             <string>导出纳排标准</string>
             </property>
            </widget>
           </item>
