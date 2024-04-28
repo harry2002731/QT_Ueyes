@@ -45,6 +45,8 @@ public:
     void descendTableItem(int column_id);
     void ascendTableItem(int column_id);
     void searchTableItem(QStringList columns, QString target);
+    void searchNonZeroItem(QStringList columns, QString target);
+
     QSqlTableModel* queryEntireTable(QString table_name);
     QSqlTableModel* queryEntireTable2(QString table_name);
 

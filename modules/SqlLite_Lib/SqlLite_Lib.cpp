@@ -67,76 +67,6 @@ void SqlLite_Lib::getTableInfo(QSqlDatabase db, QString table_name)
     }
 }
 
-//QWidget* SqlLite_Lib::createDataVisualTable(int page)
-//{
-//    // 设置表格伸展策略为 Expanding
-//    tableWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-//    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-//    tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-
-
-//    QVBoxLayout *layout = new QVBoxLayout();
-//    QPushButton *prevButton = new QPushButton("Previous", tableWidget);
-//    QPushButton *nextButton = new QPushButton("Next", tableWidget);
-//    QHBoxLayout *bottomLayout = new QHBoxLayout();
-//    QComboBox *pageBox = new QComboBox();
-//    QStringList num_each_page;
-//    num_each_page << "10"<< "20"<< "30"<< "40"<< "50";
-//    pageBox->addItems(num_each_page);
-
-
-//    QHBoxLayout *page_layout = new QHBoxLayout();
-//    page_layout->setAlignment(Qt::AlignCenter);
-//    page_layout->setSpacing(0);
-
-//    QLineEdit *lineEdit = new QLineEdit();
-//    lineEdit->setReadOnly(true);  // 设置为只读模式
-
-//    // 设置背景为透明
-//    lineEdit->setStyleSheet("QLineEdit {"
-//                            "  background: transparent;" // 设置背景为透明
-//                            "  color: black;"            // 设置文本颜色，可按需调整
-//                            "  border: none;"           // 移除边框，可按需调整
-//                            "} "
-//                            "QLineEdit:disabled {"
-//                            "  border: none;"           // 移除禁用状态下的边框
-//                            "}");
-//    lineEdit->setText("Hello, World!");
-
-//    page_layout->addWidget(lineEdit);
-//    page_layout->addWidget(pageBox);
-
-//    bottomLayout->addWidget(prevButton);
-////    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
-
-//    bottomLayout->addLayout(page_layout);
-
-////    bottomLayout->addStretch(); // 弹性空间，用于分隔按钮
-//    bottomLayout->addWidget(nextButton);
-
-
-//    QComboBox *diseaseBox = new QComboBox();
-//    QStringList diseases;
-//    diseases << "非酒精性脂肪肝EC"<< "非酒精性脂肪肝IC"<< "非酒精脂肪肝炎EC"<< "非酒精脂肪肝炎IC"<< "肝硬化IC"<< "肝硬化EC";
-//    diseaseBox->addItems(diseases);
-
-//    QLineEdit * line_edit = new QLineEdit();
-
-//    connect(prevButton, &QPushButton::clicked, this, &SqlLite_Lib::showPreviousPage);
-//    connect(nextButton, &QPushButton::clicked, this, &SqlLite_Lib::showNextPage);
-//    connect(pageBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged2);
-//    connect(diseaseBox,&QComboBox::currentTextChanged,this,&SqlLite_Lib::onComboBoxChanged);
-//    connect(line_edit,&QLineEdit::textChanged,this,&SqlLite_Lib::on_textEdit_textChanged);
-
-//    data_visual_widget->setLayout(layout);
-//    layout->addWidget(line_edit);
-//    layout->addWidget(diseaseBox);
-//    layout->addWidget(tableWidget);
-//    layout->addLayout(bottomLayout);
-
-//    switchPage(page);
-//    return data_visual_widget;
-//}
 
 // sql对象查询语句
 QString SqlLite_Lib::searchQueryStatement(QString table_name, QStringList columns, QString target)
@@ -149,6 +79,7 @@ QString SqlLite_Lib::searchQueryStatement(QString table_name, QStringList column
     }
     QString combinedString = str_list.join(" OR ");
     QString query_statement =  "SELECT * FROM "+table_name+" WHERE ( " + combinedString + ")";
+
     return query_statement;
 }
 
@@ -188,23 +119,33 @@ void SqlLite_Lib::descendTableItem(int column_id)
 void SqlLite_Lib::searchTableItem(QStringList columns, QString target)
 {
     QStringList str_list;
-
     for (const auto column : columns)
-    {
         str_list << column + " LIKE '%" + target + "%'";
-    }
     QString combinedString = str_list.join(" OR ");
     model->setFilter(combinedString);
-
 }
+// Qsql 查询非零对象
+void SqlLite_Lib::searchNonZeroItem(QStringList columns, QString target)
+{
+    QStringList str_list;
+    for (const auto column : columns)
+        str_list << column + " <> 0";
+    QString combinedString = str_list.join(" OR ");
+    model->setFilter(combinedString);
+}
+
 // QSql 整表查询
 QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
 {
     model->setTable(table_name);
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model->select(); //选取整个表的所有行
+//    while(model->canFetchMore())
+//    {
+//        model->fetchMore();
+//    }
     return model;
-
+}
 //    QStringList columns;
 //    columns<<"id"<<"sentence"<<"eng";
 //    QSqlQueryModel *model = new QSqlQueryModel;
@@ -250,7 +191,7 @@ QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
 //            };
 //        }
 //    }
-}
+
 
 QSqlTableModel* SqlLite_Lib::queryEntireTable2(QString table_name)
 {
