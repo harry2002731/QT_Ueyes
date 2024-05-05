@@ -527,13 +527,14 @@ CMainWindow::CMainWindow(QWidget *parent) :
 //    d->restorePerspectives();
 }
 
-void CMainWindow::mousePressEvent(QMouseEvent *event) {
-    if (!isLoggedIn && event->button() == Qt::LeftButton) {
-       // 如果用户未登录，点击窗体则弹出登录对话框
-       QMessageBox::information(NULL, "Title", "Content", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
-    }
-    QMainWindow::mousePressEvent(event);
-}
+//void CMainWindow::mousePressEvent(QMouseEvent *event) {
+//    if (!isLoggedIn && event->button() == Qt::LeftButton) {
+//       // 如果用户未登录，点击窗体则弹出登录对话框
+//       QMessageBox::information(NULL, "Title", "Content", QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+//    }
+//    QMainWindow::mousePressEvent(event);
+
+//}
 
 //============================================================================
 CMainWindow::~CMainWindow()
