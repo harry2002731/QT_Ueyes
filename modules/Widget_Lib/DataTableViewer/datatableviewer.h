@@ -18,15 +18,15 @@ class DATATABLEVIEWER_EXPORT DataTableViewer : public QWidget
     Q_OBJECT
 public:
     DataTableViewer();
-    QWidget* createDataVisualTable(int page);
+    void initChart();
+    void initSlots();
     void initWidget();
+    void initTableViewLeftMain();
     void initTableViewRightTop();
     void initTableViewRightBottom();
 
 
     QSqlTableModel* connectDB(QString db_name,QString table_name);
-    void onDiseaseBoxChanged(const QString &text);
-    void initChart();
     void updateModel();
     QString cur_table_name = "非酒精性脂肪肝EC"; //当前查询表的名字
     DeclareInterface* m_pInterface = nullptr;  //获取插件类型
@@ -41,14 +41,21 @@ public:
     QButtonGroup *buttonGroup = new QButtonGroup();
     QStandardItemModel *standardModel ;
 public slots:
-    void on_textEdit_textChanged();
     void tableContextMenuRequested(const QPoint &pos);
-    void on_pushButton_3_clicked();
-    void on_pushButton_4_clicked();
-    void on_top_Button_clicked();
-    void on_bottom_Button_clicked();
-    void onButtonPressed(int id) ;
+    void on_buttonGroup_Pressed(int id) ;
+
+    void on_topButton_clicked();
+    void on_bottomButton_clicked();
+
+    void on_saveButton_clicked();
+    void on_revertButton_clicked();
+    void on_analyzeButton_clicked();
+
+    void on_diseaseBox_changed(const QString &text);
+    void on_textEdit_textChanged();
+
     void onPieSeriesClicked(QPieSlice* slice);
+
 
 };
 
