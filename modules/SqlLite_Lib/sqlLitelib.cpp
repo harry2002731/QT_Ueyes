@@ -1,4 +1,4 @@
-#include "SqlLite_Lib.h"
+#include "sqlLitelib.h"
 #include "QtWidgets/qtableview.h"
 #include "QtWidgets/qtablewidget.h"
 #include "qaction.h"

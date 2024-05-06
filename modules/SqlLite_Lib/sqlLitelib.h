@@ -1,6 +1,6 @@
 
-#ifndef SQLLITE_LIB_H
-#define SQLLITE_LIB_H
+#ifndef SQLLITELIB_H
+#define SQLLITELIB_H
 #include <Python.h>
 
 #include "SqlLite_Lib_global.h"
@@ -57,4 +57,4 @@ private slots:
 
 };
 
-#endif // SQLLITE_LIB_H
+#endif // SQLLITELIB_H
