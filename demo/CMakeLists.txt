@@ -72,11 +72,6 @@ target_link_libraries(AdvancedDockingSystemDemo PRIVATE SqlLite_Lib)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE LoginView)
 target_link_libraries(AdvancedDockingSystemDemo PRIVATE DataTableViewer)
 
-
-
-
-
-
 set_target_properties(AdvancedDockingSystemDemo PROPERTIES
     AUTOMOC ON
     AUTORCC ON

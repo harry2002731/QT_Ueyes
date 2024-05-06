@@ -10,6 +10,8 @@
 
 #include <QQuickStyle>
 #include <QQuickView>
+#include<windows.h>
+#include <QVBoxLayout>
 
 using namespace ads;
 
@@ -72,11 +74,14 @@ void BasicWindow::createContent()
 //    auto imageViewer = createImageViewerWidget();
 //    this->addDockWidget(ads::LeftDockWidgetArea, imageViewer );
 
-    auto aaa = createTest();
-    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
+//    auto aaa = createTest();
+//    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
-//    auto bbb = loadPlugin();
-//    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
+//    auto login_viewer = loginViewer();
+//    this->addDockWidget(ads::LeftDockWidgetArea, login_viewer);
+
+    auto bbb = createDataViewerWidget();
+    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
 
 
 //    SqlLite_Lib();
@@ -225,21 +230,14 @@ ads::CDockWidget* BasicWindow::createCameraViewerWidget()
     return DockWidget;
 }
 
-
-ads::CDockWidget* BasicWindow::createTest()
+//创建数据可视化窗体
+ads::CDockWidget* BasicWindow::createDataViewerWidget()
 {
-//    static int CameraViewerCount = 0;
-//    auto w = new FuncViewerWidget();
-//    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
-//    DockWidget->setWidget(w);
-//    return DockWidget;
-
-    static int CameraViewerCount = 0;
+    static int DataViewerCount = 0;
     auto w = new DataTableViewer();
-    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
+    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(DataViewerCount++));
     DockWidget->setWidget(w);
     return DockWidget;
-
 }
 
 //************显示调用动态库效果测试*****************
@@ -305,19 +303,13 @@ ads::CDockWidget* BasicWindow::test()
 ads::CDockWidget* BasicWindow::loginViewer()
 {
     QQuickWidget* widget = new QQuickWidget();
-
-//    QQmlApplicationEngine engine;
-
     const QUrl url(QStringLiteral("qrc:/main.qml"));
-
     QQuickStyle::setStyle("Material");
     LoginView::LVMainModel loginModel("exampleLogin");
     if (!loginModel.init(widget)) {
         qDebug() << "1111";
     }
-
     QString pathXML = ":/example.xml";
-
     if (!loginModel.setCounrySource(pathXML)) {
         qDebug() << "2222 ";
     }
