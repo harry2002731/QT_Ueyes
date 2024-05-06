@@ -14,12 +14,10 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Sql Widgets)
 find_package(Python REQUIRED COMPONENTS Interpreter Development)
 message(STATUS "Python_INCLUDE_DIRS: ${Python_INCLUDE_DIRS}")
 
-
-
 add_library(SqlLite_Lib SHARED
   SqlLite_Lib_global.h
-  SqlLite_Lib.cpp
-  SqlLite_Lib.h
+  sqlLitelib.cpp
+  sqlLitelib.h
   SqlInterface.h
 )
 target_link_libraries(SqlLite_Lib PUBLIC Qt${QT_VERSION_MAJOR}::Core
