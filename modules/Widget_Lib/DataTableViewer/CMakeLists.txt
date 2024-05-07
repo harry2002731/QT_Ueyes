@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Widgets sql Charts)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Widgets sql Charts)
 
+
 add_library(DataTableViewer SHARED
   DataTableViewer_global.h
   datatableviewer.cpp
@@ -19,6 +20,15 @@ add_library(DataTableViewer SHARED
   SqlInterface.h
 )
 
-target_link_libraries(DataTableViewer PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Widgets Qt6::Sql Qt6::Charts)
+target_include_directories(DataTableViewer PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../Python_Lib")
+message(${CMAKE_CURRENT_SOURCE_DIR}/../LoginViewer)
+target_link_libraries(DataTableViewer PRIVATE Qt${QT_VERSION_MAJOR}::Core
+                                                Qt${QT_VERSION_MAJOR}::Widgets
+                                                Qt${QT_VERSION_MAJOR}::Sql
+                                                Qt${QT_VERSION_MAJOR}::Charts
+                                                QXlsx::QXlsx
+                                                )
 
+target_link_libraries(DataTableViewer PRIVATE Python_Lib)
 target_compile_definitions(DataTableViewer PRIVATE DATATABLEVIEWER_LIBRARY)
+
