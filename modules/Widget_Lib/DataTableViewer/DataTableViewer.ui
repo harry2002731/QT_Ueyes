@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
@@ -24,7 +24,7 @@
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout" stretch="5,0,4,1">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="4,0,4,1">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>

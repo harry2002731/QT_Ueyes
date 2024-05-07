@@ -1,8 +1,11 @@
+
 #ifndef DATATABLEVIEWER_H
 #define DATATABLEVIEWER_H
 #include <QtCharts/QtCharts>
 
+
 #include "DataTableViewer_global.h"
+#include "pythonlib.h"
 #include "qstandarditemmodel.h"
 #include "qwidget.h"
 #include <QPluginLoader>
@@ -25,13 +28,17 @@ public:
     void initTableViewRightTop();
     void initTableViewRightBottom();
 
-
     QSqlTableModel* connectDB(QString db_name,QString table_name);
     void updateModel();
+
+    void exportXlsx(QStandardItemModel &model, QString file_path);
+
     QString cur_table_name = "非酒精性脂肪肝EC"; //当前查询表的名字
     DeclareInterface* m_pInterface = nullptr;  //获取插件类型
     Ui::DataTableViewer1 *ui;
     QSqlTableModel* data_model;
+    PythonLib* py = new PythonLib();
+
     QSqlTableModel* model2;
     QStandardItemModel* db_table_model_  = new QStandardItemModel();
     QSet<int> select_set;
@@ -50,6 +57,7 @@ public slots:
     void on_saveButton_clicked();
     void on_revertButton_clicked();
     void on_analyzeButton_clicked();
+    void on_exportButton_clicked();
 
     void on_diseaseBox_changed(const QString &text);
     void on_textEdit_textChanged();

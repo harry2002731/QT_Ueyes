@@ -8,6 +8,16 @@
 #include "ui_DataTableViewer.h"
 #include <QMessageBox>
 #include <QButtonGroup>
+#include "pythonlib.h"
+
+
+#include "xlsxdocument.h"
+#include "xlsxchartsheet.h"
+#include "xlsxcellrange.h"
+#include "xlsxchart.h"
+#include "xlsxrichstring.h"
+#include "xlsxworkbook.h"
+using namespace QXlsx;
 
 DataTableViewer::DataTableViewer() : ui(new Ui::DataTableViewer1)
 {
@@ -18,13 +28,46 @@ DataTableViewer::DataTableViewer() : ui(new Ui::DataTableViewer1)
     QString cur_table_name = "非酒精性脂肪肝EC"; // 当前查询表的名字
     QString search_item = "";
     this->initWidget();
+    //    FuncViewerWidget();
+    //    PythonLib* py = new PythonLib();
+    //    PythonLib* py = new PythonLib();
+
+    //    auto aaa = py->callMethod("svm_test","SvmAnalyzer","predict","每日酗酒");
+    //    QVector<QPair<QVariant, QVariant>> array2D;
+    //    py->parsePyObject(aaa,array2D);
 }
 
+void DataTableViewer::initWidget()
+{
+
+    initTableViewLeftMain();
+    QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\modules\\SqlLite_Lib\\libSqlLite_Lib.dll");
+    QObject *plugin = pluginLoader.instance();
+    m_pInterface = qobject_cast<DeclareInterface *>(plugin);
+    QString db_name = "C:\\Users\\HarryWen\\Desktop\\test.db";
+    data_model = connectDB(db_name, "纳排疾病数据");
+
+    standardModel = new QStandardItemModel(data_model->rowCount(), data_model->columnCount() + 1, this);
+    ui->tableView->setModel(standardModel);
+    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    buttonGroup->setExclusive(false);
+
+    updateModel();
+    initSlots();
+
+    initTableViewRightTop();
+    initTableViewRightBottom();
+    //    initChart();
+    ui->label->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
+    ui->label_3->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
+    ui->label_4->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
+}
 
 void DataTableViewer::initTableViewLeftMain()
 {
-    ui->tableView->setSortingEnabled(true); // 启动排序
-    ui->tableView->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel); // 滑动条设置
+    ui->tableView->setSortingEnabled(true);                                    // 启动排序
+    ui->tableView->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);   // 滑动条设置
     ui->tableView->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel); // 滑动条设置
 
     QHeaderView *header = ui->tableView->horizontalHeader();
@@ -34,11 +77,11 @@ void DataTableViewer::initTableViewLeftMain()
     }
 
     QStringList diseases;
-    diseases << "非酒精性脂肪肝"<< "非酒精脂肪肝炎"<< "肝硬化";
+    diseases << "非酒精性脂肪肝"
+             << "非酒精脂肪肝炎"
+             << "肝硬化";
     ui->diseaseBox->addItems(diseases);
     connect(ui->tableView, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(tableContextMenuRequested(QPoint)));
-
-
 }
 
 void DataTableViewer::initTableViewRightTop()
@@ -80,45 +123,51 @@ void DataTableViewer::initSlots()
 
     connect(ui->pushButtonRightTop, &QPushButton::clicked, this, &DataTableViewer::on_topButton_clicked);
     connect(ui->pushButtonRighrtBottom, &QPushButton::clicked, this, &DataTableViewer::on_bottomButton_clicked);
-
     connect(ui->saveButton, &QPushButton::clicked, this, &DataTableViewer::on_saveButton_clicked);
     connect(ui->revertButton, &QPushButton::clicked, this, &DataTableViewer::on_revertButton_clicked);
     connect(ui->analyzeButton, &QPushButton::clicked, this, &DataTableViewer::on_analyzeButton_clicked);
-
-//    connect(ui->diseaseBox, &QComboBox::currentTextChanged, this, &DataTableViewer::on_diseaseBox_changed);
+//    connect(ui->exportButton, &QPushButton::clicked, this, &DataTableViewer::on_exportButton_clicked);
+    connect(ui->diseaseBox, &QComboBox::currentTextChanged, this, &DataTableViewer::on_diseaseBox_changed);
     connect(ui->searchBox, &QPlainTextEdit::textChanged, this, &DataTableViewer::on_textEdit_textChanged);
-
 }
-void DataTableViewer::initWidget()
+
+void DataTableViewer::on_exportButton_clicked()
+{
+    QString file_path = QFileDialog::getOpenFileName(this, tr("文件选取"), "C:", tr("xlsx文件(*xlsx)"));
+    if (file_path != "")
+        exportXlsx(*standardModelRightTop, file_path);
+}
+
+void DataTableViewer::exportXlsx(QStandardItemModel &model, QString file_path)
 {
 
-    initTableViewLeftMain();
+    QXlsx::Document xlsxW;
+    qDebug() << file_path;
+    int row_count = model.rowCount();
+    int column_count = model.columnCount();
 
+    QXlsx::Format header;
+    header.setFontBold(true);
 
+    QStringList table_h_headers;
+    for (int i = 0; i < data_model->columnCount(); i++){
+        xlsxW.write(1, i+1, data_model->headerData(i, Qt::Horizontal),header); // write "Hello Qt!" to cell(A,1).
+    }
 
-    QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\modules\\SqlLite_Lib\\libSqlLite_Lib.dll");
-    QObject *plugin = pluginLoader.instance();
-    m_pInterface = qobject_cast<DeclareInterface *>(plugin);
-    QString db_name = "C:\\Users\\HarryWen\\Desktop\\test.db";
-    data_model = connectDB(db_name, "纳排疾病数据");
+    for (int row = 0 ; row<row_count ; row++)
+    {
+        for (int column = 0 ; column< column_count ; column++)
+        {
+            QStandardItem* item = model.item(row, column);
+            if (item){
+                QVariant variantData = item->data(Qt::DisplayRole);
+                xlsxW.write(row+2, column+1, variantData); // write "Hello Qt!" to cell(A,1).
+            }
+        }
+    }
+    xlsxW.saveAs(file_path); // save the document as 'Test.xlsx'
 
-    standardModel = new QStandardItemModel(data_model->rowCount(), data_model->columnCount() + 1, this);
-    ui->tableView->setModel(standardModel);
-    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
-
-    buttonGroup->setExclusive(false);
-
-    updateModel();
-//    initSlots();
-
-    initTableViewRightTop();
-    initTableViewRightBottom();
-    //    initChart();
-    ui->label->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
-    ui->label_3->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
-    ui->label_4->setStyleSheet("QLabel{background-color:rgb(255,255,255);}");
 }
-
 void DataTableViewer::updateModel()
 {
     QStringList table_h_headers;
@@ -140,25 +189,28 @@ void DataTableViewer::updateModel()
             ui->tableView->setIndexWidget(standardModel->index(row, 0), button);
         }
     };
-//    ui->tableView->setColumnHidden(2, true);
-//    ui->tableView->setColumnHidden(8, true);
+    ui->tableView->setColumnHidden(2, true);
+    ui->tableView->setColumnHidden(8, true);
+    ui->tableView->setColumnHidden(9, true);
+
     ui->tableView->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
 
-    //列宽度显示限制
+    // 列宽度显示限制
     int maxWidth = 200;
     QHeaderView *header = ui->tableView->horizontalHeader();
-    for (int i = 0; i < standardModel->columnCount(); ++i) {
+    for (int i = 0; i < standardModel->columnCount(); ++i)
+    {
         // 获取列的建议宽度
         int hintWidth = header->sectionSize(i);
-        if (hintWidth > maxWidth) {
+        if (hintWidth > maxWidth)
+        {
             ui->tableView->setColumnWidth(i, maxWidth);
-        } else {
+        }
+        else
+        {
             ui->tableView->setColumnWidth(i, hintWidth);
         }
     }
-
-
-    //    ui->tableView->setColumnHidden(9, true);
 }
 
 QSqlTableModel *DataTableViewer::connectDB(QString db_name, QString table_name)
@@ -315,12 +367,13 @@ void DataTableViewer::tableContextMenuRequested(const QPoint &pos)
     int y = pos.y();
     QModelIndex index = ui->tableView->indexAt(QPoint(x, y));
     int row = index.row(); // 获得QTableWidget列表点击的行数
+    int column = index.column();
 
     QMenu menu;
     QAction *add_row_up = menu.addAction(tr("向上增加一行"));
     QAction *add_row_down = menu.addAction(tr("向下增加一行"));
     QAction *delete_row = menu.addAction(tr("删除行"));
-    //    QAction *monitor_row = menu.addAction(tr("添加到监视"));
+    QAction *classfier = menu.addAction(tr("classfier"));
 
     connect(add_row_up, &QAction::triggered, [=]()
             {
@@ -334,15 +387,22 @@ void DataTableViewer::tableContextMenuRequested(const QPoint &pos)
             {
                 data_model->removeRow(row);
                 updateModel(); });
-    //    connect(monitor_row, &QAction::triggered, [=](){
-    //        model2->insertRow(0);
+    connect(classfier, &QAction::triggered, [=]()
+            {
+                QModelIndex index = data_model->index(row, column - 1); // 假设第一列是id列
 
-    //        for (int i =0;i<data_model->columnCount();i++)
-    //        {
-    //            QString name = data_model->data(data_model->index(row,i)).toString();
-    //            model2->setData(model2->index(0,i),name);
-    //        }
-    //    });
+                QVariant value = data_model->data(index, Qt::DisplayRole);
+                QString str = value.value<QString>();
+
+                py = new PythonLib();
+                auto predict = py->callMethod("svm_test", "SvmAnalyzer", "predict", str);
+                QVector<QPair<QVariant, QVariant>> array2D;
+                py->parsePyObject(predict, array2D);
+                data_model->setData(index, array2D.at(0).first.value<QString>());
+                updateModel();
+
+            });
+
     menu.show();
     menu.exec(QCursor::pos());
 }
