@@ -4,22 +4,27 @@ using namespace std;
 
 PythonLib::PythonLib()
 {
-   Py_Initialize();
-
+    Py_Initialize();
     PyRun_SimpleString("import sys");
     std::string path = "sys.path.append(\"D:/Projects/PythonProjects/Medical_Classification/models/SVM/\")";
     const char* cstr_cmd = path.c_str();
     PyRun_SimpleString(cstr_cmd);
 }
+PythonLib::~PythonLib()
+{
+    Py_Finalize();
+}
 PyObject* PythonLib::callMethod(QString file_name, QString class_name, QString method_name, QString arg_str)
 {
-    PyObject* pModule = PyImport_ImportModule(file_name.toStdString().c_str()); //模块名，不是文件名
-    PyObject* pDict = PyModule_GetDict(pModule); //获得Python模块中的函数列
+    PyObject* pModule = PyImport_ImportModule(file_name.toStdString().c_str()); //文件名
+    PyObject* pDict = PyModule_GetDict(pModule); //获得的函数列
+
     //获取python类
     PyObject* pSvmAnalyzer = PyDict_GetItemString(pDict, class_name.toStdString().c_str());//获取函数字典中的YOLO类
     if (pSvmAnalyzer == NULL) {
         PyErr_Print();
     }
+
     PyObject* pInstanceSvmAnalyzer = PyObject_CallObject(pSvmAnalyzer,NULL);
     if (pInstanceSvmAnalyzer == NULL) {
         PyErr_Print();
@@ -27,14 +32,13 @@ PyObject* PythonLib::callMethod(QString file_name, QString class_name, QString m
 
     PyObject *str = PyUnicode_FromString(arg_str.toStdString().c_str());
     PyObject* pValue = PyObject_CallMethod(pInstanceSvmAnalyzer, method_name.toStdString().c_str(),"(O)",str);
+
     return pValue;
 }
 
-void PythonLib::parsePyObject(PyObject* pValue)
+void PythonLib::parsePyObject(PyObject* pValue, QVector<QPair<QVariant, QVariant>>& array2D)
 {
-    qDebug()<<"555";
-
-    QVector<QPair<QVariant, QVariant>> array2D;
+//    QVector<QPair<QVariant, QVariant>> array2D;
     Py_ssize_t rows = PySequence_Size(pValue);
     for (Py_ssize_t i = 0; i < rows; ++i) {
         PyObject* row = PySequence_GetItem(pValue, i);
@@ -68,12 +72,15 @@ void PythonLib::parsePyObject(PyObject* pValue)
             else {
                 std::cout << "Unknown type" << " ";
             }
-            Py_DECREF(item);
         }
         if (floatValue && stringValue!="")
         {
             array2D.append(qMakePair<QString, double>(QString::fromStdString(stringValue), floatValue));
+            QVariant firstVariant = array2D.at(0).first;
+            QString intValue = firstVariant.value<QString>();
+            std::cout << intValue.toStdString() << " ";
+
         }
-        Py_DECREF(row);
     }
+
 }
