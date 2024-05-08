@@ -21,14 +21,14 @@ add_library(DataTableViewer SHARED
 )
 
 target_include_directories(DataTableViewer PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../Python_Lib")
-message(${CMAKE_CURRENT_SOURCE_DIR}/../LoginViewer)
-target_link_libraries(DataTableViewer PRIVATE Qt${QT_VERSION_MAJOR}::Core
+
+target_link_libraries(DataTableViewer PUBLIC Qt${QT_VERSION_MAJOR}::Core
                                                 Qt${QT_VERSION_MAJOR}::Widgets
                                                 Qt${QT_VERSION_MAJOR}::Sql
                                                 Qt${QT_VERSION_MAJOR}::Charts
                                                 QXlsx::QXlsx
                                                 )
 
-target_link_libraries(DataTableViewer PRIVATE Python_Lib)
-target_compile_definitions(DataTableViewer PRIVATE DATATABLEVIEWER_LIBRARY)
+target_link_libraries(DataTableViewer PUBLIC Python_Lib)
+target_compile_definitions(DataTableViewer PUBLIC DATATABLEVIEWER_LIBRARY)
 
