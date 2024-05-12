@@ -19,11 +19,16 @@ public:
     virtual void getTableInfo(QSqlDatabase db, QString table_name) = 0;
     virtual void descendTableItem(int column_id) = 0;
     virtual void ascendTableItem(int column_id) = 0;
-    virtual void searchTableItem(QStringList columns, QString target) = 0;
-    virtual void searchNonZeroItem(QStringList columns, QString target) = 0;
+    virtual void searchTableItem(QStringList columns, QString target, bool search_now = false) = 0;
+    virtual void searchNonZeroItem(QStringList columns, QString target, bool search_now = false) = 0;
+    virtual void searchTableAccurateItem(QStringList columns, QString target, bool search_now = false) = 0;
+    virtual void searchTableMulItem(QStringList columns, QStringList targets) = 0;
+
+    virtual void searchNow() = 0;
+
 
     virtual QSqlTableModel* queryEntireTable(QString table_name) = 0;
-    virtual QSqlTableModel* queryEntireTable2(QString table_name) = 0;
+    //    virtual QSqlTableModel* queryEntireTable2(QString table_name) = 0;
 
 };
 

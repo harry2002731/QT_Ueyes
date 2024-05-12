@@ -32,7 +32,7 @@ public:
     int num_each_page = 10; // 每页数据个数
     int totalPages = 10; // 总共的数据页数
     QSqlTableModel * model;
-    QSqlTableModel * model2;
+//    QSqlTableModel * model2;
 
 
     QVector<int> countLineNum(QSqlQuery &query);
@@ -42,14 +42,16 @@ public:
     void getTableInfo(QSqlDatabase db, QString table_name); //获取表信息
     QSqlDatabase  connectDB(QString db_name); //链接数据库
 
+    void searchNow();
     void descendTableItem(int column_id);
     void ascendTableItem(int column_id);
-    void searchTableItem(QStringList columns, QString target);
-    void searchNonZeroItem(QStringList columns, QString target);
-
+    void searchTableItem(QStringList columns, QString target, bool search_now = false);
+    void searchNonZeroItem(QStringList columns, QString target, bool search_now = false);
+    void searchTableAccurateItem(QStringList columns, QString target, bool search_now = false);
     QSqlTableModel* queryEntireTable(QString table_name);
-    QSqlTableModel* queryEntireTable2(QString table_name);
-
+//    QSqlTableModel* queryEntireTable2(QString table_name);
+    void searchTableMulItem(QStringList columns, QStringList targets);
+    QStringList total_search_string;
 
 
 

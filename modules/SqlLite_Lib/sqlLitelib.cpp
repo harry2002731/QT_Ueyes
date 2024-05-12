@@ -48,7 +48,7 @@ QSqlDatabase SqlLite_Lib::connectDB(QString db_name)
         qDebug() << "Database connected";
     }
     model = new QSqlTableModel(this);
-    model2 = new QSqlTableModel(this);
+//    model2 = new QSqlTableModel(this);
     return db;
 }
 
@@ -116,21 +116,64 @@ void SqlLite_Lib::descendTableItem(int column_id)
 }
 
 // Qsql 查询对象
-void SqlLite_Lib::searchTableItem(QStringList columns, QString target)
+void SqlLite_Lib::searchTableItem(QStringList columns, QString target, bool search_now)
 {
     QStringList str_list;
     for (const auto column : columns)
         str_list << column + " LIKE '%" + target + "%'";
     QString combinedString = str_list.join(" OR ");
-    model->setFilter(combinedString);
+    if (search_now)
+        model->setFilter(combinedString);
+    else
+        total_search_string<<combinedString;
 }
+
 // Qsql 查询非零对象
-void SqlLite_Lib::searchNonZeroItem(QStringList columns, QString target)
+void SqlLite_Lib::searchNonZeroItem(QStringList columns, QString target , bool search_now)
 {
     QStringList str_list;
     for (const auto column : columns)
         str_list << column + " <> 0";
     QString combinedString = str_list.join(" OR ");
+    if (search_now)
+        model->setFilter(combinedString);
+    else
+        total_search_string<<combinedString;
+}
+
+void SqlLite_Lib::searchTableAccurateItem(QStringList columns, QString target , bool search_now)
+{
+    QStringList str_list;
+    for (const auto column : columns)
+        str_list << column + " = " + "'" + target + "'" ;
+    QString combinedString = str_list.join(" OR ");
+    if (search_now)
+        model->setFilter(combinedString);
+    else
+        total_search_string<<combinedString;
+}
+
+void SqlLite_Lib::searchNow(){
+    QString combinedString = total_search_string.join(" AND ");
+
+    if (combinedString.length())
+    {
+        model->setFilter(combinedString);
+    }
+
+    else
+        qDebug()<<"error!!!!!!!!!!!!";
+    total_search_string.clear();
+
+}
+
+void SqlLite_Lib::searchTableMulItem(QStringList columns, QStringList targets)
+{
+    QStringList str_list;
+    for (int i = 0 ; i<columns.size();i++)
+        str_list << columns[i] + " = " + targets[i] ;
+    QString combinedString = str_list.join(" AND ");
+
     model->setFilter(combinedString);
 }
 
@@ -140,6 +183,7 @@ QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
     model->setTable(table_name);
     model->setEditStrategy(QSqlTableModel::OnManualSubmit);
     model->select(); //选取整个表的所有行
+
 //    while(model->canFetchMore())
 //    {
 //        model->fetchMore();
@@ -193,15 +237,14 @@ QSqlTableModel* SqlLite_Lib::queryEntireTable(QString table_name)
 //    }
 
 
-QSqlTableModel* SqlLite_Lib::queryEntireTable2(QString table_name)
-{
-    model2->setTable(table_name);
-    model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
-    model2->select(); //选取整个表的所有行
-    return model2;
+//QSqlTableModel* SqlLite_Lib::queryEntireTable2(QString table_name)
+//{
+//    model2->setTable(table_name);
+//    model2->setEditStrategy(QSqlTableModel::OnManualSubmit);
+//    model2->select(); //选取整个表的所有行
+//    return model2;
 
-
-}
+//}
 //void SqlLite_Lib::on_textEdit_textChanged(const QString &text)
 //{
 //    QString input_name=text;
