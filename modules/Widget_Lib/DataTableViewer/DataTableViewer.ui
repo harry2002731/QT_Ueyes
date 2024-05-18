@@ -276,7 +276,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton">
+                  <widget class="QPushButton" name="cleanButton">
                    <property name="text">
                     <string>清空所有数据</string>
                    </property>

@@ -66,6 +66,8 @@ BasicWindow::BasicWindow(QWidget *parent,QString name):
 //添加窗体在内部
 void BasicWindow::createContent()
 {
+
+
 //    auto CameraViewer = createCameraViewerWidget();
 //    this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
 //    auto FileSystemTreeViewer = createFileSystemTreeDockWidget();
@@ -78,7 +80,10 @@ void BasicWindow::createContent()
 //    this->addDockWidget(ads::LeftDockWidgetArea, aaa );
 
 //    auto login_viewer = loginViewer();
-//    this->addDockWidget(ads::LeftDockWidgetArea, login_viewer);
+////    this->addDockWidget(ads::LeftDockWidgetArea, login_viewer);
+
+//    auto FloatingWidget = this->addDockWidgetFloating(login_viewer);
+//    FloatingWidget->move(QPoint(20, 20));
 
     auto bbb = createDataViewerWidget();
     this->addDockWidget(ads::LeftDockWidgetArea, bbb );
@@ -313,9 +318,11 @@ ads::CDockWidget* BasicWindow::loginViewer()
     if (!loginModel.setCounrySource(pathXML)) {
         qDebug() << "2222 ";
     }
-    widget -> setSource(url);
-    static int CameraViewerCount = 0;
-    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
+    widget->setSource(url);
+    widget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
+    static int qqq = 0;
+    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(qqq++));
     DockWidget->setWidget(widget);
     return DockWidget;
 }

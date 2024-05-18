@@ -76,7 +76,7 @@ private slots:
 
     void changeState_triggered();
 protected:
-    void mousePressEvent(QMouseEvent *event) override;
+//    void mousePressEvent(QMouseEvent *event) override;
 
 };
 

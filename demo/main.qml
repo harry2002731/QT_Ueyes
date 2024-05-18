@@ -24,6 +24,8 @@ Item {
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         lognViewModel: exampleLogin
+        anchors.fill: parent
+
     }
 
 }

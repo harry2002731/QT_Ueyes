@@ -11,8 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
-message("PYTHON_EXECUTABLE: ${PYTHON_EXECUTABLE}")
-message("Python3_EXECUTABLE: ${Python3_EXECUTABLE}")
+
 
 add_library(BaseFunc_Lib SHARED
   BaseFunc_Lib_global.h

@@ -1,5 +1,6 @@
 #include "pythonlib.h"
 #include <iostream>
+
 using namespace std;
 
 PythonLib::PythonLib()
@@ -20,7 +21,7 @@ PyObject* PythonLib::callMethod(QString file_name, QString class_name, QString m
     PyObject* pDict = PyModule_GetDict(pModule); //获得的函数列
 
     //获取python类
-    PyObject* pSvmAnalyzer = PyDict_GetItemString(pDict, class_name.toStdString().c_str());//获取函数字典中的YOLO类
+    PyObject* pSvmAnalyzer = PyDict_GetItemString(pDict, class_name.toStdString().c_str());
     if (pSvmAnalyzer == NULL) {
         PyErr_Print();
     }

@@ -155,7 +155,6 @@ void SqlLite_Lib::searchTableAccurateItem(QStringList columns, QString target , 
 
 void SqlLite_Lib::searchNow(){
     QString combinedString = total_search_string.join(" AND ");
-
     if (combinedString.length())
     {
         model->setFilter(combinedString);
@@ -171,10 +170,12 @@ void SqlLite_Lib::searchTableMulItem(QStringList columns, QStringList targets)
 {
     QStringList str_list;
     for (int i = 0 ; i<columns.size();i++)
-        str_list << columns[i] + " = " + targets[i] ;
+        str_list << columns[i] + " = " +"'" +targets[i]+"'" ;
     QString combinedString = str_list.join(" AND ");
-
     model->setFilter(combinedString);
+
+    qDebug()<<combinedString<<model->rowCount();
+
 }
 
 // QSql 整表查询

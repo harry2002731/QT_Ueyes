@@ -208,7 +208,7 @@ struct MainWindowPrivate
 
 //    ads::CDockManager* DockManager = nullptr;
     QWidget m_welcomeWidget;
-
+    ads::CDockManager* DockManager = nullptr;
     ads::CDockWidget* WindowTitleTestDockWidget = nullptr;
     QPointer<ads::CDockWidget> LastDockedEditor;
     QPointer<ads::CDockWidget> LastCreatedFloatingEditor;
@@ -275,11 +275,13 @@ void MainWindowPrivate::createLeftToolBar()
 //    ui.toolBar_->addAction(ui.actionSaveState);
 //    ui.actionRestoreState->setIcon(svgIcon(":/adsdemo/images/restore.svg"));
 //    ui.toolBar_->addAction(ui.actionRestoreState);
+//    ui.toolBar_2->addAction(Debugger);
+
 
     ui.toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon); //设置文字位置
-    ui.toolBar->addAction(Welcome);
-    ui.toolBar->addAction(Designer);
-    ui.toolBar->addAction(Debugger);
+//    ui.toolBar->addAction(Welcome);
+//    ui.toolBar->addAction(Designer);
+//    ui.toolBar->addAction(Debugger);
     ui.toolBar->addWidget(spacer);
     ui.toolBar->addAction(RunOption);
     ui.toolBar->addSeparator(); //添加分割线
@@ -308,13 +310,11 @@ void MainWindowPrivate::createStatusBarActions()
     ui.statusBar->addPermanentWidget(versionLabel);
     ui.statusBar->addPermanentWidget(timeLabel);
     ui.statusBar->addPermanentWidget(memoryLabel);
-
 }
 
 
 void MainWindowPrivate::createActions()
 {
-
     //欢迎按键设置
     Welcome = new QAction("欢迎", _this);
     Welcome->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
@@ -322,39 +322,43 @@ void MainWindowPrivate::createActions()
     _this->connect(Welcome, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Welcome->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");//提示内容
 
-    //设计按键设置
-    Designer = new QAction("设计", _this);
-    Designer->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(Designer, SIGNAL(triggered()), SLOT(changeState_triggered()));
-    //Designer->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+//    //设计按键设置
+//    Designer = new QAction("设计", _this);
+//    Designer->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(Designer, SIGNAL(triggered()), SLOT(changeState_triggered()));
+//    //Designer->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
-    //调试按键设置
-    Debugger = new QAction("调试", _this);
+//    //调试按键设置
+//    Debugger = new QAction("调试", _this);
+//    Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
+//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+
+    Debugger = new QAction("登录", _this);
     Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
     _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+//    //间隔设置
+//    spacer = new QWidget();
+//    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    //间隔设置
-    spacer = new QWidget();
-    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+//    //运行配置设置
+//    RunOption = new QAction("运行配置", _this);
+//    RunOption->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(RunOption, SIGNAL(triggered()), SLOT(savePerspective()));
+//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
-    //运行配置设置
-    RunOption = new QAction("运行配置", _this);
-    RunOption->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(RunOption, SIGNAL(triggered()), SLOT(savePerspective()));
-    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+//    //运行配置设置
+//    Run = new QAction("运行", _this);
+//    Run->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(Run, SIGNAL(triggered()), SLOT(savePerspective()));
+//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
-    //运行配置设置
-    Run = new QAction("运行", _this);
-    Run->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(Run, SIGNAL(triggered()), SLOT(savePerspective()));
-    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
-
-    //连续运行
-    ContinueRun = new QAction("连续运行", _this);
-    ContinueRun->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(ContinueRun, SIGNAL(triggered()), SLOT(savePerspective()));
-    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+//    //连续运行
+//    ContinueRun = new QAction("连续运行", _this);
+//    ContinueRun->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(ContinueRun, SIGNAL(triggered()), SLOT(savePerspective()));
+//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 }
 
 
@@ -555,17 +559,24 @@ void CMainWindow::changeState_triggered()
     if (name == "欢迎") {
         d->win_map["basic"]->hideManagerAndFloatingWidgets();
         m_layout->setCurrentWidget(d->win_map["welcome"]);
-
-
     }
     else if (name == "设计") {
         d->win_map["welcome"]->hideManagerAndFloatingWidgets();
         m_layout->setCurrentWidget(d->win_map["basic"]);
-
     }
-    else if (name == "调试") {
-        d->win_map["welcome"]->hideManagerAndFloatingWidgets();
-        m_layout->setCurrentWidget(d->win_map["welcome111"]);
+//    else if (name == "调试") {
+//        d->win_map["welcome"]->hideManagerAndFloatingWidgets();
+//        m_layout->setCurrentWidget(d->win_map["welcome111"]);
+//    }
+
+    else if (name == "登录") {
+//        QWidget * aaa = new QWidget();
+//        int DataViewerCount = 0;
+//        ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(DataViewerCount++));
+//        DockWidget->setWidget(aaa);
+
+//        auto FloatingWidget = d->DockManager->addDockWidgetFloating(DockWidget);
+//        FloatingWidget->move(QPoint(20, 20));
     }
 }
 

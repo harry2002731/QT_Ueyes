@@ -1,12 +1,12 @@
 #ifndef PYTHONLIB_H
 #define PYTHONLIB_H
-#include <Python.h>
 
 #include "Python_Lib_global.h"
 #include <QString>
 #include <QVector>
 #include <QPair>
 #include <QVariant>
+#include "Python.h"
 
 class PYTHON_LIB_EXPORT PythonLib
 {
