@@ -22,10 +22,10 @@ class SQLLITE_LIB_EXPORT SqlLite_Lib: public DeclareInterface
 {
 
    Q_OBJECT
-//    Q_INTERFACES(DeclareInterface)
-//    Q_PLUGIN_METADATA(IID DeclareInterface_iid FILE "qtplugin.json")
+    Q_INTERFACES(DeclareInterface)
+    Q_PLUGIN_METADATA(IID DeclareInterface_iid FILE "qtplugin.json")
 
-    SQLITESTUDIO_PLUGIN("qtplugin.json")
+//    SQLITESTUDIO_PLUGIN("qtplugin.json")
 
 public:   
     SqlLite_Lib();

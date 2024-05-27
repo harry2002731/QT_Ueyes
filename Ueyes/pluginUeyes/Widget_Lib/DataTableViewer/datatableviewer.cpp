@@ -31,9 +31,9 @@ void DataTableViewer::initWidget()
 {
 
     initTableViewLeftMain();
-    QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-QT_Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\x64\\bin\\libSqlLite_Lib.dll");
+    QPluginLoader pluginLoader("D:\\Projects\\QTProjects\\QT_Ueyes\\build-Ueyes-Desktop_Qt_6_2_4_MinGW_64_bit-Debug\\x64\\bin\\libSqlLite_Lib.dll");
     QObject *plugin = pluginLoader.instance();
-    m_pInterface = qobject_cast<TestInterface *>(plugin);
+    m_pInterface = qobject_cast<DeclareInterface *>(plugin);
     QString db_name = "C:\\Users\\HarryWen\\Desktop\\test.db";
     qDebug()<<"ok";
 

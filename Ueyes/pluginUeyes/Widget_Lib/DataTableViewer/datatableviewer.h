@@ -40,7 +40,7 @@ public:
     void test();
 
 
-    TestInterface* m_pInterface = nullptr;  //获取插件类型
+    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
     Ui::DataTableViewer1 *ui;
     QSqlTableModel* data_model;
     PythonLib* py = new PythonLib();

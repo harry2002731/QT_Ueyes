@@ -10,7 +10,7 @@
 #include "qsqlquerymodel.h"
 #include "BaseInterface.h"
 
-//#define DeclareInterface_iid "Examples.Plugin.DeclareInterface"
+#define DeclareInterface_iid "Examples.Plugin.DeclareInterface"
 
 //定义接口
 class DeclareInterface : public QObject, virtual public BaseInterface
@@ -34,9 +34,9 @@ public:
 
 //一定是唯一的标识符
 
-//QT_BEGIN_NAMESPACE
-//Q_DECLARE_INTERFACE(DeclareInterface,DeclareInterface_iid)
-//QT_END_NAMESPACE
+QT_BEGIN_NAMESPACE
+Q_DECLARE_INTERFACE(DeclareInterface,DeclareInterface_iid)
+QT_END_NAMESPACE
 
 
 #endif // SQLINTERFACE_H

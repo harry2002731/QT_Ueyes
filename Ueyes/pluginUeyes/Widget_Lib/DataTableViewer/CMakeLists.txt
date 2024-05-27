@@ -18,7 +18,7 @@ add_library(DataTableViewer SHARED
   datatableviewer.h
   DataTableViewer.ui
   SqlInterface.h
-  testinterface.h
+  BaseInterface.h
 )
 
 target_include_directories(DataTableViewer PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../Python_Lib")

@@ -68,11 +68,10 @@ BasicWindow::BasicWindow(QWidget *parent,QString name):
 void BasicWindow::createContent()
 {
 
-
-    auto CameraViewer = createCameraViewerWidget();
-    this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
-    auto FileSystemTreeViewer = createFileSystemTreeDockWidget();
-    this->addDockWidget(ads::BottomDockWidgetArea, FileSystemTreeViewer );
+//    auto CameraViewer = createCameraViewerWidget();
+//    this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
+//    auto FileSystemTreeViewer = createFileSystemTreeDockWidget();
+//    this->addDockWidget(ads::BottomDockWidgetArea, FileSystemTreeViewer );
 
 //    auto imageViewer = createImageViewerWidget();
 //    this->addDockWidget(ads::LeftDockWidgetArea, imageViewer );
@@ -86,8 +85,8 @@ void BasicWindow::createContent()
 //    auto FloatingWidget = this->addDockWidgetFloating(login_viewer);
 //    FloatingWidget->move(QPoint(20, 20));
 
-//    auto bbb = createDataViewerWidget();
-//    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
+    auto bbb = createDataViewerWidget();
+    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
 
 
 //    SqlLite_Lib();

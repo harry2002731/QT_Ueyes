@@ -1,42 +1,27 @@
-#ifndef TESTINTERFACE_H
-#define TESTINTERFACE_H
+#ifndef BASEINTERFACE_H
+#define BASEINTERFACE_H
 #include <QtPlugin>
 #include <QtCore>
 #include "qglobal.h"
-#define TestInterface1_iid "Examples.Plugin.TestInterface"
-#include <QSqlDatabase>
-#include "qsqltablemodel.h"
+
+#define BaseInterface_iid "Examples.Plugin.TestInterface"
 
 
-class TestInterface
+//基类接口
+
+class BaseInterface
 {
 public:
-    virtual ~TestInterface() {}
-    virtual QSqlDatabase connectDB(QString db_name) = 0;
-    virtual void getTableInfo(QSqlDatabase db, QString table_name) = 0;
-    virtual void descendTableItem(int column_id) = 0;
-    virtual void ascendTableItem(int column_id) = 0;
-    virtual void searchTableItem(QStringList columns, QString target, bool search_now = false) = 0;
-    virtual void searchNonZeroItem(QStringList columns, QString target, bool search_now = false) = 0;
-    virtual void searchTableAccurateItem(QStringList columns, QString target, bool search_now = false) = 0;
-    virtual void searchTableMulItem(QStringList columns, QStringList targets) = 0;
-    virtual void searchNow() = 0;
-    virtual QSqlTableModel* queryEntireTable(QString table_name) = 0;
-    //    virtual QSqlTableModel* queryEntireTable2(QString table_name) = 0;
-    //    virtual ~TestInterface() ;
+    virtual ~BaseInterface() {}
+
 
 };
 
-//QT_BEGIN_NAMESPACE
-//Q_DECLARE_INTERFACE(TestInterface,TestInterface1_iid)
-//QT_END_NAMESPACE
-
 
 #define SQLITESTUDIO_PLUGIN(file)\
-Q_PLUGIN_METADATA(IID TestInterface1_iid FILE file) \
-    Q_INTERFACES(TestInterface)
+Q_PLUGIN_METADATA(IID BaseInterface_iid FILE file) \
+    Q_INTERFACES(BaseInterface)
 
-Q_DECLARE_INTERFACE(TestInterface, TestInterface1_iid)
+Q_DECLARE_INTERFACE(BaseInterface, BaseInterface_iid)
 
-
-#endif // TESTINTERFACE_H
+#endif // BASEINTERFACE_H
