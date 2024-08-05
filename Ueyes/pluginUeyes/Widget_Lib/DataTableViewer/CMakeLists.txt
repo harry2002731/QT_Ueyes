@@ -21,8 +21,10 @@ add_library(DataTableViewer SHARED
   BaseInterface.h
 )
 
-target_include_directories(DataTableViewer PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../Python_Lib")
-
+target_include_directories(DataTableViewer PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../Python_Lib"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../../QXlsx/QXlsx/header"
+)
+message("${CMAKE_CURRENT_SOURCE_DIR}/../../QXlsx/QXlsx/header")
 target_link_libraries(DataTableViewer PUBLIC Qt${QT_VERSION_MAJOR}::Core
                                                 Qt${QT_VERSION_MAJOR}::Widgets
                                                 Qt${QT_VERSION_MAJOR}::Sql

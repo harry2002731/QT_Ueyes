@@ -279,9 +279,10 @@ void MainWindowPrivate::createLeftToolBar()
 
 
     ui.toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon); //设置文字位置
-//    ui.toolBar->addAction(Welcome);
-//    ui.toolBar->addAction(Designer);
-//    ui.toolBar->addAction(Debugger);
+    ui.toolBar->addAction(Welcome);
+    ui.toolBar->addAction(Designer);
+    ui.toolBar->addAction(Debugger);
+
     ui.toolBar->addWidget(spacer);
     ui.toolBar->addAction(RunOption);
     ui.toolBar->addSeparator(); //添加分割线
@@ -329,36 +330,36 @@ void MainWindowPrivate::createActions()
 //    //Designer->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
 //    //调试按键设置
-//    Debugger = new QAction("调试", _this);
-//    Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-//    _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
-//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
-
-    Debugger = new QAction("登录", _this);
+    Debugger = new QAction("调试", _this);
     Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
     _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
-//    //间隔设置
-//    spacer = new QWidget();
-//    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-//    //运行配置设置
-//    RunOption = new QAction("运行配置", _this);
-//    RunOption->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-//    _this->connect(RunOption, SIGNAL(triggered()), SLOT(savePerspective()));
-//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+//    Debugger = new QAction("登录", _this);
+//    Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
+//    Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+    //间隔设置
+    spacer = new QWidget();
+    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-//    //运行配置设置
-//    Run = new QAction("运行", _this);
-//    Run->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-//    _this->connect(Run, SIGNAL(triggered()), SLOT(savePerspective()));
-//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+    //运行配置设置
+    RunOption = new QAction("运行配置", _this);
+    RunOption->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+    _this->connect(RunOption, SIGNAL(triggered()), SLOT(savePerspective()));
+    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
-//    //连续运行
-//    ContinueRun = new QAction("连续运行", _this);
-//    ContinueRun->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-//    _this->connect(ContinueRun, SIGNAL(triggered()), SLOT(savePerspective()));
-//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+    //运行配置设置
+    Run = new QAction("运行", _this);
+    Run->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+    _this->connect(Run, SIGNAL(triggered()), SLOT(savePerspective()));
+    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+
+    //连续运行
+    ContinueRun = new QAction("连续运行", _this);
+    ContinueRun->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+    _this->connect(ContinueRun, SIGNAL(triggered()), SLOT(savePerspective()));
+    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 }
 
 
@@ -498,6 +499,7 @@ CMainWindow::CMainWindow(QWidget *parent) :
 
     d->win_map.insert("basic",basic_win);
     d->win_map.insert("welcome",welcome_win);
+//    d->win_map.insert("welcome",welcome_win);
 
     d->ui.widget->layout()->addWidget(basic_win);//显示调用layout来进行布局
     d->ui.widget->layout()->addWidget(welcome_win);//显示调用layout来进行布局
@@ -560,14 +562,14 @@ void CMainWindow::changeState_triggered()
         d->win_map["basic"]->hideManagerAndFloatingWidgets();
         m_layout->setCurrentWidget(d->win_map["welcome"]);
     }
-    else if (name == "设计") {
+//    else if (name == "设计") {
+//        d->win_map["design"]->hideManagerAndFloatingWidgets();
+//        m_layout->setCurrentWidget(d->win_map["design"]);
+//    }
+    else if (name == "调试") {
         d->win_map["welcome"]->hideManagerAndFloatingWidgets();
         m_layout->setCurrentWidget(d->win_map["basic"]);
     }
-//    else if (name == "调试") {
-//        d->win_map["welcome"]->hideManagerAndFloatingWidgets();
-//        m_layout->setCurrentWidget(d->win_map["welcome111"]);
-//    }
 
     else if (name == "登录") {
 //        QWidget * aaa = new QWidget();

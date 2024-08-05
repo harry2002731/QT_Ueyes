@@ -5,7 +5,7 @@
 #include <QStandardItemModel>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "Widget_Lib/LoginViewer/LoginView/src/lvmainmodel.h"
+//#include "Widget_Lib/LoginViewer/LoginView/src/lvmainmodel.h"
 //#include "Widget_Lib/DataTableViewer/datatableviewer.h"
 
 #include <QQuickStyle>
@@ -308,19 +308,6 @@ ads::CDockWidget* BasicWindow::test()
 ads::CDockWidget* BasicWindow::loginViewer()
 {
     QQuickWidget* widget = new QQuickWidget();
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
-    QQuickStyle::setStyle("Material");
-    LoginView::LVMainModel loginModel("exampleLogin");
-    if (!loginModel.init(widget)) {
-        qDebug() << "1111";
-    }
-    QString pathXML = ":/example.xml";
-    if (!loginModel.setCounrySource(pathXML)) {
-        qDebug() << "2222 ";
-    }
-    widget->setSource(url);
-    widget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-
     static int qqq = 0;
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(qqq++));
     DockWidget->setWidget(widget);

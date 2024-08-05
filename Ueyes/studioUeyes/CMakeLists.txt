@@ -56,7 +56,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE gui_ueyes)
 target_link_libraries(${PROJECT_NAME} PRIVATE WidgetLib)
 target_link_libraries(${PROJECT_NAME} PRIVATE BaseFunc_Lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE SqlLite_Lib)
-target_link_libraries(${PROJECT_NAME} PRIVATE LoginView)
+#target_link_libraries(${PROJECT_NAME} PRIVATE LoginView)
 target_link_libraries(${PROJECT_NAME} PRIVATE DataTableViewer)
 
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
