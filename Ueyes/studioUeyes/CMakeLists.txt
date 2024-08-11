@@ -23,7 +23,8 @@ list(REMOVE_ITEM studio_QRC  "")
 list(REMOVE_ITEM studio_UI  "")
 
 
-add_executable(${PROJECT_NAME} WIN32 ${studio_HEADERS} ${studio_SRCS}  ${studio_QRC} ${studio_UI})
+add_executable(${PROJECT_NAME} WIN32 ${studio_HEADERS} ${studio_SRCS}  ${studio_QRC} ${studio_UI}
+    DataFlowModel.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/coreDock"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/plugins"
@@ -56,6 +57,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE gui_ueyes)
 target_link_libraries(${PROJECT_NAME} PRIVATE WidgetLib)
 target_link_libraries(${PROJECT_NAME} PRIVATE BaseFunc_Lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE SqlLite_Lib)
+target_link_libraries(${PROJECT_NAME} PRIVATE QtNodes)
+
 #target_link_libraries(${PROJECT_NAME} PRIVATE LoginView)
 target_link_libraries(${PROJECT_NAME} PRIVATE DataTableViewer)
 
