@@ -11,6 +11,7 @@
 #include <QFileInfo>
 #include <QMessageBox>
 #include "BaseWidget.h"
+#include "qlistwidget.h"
 
 namespace Ui {
 class FuncViewerWidget;
@@ -33,6 +34,13 @@ public:
     void readWidgetConfig(); //读取窗体配置
     void makePageWidget(); //配置主窗体内的子窗体
     void addPageWidget(QString title,QWidget *widget);//添加子窗体到主窗体中
+    QPushButton * bbb;
+    QPushButton * ccc;
+    QWidget *m_widget = new QWidget();
+    void mouseMoveEvent(QMouseEvent *event);
+
+signals:
+
 };
 
 //用来在显示调用动态库时候调用类，额外增加
