@@ -97,7 +97,7 @@ using namespace QtConcurrent;
 #include <QStackedLayout>
 #include "BasicWindow.h"
 #include "WelcomeWindow.h"
-
+#include "DesignWindow.h"
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
@@ -105,6 +105,11 @@ using namespace QtConcurrent;
 #include <QQuickStyle>
 #include <QQuickView>
 #include <QPainterPath>
+#include <QWKWidgets/widgetwindowagent.h>
+#include "shared/widgetframe/windowbar.h"
+#include "shared/widgetframe/windowbutton.h"
+//#include <widgetframe/windowbar.h>
+//#include <widgetframe/windowbutton.h>
 
 //QStackedLayout* m_layout;
 using namespace ads;
@@ -324,15 +329,15 @@ void MainWindowPrivate::createActions()
     //Welcome->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");//提示内容
 
 //    //设计按键设置
-//    Designer = new QAction("设计", _this);
-//    Designer->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-//    _this->connect(Designer, SIGNAL(triggered()), SLOT(changeState_triggered()));
+    Designer = new QAction("设计", _this);
+    Designer->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+    _this->connect(Designer, SIGNAL(triggered()), SLOT(changeState_triggered()));
 //    //Designer->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
 //    //调试按键设置
-    Debugger = new QAction("调试", _this);
-    Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
+//    Debugger = new QAction("调试", _this);
+//    Debugger->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
     //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
 //    Debugger = new QAction("登录", _this);
@@ -340,25 +345,25 @@ void MainWindowPrivate::createActions()
 //    _this->connect(Debugger, SIGNAL(triggered()), SLOT(changeState_triggered()));
 //    Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
     //间隔设置
-    spacer = new QWidget();
-    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+//    spacer = new QWidget();
+//    spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    //运行配置设置
-    RunOption = new QAction("运行配置", _this);
-    RunOption->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(RunOption, SIGNAL(triggered()), SLOT(savePerspective()));
-    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+//    //运行配置设置
+//    RunOption = new QAction("运行配置", _this);
+//    RunOption->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(RunOption, SIGNAL(triggered()), SLOT(savePerspective()));
+//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
-    //运行配置设置
-    Run = new QAction("运行", _this);
-    Run->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(Run, SIGNAL(triggered()), SLOT(savePerspective()));
-    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
+//    //运行配置设置
+//    Run = new QAction("运行", _this);
+//    Run->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(Run, SIGNAL(triggered()), SLOT(savePerspective()));
+//    //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 
-    //连续运行
-    ContinueRun = new QAction("连续运行", _this);
-    ContinueRun->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
-    _this->connect(ContinueRun, SIGNAL(triggered()), SLOT(savePerspective()));
+//    //连续运行
+//    ContinueRun = new QAction("连续运行", _this);
+//    ContinueRun->setIcon(svgIcon(":/adsdemo/images/picture_in_picture.svg"));
+//    _this->connect(ContinueRun, SIGNAL(triggered()), SLOT(savePerspective()));
     //Debugger->setToolTip("Creates floating dynamic dockable editor windows that are deleted on close");
 }
 
@@ -465,6 +470,234 @@ public slots:
 
 };
 
+void CMainWindow::installWindowAgent() {
+    // 1. Setup window agent
+    windowAgent = new QWK::WidgetWindowAgent(this);
+    windowAgent->setup(this);
+    loadStyleSheet(Dark);
+
+    // 2. Construct your title bar
+    auto menuBar = [this]() {
+        auto menuBar = new QMenuBar();
+
+        // Virtual menu
+        auto file = new QMenu(tr("文件(&F)"), menuBar);
+        auto system = new QMenu(tr("系统(&N)"), menuBar);
+        auto tool = new QMenu(tr("工具(&T)"), menuBar);
+        auto setting = new QMenu(tr("设置(&S)"), menuBar);
+        QAction* save = new QAction(tr("保存窗体"),menuBar);
+        QAction* restore = new QAction(tr("恢复窗体"),menuBar);
+
+        setting->addAction(save);
+        setting->addAction(restore);
+
+        auto help = new QMenu(tr("帮助(&H)"), menuBar);
+
+        connect(save, &QAction::triggered, this, &CMainWindow::on_actionSaveState_triggered);
+        connect(restore, &QAction::triggered, this, &CMainWindow::on_actionRestoreState_triggered);
+
+//        this->connect(save, SIGNAL(triggered()), SLOT(on_actionSaveState_triggered()));
+//        this->connect(restore, SIGNAL(triggered()), SLOT(on_actionRestoreState_triggered()));
+
+//        file->addSeparator();
+
+//        auto edit = new QMenu(tr("Edit(&E)"), menuBar);
+//        edit->addAction(new QAction(tr("Undo(&U)"), menuBar));
+//        edit->addAction(new QAction(tr("Redo(&R)"), menuBar));
+
+        // Theme action
+        auto darkAction = new QAction(tr("Enable dark theme"), menuBar);
+        darkAction->setCheckable(true);
+//        connect(darkAction, &QAction::triggered, this, [this](bool checked) {
+//            loadStyleSheet(checked ? Dark : Light); //
+//        });
+        connect(this, &CMainWindow::themeChanged, darkAction, [this, darkAction]() {
+            darkAction->setChecked(currentTheme == Dark); //
+        });
+
+#ifdef Q_OS_WIN
+        auto dwmBlurAction = new QAction(tr("Enable DWM blur"), menuBar);
+        dwmBlurAction->setCheckable(true);
+        connect(dwmBlurAction, &QAction::toggled, this, [this](bool checked) {
+            if (!windowAgent->setWindowAttribute(QStringLiteral("dwm-blur"), checked)) {
+                return;
+            }
+            setProperty("custom-style", checked);
+            style()->polish(this);
+        });
+
+        auto acrylicAction = new QAction(tr("Enable acrylic material"), menuBar);
+        acrylicAction->setCheckable(true);
+        connect(acrylicAction, &QAction::toggled, this, [this](bool checked) {
+            if (!windowAgent->setWindowAttribute(QStringLiteral("acrylic-material"), true)) {
+                return;
+            }
+            setProperty("custom-style", checked);
+            style()->polish(this);
+        });
+
+        auto micaAction = new QAction(tr("Enable mica"), menuBar);
+        micaAction->setCheckable(true);
+        connect(micaAction, &QAction::toggled, this, [this](bool checked) {
+            if (!windowAgent->setWindowAttribute(QStringLiteral("mica"), checked)) {
+                return;
+            }
+            setProperty("custom-style", checked);
+            style()->polish(this);
+        });
+
+        auto micaAltAction = new QAction(tr("Enable mica alt"), menuBar);
+        micaAltAction->setCheckable(true);
+        connect(micaAltAction, &QAction::toggled, this, [this](bool checked) {
+            if (!windowAgent->setWindowAttribute(QStringLiteral("mica-alt"), checked)) {
+                return;
+            }
+            setProperty("custom-style", checked);
+            style()->polish(this);
+        });
+#elif defined(Q_OS_MAC)
+        auto darkBlurAction = new QAction(tr("Dark blur"), menuBar);
+        darkBlurAction->setCheckable(true);
+        connect(darkBlurAction, &QAction::toggled, this, [this](bool checked) {
+            if (!windowAgent->setWindowAttribute(QStringLiteral("blur-effect"), "dark")) {
+                return;
+            }
+            if (checked) {
+                setProperty("custom-style", true);
+                style()->polish(this);
+            }
+        });
+
+        auto lightBlurAction = new QAction(tr("Light blur"), menuBar);
+        lightBlurAction->setCheckable(true);
+        connect(lightBlurAction, &QAction::toggled, this, [this](bool checked) {
+            if (!windowAgent->setWindowAttribute(QStringLiteral("blur-effect"), "light")) {
+                return;
+            }
+            if (checked) {
+                setProperty("custom-style", true);
+                style()->polish(this);
+            }
+        });
+
+        auto noBlurAction = new QAction(tr("No blur"), menuBar);
+        noBlurAction->setCheckable(true);
+        connect(noBlurAction, &QAction::toggled, this, [this](bool checked) {
+            if (!windowAgent->setWindowAttribute(QStringLiteral("blur-effect"), "none")) {
+                return;
+            }
+            if (checked) {
+                setProperty("custom-style", false);
+                style()->polish(this);
+            }
+        });
+
+        auto macStyleGroup = new QActionGroup(menuBar);
+        macStyleGroup->addAction(darkBlurAction);
+        macStyleGroup->addAction(lightBlurAction);
+        macStyleGroup->addAction(noBlurAction);
+#endif
+
+        // Real menu
+//        auto settings = new QMenu(tr("Settings(&S)"), menuBar);
+//        settings->addAction(darkAction);
+
+#ifdef Q_OS_WIN
+//        settings->addSeparator();
+//        settings->addAction(dwmBlurAction);
+//        settings->addAction(acrylicAction);
+//        settings->addAction(micaAction);
+//        settings->addAction(micaAltAction);
+#elif defined(Q_OS_MAC)
+        settings->addAction(darkBlurAction);
+        settings->addAction(lightBlurAction);
+        settings->addAction(noBlurAction);
+#endif
+
+        menuBar->addMenu(file);
+        menuBar->addMenu(system);
+        menuBar->addMenu(tool);
+        menuBar->addMenu(setting);
+        menuBar->addMenu(help);
+
+        return menuBar;
+    }();
+    menuBar->setObjectName(QStringLiteral("win-menu-bar"));
+
+    auto titleLabel = new QLabel();
+    titleLabel->setAlignment(Qt::AlignCenter);
+    titleLabel->setObjectName(QStringLiteral("win-title-label"));
+
+#ifndef Q_OS_MAC
+    auto iconButton = new QWK::WindowButton();
+    iconButton->setObjectName(QStringLiteral("icon-button"));
+    iconButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    auto minButton = new QWK::WindowButton();
+    minButton->setObjectName(QStringLiteral("min-button"));
+    minButton->setProperty("system-button", true);
+    minButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    auto maxButton = new QWK::WindowButton();
+    maxButton->setCheckable(true);
+    maxButton->setObjectName(QStringLiteral("max-button"));
+    maxButton->setProperty("system-button", true);
+    maxButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    auto closeButton = new QWK::WindowButton();
+    closeButton->setObjectName(QStringLiteral("close-button"));
+    closeButton->setProperty("system-button", true);
+    closeButton->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+#endif
+
+    auto windowBar = new QWK::WindowBar();
+#ifndef Q_OS_MAC
+    windowBar->setIconButton(iconButton);
+    windowBar->setMinButton(minButton);
+    windowBar->setMaxButton(maxButton);
+    windowBar->setCloseButton(closeButton);
+#endif
+    windowBar->setMenuBar(menuBar);
+    windowBar->setTitleLabel(titleLabel);
+    windowBar->setHostWidget(this);
+
+    windowAgent->setTitleBar(windowBar);
+#ifndef Q_OS_MAC
+    windowAgent->setSystemButton(QWK::WindowAgentBase::WindowIcon, iconButton);
+    windowAgent->setSystemButton(QWK::WindowAgentBase::Minimize, minButton);
+    windowAgent->setSystemButton(QWK::WindowAgentBase::Maximize, maxButton);
+    windowAgent->setSystemButton(QWK::WindowAgentBase::Close, closeButton);
+#endif
+    windowAgent->setHitTestVisible(menuBar, true);
+
+#ifdef Q_OS_MAC
+    windowAgent->setSystemButtonAreaCallback([](const QSize &size) {
+        static constexpr const int width = 75;
+        return QRect(QPoint(size.width() - width, 0), QSize(width, size.height())); //
+    });
+#endif
+
+    setMenuWidget(windowBar);
+
+
+#ifndef Q_OS_MAC
+    connect(windowBar, &QWK::WindowBar::minimizeRequested, this, &QWidget::showMinimized);
+    connect(windowBar, &QWK::WindowBar::maximizeRequested, this, [this, maxButton](bool max) {
+        if (max) {
+            showMaximized();
+        } else {
+            showNormal();
+        }
+
+        // It's a Qt issue that if a QAbstractButton::clicked triggers a window's maximization,
+        // the button remains to be hovered until the mouse move. As a result, we need to
+        // manually send leave events to the button.
+//        emulateLeaveEvent(maxButton);
+    });
+    connect(windowBar, &QWK::WindowBar::closeRequested, this, &QWidget::close);
+#endif
+}
+
 //============================================================================
 CMainWindow::CMainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -473,6 +706,8 @@ CMainWindow::CMainWindow(QWidget *parent) :
     setMouseTracking(true); // 启用鼠标跟踪
 
     d->ui.setupUi(this);
+    installWindowAgent();
+
     setWindowTitle(QApplication::instance()->applicationName());
 
     d->createActions(); //初始化所有action
@@ -496,23 +731,26 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d->ui.widget->setLayout(m_layout = new QStackedLayout());
     auto basic_win = new BasicWindow(d->ui.widget,QString("basic"));
     auto welcome_win = new WelcomeWindow(d->ui.widget,QString("welcome"));
+    auto design_win = new DesignWindow(d->ui.widget,QString("debug"));
 
     d->win_map.insert("basic",basic_win);
     d->win_map.insert("welcome",welcome_win);
-//    d->win_map.insert("welcome",welcome_win);
+    d->win_map.insert("debug",design_win);
+
 
     d->ui.widget->layout()->addWidget(basic_win);//显示调用layout来进行布局
     d->ui.widget->layout()->addWidget(welcome_win);//显示调用layout来进行布局
-
-//    auto pWidget = dynamic_cast<QWidget*>();     //将object转换为普通QWidget
+    d->ui.widget->layout()->addWidget(design_win);//显示调用layout来进行布局
 
     basic_win->createContent();
     welcome_win->createContent();
+    design_win->createContent();
 
-    auto pWidget = new QWidget();
-    pWidget->setGeometry(0,0,d->ui.widget->geometry().width(),d->ui.widget->geometry().height());
-    pWidget->setStyleSheet("background-color: rgba(128, 128, 128, 127);"); // 设置半透明的灰色背景
-    pWidget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+
+//    auto pWidget = new QWidget();
+//    pWidget->setGeometry(0,0,d->ui.widget->geometry().width(),d->ui.widget->geometry().height());
+//    pWidget->setStyleSheet("background-color: rgba(128, 128, 128, 127);"); // 设置半透明的灰色背景
+//    pWidget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
 
 //    #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
@@ -551,6 +789,7 @@ CMainWindow::~CMainWindow()
 
 void CMainWindow::changeState_triggered()
 {
+
     QAction *b = (QAction *)sender();
     QString name = b->text();
 
@@ -559,17 +798,17 @@ void CMainWindow::changeState_triggered()
         btn->setChecked(btn == b);
     }
     if (name == "欢迎") {
-        d->win_map["basic"]->hideManagerAndFloatingWidgets();
+        d->win_map["debug"]->hideManagerAndFloatingWidgets();
         m_layout->setCurrentWidget(d->win_map["welcome"]);
     }
-//    else if (name == "设计") {
-//        d->win_map["design"]->hideManagerAndFloatingWidgets();
-//        m_layout->setCurrentWidget(d->win_map["design"]);
-//    }
-    else if (name == "调试") {
+    else if (name == "设计") {
         d->win_map["welcome"]->hideManagerAndFloatingWidgets();
-        m_layout->setCurrentWidget(d->win_map["basic"]);
+        m_layout->setCurrentWidget(d->win_map["debug"]);
     }
+//    else if (name == "调试") {
+//        d->win_map["welcome"]->hideManagerAndFloatingWidgets();
+//        m_layout->setCurrentWidget(d->win_map["debug"]);
+//    }
 
     else if (name == "登录") {
 //        QWidget * aaa = new QWidget();
@@ -600,8 +839,6 @@ void CMainWindow::on_actionSaveState_triggered(bool)
 {
     qDebug() << "MainWindow::on_actionSaveState_triggered";
     d->saveState();
-    cv::waitKey(50);
-
 }
 
 
@@ -686,7 +923,7 @@ void CMainWindow::toggleDockWidgetWindowTitle()
 //============================================================================
 void CMainWindow::applyVsStyle()
 {
-    QFile StyleSheetFile(":adsdemo/res/visual_studio_light.css");
+    QFile StyleSheetFile(":adsdemo/visual_studio_light.css");
     StyleSheetFile.open(QIODevice::ReadOnly);
     QTextStream StyleSheetStream(&StyleSheetFile);
     auto Stylesheet = StyleSheetStream.readAll();
@@ -696,4 +933,41 @@ void CMainWindow::applyVsStyle()
 #include "MainWindow.moc"
 
 
+void CMainWindow::loadStyleSheet(Theme theme) {
+    if (!styleSheet().isEmpty() && theme == currentTheme)
+        return;
+    currentTheme = theme;
+
+    if (QFile qss(theme == Dark ? QStringLiteral(":/dark-style.qss")
+                                : QStringLiteral(":/light-style.qss"));
+        qss.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        setStyleSheet(QString::fromUtf8(qss.readAll()));
+        Q_EMIT themeChanged();
+    }
+}
+bool CMainWindow::event(QEvent *event) {
+    switch (event->type()) {
+    case QEvent::WindowActivate: {
+        auto menu = menuWidget();
+        if (menu) {
+            menu->setProperty("bar-active", true);
+            style()->polish(menu);
+        }
+        break;
+    }
+
+    case QEvent::WindowDeactivate: {
+        auto menu = menuWidget();
+        if (menu) {
+            menu->setProperty("bar-active", false);
+            style()->polish(menu);
+        }
+        break;
+    }
+
+    default:
+        break;
+    }
+    return QMainWindow::event(event);
+}
 

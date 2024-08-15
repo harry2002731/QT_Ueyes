@@ -5,6 +5,10 @@ project(studio_ueyes VERSION 0.0.1)
 set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
 find_package(OpenCV  REQUIRED)
 find_package(Qt6 REQUIRED COMPONENTS Core Sql Gui Widgets Quick QuickWidgets Xml QuickControls2)
+set(QWindowKit_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/qwindowkit/install/lib/cmake/QWindowKit")
+find_package(QWindowKit )
+
+
 
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
     find_package(Qt6 COMPONENTS AxContainer REQUIRED)
@@ -12,9 +16,9 @@ endif()
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 
-file(GLOB studio_SRCS "*.cpp")
-file(GLOB studio_HEADERS "*.h")
-file(GLOB studio_QRC "*.qrc")
+file(GLOB studio_SRCS "*.cpp" "./shared/widgetframe/*.cpp")
+file(GLOB studio_HEADERS "*.h" "./shared/widgetframe/*.h")
+file(GLOB studio_QRC "mainwindow.qrc" "./shared/resources/shared.qrc")
 file(GLOB studio_UI "*.ui")
 
 list(REMOVE_ITEM studio_SRCS  "")
@@ -23,15 +27,14 @@ list(REMOVE_ITEM studio_QRC  "")
 list(REMOVE_ITEM studio_UI  "")
 
 
-add_executable(${PROJECT_NAME} WIN32 ${studio_HEADERS} ${studio_SRCS}  ${studio_QRC} ${studio_UI}
-    DataFlowModel.h)
+add_executable(${PROJECT_NAME} WIN32 ${studio_HEADERS} ${studio_SRCS}  ${studio_QRC} ${studio_UI})
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/coreDock"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/plugins"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/services"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../guiUeyes"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../pluginUeyes"
-                                                     "${OpenCV_INCLUDE_DIRS}"
+                                                    "${OpenCV_INCLUDE_DIRS}"
                                                     )
 target_link_libraries(${PROJECT_NAME} PUBLIC   ${OpenCV_LIBS}
                                                        Qt6::Core
@@ -43,6 +46,8 @@ target_link_libraries(${PROJECT_NAME} PUBLIC   ${OpenCV_LIBS}
                                                        Qt6::Quick
                                                        Qt6::Xml
                                                        Qt6::QuickControls2
+#                                                       QWindowKit::Widgets
+#                                                       QWindowKit::Quick
                                                     )
 
 #MESSAGE(STATUS "Project: ${PROJECT_NAME}")
@@ -58,7 +63,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE WidgetLib)
 target_link_libraries(${PROJECT_NAME} PRIVATE BaseFunc_Lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE SqlLite_Lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE QtNodes)
-
+target_link_libraries(${PROJECT_NAME} PUBLIC QWindowKit::Widgets)
+#target_link_libraries(${PROJECT_NAME} PUBLIC QWindowKit::Quick)
 #target_link_libraries(${PROJECT_NAME} PRIVATE LoginView)
 target_link_libraries(${PROJECT_NAME} PRIVATE DataTableViewer)
 

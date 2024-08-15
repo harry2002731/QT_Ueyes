@@ -34,7 +34,12 @@
 #include <QStackedLayout>
 //#include "SqlInterface.h"
 
+#include <QtWidgets/QMainWindow>
 
+namespace QWK {
+class WidgetWindowAgent;
+class StyleAgent;
+}
 
 struct MainWindowPrivate;
 
@@ -50,7 +55,8 @@ private:
     friend struct MainWindowPrivate;
     bool isLoggedIn = false;
 
-
+Q_SIGNALS:
+    void themeChanged();
 protected:
 	virtual void closeEvent(QCloseEvent* event) override;
 //    DeclareInterface* m_pInterface = nullptr;  //获取插件类型
@@ -60,7 +66,17 @@ public:
 	explicit CMainWindow(QWidget *parent = 0);
 	virtual ~CMainWindow();
     QStackedLayout* m_layout;
+    void installWindowAgent() ;
+    QWK::WidgetWindowAgent *windowAgent;
+    enum Theme {
+        Dark,
+        Light,
+    };
+    Q_ENUM(Theme)
 
+    void loadStyleSheet(Theme theme);
+        bool event(QEvent *event);
+    Theme currentTheme{};
 
 
 private slots:

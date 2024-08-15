@@ -21,18 +21,19 @@ int main(int argc, char *argv[])
 
     std::shared_ptr<int> b;
     QApplication a(argc, argv);
-    a.setApplicationName("纳排标准分析系统");
     a.setQuitOnLastWindowClosed(true);
-    a.setWindowIcon(QIcon(":/adsdemo/images/ads_icon2.svg"));
-
      CMainWindow mw;
+    mw.setMouseTracking(true); //进入某个按钮时，鼠标追踪属性失效，因此我们也需要激活该按钮的鼠标追踪功能
+
      mw.show();
 //    mainWindow.showMaximized(); // 打开时最大化
 
-    QFile StyleSheetFile(":/adsdemo/app.css");
-    StyleSheetFile.open(QIODevice::ReadOnly);
-    QTextStream StyleSheetStream(&StyleSheetFile);
-    a.setStyleSheet(StyleSheetStream.readAll());
-    StyleSheetFile.close();
+//    QFile StyleSheetFile(":/adsdemo/res/visual_studio_light.css");
+//    StyleSheetFile.open(QIODevice::ReadOnly);
+//    QTextStream StyleSheetStream(&StyleSheetFile);
+//    a.setStyleSheet(StyleSheetStream.readAll());
+//    StyleSheetFile.close();
     return a.exec();
 }
+
+
