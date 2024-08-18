@@ -1,4 +1,7 @@
 #include "DesignWindow.h"
+#include "ImageGrayModel.h"
+#include "ImageLoaderModel.hpp"
+#include "ImageShowModel.hpp"
 #include "Widget_Lib/FuncViewer/FuncViewerWidget.h"
 
 DesignWindow::DesignWindow(QWidget *parent,QString name):
@@ -9,11 +12,12 @@ DesignWindow::DesignWindow(QWidget *parent,QString name):
 static std::shared_ptr<NodeDelegateModelRegistry> registerDataModels()
 {
     auto ret = std::make_shared<NodeDelegateModelRegistry>();
-    //    ret->registerModel<ImageShowModel>();
 
-    //    ret->registerModel<ImageLoaderModel>();
+        ret->registerModel<ImageShowModel>();
 
-    //    ret->registerModel<ImageGrayModel>();
+        ret->registerModel<ImageLoaderModel>();
+
+        ret->registerModel<ImageGrayModel>();
 
     return ret;
 }
@@ -22,9 +26,8 @@ ads::CDockWidget* DesignWindow::createDesignWidget()
     FuncViewerWidget* aaa = new FuncViewerWidget();
     static int CameraViewerCount = 0;
 
-    DataFlowModel graphModel(registerDataModels());
+    static DataFlowModel graphModel(registerDataModels());
 
-    QMainWindow mainWin2;
     m_scene = new DataFlowGraphicsScene(graphModel,mainWin2);
     m_view = new GraphicsView(m_scene);
     m_view->setAcceptDrops(true);
@@ -46,13 +49,13 @@ ads::CDockWidget* DesignWindow::createDesignWidget()
 
 
 
-    QObject::connect(cb1, &QCheckBox::stateChanged, [&graphModel](int state) {
-        graphModel.setNodesLocked(state == Qt::Checked);
-    });
+//    QObject::connect(cb1, &QCheckBox::stateChanged, [&graphModel](int state) {
+//        graphModel.setNodesLocked(state == Qt::Checked);
+//    });
 
-    QObject::connect(cb2, &QCheckBox::stateChanged, [&graphModel](int state) {
-        graphModel.setDetachPossible(state == Qt::Checked);
-    });
+//    QObject::connect(cb2, &QCheckBox::stateChanged, [&graphModel](int state) {
+//        graphModel.setDetachPossible(state == Qt::Checked);
+//    });
 
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
     DockWidget->setWidget(m_window);

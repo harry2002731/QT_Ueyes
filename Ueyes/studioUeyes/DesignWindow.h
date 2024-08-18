@@ -28,6 +28,7 @@ public:
     DesignWindow(QWidget *parent,QString name);
     void createContent() override;
     virtual ads::CDockWidget* createDesignWidget();
+    QMainWindow mainWin2;
 
 private:
     QSplitter * m_window = new QSplitter(Qt::Horizontal);
