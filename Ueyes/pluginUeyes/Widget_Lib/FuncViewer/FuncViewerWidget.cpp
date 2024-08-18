@@ -13,22 +13,14 @@
 FuncViewerWidget::FuncViewerWidget() :
     QWidget()
 {
-//    setMouseTracking(true);  //这是激活整个窗体的鼠标追踪
-
     this->initWidget();
 
     Form * form = new Form();
-//    bbb = new QPushButton();
-//    ccc = new QPushButton();
-
-//    QLabel *label = new QLabel("Click me!", this);
-//    label->setMouseTracking(true);  // 启用鼠标追踪
     form->layout()->addWidget(createLabel("ImageShowModel"));
     form->layout()->addWidget(createLabel("ImageLoaderModel"));
     form->layout()->addWidget(createLabel("ImageGrayModel"));
 
     this->addPageWidget(QStringLiteral("Qt"), form);
-//    this->addPageWidget(QStringLiteral("Qt"), new Form());
 //    this->addWidget(QStringLiteral("Qt"), new Form());
 //    this->addWidget(QStringLiteral("Qt"), new Form());
 //    this->addWidget(QStringLiteral("Qt"), new Form());
@@ -68,10 +60,8 @@ void FuncViewerWidget::initWidget()
     vBoxLayout->addStretch(1);
 
     m_widget->setLayout(vBoxLayout);
-//    m_widget->setMouseTracking(true); //进入某个按钮时，鼠标追踪属性失效，因此我们也需要激活该按钮的鼠标追踪功能
 
     scrollArea->setWidget(m_widget);
-//    scrollArea->setMouseTracking(true); //进入某个按钮时，鼠标追踪属性失效，因此我们也需要激活该按钮的鼠标追踪功能
 
 }
 FuncViewerWidget::~FuncViewerWidget()

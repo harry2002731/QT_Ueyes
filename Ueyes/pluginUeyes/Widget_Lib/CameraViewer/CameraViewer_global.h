@@ -1,0 +1,12 @@
+#ifndef CAMERAVIEWER_GLOBAL_H
+#define CAMERAVIEWER_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(CAMERAVIEWER_LIBRARY)
+#  define CAMERAVIEWER_EXPORT Q_DECL_EXPORT
+#else
+#  define CAMERAVIEWER_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // CAMERAVIEWER_GLOBAL_H
