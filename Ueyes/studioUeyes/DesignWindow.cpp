@@ -3,10 +3,22 @@
 #include "ImageLoaderModel.hpp"
 #include "ImageShowModel.hpp"
 #include "Widget_Lib/FuncViewer/FuncViewerWidget.h"
+#include "Camera_Lib/Basler_Lib/Basler_Lib.h"
+#include "qthread.h"
+#include "qtimer.h"
 
 DesignWindow::DesignWindow(QWidget *parent,QString name):
     BasicWindow(parent,name)
 {
+//    QThread *thread = new QThread();
+    auto myTask = new Basler_Lib();
+    myTask->readImage();
+//    // 将任务对象移动到新线程
+//    myTask->moveToThread(thread);
+
+    // 当线程启动时，执行任务的 run 方法
+//    QObject::connect(thread, &QThread::started, myTask, &Basler_Lib::readImage);
+//    thread->start();
 
 }
 static std::shared_ptr<NodeDelegateModelRegistry> registerDataModels()

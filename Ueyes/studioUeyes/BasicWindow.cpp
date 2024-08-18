@@ -226,7 +226,7 @@ ads::CDockWidget* BasicWindow::createImageViewerWidget()
 ads::CDockWidget* BasicWindow::createCameraViewerWidget()
 {
     static int CameraViewerCount = 0;
-    auto w = new VideoPanel();
+    auto w = new CameraViewer();
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(CameraViewerCount++));
     DockWidget->setWidget(w);
     DockWidget->setMinimumSize(100,100);

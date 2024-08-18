@@ -15,6 +15,8 @@ project(core_ueyes LANGUAGES CXX)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Core)
 
+set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
+find_package(OpenCV  REQUIRED)
 
 # coreUeyes 构建
 file(GLOB core_SRCS "coreDock/*.cpp")
@@ -70,7 +72,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/plugins
                                                ${CMAKE_CURRENT_SOURCE_DIR}/services
-                                               ${CMAKE_CURRENT_SOURCE_DIR}/coreDock)
+                                               ${CMAKE_CURRENT_SOURCE_DIR}/coreDock
+                                               "${OpenCV_INCLUDE_DIRS}"
+                                           )
 
 if (UNIX AND NOT APPLE)
   target_link_libraries(${PROJECT_NAME} PUBLIC xcb)
