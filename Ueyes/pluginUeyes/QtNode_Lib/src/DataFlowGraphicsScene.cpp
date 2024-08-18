@@ -194,15 +194,8 @@ void DataFlowGraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
     if (event->mimeData()->hasFormat("text/plain"))
     {
         QString text=event->mimeData()->text();
-//        if(text=="矩形"){
-//            createRect(event->scenePos());
-//        }
-//        else if(text=="直线"){
-            createLine(event->scenePos());
-//        }
-//        else{
 
-//        }
+        this->undoStack().push(new CreateCommand(this, text, event->scenePos(),win_));
         event->acceptProposedAction();
     }
 }

@@ -11,12 +11,44 @@
 #include <QFileInfo>
 #include <QMessageBox>
 #include "BaseWidget.h"
+#include "qlabel.h"
 #include "qlistwidget.h"
+#include "qdrag.h"
+#include "qevent.h"
+#include "qlistwidget.h"
+#include "qmimedata.h"
+#include "qpainter.h"
 
 namespace Ui {
 class FuncViewerWidget;
 }
 
+class DraggableLabel : public QLabel {
+    Q_OBJECT
+
+public:
+    QString title_name;
+    explicit DraggableLabel(const QString& text, QWidget* parent = nullptr)
+        : QLabel(text, parent) {
+        title_name = text;
+        setAlignment(Qt::AlignCenter);
+        setStyleSheet("background-color: lightgrey; border: 1px solid black;");
+        setFixedSize(100, 50);
+    }
+
+protected:
+    void mousePressEvent(QMouseEvent* event) override {
+        if (event->button() == Qt::LeftButton) {
+            QDrag* drag = new QDrag(this);
+            QMimeData* mimeData = new QMimeData;
+            drag->exec(Qt::CopyAction|Qt::MoveAction);
+            // 在 mimeData 中保存被拖拽 QLabel 的对象指针
+            mimeData->setText(title_name);
+            drag->setMimeData(mimeData);
+            drag->exec(Qt::MoveAction);
+        }
+    }
+};
 
 //列表窗体
 class WIDGET_LIB_EXPORT FuncViewerWidget : public QWidget
@@ -29,6 +61,7 @@ public:
     Ui::FuncViewerWidget *ui;
     QVBoxLayout *m_pContentVBoxLayout;
     QString aaa;
+    DraggableLabel* createLabel(const QString& text) ;
 
     void initWidget(); //初始化主窗体
     void readWidgetConfig(); //读取窗体配置

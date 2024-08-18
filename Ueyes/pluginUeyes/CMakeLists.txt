@@ -11,3 +11,4 @@ add_subdirectory(SqlLite_Lib) # 数据库功能包
 add_subdirectory(Python_Lib) # python功能包
 add_subdirectory(QXlsx/QXlsx)
 add_subdirectory(QtNode_Lib)
+#add_subdirectory(qwindowkit)

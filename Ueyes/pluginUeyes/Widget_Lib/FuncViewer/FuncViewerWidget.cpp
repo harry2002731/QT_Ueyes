@@ -9,30 +9,41 @@
 #include "Form.h"
 
 
+
 FuncViewerWidget::FuncViewerWidget() :
     QWidget()
 {
-    setMouseTracking(true);  //这是激活整个窗体的鼠标追踪
+//    setMouseTracking(true);  //这是激活整个窗体的鼠标追踪
 
     this->initWidget();
 
     Form * form = new Form();
-    bbb = new QPushButton();
-    ccc = new QPushButton();
+//    bbb = new QPushButton();
+//    ccc = new QPushButton();
 
-    form->layout()->addWidget(bbb);
-    form->layout()->addWidget(ccc);
+//    QLabel *label = new QLabel("Click me!", this);
+//    label->setMouseTracking(true);  // 启用鼠标追踪
+    form->layout()->addWidget(createLabel("ImageShowModel"));
+    form->layout()->addWidget(createLabel("ImageLoaderModel"));
+    form->layout()->addWidget(createLabel("ImageGrayModel"));
 
-    this->addPageWidget(QStringLiteral("Qt小罗"), form);
-//    this->addPageWidget(QStringLiteral("Qt小罗"), new Form());
-//    this->addWidget(QStringLiteral("Qt小罗"), new Form());
-//    this->addWidget(QStringLiteral("Qt小罗"), new Form());
-//    this->addWidget(QStringLiteral("Qt小罗"), new Form());
-//    this->addWidget(QStringLiteral("Qt小罗"), new Form());
-//    this->addWidget(QStringLiteral("Qt小罗"), new Form());
-
-
+    this->addPageWidget(QStringLiteral("Qt"), form);
+//    this->addPageWidget(QStringLiteral("Qt"), new Form());
+//    this->addWidget(QStringLiteral("Qt"), new Form());
+//    this->addWidget(QStringLiteral("Qt"), new Form());
+//    this->addWidget(QStringLiteral("Qt"), new Form());
+//    this->addWidget(QStringLiteral("Qt"), new Form());
+//    this->addWidget(QStringLiteral("Qt"), new Form());
+//    connect(label,SIGNAL(mouseMove(QMouseEvent *)),this,SLOT(this->mouseMoveEvent(QMouseEvent *)));
 }
+
+DraggableLabel* FuncViewerWidget::createLabel(const QString& text) {
+    static int labelCounter = 1;
+    DraggableLabel* label = new DraggableLabel(text, this);
+    label->setObjectName(QString("Label_%1").arg(labelCounter++));
+    return label;
+}
+
 
 //初始化窗体布局
 void FuncViewerWidget::initWidget()
@@ -57,11 +68,10 @@ void FuncViewerWidget::initWidget()
     vBoxLayout->addStretch(1);
 
     m_widget->setLayout(vBoxLayout);
-    m_widget->setMouseTracking(true); //进入某个按钮时，鼠标追踪属性失效，因此我们也需要激活该按钮的鼠标追踪功能
-    connect(m_widget,SIGNAL(mouseMove(QMouseEvent *)),this,SLOT(this->mouseMoveEvent(QMouseEvent *)));
+//    m_widget->setMouseTracking(true); //进入某个按钮时，鼠标追踪属性失效，因此我们也需要激活该按钮的鼠标追踪功能
 
     scrollArea->setWidget(m_widget);
-    scrollArea->setMouseTracking(true); //进入某个按钮时，鼠标追踪属性失效，因此我们也需要激活该按钮的鼠标追踪功能
+//    scrollArea->setMouseTracking(true); //进入某个按钮时，鼠标追踪属性失效，因此我们也需要激活该按钮的鼠标追踪功能
 
 }
 FuncViewerWidget::~FuncViewerWidget()
@@ -97,18 +107,17 @@ void FuncViewerWidget::addPageWidget(QString title, QWidget *widget)
 
 void FuncViewerWidget::mouseMoveEvent(QMouseEvent *e)
 {
-    qDebug()<<"mouse move ";
-
-    QDrag *drag=new QDrag(this);
-    QMimeData *mimeData=new QMimeData;
-    mimeData->setText("test");
-    drag->setMimeData(mimeData);
-    QPixmap dragImg(2,56);
-    QPainter painter(&dragImg);
-    painter.setPen(QPen(Qt::red,2));
-    painter.drawLine(0,0,0,56);
-    drag->setPixmap(dragImg);
-    drag->exec(Qt::CopyAction|Qt::MoveAction);
+//    qDebug()<<"mouse move ";
+//    QDrag *drag=new QDrag(this);
+//    QMimeData *mimeData=new QMimeData;
+//    mimeData->setText("test");
+//    drag->setMimeData(mimeData);
+//    QPixmap dragImg(2,56);
+//    QPainter painter(&dragImg);
+//    painter.setPen(QPen(Qt::red,2));
+//    painter.drawLine(0,0,0,56);
+//    drag->setPixmap(dragImg);
+//    drag->exec(Qt::CopyAction|Qt::MoveAction);
 
 }
 
