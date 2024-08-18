@@ -1,5 +1,5 @@
 #include "BasicWindow.h"
-#include "Widget_Lib/DataTableViewer/datatableviewer.h"
+//#include "Widget_Lib/DataTableViewer/datatableviewer.h"
 #include "Widget_Lib/FuncViewer/FuncViewerWidget.h"
 #include "BaseFunc_Lib/BaseFunc_Lib.h"
 #include <QStandardItemModel>
@@ -68,8 +68,8 @@ BasicWindow::BasicWindow(QWidget *parent,QString name):
 void BasicWindow::createContent()
 {
 
-//    auto CameraViewer = createCameraViewerWidget();
-//    this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
+    auto CameraViewer = createCameraViewerWidget();
+    this->addDockWidget(ads::LeftDockWidgetArea, CameraViewer);
 //    auto FileSystemTreeViewer = createFileSystemTreeDockWidget();
 //    this->addDockWidget(ads::BottomDockWidgetArea, FileSystemTreeViewer );
 
@@ -85,8 +85,8 @@ void BasicWindow::createContent()
 //    auto FloatingWidget = this->addDockWidgetFloating(login_viewer);
 //    FloatingWidget->move(QPoint(20, 20));
 
-    auto bbb = createDataViewerWidget();
-    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
+//    auto bbb = createDataViewerWidget();
+//    this->addDockWidget(ads::LeftDockWidgetArea, bbb );
 
 
 //    SqlLite_Lib();
@@ -238,11 +238,11 @@ ads::CDockWidget* BasicWindow::createCameraViewerWidget()
 //创建数据可视化窗体
 ads::CDockWidget* BasicWindow::createDataViewerWidget()
 {
-    static int DataViewerCount = 0;
-    auto w = new DataTableViewer();
-    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(DataViewerCount++));
-    DockWidget->setWidget(w);
-    return DockWidget;
+//    static int DataViewerCount = 0;
+//    auto w = new DataTableViewer();
+//    ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(DataViewerCount++));
+//    DockWidget->setWidget(w);
+//    return DockWidget;
 }
 
 //************显示调用动态库效果测试*****************

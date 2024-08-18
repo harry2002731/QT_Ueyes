@@ -4,11 +4,12 @@ project(studio_ueyes VERSION 0.0.1)
 
 set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
 find_package(OpenCV  REQUIRED)
-find_package(Qt6 REQUIRED COMPONENTS Core Sql Gui Widgets Quick QuickWidgets Xml QuickControls2)
+find_package(Qt6 REQUIRED COMPONENTS Svg Core Sql Gui Widgets Quick QuickWidgets Xml QuickControls2)
 set(QWindowKit_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/qwindowkit/install/lib/cmake/QWindowKit")
 find_package(QWindowKit )
 
 
+#find_package(Qt6 REQUIRED COMPONENTS Svg)
 
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
     find_package(Qt6 COMPONENTS AxContainer REQUIRED)
@@ -46,6 +47,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC   ${OpenCV_LIBS}
                                                        Qt6::Quick
                                                        Qt6::Xml
                                                        Qt6::QuickControls2
+                                                       Qt6::Svg
 #                                                       QWindowKit::Widgets
 #                                                       QWindowKit::Quick
                                                     )
@@ -66,7 +68,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE QtNodes)
 target_link_libraries(${PROJECT_NAME} PUBLIC QWindowKit::Widgets)
 #target_link_libraries(${PROJECT_NAME} PUBLIC QWindowKit::Quick)
 #target_link_libraries(${PROJECT_NAME} PRIVATE LoginView)
-target_link_libraries(${PROJECT_NAME} PRIVATE DataTableViewer)
+#target_link_libraries(${PROJECT_NAME} PRIVATE DataTableViewer)
 
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
     target_link_libraries(${PROJECT_NAME} PUBLIC Qt6::AxContainer)
