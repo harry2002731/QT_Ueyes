@@ -1,0 +1,12 @@
+#ifndef PCWEBCAM_LIB_GLOBAL_H
+#define PCWEBCAM_LIB_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(PCWEBCAM_LIB_LIBRARY)
+#  define PCWEBCAM_LIB_EXPORT Q_DECL_EXPORT
+#else
+#  define PCWEBCAM_LIB_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // PCWEBCAM_LIB_GLOBAL_H
