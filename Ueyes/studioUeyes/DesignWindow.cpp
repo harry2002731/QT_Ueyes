@@ -11,8 +11,6 @@ DesignWindow::DesignWindow(QWidget *parent,QString name):
     BasicWindow(parent,name)
 {
 //    QThread *thread = new QThread();
-    auto myTask = new Basler_Lib();
-    myTask->readImage();
 //    // 将任务对象移动到新线程
 //    myTask->moveToThread(thread);
 
@@ -82,7 +80,7 @@ ads::CDockWidget* DesignWindow::createDesignWidget()
 void DesignWindow::createContent()
 {
     auto  cameraViewer = createCameraViewerWidget();
-    this->addDockWidget(ads::RightDockWidgetArea, cameraViewer);
+    this->addDockWidgetFloating( cameraViewer);
     auto DesignerViewer = createDesignWidget();
     this->addDockWidget(ads::LeftDockWidgetArea, DesignerViewer);
     auto aaa = createEditorWidget();
