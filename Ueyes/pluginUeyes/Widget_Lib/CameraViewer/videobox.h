@@ -73,6 +73,7 @@ public Q_SLOTS:
     void setTypes(const QMap<int, QStringList> &types);
     //初始化菜单
     void initMenu(QMenu *menu, const QList<bool> &enable);
+    void initCameraMenu(QMenu *menu, const QList<bool> &enable);
 
     //通用设置函数
     void show_video(int type, int index);

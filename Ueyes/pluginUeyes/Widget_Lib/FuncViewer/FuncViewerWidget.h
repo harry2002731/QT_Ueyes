@@ -42,7 +42,6 @@ protected:
             QDrag* drag = new QDrag(this);
             QMimeData* mimeData = new QMimeData;
             drag->exec(Qt::CopyAction|Qt::MoveAction);
-            // 在 mimeData 中保存被拖拽 QLabel 的对象指针
             mimeData->setText(title_name);
             drag->setMimeData(mimeData);
             drag->exec(Qt::MoveAction);
@@ -76,7 +75,7 @@ signals:
 
 };
 
-//用来在显示调用动态库时候调用类，额外增加
+//用来在显式调用动态库时候调用类，额外增加
 extern "C"
 {
 WIDGET_LIB_EXPORT FuncViewerWidget* __cdecl  CreateWidget();

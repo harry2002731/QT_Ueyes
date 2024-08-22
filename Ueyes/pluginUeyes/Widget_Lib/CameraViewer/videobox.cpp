@@ -1,11 +1,11 @@
 ﻿#include "qlabel.h"
 #include "qpushbutton.h"
 #pragma execution_character_set("utf-8")
-
 #include "videobox.h"
 #include "qmenu.h"
 #include "qaction.h"
 #include "qgridlayout.h"
+#include "ui_mainwindow.h"
 
 VideoBox::VideoBox(QObject *parent) : QObject(parent)
 {
@@ -104,6 +104,10 @@ void VideoBox::setTypes(const QMap<int, QStringList> &types)
     this->types = types;
 }
 
+void VideoBox::initCameraMenu(QMenu *menu, const QList<bool> &enable)
+{
+
+}
 void VideoBox::initMenu(QMenu *menu, const QList<bool> &enable)
 {
     if (enableOther) {

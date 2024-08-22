@@ -7,7 +7,8 @@
 #include "qlayout.h"
 #include "qlabel.h"
 #include "qtimer.h"
-#include "../../Camera_Lib/Basler_Lib/Basler_Lib.h"
+#include "Basler_Lib/Basler_Lib.h"
+#include "Hikvision_Lib/Hikvision_Lib.h"
 CameraViewer::CameraViewer(QWidget* parent) : QWidget(parent)
 {
     this->initControl();
@@ -29,12 +30,11 @@ bool CameraViewer::eventFilter(QObject *watched, QEvent *event)
             videoMax = false;
             videoBox->show_video_all();
         }
-
         widget->setFocus();
     } else if (event->type() == QEvent::MouseButtonPress) {
         QMouseEvent *mouseEvent = (QMouseEvent *)event;
         if (mouseEvent->button() == Qt::RightButton) {
-            videoMenu->exec(QCursor::pos());
+            cameraMenu->exec(QCursor::pos());
         }
     }
 
@@ -90,9 +90,15 @@ void CameraViewer::initForm()
             widget_0_label = new QLabel();
             widget->setLayout(new QVBoxLayout());
             widget->layout()->addWidget(widget_0_label);
-            Basler_Lib * basler = new Basler_Lib();
-            bool success = connect(basler, &Basler_Lib::sigCurrentImage,this, &CameraViewer::test);
-            basler->readImage();
+//            Basler_Lib * basler = new Basler_Lib();
+//            bool success = connect(basler, &Basler_Lib::sigCurrentImage,this, &CameraViewer::test);
+//            basler->readImage();
+        }
+        else if(i == 1)
+        {
+            widget_1_label = new QLabel();
+            widget->setLayout(new QVBoxLayout());
+            widget->layout()->addWidget(widget_1_label);
         }
         else
         {
@@ -107,6 +113,15 @@ void CameraViewer::initForm()
 void CameraViewer::initMenu()
 {
     videoMenu = new QMenu(this);
+    cameraMenu = new QMenu(this);
+    cameraActionFull1 = new QAction("选择输入源1", cameraMenu);
+    cameraActionFull2 = new QAction("选择输入源2", cameraMenu);
+
+    connect(cameraActionFull1, SIGNAL(triggered(bool)), this, SLOT(configCamera()));
+    connect(cameraActionFull2, SIGNAL(triggered(bool)), this, SLOT(configCamera()));
+
+    cameraMenu->addAction(cameraActionFull1);
+    cameraMenu->addAction(cameraActionFull2);
 
     //单独关联信号槽
     actionFull = new QAction("切换全屏模式", videoMenu);
@@ -128,7 +143,9 @@ void CameraViewer::initMenu()
     videoBox = new VideoBox(this);
     QList<bool> enable;
     enable << true << true << true << true << true << true << true << true << true;
-    videoBox->initMenu(videoMenu, enable);
+
+//    videoBox->initCameraMenu(cameraMenu, enable);
+//    videoBox->initMenu(videoMenu, enable);
     videoBox->setVideoType(videoType);
     videoBox->setLayout(gridLayout);
     videoBox->setWidgets(widgets);
@@ -141,6 +158,28 @@ void CameraViewer::test(QImage img)
     widget_0_label->setPixmap(pix);
     std::cout<<"recieve"<<count<<std::endl;
     count+=1;
+}
+void CameraViewer::configCamera()
+{
+    HWND MainWndID;
+    QAction *action = qobject_cast<QAction *>(sender());
+    if (action == cameraActionFull1) {
+        w.setFixedSize(300,400);
+        w.setWindowTitle("窗体1相机设置");
+        MainWndID = (HWND)widget_0_label->winId();
+        w.setWinId(MainWndID);
+        w.show();
+        w.adjustSize();
+
+    } else if (action == cameraActionFull2) {
+        w2.setFixedSize(300,400);
+        w2.setWindowTitle("窗体2相机设置");
+        MainWndID = (HWND)widget_1_label->winId();
+        w2.setWinId(MainWndID);
+        w2.show();
+        w2.adjustSize();
+
+    }
 }
 void CameraViewer::full()
 {

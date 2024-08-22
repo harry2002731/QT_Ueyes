@@ -15,11 +15,14 @@ add_library(CameraViewer SHARED
   videobox.h
   CameraViewer.h
   videobox.cpp
-  CameraViewer.cpp)
+  CameraViewer.cpp
+  mainwindow.ui
+  mWindow.h mWindow.cpp)
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../Camera_Lib/Basler_Lib")
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../Camera_Lib/")
 
 target_link_libraries(CameraViewer PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(${PROJECT_NAME} PRIVATE Basler_Lib)
+target_link_libraries(${PROJECT_NAME} PRIVATE Hikvision_Lib)
 
 target_compile_definitions(CameraViewer PRIVATE CAMERAVIEWER_LIBRARY)
