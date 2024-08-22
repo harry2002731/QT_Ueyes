@@ -74,7 +74,7 @@ cv::Mat QImageTocvMat(const QImage &image)
 Basler_Lib::Basler_Lib()
 {
 }
-void Basler_Lib::initCamera()
+int Basler_Lib::openCamera()
 {
     if (!is_init_camera)
     {
@@ -82,39 +82,64 @@ void Basler_Lib::initCamera()
         is_init_camera = true;
     }
 }
+int Basler_Lib::closeCamera()
+{
+
+}
+void Basler_Lib::setExposureTime(double time)
+{
+}
+
+int Basler_Lib::getExposureTime()
+{
+}
+
+int Basler_Lib::getExposureTimeMin()
+{
+    //    return DOUBLE_MIN;
+}
+
+int Basler_Lib::getExposureTimeMax()
+{
+    //    return DOUBLE_MAX;
+}
+
+//void Basler_Lib::setFeatureTriggerSourceType(QString type)
+//{
+//}
 void Basler_Lib::readImage()
 {
-        initCamera();
-        cap >> frame;
-        image = cvMatToQImage(frame);
-        if (image.height()!=0)
-        {
-            emit this->sigCurrentImage(image);
-            std::cout<<"send"<<count<<"   "<<image.height()<<std::endl;
-            count +=1;
-        }
-        QTimer::singleShot(100, this, SLOT(readImage()));
+    openCamera();
+    cap >> frame;
+    image = cvMatToQImage(frame);
+    if (image.height()!=0)
+    {
+        emit this->sigCurrentImage(image);
+        std::cout<<"send"<<count<<"   "<<image.height()<<std::endl;
+        count +=1;
+    }
+    QTimer::singleShot(100, this, SLOT(readImage()));
 }
 
 void Basler_Lib::readDesktopCameraTest()
 {
     // 获取新的一帧;
-//    auto start = std::chrono::high_resolution_clock::now();
-//    cap >> frame;
+    //    auto start = std::chrono::high_resolution_clock::now();
+    //    cap >> frame;
 
 
-//    if (aaa.height()!=0)
-//    {
-//        emit sigCurrentImage(image);
-//        std::cout<<"send"<<count<<"   "<<aaa.height()<<std::endl;
-//        count +=1;
-//    }
-//    QTimer::singleShot(1, this, SLOT(readDesktopCameraTest()));
+    //    if (aaa.height()!=0)
+    //    {
+    //        emit sigCurrentImage(image);
+    //        std::cout<<"send"<<count<<"   "<<aaa.height()<<std::endl;
+    //        count +=1;
+    //    }
+    //    QTimer::singleShot(1, this, SLOT(readDesktopCameraTest()));
 
 
-//    imshow("Video", frame);
+    //    imshow("Video", frame);
 
-//    auto end = std::chrono::high_resolution_clock::now();
-//    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+    //    auto end = std::chrono::high_resolution_clock::now();
+    //    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
 }

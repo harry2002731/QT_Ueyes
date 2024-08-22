@@ -21,7 +21,14 @@ public:
     cv::Mat frame;
     QImage image;
     bool is_init_camera = false;
-    void initCamera();
+    int openCamera();
+    int closeCamera();
+    void setExposureTime(double time);
+
+    int getExposureTime();
+    int getExposureTimeMin();
+    int getExposureTimeMax();
+
 public slots:
     void readImage();
 
