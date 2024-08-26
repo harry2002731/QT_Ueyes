@@ -14,7 +14,7 @@ class MainWindow : public QWidget
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    void setWinId(HWND MainWndID);
+    void setWinId(WId MainWndID);
 
     ~MainWindow();
 private slots:
@@ -36,7 +36,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    HWND wndID;
+    WId wndID;
     //海康威视接口对象
 private:
     QtHik::Hikvision_Lib hik;

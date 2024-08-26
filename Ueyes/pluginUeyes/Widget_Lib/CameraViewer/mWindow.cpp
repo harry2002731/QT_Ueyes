@@ -64,7 +64,7 @@ void MainWindow::on_CloseButton_clicked()
     ui->OpenButton->setDisabled(false);
     ui->CloseButton->setDisabled(false);
 }
-void MainWindow::setWinId(HWND MainWndID)
+void MainWindow::setWinId(WId MainWndID)
 {
     this->wndID = MainWndID;
 }
