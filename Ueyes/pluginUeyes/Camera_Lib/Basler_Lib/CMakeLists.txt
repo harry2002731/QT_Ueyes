@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
 project(Basler_Lib LANGUAGES CXX)
-set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
+# set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
