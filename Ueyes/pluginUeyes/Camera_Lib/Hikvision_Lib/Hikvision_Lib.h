@@ -12,7 +12,7 @@
 
 
 #include "MvCamera.h"
-#include "Windows.h"//HWND
+// #include "Windows.h"//HWND
 #include <vector>
 #include <QString>
 #include <QImage>
@@ -42,7 +42,7 @@ public:
 
     //开始采集
     //用引用居然莫名其妙卡死
-    int StartGrabbing(HWND MainWndId);
+    int StartGrabbing(WId MainWndId);
 
     //关闭采集
     int StopGrabbing();
@@ -57,15 +57,15 @@ private:
     unsigned int    m_nBufSizeForDriver;
 
     /*ch:状态 | en:Status*/
-    BOOL  m_bOpenDevice;                        // ch:是否打开设备
-    BOOL  m_bStartGrabbing;                     // ch:是否开始抓图
+    bool  m_bOpenDevice;                        // ch:是否打开设备
+    bool  m_bStartGrabbing;                     // ch:是否开始抓图
     unsigned int   m_nTriggerMode;              // ch:触发模式
     int   m_nTriggerSource;                     // ch:触发源
     MV_SAVE_IAMGE_TYPE   m_nSaveImageType;      // ch:保存图像格式
 
     /*ch:设备相关 | en:Device Related*/
     CMvCamera*      m_pCMvCamera;               // ch:CMvCamera封装了常用接口
-    HWND  m_hwndDisplay;                        // ch:显示句柄
+    WId  m_hwndDisplay;                        // ch:显示句柄
     MV_CC_DEVICE_INFO_LIST m_stDevList;         // ch:设备信息列表结构体变量，用来存储设备列表
     unsigned char*  m_pBufForSaveImage;         // ch:用于保存图像的缓存 | en:Buffer to save image
     unsigned int    m_nBufSizeForSaveImage;

@@ -7,7 +7,7 @@ qrc_*
 moc_*
 ui_*
 Makefile
-
+.cmake
 # IDEs
 .idea
 
