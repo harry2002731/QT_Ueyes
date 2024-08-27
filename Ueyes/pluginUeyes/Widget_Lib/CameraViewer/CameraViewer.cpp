@@ -1,4 +1,17 @@
-﻿#pragma execution_character_set("utf-8")
+﻿/*** 
+ * @Copyright (c) 2022 Birdiebot R&D Department
+ * @Shanghai University Of Engineering Science. All Rights Reserved
+ * @License: GNU General Public License v3.0.
+ * @See LICENSE file in root directory.
+ * @
+ * @Author: Ligcox
+ * @Date: 2024-08-25 20:24:22
+ * @FilePath: /QT_Ueyes/Ueyes/pluginUeyes/Widget_Lib/CameraViewer/CameraViewer.cpp
+ * @LastEditors: HarryWen
+ * @LastEditTime: 2024-08-27 22:29:59
+ */
+#include <qthread.h>
+#pragma execution_character_set("utf-8")
 
 #include "CameraViewer.h"
 #include "videobox.h"
@@ -161,12 +174,12 @@ void CameraViewer::test(QImage img)
 }
 void CameraViewer::configCamera()
 {
-    HWND MainWndID;
+    WId MainWndID;
     QAction *action = qobject_cast<QAction *>(sender());
     if (action == cameraActionFull1) {
         w.setFixedSize(300,400);
         w.setWindowTitle("窗体1相机设置");
-        MainWndID = (HWND)widget_0_label->winId();
+        MainWndID = (WId)widget_0_label->winId();
         w.setWinId(MainWndID);
         w.show();
         w.adjustSize();
@@ -174,7 +187,7 @@ void CameraViewer::configCamera()
     } else if (action == cameraActionFull2) {
         w2.setFixedSize(300,400);
         w2.setWindowTitle("窗体2相机设置");
-        MainWndID = (HWND)widget_1_label->winId();
+        MainWndID = (WId)widget_1_label->winId();
         w2.setWinId(MainWndID);
         w2.show();
         w2.adjustSize();

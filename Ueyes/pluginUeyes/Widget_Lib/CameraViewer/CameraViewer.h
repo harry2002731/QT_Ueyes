@@ -8,7 +8,7 @@ class QMenu;
 class QLabel;
 class QGridLayout;
 class VideoBox;
-#include "Basler_Lib/Basler_Lib.h"
+// #include "Basler_Lib/Basler_Lib.h"
 #include "Hikvision_Lib/Hikvision_Lib.h"
 #include "mWindow.h"
 

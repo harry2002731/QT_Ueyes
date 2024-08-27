@@ -34,6 +34,10 @@ private slots:
 
     void on_ContinuesRadioButton_clicked();
 
+    void on_SetParamButton_clicked();
+
+    void on_GetParamButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     WId wndID;
