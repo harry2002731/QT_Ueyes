@@ -40,6 +40,15 @@ public:
     //对私有变量m_nTriggerMode 进行 0 或 1 赋值。
     int SetTriggerMode(unsigned int trigger_mode);
 
+    int SetExposureTime(float nValue);
+    int SetGainAuto( float nValue);
+    int SetAcquisitionFrameRate(float nValue);
+
+    float GetExposureTime();
+    float GetGainAuto();
+    float GetAcquisitionFrameRate();
+
+    int SetEnumValue(char* strKey, float nValue);
     //开始采集
     //用引用居然莫名其妙卡死
     int StartGrabbing(WId MainWndId);

@@ -135,6 +135,63 @@ int Hikvision_Lib::SetTriggerMode(unsigned int trigger_mode)
         return nRet;
     return MV_OK;
 }
+int Hikvision_Lib::SetExposureTime(float nValue)
+{
+    m_pCMvCamera->SetEnumValue("ExposureAuto", 0);
+    int nRet = m_pCMvCamera->SetFloatValue("ExposureTime", nValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return MV_OK;
+}
+float Hikvision_Lib::GetExposureTime()
+{
+    MVCC_FLOATVALUE stFloatValue;
+    memset(&stFloatValue, 0, sizeof(MVCC_FLOATVALUE));
+
+    int nRet = m_pCMvCamera->GetFloatValue("ExposureTime", &stFloatValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return stFloatValue.fCurValue;
+}
+
+float Hikvision_Lib::GetGainAuto()
+{
+    MVCC_FLOATVALUE stFloatValue;
+    memset(&stFloatValue, 0, sizeof(MVCC_FLOATVALUE));
+
+    int nRet = m_pCMvCamera->GetFloatValue("Gain", &stFloatValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return stFloatValue.fCurValue;
+}
+
+float Hikvision_Lib::GetAcquisitionFrameRate()
+{
+    MVCC_FLOATVALUE stFloatValue;
+    memset(&stFloatValue, 0, sizeof(MVCC_FLOATVALUE));
+
+    int nRet = m_pCMvCamera->GetFloatValue("ResultingFrameRate", &stFloatValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return stFloatValue.fCurValue;
+}
+
+int Hikvision_Lib::SetGainAuto( float nValue)
+{
+    m_pCMvCamera->SetEnumValue("GainAuto", 0);
+    int nRet = m_pCMvCamera->SetFloatValue("Gain", nValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return MV_OK;
+}
+int Hikvision_Lib::SetAcquisitionFrameRate(float nValue)
+{
+    int nRet = m_pCMvCamera->SetFloatValue("AcquisitionFrameRate", nValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return MV_OK;
+}
+
 
 int Hikvision_Lib::StartGrabbing(WId MainWndID)
 {

@@ -21,7 +21,7 @@ MainWindow::~MainWindow()
 //查找设备按钮会与combobox, open button, displayLable控件交互
 void MainWindow::on_EnumButton_clicked()
 {
-//    ui->DisplayLabel->setStyleSheet("border:1px solid black;");
+    ui->comboBox->clear();
     vector< QString > QUserNames;
     if( hik.EnumDevices(QUserNames) != MV_OK)
     {
@@ -50,6 +50,8 @@ void MainWindow::on_OpenButton_clicked()
     ui->OpenButton->setDisabled(true);
     ui->CloseButton->setDisabled(false);
     ui->StartGrabbingButton->setDisabled(false);
+    ui->SetParamButton->setDisabled(false);
+    ui->GetParamButton->setDisabled(false);
 }
 
 //关闭设备按钮，
@@ -63,6 +65,13 @@ void MainWindow::on_CloseButton_clicked()
     }
     ui->OpenButton->setDisabled(false);
     ui->CloseButton->setDisabled(false);
+    ui->StartGrabbingButton->setDisabled(true);
+    ui->SetParamButton->setDisabled(true);
+    ui->GetParamButton->setDisabled(true);
+    ui->ExposureLineEdit->clear();
+    ui->GainLineEdit->clear();
+    ui->FrameRateLineEdit->clear();
+
 }
 void MainWindow::setWinId(WId MainWndID)
 {
@@ -124,4 +133,24 @@ void MainWindow::on_ContinuesRadioButton_clicked()
     {
         QMessageBox::information(this, "异常", "触发采集失败");
     }
+}
+void MainWindow::on_GetParamButton_clicked()
+{
+    ui->ExposureLineEdit->setText(QString("%1").arg(hik.GetExposureTime()));
+    ui->GainLineEdit->setText(QString("%1").arg(hik.GetGainAuto()));
+    ui->FrameRateLineEdit->setText(QString("%1").arg(hik.GetAcquisitionFrameRate()));
+
+}
+void MainWindow::on_SetParamButton_clicked()
+{
+    int nRet = 0;
+    if (!ui->ExposureLineEdit->text().isEmpty())
+        nRet = hik.SetExposureTime(ui->ExposureLineEdit->text().toFloat());
+    if (!ui->GainLineEdit->text().isEmpty())
+        nRet = hik.SetGainAuto(ui->GainLineEdit->text().toFloat());
+    if (!ui->FrameRateLineEdit->text().isEmpty())
+        nRet = hik.SetAcquisitionFrameRate(ui->FrameRateLineEdit->text().toFloat());
+    if( nRet != MV_OK)
+        QMessageBox::information(this, "异常", "参数设定异常");
+
 }

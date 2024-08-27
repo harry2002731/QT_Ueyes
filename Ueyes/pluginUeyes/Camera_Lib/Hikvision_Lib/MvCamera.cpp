@@ -212,23 +212,11 @@ int CMvCamera::GetEnumValue(IN const char* strKey, OUT MVCC_ENUMVALUE *pEnumValu
     return MV_CC_GetEnumValue(m_hDevHandle, strKey, pEnumValue);
 }
 
+
 int CMvCamera::SetEnumValue(IN const char* strKey, IN unsigned int nValue)
 {
     return MV_CC_SetEnumValue(m_hDevHandle, strKey, nValue);
 }
-
-int CMvCamera::SetEnumValueByString(IN const char* strKey, IN const char* sValue)
-{
-    return MV_CC_SetEnumValueByString(m_hDevHandle, strKey, sValue);
-}
-
-int CMvCamera::GetEnumEntrySymbolic(IN const char* strKey, IN MVCC_ENUMENTRY* pstEnumEntry)
-{
-    return MV_CC_GetEnumEntrySymbolic(m_hDevHandle, strKey, pstEnumEntry);
-}
-
-// ch:获取和设置Float型参数，如 ExposureTime和Gain
-// en:Get Float type parameters, such as ExposureTime and Gain
 int CMvCamera::GetFloatValue(IN const char* strKey, OUT MVCC_FLOATVALUE *pFloatValue)
 {
     return MV_CC_GetFloatValue(m_hDevHandle, strKey, pFloatValue);
@@ -249,6 +237,16 @@ int CMvCamera::GetBoolValue(IN const char* strKey, OUT bool *pbValue)
 int CMvCamera::SetBoolValue(IN const char* strKey, IN bool bValue)
 {
     return MV_CC_SetBoolValue(m_hDevHandle, strKey, bValue);
+}
+
+int CMvCamera::SetEnumValueByString(IN const char* strKey, IN const char* sValue)
+{
+    return MV_CC_SetEnumValueByString(m_hDevHandle, strKey, sValue);
+}
+
+int CMvCamera::GetEnumEntrySymbolic(IN const char* strKey, IN MVCC_ENUMENTRY* pstEnumEntry)
+{
+    return MV_CC_GetEnumEntrySymbolic(m_hDevHandle, strKey, pstEnumEntry);
 }
 
 // ch:获取和设置String型参数，如 DeviceUserID
