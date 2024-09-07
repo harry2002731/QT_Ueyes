@@ -5,7 +5,7 @@
 #ifndef _MV_CAMERA_H_
 #define _MV_CAMERA_H_
 
-#include "D:\Projects\QTProjects\QT_Ueyes\QT_Ueyes\3rdparty\Camera\MVCamera\Includes\MvCameraControl.h"
+#include <MvCameraControl.h>
 #include <string.h>
 
 #ifndef MV_NULL
@@ -138,7 +138,7 @@ public:
 
 private:
 
-    void*               m_hDevHandle;
+    void* m_hDevHandle;
 
 };
 

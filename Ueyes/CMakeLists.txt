@@ -41,5 +41,8 @@ add_subdirectory(studioUeyes)
 add_subdirectory(pluginUeyes)
 
 #设置opencv OpenCVConfig.cmake的路径
-set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
-
+if (UNIX AND NOT APPLE)
+    set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty/OpenCV_Linux/lib")
+elseif(WIN32)
+    set(OpenCV_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
+endif()

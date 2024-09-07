@@ -15,11 +15,11 @@ Hikvision_Lib::Hikvision_Lib()
     m_pBufForDriver = nullptr;
     m_pBufForSaveImage  = nullptr;
     m_pCMvCamera = nullptr;
-    m_hwndDisplay = nullptr;
+    // m_hwndDisplay = nullptr;
 
     m_nBufSizeForDriver = 0;
-    m_bOpenDevice =FALSE;
-    m_bStartGrabbing = FALSE;
+    m_bOpenDevice =false;
+    m_bStartGrabbing = false;
     m_nTriggerMode = 0;
     m_nBufSizeForSaveImage = 0;
 
@@ -50,7 +50,7 @@ int Hikvision_Lib::EnumDevices(vector< QString> &QUserNames)
         {
             continue;
         }
-        unsigned char *pUserName = pDeviceInfo->SpecialInfo.stUsb3VInfo.chUserDefinedName;
+        unsigned char *pUserName = pDeviceInfo->SpecialInfo.stGigEInfo.chModelName;
         string pUserName2 = reinterpret_cast<char *>(pUserName);
         QUserNames.push_back( QString::fromStdString(pUserName2) );
     }
@@ -64,7 +64,7 @@ int Hikvision_Lib::EnumDevices(vector< QString> &QUserNames)
 
 int Hikvision_Lib::OpenDevice(int &nIndex)
 {
-    if(m_bOpenDevice == TRUE)
+    if(m_bOpenDevice == true)
         return -1;
 
     if( (nIndex < 0) || (nIndex >= MV_MAX_DEVICE_NUM))
@@ -91,7 +91,7 @@ int Hikvision_Lib::OpenDevice(int &nIndex)
         this->m_pCMvCamera = nullptr;
         return nRet;
     }
-    m_bOpenDevice = TRUE;
+    m_bOpenDevice = true;
     return MV_OK;
 }
 
@@ -103,8 +103,8 @@ int Hikvision_Lib::CloseDevice()
         delete m_pCMvCamera;
         m_pCMvCamera = nullptr;
     }
-    m_bOpenDevice = FALSE;
-    m_bStartGrabbing = FALSE;
+    m_bOpenDevice = false;
+    m_bStartGrabbing = false;
     /*
     if(m_pBufForDriver != nullptr)
     {
@@ -135,11 +135,68 @@ int Hikvision_Lib::SetTriggerMode(unsigned int trigger_mode)
         return nRet;
     return MV_OK;
 }
+int Hikvision_Lib::SetExposureTime(float nValue)
+{
+    m_pCMvCamera->SetEnumValue("ExposureAuto", 0);
+    int nRet = m_pCMvCamera->SetFloatValue("ExposureTime", nValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return MV_OK;
+}
+float Hikvision_Lib::GetExposureTime()
+{
+    MVCC_FLOATVALUE stFloatValue;
+    memset(&stFloatValue, 0, sizeof(MVCC_FLOATVALUE));
 
-int Hikvision_Lib::StartGrabbing(HWND MainWndID)
+    int nRet = m_pCMvCamera->GetFloatValue("ExposureTime", &stFloatValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return stFloatValue.fCurValue;
+}
+
+float Hikvision_Lib::GetGainAuto()
+{
+    MVCC_FLOATVALUE stFloatValue;
+    memset(&stFloatValue, 0, sizeof(MVCC_FLOATVALUE));
+
+    int nRet = m_pCMvCamera->GetFloatValue("Gain", &stFloatValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return stFloatValue.fCurValue;
+}
+
+float Hikvision_Lib::GetAcquisitionFrameRate()
+{
+    MVCC_FLOATVALUE stFloatValue;
+    memset(&stFloatValue, 0, sizeof(MVCC_FLOATVALUE));
+
+    int nRet = m_pCMvCamera->GetFloatValue("ResultingFrameRate", &stFloatValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return stFloatValue.fCurValue;
+}
+
+int Hikvision_Lib::SetGainAuto( float nValue)
+{
+    m_pCMvCamera->SetEnumValue("GainAuto", 0);
+    int nRet = m_pCMvCamera->SetFloatValue("Gain", nValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return MV_OK;
+}
+int Hikvision_Lib::SetAcquisitionFrameRate(float nValue)
+{
+    int nRet = m_pCMvCamera->SetFloatValue("AcquisitionFrameRate", nValue);
+    if(nRet != MV_OK)
+        return nRet;
+    return MV_OK;
+}
+
+
+int Hikvision_Lib::StartGrabbing(WId MainWndID)
 {
     //开始采集
-    if(m_bOpenDevice == FALSE || m_bStartGrabbing == TRUE)
+    if(m_bOpenDevice == false || m_bStartGrabbing == true)
     {
         return -1;
     }
@@ -151,7 +208,7 @@ int Hikvision_Lib::StartGrabbing(HWND MainWndID)
         this->m_hwndDisplay = MainWndID;
         if(nRet == MV_OK)
         {
-            nRet = m_pCMvCamera->Display(m_hwndDisplay);
+            nRet = m_pCMvCamera->Display((void*)m_hwndDisplay);
         }
     }
     else {
@@ -164,13 +221,13 @@ int Hikvision_Lib::StartGrabbing(HWND MainWndID)
         //QMessageBox::information(this,"hint","failed in get payloadsize");
         return -1;
     }
-    m_bStartGrabbing = TRUE;
+    m_bStartGrabbing = true;
     return nRet;
 }
 
 int Hikvision_Lib::StopGrabbing()
 {
-    if(m_bOpenDevice == FALSE || m_bStartGrabbing == FALSE)
+    if(m_bOpenDevice == false || m_bStartGrabbing == false)
     {
         return -1;
     }
@@ -182,14 +239,14 @@ int Hikvision_Lib::StopGrabbing()
     else {
         return -1;
     }
-    m_bStartGrabbing = FALSE;
+    m_bStartGrabbing = false;
     return nRet;
 }
 
 int Hikvision_Lib::SaveBmp()
 {
     return -1;
-//    if(m_bStartGrabbing == FALSE)
+//    if(m_bStartGrabbing == false)
 //    {
 //        return -1;
 //    }

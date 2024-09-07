@@ -3,9 +3,8 @@
 
 #include "BaseFunc_Lib_global.h"
 //#include <windows.h>
-#include <Qstring>
+#include <QString>
 #include <QLibrary>
-#include <windows.h>
 
 //#include <string.h>
 class Q_DECL_EXPORT BaseFunc_Lib

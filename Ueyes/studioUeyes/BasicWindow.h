@@ -36,7 +36,7 @@
 #include "qstackedwidget.h"
 #include "qsettings.h"
 #include "ImageViewer.h"
-#include <windows.h>
+// #include <windows.h>
 #include "Widget_Lib/CameraViewer/CameraViewer.h"
 //#include "SqlInterface.h"
 #include <QPluginLoader>
