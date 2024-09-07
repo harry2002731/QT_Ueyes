@@ -704,7 +704,6 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d(new MainWindowPrivate(this))
 {
     setMouseTracking(true); // 启用鼠标跟踪
-
     d->ui.setupUi(this);
     installWindowAgent();
 
