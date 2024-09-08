@@ -1,7 +1,7 @@
 #include "BasicWindow.h"
 //#include "Widget_Lib/DataTableViewer/datatableviewer.h"
 #include "Widget_Lib/FuncViewer/FuncViewerWidget.h"
-#include "BaseFunc_Lib/BaseFunc_Lib.h"
+// #include "BaseFunc_Lib/BaseFunc_Lib.h"
 #include <QStandardItemModel>
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
@@ -10,7 +10,6 @@
 
 #include <QQuickStyle>
 #include <QQuickView>
-#include<windows.h>
 #include <QVBoxLayout>
 #include "ImageViewer.h"
 
@@ -270,16 +269,16 @@ typedef FuncViewerWidget* (*CREATE_WIDGET) ();
 ads::CDockWidget* BasicWindow::test()
 {
     static int widget = 0;
-    auto aaa = BaseFunc_Lib();
-    auto pMath = aaa.loadLibFunc<FuncViewerWidget*>(QString("libWidgetLib.dll"),"CreateWidget");
+    // auto aaa = BaseFunc_Lib();
+    // auto pMath = aaa.loadLibFunc<FuncViewerWidget*>(QString("libWidgetLib.dll"),"CreateWidget");
     ads::CDockWidget* DockWidget = new ads::CDockWidget(QString("Table %1").arg(widget++));
 
-    if (pMath) {
-        pMath->addPageWidget("test_widget",new QWidget());
+    // if (pMath) {
+    //     pMath->addPageWidget("test_widget",new QWidget());
 
-        DockWidget->setWidget(pMath);
+    //     DockWidget->setWidget(pMath);
 
-    }
+    // }
     return DockWidget;
 }
 //********************************************

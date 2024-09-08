@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 3.5)
 project(studio_ueyes VERSION 0.0.1) 
 
-
-set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
+# set(OpenCV_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/OpenCV-MinGW-Build/x64/mingw/lib")
 find_package(OpenCV  REQUIRED)
-find_package(Qt6 REQUIRED COMPONENTS Svg Core Sql Gui Widgets Quick QuickWidgets Xml QuickControls2)
-set(QWindowKit_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/qwindowkit/install/lib/cmake/QWindowKit")
-find_package(QWindowKit )
+find_package(Qt6 REQUIRED COMPONENTS Core Sql Gui Widgets  QuickControls2 QuickWidgets Xml )
+set(QWindowKit_DIR "${CMAKE_SOURCE_DIR}/../3rdparty/QWindowKit/linux/x86/lib/cmake/QWindowKit/")
 
+find_package(QWindowKit)
 
 #find_package(Qt6 REQUIRED COMPONENTS Svg)
 
@@ -19,7 +18,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 file(GLOB studio_SRCS "*.cpp" "./shared/widgetframe/*.cpp")
 file(GLOB studio_HEADERS "*.h" "./shared/widgetframe/*.h")
-file(GLOB studio_QRC "mainwindow.qrc" "./shared/resources/shared.qrc")
+file(GLOB studio_QRC "mainwindow.qrc" "./shared/resources/shared.qrc" "demo.qrc")
 file(GLOB studio_UI "*.ui")
 
 list(REMOVE_ITEM studio_SRCS  "")
@@ -27,16 +26,16 @@ list(REMOVE_ITEM studio_HEADERS  "")
 list(REMOVE_ITEM studio_QRC  "")
 list(REMOVE_ITEM studio_UI  "")
 
-
 add_executable(${PROJECT_NAME} WIN32 ${studio_HEADERS} ${studio_SRCS}  ${studio_QRC} ${studio_UI})
-
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/coreDock"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/plugins"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../coreUeyes/services"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../guiUeyes"
                                                     "${CMAKE_CURRENT_SOURCE_DIR}/../pluginUeyes"
                                                     "${OpenCV_INCLUDE_DIRS}"
-                                                    )
+                                                     "${CMAKE_SOURCE_DIR}/../3rdparty/qwindowkit/install/include/QWindowKit"
+                                                "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/linux/x86/include"
+                                                )
 target_link_libraries(${PROJECT_NAME} PUBLIC   ${OpenCV_LIBS}
                                                        Qt6::Core
                                                        Qt6::Gui
@@ -47,9 +46,9 @@ target_link_libraries(${PROJECT_NAME} PUBLIC   ${OpenCV_LIBS}
                                                        Qt6::Quick
                                                        Qt6::Xml
                                                        Qt6::QuickControls2
-                                                       Qt6::Svg
-#                                                       QWindowKit::Widgets
-#                                                       QWindowKit::Quick
+                                                       # Qt6::Svg
+                                                      QWindowKit::Widgets
+                                                      # QWindowKit::Quick
                                                     )
 
 #MESSAGE(STATUS "Project: ${PROJECT_NAME}")
@@ -61,14 +60,14 @@ target_link_libraries(${PROJECT_NAME} PUBLIC   ${OpenCV_LIBS}
 
 target_link_libraries(${PROJECT_NAME} PRIVATE core_ueyes)
 target_link_libraries(${PROJECT_NAME} PRIVATE gui_ueyes)
-target_link_libraries(${PROJECT_NAME} PRIVATE WidgetLib)
-target_link_libraries(${PROJECT_NAME} PRIVATE BaseFunc_Lib)
-target_link_libraries(${PROJECT_NAME} PRIVATE SqlLite_Lib)
+# target_link_libraries(${PROJECT_NAME} PRIVATE WidgetLib)
+# target_link_libraries(${PROJECT_NAME} PRIVATE BaseFunc_Lib)
+# target_link_libraries(${PROJECT_NAME} PRIVATE SqlLite_Lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE QtNodes)
-target_link_libraries(${PROJECT_NAME} PRIVATE Basler_Lib)
+# target_link_libraries(${PROJECT_NAME} PRIVATE Basler_Lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE CameraViewer)
 target_link_libraries(${PROJECT_NAME} PUBLIC QWindowKit::Widgets)
-#target_link_libraries(${PROJECT_NAME} PUBLIC QWindowKit::Quick)
+# target_link_libraries(${PROJECT_NAME} PUBLIC QWindowKit::Quick)
 #target_link_libraries(${PROJECT_NAME} PRIVATE LoginView)
 #target_link_libraries(${PROJECT_NAME} PRIVATE DataTableViewer)
 

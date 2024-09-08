@@ -76,10 +76,10 @@ signals:
 };
 
 //用来在显式调用动态库时候调用类，额外增加
-extern "C"
-{
-WIDGET_LIB_EXPORT FuncViewerWidget* __cdecl  CreateWidget();
-};
+//extern "C"
+//{
+//WIDGET_LIB_EXPORT FuncViewerWidget* __cdecl  CreateWidget();
+//};
 
 //WIDGET_LIB_EXPORT FuncViewerWidget*  CreateWidget();
 

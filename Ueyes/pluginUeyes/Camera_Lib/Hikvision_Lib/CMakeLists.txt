@@ -19,6 +19,16 @@ add_library(Hikvision_Lib SHARED
   MvCamera.cpp
   MvCamera.h
 )
-target_include_directories(Hikvision_Lib PUBLIC "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/includes")
 target_link_libraries(Hikvision_Lib PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt6::Gui)
-target_link_libraries(Hikvision_Lib PRIVATE "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/win64/MvCameraControl.lib")
+target_include_directories(Hikvision_Lib PUBLIC "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/linux/x86/include/")
+target_link_libraries(Hikvision_Lib PUBLIC "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/linux/x86/lib/64/libMvCameraControl.so")
+
+# # target_link_libraries(Hikvision_Lib PRIVATE "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/aarch/lib/aarch64/libMvCameraControl.so")
+# # target_include_directories(Hikvision_Lib PUBLIC "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/aarch/include/")
+if (UNIX AND NOT APPLE)
+    target_link_libraries(Hikvision_Lib PUBLIC "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/linux/x86/lib/64/libMvCameraControl.so")
+    target_include_directories(Hikvision_Lib PUBLIC "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/linux/x86/include")
+elseif(WIN32)
+    target_link_libraries(Hikvision_Lib PRIVATE "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/win/win64/MvCameraControl.lib")
+    target_include_directories(Hikvision_Lib PUBLIC "${CMAKE_SOURCE_DIR}/../3rdparty/Camera/MVCamera/win/includes")
+endif()

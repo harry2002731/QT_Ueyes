@@ -6,7 +6,7 @@ if(QT_VERSION_MAJOR STREQUAL "5")
         CXX_STANDARD_REQUIRED ON)
 elseif(QT_VERSION_MAJOR STREQUAL "6")
     set_target_properties(${PROJECT_NAME} PROPERTIES
-        CXX_STANDARD 17
+        CXX_STANDARD 14
         CXX_STANDARD_REQUIRED ON)
 endif()
 
@@ -123,7 +123,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     AUTOUIC ON
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
-    CMAKE_INCLUDE_CURRENT_DIR ON0
+    CMAKE_INCLUDE_CURRENT_DIR ON
     CXX_EXTENSIONS OFF
     VERSION 0.0.1
     # EXPORT_NAME "Qt ueyes docking system demoQt ueyes docking system demo"

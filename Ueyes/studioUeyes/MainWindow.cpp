@@ -108,13 +108,10 @@ using namespace QtConcurrent;
 #include <QWKWidgets/widgetwindowagent.h>
 #include "shared/widgetframe/windowbar.h"
 #include "shared/widgetframe/windowbutton.h"
-//#include <widgetframe/windowbar.h>
-//#include <widgetframe/windowbutton.h>
 
 //QStackedLayout* m_layout;
 using namespace ads;
 using namespace cv;
-cv::Mat src;
 
 /**
  * Function returns a features string with closable (c), movable (m) and floatable (f)
@@ -311,11 +308,11 @@ void MainWindowPrivate::createStatusBarActions()
     QLabel *versionLabel = new QLabel("版本号：1.0");
     timeLabel = new QLabel(QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss"));
     auto sysinfo = new SysInfoFetcher();
-    memoryLabel = new QLabel(sysinfo->MemFetcher(imageName));
+    // memoryLabel = new QLabel(sysinfo->MemFetcher(imageName));
 
     ui.statusBar->addPermanentWidget(versionLabel);
     ui.statusBar->addPermanentWidget(timeLabel);
-    ui.statusBar->addPermanentWidget(memoryLabel);
+    // ui.statusBar->addPermanentWidget(memoryLabel);
 }
 
 
@@ -464,14 +461,14 @@ public slots:
     }
     void updateMem()
     {
-       auto sysinfo = new SysInfoFetcher();
-       memory_label->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
+       // auto sysinfo = new SysInfoFetcher();
+       // memory_label->setText(sysinfo->MemFetcher("AdvancedDockingSystemDemo.exe"));
     }
 
 };
 
 void CMainWindow::installWindowAgent() {
-    // 1. Setup window agent
+//     // 1. Setup window agent
     windowAgent = new QWK::WidgetWindowAgent(this);
     windowAgent->setup(this);
     loadStyleSheet(Dark);
@@ -704,7 +701,6 @@ CMainWindow::CMainWindow(QWidget *parent) :
     d(new MainWindowPrivate(this))
 {
     setMouseTracking(true); // 启用鼠标跟踪
-
     d->ui.setupUi(this);
     installWindowAgent();
 
@@ -735,40 +731,40 @@ CMainWindow::CMainWindow(QWidget *parent) :
 
     d->win_map.insert("basic",basic_win);
     d->win_map.insert("welcome",welcome_win);
-    d->win_map.insert("debug",design_win);
+    // d->win_map.insert("debug",design_win);
 
 
     d->ui.widget->layout()->addWidget(basic_win);//显示调用layout来进行布局
     d->ui.widget->layout()->addWidget(welcome_win);//显示调用layout来进行布局
-    d->ui.widget->layout()->addWidget(design_win);//显示调用layout来进行布局
+    // d->ui.widget->layout()->addWidget(design_win);//显示调用layout来进行布局
 
     basic_win->createContent();
     welcome_win->createContent();
-    design_win->createContent();
+    // design_win->createContent();
 
 
-//    auto pWidget = new QWidget();
-//    pWidget->setGeometry(0,0,d->ui.widget->geometry().width(),d->ui.widget->geometry().height());
-//    pWidget->setStyleSheet("background-color: rgba(128, 128, 128, 127);"); // 设置半透明的灰色背景
-//    pWidget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+   auto pWidget = new QWidget();
+   pWidget->setGeometry(0,0,d->ui.widget->geometry().width(),d->ui.widget->geometry().height());
+   pWidget->setStyleSheet("background-color: rgba(128, 128, 128, 127);"); // 设置半透明的灰色背景
+   pWidget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
 
 
-//    #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-//        connect(d->PerspectiveComboBox, SIGNAL(activated(QString)),
-//            d->DockManager, SLOT(openPerspective(QString)));
-//    #else
-//        connect(d->PerspectiveComboBox, SIGNAL(textActivated(QString)),
-//            d->DockManager, SLOT(openPerspective(QString)));
-//    #endif
+   #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
+       connect(d->PerspectiveComboBox, SIGNAL(activated(QString)),
+           d->DockManager, SLOT(openPerspective(QString)));
+   #else
+       connect(d->PerspectiveComboBox, SIGNAL(textActivated(QString)),
+           d->DockManager, SLOT(openPerspective(QString)));
+   #endif
 
-//    // Default window geometry - center on screen
-//    resize(640, 480);
-//    setGeometry(QStyle::alignedRect(
-//        Qt::LeftToRight, Qt::AlignCenter, frameSize(),
-//        QGuiApplication::primaryScreen()->availableGeometry()
-//    ));
+   // Default window geometry - center on screen
+   resize(640, 480);
+   setGeometry(QStyle::alignedRect(
+       Qt::LeftToRight, Qt::AlignCenter, frameSize(),
+       QGuiApplication::primaryScreen()->availableGeometry()
+   ));
 
-//    d->restorePerspectives();
+   d->restorePerspectives();
 }
 
 //void CMainWindow::mousePressEvent(QMouseEvent *event) {

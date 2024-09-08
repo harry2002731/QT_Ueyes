@@ -3,7 +3,7 @@
 #include "ImageLoaderModel.hpp"
 #include "ImageShowModel.hpp"
 #include "Widget_Lib/FuncViewer/FuncViewerWidget.h"
-#include "Camera_Lib/Basler_Lib/Basler_Lib.h"
+// #include "Camera_Lib/Basler_Lib/Basler_Lib.h"
 #include "qthread.h"
 #include "qtimer.h"
 
@@ -33,7 +33,7 @@ static std::shared_ptr<NodeDelegateModelRegistry> registerDataModels()
 }
 ads::CDockWidget* DesignWindow::createDesignWidget()
 {
-    FuncViewerWidget* aaa = new FuncViewerWidget();
+    // FuncViewerWidget* aaa = new FuncViewerWidget();
     static int CameraViewerCount = 0;
 
     static DataFlowModel graphModel(registerDataModels());
@@ -53,7 +53,7 @@ ads::CDockWidget* DesignWindow::createDesignWidget()
     vbl->addStretch();
     groupBox->setLayout(vbl);
 
-    m_window->addWidget(aaa);
+    // m_window->addWidget(aaa);
     m_window->addWidget(m_view);
     m_window->setStretchFactor(1, 4);
 
@@ -81,9 +81,9 @@ void DesignWindow::createContent()
 {
     auto  cameraViewer = createCameraViewerWidget();
     this->addDockWidgetFloating( cameraViewer);
-    auto DesignerViewer = createDesignWidget();
-    this->addDockWidget(ads::LeftDockWidgetArea, DesignerViewer);
-    auto aaa = createEditorWidget();
-    this->addDockWidget(ads::RightDockWidgetArea, aaa);
+    // auto DesignerViewer = createDesignWidget();
+    // this->addDockWidget(ads::LeftDockWidgetArea, DesignerViewer);
+    // auto aaa = createEditorWidget();
+    // this->addDockWidget(ads::RightDockWidgetArea, aaa);
 }
 

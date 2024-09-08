@@ -107,14 +107,14 @@ void MainWindow::on_StopGrabbingButton_clicked()
 
 void MainWindow::on_SaveBmpButton_clicked()
 {
-    if( hik.SaveBmp() != MV_OK)
-    {
-        QMessageBox::information(this,"异常","保存bmp失败");
-        return;
-    }
-    else {
-        QMessageBox::information(this,"成功","保存图片成功");
-    }
+    // if( hik.SaveBmp() != MV_OK)
+    // {
+    //     QMessageBox::information(this,"异常","保存bmp失败");
+    //     return;
+    // }
+    // else {
+    //     QMessageBox::information(this,"成功","保存图片成功");
+    // }
 }
 
 //按下触发采集

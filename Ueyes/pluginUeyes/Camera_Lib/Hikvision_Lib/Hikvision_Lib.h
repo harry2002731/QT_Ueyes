@@ -57,7 +57,7 @@ public:
     int StopGrabbing();
 
     //保存Bmp图片
-    int SaveBmp();
+    // int SaveBmp();
 
 
 

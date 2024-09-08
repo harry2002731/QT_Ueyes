@@ -5,7 +5,7 @@
 #ifndef _MV_CAMERA_H_
 #define _MV_CAMERA_H_
 
-#include <MvCameraControl.h>
+#include "MvCameraControl.h"
 #include <string.h>
 
 #ifndef MV_NULL

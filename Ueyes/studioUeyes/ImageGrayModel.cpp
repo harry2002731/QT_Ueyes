@@ -10,7 +10,7 @@
 #include <QWidget>
 #include <QSlider>
 #include <QHBoxLayout>
-#include <QSvgRenderer>
+//#include <QSvgRenderer>
 
 ImageGrayModel::ImageGrayModel()
     : _imgShowLabel(new QLabel("")),

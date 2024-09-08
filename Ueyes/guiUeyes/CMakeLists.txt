@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(gui_ueyes VERSION 0.0.1) 
 
 
-find_package(Qt6 REQUIRED COMPONENTS Core Sql Gui Widgets Quick QuickWidgets Xml QuickControls2)
+find_package(Qt6 REQUIRED COMPONENTS Core Sql Gui Widgets QuickWidgets Quick  Xml QuickControls2)
 
 if(WIN32 AND QT_VERSION_MAJOR LESS 6)
     find_package(Qt6 COMPONENTS AxContainer REQUIRED)
