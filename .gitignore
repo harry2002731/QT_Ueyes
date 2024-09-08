@@ -1,5 +1,5 @@
 *.pro.user
-/build
+Ueyes/build/
 *.o
 *.dylib
 *.app
@@ -7,7 +7,8 @@ qrc_*
 moc_*
 ui_*
 Makefile
-.cmake
+*.cmake
+*.xml
 # IDEs
 .idea
 
@@ -51,20 +52,20 @@ mono_crash.*
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-x64/
-x86/
+# x64/
+# x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+# [Bb]in/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
 
 # 针对第53行 x64/ 和 60行 [Bb]in/ 来进行内部剔除。需要给出完整的路径，不然无法排除！！！
-!libs/OpenCV-MinGW-Build/x64/
-!libs/OpenCV-MinGW-Build/x64/mingw/[Bb]in/
+# !libs/OpenCV-MinGW-Build/x64/
+# !libs/OpenCV-MinGW-Build/x64/mingw/[Bb]in/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
